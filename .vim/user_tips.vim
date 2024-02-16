@@ -1,0 +1,1 @@
+/home/jaandrle/Vzdálené/GitHub/dotfiles/vim/.vim/user_tips.vim
