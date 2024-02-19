@@ -1,1 +1,49 @@
-/home/jaandrle/Vzdálené/GitHub/dotfiles/bash/.bash/.bash_completions
+eval "$(gh completion -s bash)"
+# gh tips: https://gist.github.com/ChristopherA/3cca24936fb2c84786a29f67bacacd3e
+# used ectension: heaths/gh-label
+[[ $- != *i* ]] && return                   # dont include rest in Vim
+
+SCRIPT_DIR=$( builtin cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+source "$SCRIPT_DIR/complete-alias/complete_alias"
+complete -F _complete_alias gitdotfiles
+
+alias C--asana='eval "$($HOME/bin/asana.mjs completion_bash)"'
+alias C--himalaya='\. "$BASH_DOTFILES/himalaya.completion"'
+alias C--uu='eval "$($HOME/bin/uu --completion-bash)"'
+alias C--bs='eval "$(bs .completion bash)"'
+alias C--jc='eval "$(jc -B)" … newer version needed'
+\. "$BASH_DOTFILES/cordova.completion"
+eval "$(node --completion-bash)"
+eval "$(npm completion)"
+eval "$(nodejsscript --completion bash)"
+
+_npx() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+
+  if [[ $COMP_CWORD != 1 ]]; then
+    case "${COMP_WORDS[1]}" in
+      gulp)
+        local compls=$(npx gulp --tasks-simple)
+        if [[ $compls == *"__autocomplete_bash"* ]]; then
+            compls="$compls $(npx gulp -L __autocomplete_bash --_l=$COMP_CWORD --_c=$cur)"
+        fi
+      ;;
+    esac
+    COMPREPLY=($(compgen -W "$compls" -- "$cur"))
+    return 0;
+  fi
+
+  local dir=$(pwd -P)
+  while [[ -n "$dir" ]]; do
+    if [[ ! -d $dir/node_modules/.bin ]]; then
+      dir=${dir%/*}
+      continue
+    fi
+    local execs=( `cd $dir/node_modules/.bin; find -L . -type f -executable` )
+    execs=( ${execs[@]/#.\//} )
+    COMPREPLY=( $(compgen -W "${execs[*]} serve" -- "$cur" ) )
+    break
+  done
+}
+
+complete -F _npx npx
