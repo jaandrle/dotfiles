@@ -9,6 +9,7 @@ see for example [How to Store Dotfiles - A Bare Git Repository \| Atlassian Git 
 - [Vim](./.vim/README.md)
 - [Vifm](./.config/vifm/README.md)
 - [SSH](./.ssh/README.md)
+- [Newsboat](./.newsboat/README.md)
 
 ## On a new machine
 1. install git
