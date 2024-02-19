@@ -5,8 +5,9 @@ This repository contains my dotfiles. They are managed by using `git clone --bar
 see for example [How to Store Dotfiles - A Bare Git Repository \| Atlassian Git Tutorial](https://www.atlassian.com/git/tutorials/dotfiles).
 
 ## Files (info)
-- [Vim](./.vim/README.md)
 - [Bash](./.bash/README.md)
+- [Vim](./.vim/README.md)
+- [Vifm](./.config/vifm/README.md)
 
 ## On a new machine
 1. install git
