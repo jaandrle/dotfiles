@@ -33,7 +33,7 @@ see for example [How to Store Dotfiles - A Bare Git Repository \| Atlassian Git 
 ## KDE Neon
 - [KDE Plasma5 Fixes](https://zren.github.io/kde/)
 - Using ‘HTML Wallpaper’ (wip)
-	- [Bing\ Image\ Of\ The\ Day](./Obrázky/Bing Image Of The Day/index_template.html)
+	- [Bing Image Of The Day](./Obrázky/Bing Image Of The Day/index_template.html)
 - [GNOME Keyring in KDE Plasma - JWillikers](https://www.jwillikers.com/gnome-keyring-in-kde-plasma)
 - `sudo apt install $(check-language-support)`, see [Popup Language support is incomplete](http://unix.stackexchange.com/questions/421066/ddg#421079)
 - [KDE Neon does not have an hibernation option? : kde](https://www.reddit.com/r/kde/comments/6n5m49/kde_neon_does_not_have_an_hibernation_option/dk7hd8v/)
