@@ -4,12 +4,13 @@
 This repository contains my dotfiles. They are managed by using `git clone --bare`,
 see for example [How to Store Dotfiles - A Bare Git Repository \| Atlassian Git Tutorial](https://www.atlassian.com/git/tutorials/dotfiles).
 
-## Files (info)
+## Files (groups/info)
 - [Bash](./.bash/README.md)
 - [Vim](./.vim/README.md)
 - [Vifm](./.config/vifm/README.md)
 - [SSH](./.ssh/README.md)
 - [Newsboat](./.newsboat/README.md)
+- Git: [.gitconfig](./.gitconfig), [gh](./.config/gh/config.yml)
 
 ## On a new machine
 1. install git
