@@ -1,0 +1,9 @@
+#!/bin/bash
+if [[ $(mount | grep OneDrive) ]]; then
+    fusermount -uz ~/Vzdálené/OneDrive
+    notify-send -i system-file-manager  "OneDrive disk ODPOJEN"
+else
+    rclone --vfs-cache-mode full mount "onedrive":  ~/Vzdálené/OneDrive &
+    dolphin ~/Vzdálené/OneDrive/ &
+    notify-send -i system-file-manager  "OneDrive disk PŘIPOJEN"
+fi
