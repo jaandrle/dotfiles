@@ -1,0 +1,38 @@
+{
+	"version": "1.0",
+	"scripts": {
+		"§vim_plugins": {
+			"target": "§vim_plugins",
+			"npx": false,
+			"completions": {
+				"path": [],
+				"clone": [
+					"-t",
+					"--target",
+					"-b",
+					"--branch"
+				],
+				"C": "clone",
+				"remove": [],
+				"R": "remove",
+				"rm": "remove",
+				"list": [
+					"-t",
+					"--type"
+				],
+				"L": "list",
+				"ls": "list",
+				"export": [],
+				"status": [],
+				"S": "status",
+				"pull": [],
+				"P": "pull",
+				"update": "pull"
+			},
+			"completions_all": [
+				"--help",
+				"--version"
+			]
+		}
+	}
+}

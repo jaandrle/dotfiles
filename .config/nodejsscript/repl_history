@@ -1,0 +1,30 @@
+$.clipboard
+$_
+s.ls()
+s.grep("xml", "config.xml")
+s.cat("config.xml")
+s.cat()
+s.ls()
+echo(s.ls())
+s.ls()
+[...s.ls()]
+.clear
+[...s.ls()]
+s.ls().forEach(l=> echo(l))
+s.ls().forEach(echo)
+s.ls("..")
+s.ls()
+s.pwd()
+s.cd("../")
+s.pwd()
+s.cd("..")
+s.pwd()
+s.ls()
+await sleep(700)
+const sleep= t=> new Promise(r=> setTimeout(r, t));
+$0
+pipe(s=> s[0].split(""), s=> s.concat("ha".split("")), s=> s.join(""))($_)
+$0= $_
+$_
+$[2]
+$_, "vývoj.md")"hlavičky", "vývoj.md")"vývoj.md")
