@@ -81,6 +81,7 @@ Postupováno podle návodu [Rename the `~/.local/lib/python3.8/site-packages/pkg
 - https://gitlab.com/faho/kwin-tiling/
 
 
+<details>
 <summary>`{… cmd}$` explanation</summary>
 
 This is [mdexpr](https://github.com/jaandrle/mdexpr) syntax. This document uses:
