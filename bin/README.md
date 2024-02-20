@@ -308,6 +308,7 @@ wine-platform-runtime-core20       v1.0                        100    latest/sta
 #endregion
 ```
 </details>
+<details>
 <summary>FLATPAK</summary>
 ```
 #region flatpak list
