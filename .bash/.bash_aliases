@@ -57,6 +57,7 @@ alias §cd.='clear;§ls'
 	builtin pushd "$1" >/dev/null && pushd .
 }
 alias cd-vifm='cd `vifm --choose-dir -`'
+eval "$(zoxide init --cmd cd bash)"
 mkcd(){ mkdir -p -- "$1" && cd -P -- "$1"; }
 
 alias §find.='find . -maxdepth 1'
@@ -100,7 +101,6 @@ aai(){
 	[[ "$1" == '--help' ]] && ai ask --help && return 0;
 	echo "ai ask \"$*, thanks for your help\""; ai ask "\"$*, thanks for your help\"";
 }
-eval "$(zoxide init --cmd cd bash)"
 
 alias npx-wca='npx -y web-component-analyzer'
 alias npx-qnm='npx -y qnm'
