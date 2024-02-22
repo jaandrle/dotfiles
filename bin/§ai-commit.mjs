@@ -43,7 +43,7 @@ const conventional_desc= [
 ];
 
 $.api("", true)
-	.version("2024-02-19")
+	.version("2024-02-22")
 	.describe([
 		"Utility to use ChatGPT to generate a commit message from COMMIT_EDITMSG file.",
 		`Don't forget to set the token in ${token_file} file.`,
@@ -140,7 +140,7 @@ function gitmoji(candidates, is_three= false){
 }
 function requestCommitMessage(prompt){
 	if(!token) token= s.cat(token_file).stdout.trim();
-	const model= "text-davinci-003";
+	const model= "gpt-3.5-turbo-instruct";
 	return fetch(`https://api.openai.com/v1/engines/${model}/completions`, {
 		method: "POST",
 		headers: {
