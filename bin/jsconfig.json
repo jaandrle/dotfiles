@@ -1,6 +1,6 @@
 {
 	"include": [
-		"/home/jaandrle/.nvm/versions/node/v18.18.0/lib/node_modules/nodejsscript/index.d.ts",
+		"/home/jaandrle/.nvm/versions/node/v18.19.0/lib/node_modules/nodejsscript/index.d.ts",
 		"./*.mjs",
 		"./*.js",
 		"chrome-autoinspect.mjs"
