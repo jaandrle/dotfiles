@@ -57,7 +57,6 @@ alias §cd.='clear;§ls'
 	builtin pushd "$1" >/dev/null && pushd .
 }
 alias cd-vifm='cd `vifm --choose-dir -`'
-eval "$(zoxide init --cmd cd bash)"
 mkcd(){ mkdir -p -- "$1" && cd -P -- "$1"; }
 
 alias §find.='find . -maxdepth 1'

@@ -1,8 +1,7 @@
 {
 	"version": "1.0",
 	"scripts": {
-		"§vim_plugins": {
-			"target": "§vim_plugins",
+		"§vim_plugins.mjs": {
 			"npx": false,
 			"completions": {
 				"path": [],
