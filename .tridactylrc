@@ -1,4 +1,4 @@
-""" Tridactyl config file | Jan Andrle | 2022-01-25
+""" Tridactyl config file | Jan Andrle | 2024-02-28
 " General Settings 
 set configversion 2.0
 set theme dark
@@ -23,11 +23,15 @@ bind zz composite hint -z ; scrollpage -0.5
 bind zb composite hint -z ; scrollpage -0.95
 bind gm scrollto 42.5 x
 bind gM scrollto 42.5 x
-bind zo0 zoom 1
-bind zo+ zoom 0.1 true
-bind zo- zoom -0.1 true
-bind zO+ zoom 0.5 true
-bind zO- zoom -0.5 true
+bind 0zo zoom 1
+bind zo zoom 0.1 true
+bind §zo zoom 0.5 true
+bind zO zoom -0.1 true
+bind §zO zoom -0.5 true
+bind §§h scrollpx -1000
+bind §h scrollpx -500
+bind §l scrollpx 500
+bind §§l scrollpx 1000
 
 " /?*# … search collising with native ui + another problems
 " https://gist.github.com/BurntSushi/393546a65db38d57cedcfd72c6d89bf3#file-tridactylrc-L18
