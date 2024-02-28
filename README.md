@@ -24,3 +24,11 @@ see for example [How to Store Dotfiles - A Bare Git Repository \| Atlassian Git 
 	1. `gitdotfiles reset` (`git-dotfiles reset --hard HEAD`)
 	1. `gitdotfiles checkout -f`
 	1. `gitdotfiles submodule update --init --recursive`
+
+## Log
+- for some reason I have to add branch to `.git/config` manually.
+```ini
+[branch "main-termux"]
+	remote = origin
+	merge = refs/heads/main-termux
+```
