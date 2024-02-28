@@ -25,7 +25,7 @@ see for example [How to Store Dotfiles - A Bare Git Repository \| Atlassian Git 
 ## On a new machine
 1. install git
 1. `cd ~`
-1. `gd_branch=main`
+1. `gd_branch=main` (see also variants `main-termux`)
 1. `git clone --bare --branch $gd_branch --depth 1 --recurse-submodules --shallow-submodules git@jaandrle.cz:jaandrle/dotfiles.git ~/.dotfiles`
 1. `alias gitdotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'`
 1. `gitdotfiles config --local status.showUntrackedFiles no`
