@@ -1,4 +1,0 @@
-[submodule ".bash/complete-alias"]
-	path = .bash/complete-alias
-	url = git@github.com:cykerway/complete-alias.git
-	branch = master

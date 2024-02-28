@@ -1,3 +1,0 @@
-#!/bin/bash
-find ~/.vim/undodir/ -maxdepth 1 -mindepth 1 -type f -mtime +180 -delete
-find ~/.vim/view/ -maxdepth 1 -mindepth 1 -type f -mtime +180 -delete
