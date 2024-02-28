@@ -68,7 +68,6 @@ $.api("", true)
 			.map(pipe(
 				j=> j.choices[0].text.trim(),
 				convertToArray,
-				j=> (console.log(j), j),
 				format==="regular" ? i=> i : i=> gitmoji(i, format==="git3moji"),
 				a=> a.join("\n")
 			))
