@@ -43,7 +43,7 @@ const conventional_desc= [
 ];
 
 $.api("", true)
-	.version("2024-02-22")
+	.version("2024-02-28")
 	.describe([
 		"Utility to use ChatGPT to generate a commit message from COMMIT_EDITMSG file.",
 		`Don't forget to set the token in ${token_file} file.`,
@@ -67,8 +67,8 @@ $.api("", true)
 		)())
 			.map(pipe(
 				j=> j.choices[0].text.trim(),
-				t=> t.match(/\[[^\]]*\]/) ?? convertToJSONArray(t),
-				JSON.parse,
+				convertToArray,
+				j=> (console.log(j), j),
 				format==="regular" ? i=> i : i=> gitmoji(i, format==="git3moji"),
 				a=> a.join("\n")
 			))
@@ -103,18 +103,25 @@ function diffToChunks(max_tokens){ return function(input){
 				.filter(chunk=> chunk.length < max_tokens);
 		});
 }; }
-function convertToJSONArray(text){
-	const arr= text.split("\n")
-		.filter(line=> line.trim().match(/^[1-3]\. /))
-		.map(line=> line.slice(3))
-		.map(line => line.startsWith('"') ? line : "\"" + ( "'`".slice("").includes(line[0]) ? line.slice(1, -1) : line ) + "\"");
-	return `[${arr.join(", ")}]`;
+function convertToArray(text){
+	// console.log(text);
+	return text.split("\n")
+		.map(line=> line.trim())
+		.filter(line=> line.trim())
+		.map(function(line){
+			if(/^[0-9-].? /.test(line)) line= line.slice(line.indexOf(" ")+1);
+			if(/^["']/.test(line[0])) line= line.slice(1);
+			if(/["']$/.test(line[line.length-1])) line= line.slice(0, -1);
+			return line;
+		})
+	;
 }
 function questionChatGPT(format){ return function(diff){
 	const msg= [
 		[
 			"I would like to ask you to act like a git commit message writer.",
-			"I will enter a git diff, and your job is to convert it into a useful commit message and make 3 options as JSON array.",
+			"I will enter a git diff, and your job is to convert it into a useful commit message",
+			"Make 3 options, one option per line.",
 			"Do not preface the commit with anything, use a concise, precise, present-tense, complete sentence.",
 			"The length should be fewer than 50 characters if possible.",
 		].join(" ") //340chars★
