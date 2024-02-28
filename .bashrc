@@ -57,5 +57,6 @@ LAST_PWD_PATH="$(dirname "${BASH_SOURCE[0]}")/.bash_last_pwd"
 cd(){ builtin cd "$@" && echo `pwd` > "$LAST_PWD_PATH"; }
 
 alias gitdotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
+complete -F _complete_alias gitdotfiles
 
 # termux-setup-storage
