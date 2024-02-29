@@ -51,6 +51,32 @@ see for example [How to Store Dotfiles - A Bare Git Repository \| Atlassian Git 
 ## PC log (cs)
 Sekce obsahuje log změn v Tuxedo laptopu s KDE Neon.
 
+### KDE Neon 6.0 (22.04)
+{NEXT <2024-03-20> *tilling* *hud* *html-wallpaper* *virtual-desktop* *klipper* agenda}$
+
+- mostly OK
+- [ ] desktop exceptionally freeze for less than a second: *investigation → report a bug*
+- [ ] logout/poweroff dialog not showing and not working: *investigation → report a bug* … see below
+- [x] krunner not launching → created `/usr/share/dbus-1/services/org.kde.krunner.service` (see below)
+- [x] meta+tab (last virtual desktop) → workaround [./bin/kde6-workarounds.mjs](./bin/kde6-workarounds.mjs)
+- [x] klipper (edit last item) → workaround [./bin/kde6-workarounds.mjs](./bin/kde6-workarounds.mjs)
+- [ ] !!! Event calendar widget
+- [x] Active Window Control replaced with Window Title widget and its better
+- [ ] html wallpaper → workaround just concat images (see [./bin/§wallpaper\_BIOTD](./bin/§wallpaper_BIOTD))
+- [ ] tilling → try to use native, try to use [zeroxoneafour/polonium: Tiling window manager for KWin 5.27](https://github.com/zeroxoneafour/polonium) (when there will be a new release)
+- [ ] hud ([Zren/plasma-hud](https://github.com/Zren/plasma-hud) still works on X11), but maybe Ctrl+Alt+i and so on is OK?
+
+```bash
+qdbus org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout 1
+Cannot find 'org.kde.KSMServerInterface.logout' in object /KSMServer at org.kde.ksmserver
+```
+[KDE Bugtracking System Main Page](https://bugs.kde.org/)
+```ini
+[D-BUS Service]
+Name=org.kde.krunner
+Exec=/usr/bin/krunner
+```
+
 ### KDE neon 5.26 (22.04)
 {DONE <2022-10-25 17:21> *mail* *hud* *klíčenka* agenda}$
 
