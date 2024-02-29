@@ -9,6 +9,19 @@ const css= echo.css`
 $.api()
 .version("2024-02-29")
 .describe("Workarounds for KDE6.")
+.command("logout")
+.action(function(){
+	$.is_silent= true;
+	const res= s.run([
+		"echo ::options::",
+		"|",
+		"rofi -dmenu -p 'Logout' -l 4 -theme-str 'window { width: 25ch; }' -normal-window"
+	].join(" "), {
+		options: [ "-", "poweroff", "reboot" ].join("\n")
+	}).trim();
+	if(res && res!=="-") s.run(res);
+	$.exit(0);
+})
 .command("klipper-edit", "Edit last item in klipper.")
 .action(async function(){
 	$.is_silent= true;
@@ -45,11 +58,17 @@ $.api()
 	s.run`qdbus org.kde.KWin /KWin org.kde.KWin.setCurrentDesktop ${desktop[0]}`;
 	$.exit(0);
 })
-.command("desktops-last <dbus>", "Workaround for KDE6 alt-tab between virtual desktops.")
-.describe([
-	"Use",
-	echo.format('%cdbus-monitor "interface=org.kde.KWin.VirtualDesktopManager" "member=currentChanged" | xargs -e -I {} kde6-workarounds.mjs desktops-last {}', css.code)
-])
+.command("desktops-last-dbus")
+.action(function(){
+	echo([
+		"dbus-monitor",
+		'"interface=org.kde.KWin.VirtualDesktopManager" "member=currentChanged"',
+		"|",
+		'xargs -e -I {} kde6-workarounds.mjs desktops-last-save {}'
+	].join(" "));
+	$.exit(0);
+})
+.command("desktops-last-save <dbus>", "Workaround for KDE6 alt-tab between virtual desktops.")
 .action(function(dbus){
 	if(-1===dbus.indexOf("path=/VirtualDesktopManager; interface=org.kde.KWin.VirtualDesktopManager; member=currentChanged"))
 		return $.exit(1);
@@ -57,5 +76,3 @@ $.api()
 	s.echo(desktop).toEnd(pathLastDesktop());
 })
 .parse();
-
-/* rofi -dmenu -l 4 --theme-str 'window { width: 50ch; }' -p "promt" */
