@@ -34,20 +34,6 @@ see for example [How to Store Dotfiles - A Bare Git Repository \| Atlassian Git 
 	1. `gitdotfiles checkout -f`
 	1. `gitdotfiles submodule update --init --recursive`
 
-## KDE Neon
-- [KDE Plasma5 Fixes](https://zren.github.io/kde/)
-- Using ‘HTML Wallpaper’ (wip)
-	- [Bing Image Of The Day](./Obrázky/Bing Image Of The Day/index_template.html)
-- [GNOME Keyring in KDE Plasma - JWillikers](https://www.jwillikers.com/gnome-keyring-in-kde-plasma)
-- `sudo apt install $(check-language-support)`, see [Popup Language support is incomplete](http://unix.stackexchange.com/questions/421066/ddg#421079)
-- [KDE Neon does not have an hibernation option? : kde](https://www.reddit.com/r/kde/comments/6n5m49/kde_neon_does_not_have_an_hibernation_option/dk7hd8v/)
-- [kde plasma 5 - How to use miracast as an extended desktop on Linux? - Super User](https://superuser.com/questions/1160078/how-to-use-miracast-as-an-extended-desktop-on-linux)
-- [Best tiling extensions for kwin? : kde](https://www.reddit.com/r/kde/comments/qgsv2u/best_tiling_extensions_for_kwin/?sort=new)
-- [KDE Plasma5 Fixes](https://zren.github.io/kde/)
-- [Setup git on the CLI to use 2FA with GitHub](https://gist.github.com/ateucher/4634038875263d10fb4817e5ad3d332f)
-- [G'MIC - GREYC's Magic for Image Computing: A Full-Featured Open-Source Framework for Image Processing - Main](https://gmic.eu/)
-
-
 ## PC log (cs)
 Sekce obsahuje log změn v Tuxedo laptopu s KDE Neon.
 
@@ -65,6 +51,9 @@ Sekce obsahuje log změn v Tuxedo laptopu s KDE Neon.
 - [ ] html wallpaper → workaround just concat images (see [./bin/§wallpaper\_BIOTD](./bin/§wallpaper_BIOTD))
 - [ ] tilling → try to use native, try to use [zeroxoneafour/polonium: Tiling window manager for KWin 5.27](https://github.com/zeroxoneafour/polonium) (when there will be a new release)
 - [ ] hud ([Zren/plasma-hud](https://github.com/Zren/plasma-hud) still works on X11), but maybe Ctrl+Alt+i and so on is OK?
+- [ ] [Fingerprint reader support : r/tuxedocomputers](https://www.reddit.com/r/tuxedocomputers/comments/176fscp/fingerprint_reader_support/), still receiving “no match”
+- [ ] [Clipboard support in Wayland · Issue #5157 · vim/vim](https://github.com/vim/vim/issues/5157#issuecomment-776008833)
+- [x] ctrl+tab using [k0kubun/xremap: Key remapper for X11 and Wayland](https://github.com/k0kubun/xremap) and `sudo crontab -e`+`@reboot` and [./.config/xremap.yml](./.config/xremap.yml)
 
 ```bash
 qdbus org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout 1
@@ -106,9 +95,18 @@ Exec=/usr/bin/krunner
 
 Postupováno podle návodu [Rename the `~/.local/lib/python3.8/site-packages/pkg_resources` folder to `pkg_resources_back`](https://askubuntu.com/a/1398073).
 
-### kwin-tiling
-- https://gitlab.com/faho/kwin-tiling/
-
+### KDE Neon
+- [KDE Plasma5 Fixes](https://zren.github.io/kde/)
+- Using ‘HTML Wallpaper’ (wip)
+	- [Bing Image Of The Day](./Obrázky/Bing Image Of The Day/index_template.html)
+- [GNOME Keyring in KDE Plasma - JWillikers](https://www.jwillikers.com/gnome-keyring-in-kde-plasma)
+- `sudo apt install $(check-language-support)`, see [Popup Language support is incomplete](http://unix.stackexchange.com/questions/421066/ddg#421079)
+- [KDE Neon does not have an hibernation option? : kde](https://www.reddit.com/r/kde/comments/6n5m49/kde_neon_does_not_have_an_hibernation_option/dk7hd8v/)
+- [kde plasma 5 - How to use miracast as an extended desktop on Linux? - Super User](https://superuser.com/questions/1160078/how-to-use-miracast-as-an-extended-desktop-on-linux)
+- [Best tiling extensions for kwin? : kde](https://www.reddit.com/r/kde/comments/qgsv2u/best_tiling_extensions_for_kwin/?sort=new), https://gitlab.com/faho/kwin-tiling/
+- [KDE Plasma5 Fixes](https://zren.github.io/kde/)
+- [Setup git on the CLI to use 2FA with GitHub](https://gist.github.com/ateucher/4634038875263d10fb4817e5ad3d332f)
+- [G'MIC - GREYC's Magic for Image Computing: A Full-Featured Open-Source Framework for Image Processing - Main](https://gmic.eu/)
 
 <details>
 <summary>`{… cmd}$` explanation</summary>

@@ -1,0 +1,4 @@
+keymap:
+  - name: Ctrl+tab alias
+    remap:
+      C-KEY_KPSLASH: C-KEY_TAB
