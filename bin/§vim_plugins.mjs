@@ -153,7 +153,11 @@ async function actionUpdate(){
 		}).then(f=> s.echo(f).to(dirs.one_files+fileName(url)));
 	}));
 	echo("One-file plugin(s) updated.");
-	s.cd(dirs.bundle).$().run`git commit -m "Update"`;
+	try{
+		s.cd(dirs.bundle).$().run`git commit -m "Update"`;
+	} catch(e){
+		echo(e?.message);
+	}
 	updateRepo(dirs.pack, getPack());
 
 	$.exit(0);

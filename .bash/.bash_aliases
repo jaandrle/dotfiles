@@ -42,7 +42,7 @@ history_most_used(){ LC_ALL=C cat ~/.bash_history | cut -d ';' -f 2- | §awk 1 |
 	ls ~/bin | grep -P "^§" | sed 's/^§/~\/bin\/ §/'
 }
 
-alias §ls='ls -pQFh --group-directories-first'
+alias ls='ls -pQFh --group-directories-first'
 alias §less='less -R -S'
 
 alias §cd.='clear;§ls'
@@ -64,7 +64,9 @@ alias §find.='find . -maxdepth 1'
 alias pdftk='java -jar $HOME/bin/pdftk-all.jar'
 bw-session(){
 	bw logout
-	login=`kwallet-query kdewallet -f accounts -r Bitwarden 2> /dev/null`
+	# login=`kwallet-query kdewallet -f accounts -r Bitwarden 2> /dev/null`
+	login=$(§kwallet.mjs --wallet kdewallet readPassword accounts bw-json)
+	echo "$login"
 	export BW_CLIENTSECRET=`echo "$login" | jq -r .secret`
 	export BW_CLIENTID=`echo "$login" | jq -r .id`
 	bw login --apikey --raw
