@@ -2,7 +2,36 @@
 /* jshint esversion: 11,-W097, -W040, module: true, node: true, expr: true, undef: true *//* global echo, $, pipe, s, fetch, cyclicLoop */
 
 $.api("")
-.version("2023-08-11")
+.version("2024-03-07")
+.command("silicon [file]", [
+	"Generovat obrázek s kódem pro sdílení na sociálních sítích. (alternativa k Carbon)",
+	"Toto je jen drobný wrapper s mými defaultními parametry.",
+	"Další nápověda viz `silicon --help`.",
+])
+	.option("--range", "Select lines from file in the form `start:end`")
+	.option("--font-size, --fs", "Font size", 25)
+	.action(function silicon(file, { range, fs, ["font-size"]: _fs, _, ...args }){
+		args= Object.assign({
+			theme: "OneHalfDark",
+			font: `Ubuntu Mono =${fs}`,
+			background: "#f06d78",
+			["shadow-blur-radius"]: 30,
+			["tab-width"]: 2
+		}, args);
+		args= Object.keys(args).flatMap(key=> [ "--"+key, args[key] ]);
+		let from= file;
+		const index_ext= file.lastIndexOf(".");
+		const output= !file ? "silicon.png" : file.slice(0, index_ext+1)+"png";
+		if(range && typeof range=== "string" && range.includes(":")){
+			from= $.xdg.temp`silicon-range${file.slice(index_ext)}`;
+			const content= s.$().cat(file).toString().split(/\r?\n/).slice(...range.split(":").map(n=> parseInt(n)+1));
+			s.echo(content.join("\n")).to(from);
+		}
+		s.run`silicon ${from} --output ${output} --window-title ${file} ${args}`;
+		echo(`Generated ${output}`);
+		if(from!== file) s.rm(from);
+		$.exit(0);
+	})
 .command("textInImage [file]", "Generovat obrázek s textem pro sdílení na sociálních sítích.")
 	.alias("tii")
 	.option("--pointsize", "Text size", "62")

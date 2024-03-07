@@ -37,6 +37,8 @@ see for example [How to Store Dotfiles - A Bare Git Repository \| Atlassian Git 
 ## PC log (cs)
 Sekce obsahuje log změn v Tuxedo laptopu s KDE Neon.
 
+- [Aloxaf/silicon: Create beautiful image of your source code.](https://github.com/Aloxaf/silicon) {DONE <2024-03-07> *utils* agenda}$
+
 ### KDE Neon 6.0 (22.04)
 {NEXT <2024-03-20> *tilling* *hud* *html-wallpaper* *virtual-desktop* *klipper* agenda}$
 
