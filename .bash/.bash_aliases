@@ -66,7 +66,6 @@ bw-session(){
 	bw logout
 	# login=`kwallet-query kdewallet -f accounts -r Bitwarden 2> /dev/null`
 	login=$(§kwallet.mjs --wallet kdewallet readPassword accounts bw-json)
-	echo "$login"
 	export BW_CLIENTSECRET=`echo "$login" | jq -r .secret`
 	export BW_CLIENTID=`echo "$login" | jq -r .id`
 	bw login --apikey --raw
