@@ -12,6 +12,7 @@ let g:user_tips_list= [
 	\ 'packadd cfilter',
 	\ 'Next word location → ]I [I ]<c-I> [<c-I> … <leader>]I <leader>[I',
 	\ ':w !sudo tee > /dev/null %',
+	\ 'v`]o`[ visual last change — https://www.reddit.com/r/vim/comments/ypt6uf/comment/ivl68xu/?utm_source=share&utm_medium=web2x&context=3',
 	\ '`0·`"·`.·`` … last exit·edit·change·pre-jump … also g''*',
 	\ 'q: q? q/ … @: ?<cr> /<cr> :&<cr> , ;',
 	\ '<c-n><c-p> <c-x><c-l> <c-x><c-f> … :h ins-completion',
