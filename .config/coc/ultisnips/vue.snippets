@@ -1,1 +1,124 @@
 extends javascript, html
+snippet sceleton_node "nodejs" b
+#!/usr/bin/env node
+/* jshint esversion: 8,-W097, -W040, node: true, expr: true, undef: true */
+${0}
+endsnippet
+snippet sceleton_cli "nodejsscript" b
+#!/usr/bin/env nodejsscript
+/* jshint esversion: 11,-W097, -W040, module: true, node: true, expr: true, undef: true *//* global echo, $, pipe, s, fetch, cyclicLoop */
+${0}
+endsnippet
+snippet sceleton_zx "zx" b
+#!/usr/bin/env zx
+/* jshint esversion: 8,-W097, -W040, node: true, expr: true, undef: true */
+${0}
+endsnippet
+snippet jshint "JSHint header" b
+/* jshint esversion: 6,-W097, -W040, browser: true, expr: true, undef: true */
+/* global ${0} */
+endsnippet
+snippet global "JSHint global"
+/* global ${0} */
+endsnippet
+snippet global_ns "JSHint global"
+/* ${1} *//* global ${0} */
+endsnippet
+snippet devel "JSHint devel"
+${1}/* jshint devel: true *///gulp.keep.line${0}
+endsnippet
+
+snippet log "console.log"
+${1}console.log('${0}');
+endsnippet
+snippet stor "localStorage"
+${1}localStorage.${2:g}etItem("${0}");
+endsnippet
+
+snippet import "import with backward order"
+import ${2:values} from "${1:specifier}";$0
+endsnippet
+snippet promise "return? new Promise"
+${1:return }new Promise(function(resolve, reject){
+    ${0:/* async code */}
+});
+endsnippet
+snippet for "classical loop"
+for(${1:let} ${2:i}= 0, ${2}_length= ${3:ITERABLE}.length; ${2}<${2}_length; ${2}++){
+    ${0:/* statement */}
+}
+endsnippet
+snippet foreach "PHP-like name" b
+for(${2:const} ${3:element} of ${1:iterable}){
+    ${0:/* statement */}
+}
+endsnippet
+snippet switch "classical switch"
+switch (${1}){
+    case ${2}:
+        ${0}
+        break;
+    default:
+}
+endsnippet
+snippet desctr "object destructure"
+${1:const} { $0 }= ${2:def};
+endsnippet
+snippet ready "document ready"
+${1}document.addEventListener('DOMContentLoaded', ${0}, false)
+endsnippet
+snippet readyEvent "vanilla JS content ready event name"
+${1}DOMContentLoaded${0}
+endsnippet
+
+snippet selid
+${1}document.getElementById('${0}')
+endsnippet
+snippet seltag
+${1}getElementsByTagName('${0}')
+endsnippet
+snippet selclass
+${1}getElementsByClassName('${0}')
+endsnippet
+snippet sel
+${1}querySelector('${0}')
+endsnippet
+snippet selall
+${1}querySelectorAll('${0}')
+endsnippet
+snippet sceleton "HTML5" b
+<!DOCTYPE html>
+<!-- ${0}DEL IE https://www.paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+<!-- DEL IE https://stackoverflow.com/questions/6771258/what-does-meta-http-equiv-x-ua-compatible-content-ie-edge-do -->
+<!-- DEL https://www.vzhurudolu.cz/prirucka/viewport-meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- DEL CSP https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP | https://github.com/Prinzhorn/minimal-csp -->
+<!-- DEL https://github.com/jensimmons/cssremedy -->
+
+<!-- DEL meta značky obecně https://www.vzhurudolu.cz/prirucka/meta-open-graph -->
+    <title></title>
+    <meta name="description" content="">
+<!-- DEL IE https://www.sitepoint.com/html5-older-browsers-and-the-shiv/ -->
+<!-- DEL https://www.vzhurudolu.cz/prirucka/checklist -->
+</head>
+<body>
+    <!-- DEL -->
+</body>
+</html>
+endsnippet
+
+snippet cmt "comment"
+<!-- ${0} -->
+endsnippet
+
+snippet viewport_cordova "viewport used in cordova apps"
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+endsnippet
+snippet csp_cordova "CSP used in cordova"
+<meta http-equiv="Content-Security-Policy" content="default-src * gap://ready file: gulp_place('app.url_scheme', 'variable'):; style-src 'self' 'unsafe-inline'; img-src * data: *; script-src 'self' 'unsafe-inline' 'unsafe-eval'"/>
+<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; img-src 'self' data: android-webview-video-poster:; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+endsnippet
+#endextends
