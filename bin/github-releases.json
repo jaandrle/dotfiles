@@ -108,9 +108,9 @@
             "group": "nondev",
             "file_name": "upscayl",
             "exec": "yes",
-            "last_update": "2024-02-10T12:17:10Z",
+            "last_update": "2024-02-29T16:31:09Z",
             "downloads": "/home/jaandrle/bin/upscayl",
-            "version": "v2.9.9"
+            "version": "v2.10.0"
         },
         {
             "repository": "RasmusLindroth/tut",
@@ -152,9 +152,9 @@
             "group": "nondev",
             "file_name": "fedistar",
             "exec": "yes",
-            "last_update": "2024-02-09T11:38:02Z",
+            "last_update": "2024-02-29T11:08:37Z",
             "downloads": "/home/jaandrle/bin/fedistar",
-            "version": "v1.8.4"
+            "version": "v1.9.0"
         },
         {
             "repository": "ollama/ollama",
@@ -163,9 +163,9 @@
             "group": "ai",
             "file_name": "ollama",
             "exec": "yes",
-            "last_update": "2024-02-22T22:55:46Z",
+            "last_update": "2024-03-10T02:24:04Z",
             "downloads": "/home/jaandrle/bin/ollama",
-            "version": "v0.1.27"
+            "version": "v0.1.29"
         },
         {
             "repository": "neovim/neovim",
@@ -186,9 +186,9 @@
             "group": "dev",
             "file_name": "escrcpy",
             "exec": "yes",
-            "last_update": "2023-12-27T01:18:21Z",
+            "last_update": "2024-03-13T03:05:48Z",
             "downloads": "/home/jaandrle/bin/escrcpy",
-            "version": "v1.16.8"
+            "version": "v1.17.3"
         },
         {
             "repository": "drovp/drovp",
@@ -208,9 +208,9 @@
             "group": "ai",
             "file_name": "jan",
             "exec": "yes",
-            "last_update": "2024-02-26T03:30:36Z",
+            "last_update": "2024-03-11T06:34:40Z",
             "downloads": "/home/jaandrle/bin/jan",
-            "version": "v0.4.7"
+            "version": "v0.4.8"
         }
     ]
 }
