@@ -43,7 +43,7 @@ Sekce obsahuje log změn v Tuxedo laptopu s KDE Neon.
 {NEXT <2024-03-20> *tilling* *hud* *html-wallpaper* *virtual-desktop* *klipper* agenda}$
 
 - mostly OK
-- [ ] desktop exceptionally freeze for less than a second: *investigation → report a bug*
+- [x] FIXED by update: ~desktop exceptionally freeze for less than a second: *investigation → report a bug*~
 - [x] FIXED by update: ~logout/poweroff dialog not showing and not working: *investigation → report a bug* … see below~
 - [ ] Kup is missing in Settings (only restore files option is available): *investigation → report a bug*
 - [x] krunner not launching → created `/usr/share/dbus-1/services/org.kde.krunner.service` (see below)
@@ -51,7 +51,7 @@ Sekce obsahuje log změn v Tuxedo laptopu s KDE Neon.
 - [x] klipper (edit last item) → workaround [./bin/kde6-workarounds.mjs](./bin/kde6-workarounds.mjs)
 - [ ] !!! Event calendar widget
 - [x] Active Window Control replaced with Window Title widget and its better
-- [ ] html wallpaper → workaround just concat images (see [./bin/§wallpaper\_BIOTD](./bin/§wallpaper_BIOTD))
+- [x] FIXED by widget update: ~html wallpaper → workaround just concat images (see [./bin/§wallpaper\_BIOTD](./bin/§wallpaper_BIOTD))~
 - [ ] tilling → try to use native, try to use [zeroxoneafour/polonium: Tiling window manager for KWin 5.27](https://github.com/zeroxoneafour/polonium) (when there will be a new release)
 - [ ] hud ([Zren/plasma-hud](https://github.com/Zren/plasma-hud) still works on X11), but maybe Ctrl+Alt+i and so on is OK?
 - [ ] [Fingerprint reader support : r/tuxedocomputers](https://www.reddit.com/r/tuxedocomputers/comments/176fscp/fingerprint_reader_support/), still receiving “no match”
