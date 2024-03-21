@@ -6,6 +6,7 @@ const css= echo.css`
 	.code::before, .code::after{ content: "\`"; }
 	.li{ padding-left: 2ch; }
 `;
+const default_wallet= "kdewallet";
 const cmd= "qdbus";
 if(!s.which(cmd))
 	$.exit(1, echo([
@@ -16,18 +17,35 @@ if(!s.which(cmd))
 import { EventEmitter } from "node:events";
 const events= new EventEmitter();
 const exit_event= "exit";
-events.on(exit_event, $.exit);
 
-$.api("", true)
-.version("2024-03-05")
-.describe([
-	`KWallet CLI using ${cmd}.`,
-	"Call with no arguments to list all methods.",
-])
-.example("--wallet kdewallet folderList")
-.example("--wallet kdewallet readPassword folder entry")
-.option("--wallet, -w", "Wallet name", "kdewallet")
-.action(function({ _, wallet }){
+if($.isMain(import.meta)){
+	events.on(exit_event, $.exit);
+	
+	$.api("", true)
+	.version("2024-03-05")
+	.describe([
+		`KWallet CLI using ${cmd}.`,
+		"Call with no arguments to list all methods.",
+	])
+	.example("--wallet kdewallet folderList")
+	.example("--wallet kdewallet readPassword folder entry")
+	.option("--wallet, -w", "Wallet name", default_wallet)
+	.action(function main({ _, wallet }){
+		const [ results, is_ls ]= kwallet(_, { wallet });
+		if(is_ls) echoLs(results);
+		else echo(results);
+		events.emit(exit_event);
+	})
+	.parse();
+}
+
+/**
+ * @param {string[]} _ Query/arguments for qdbus
+ * @param {object} [options]
+ * @param {string} [options.wallet] Wallet name
+ * @returns {[ string[], true ]|[ string, false ]}
+ * */
+export function kwallet(_, { wallet= default_wallet }= {}){
 	const qdbus= qdbusGenerator({
 		service: "org.kde.kwalletd6",
 		methods: "/modules/kwalletd6",
@@ -35,16 +53,13 @@ $.api("", true)
 		exit_event
 	});
 	if(!_.length)
-		echoLs(qdbus());
+		return [ qdbus(), true ];
 	else{
 		//TODO: Map (`--literal` in qdbus and decode the result `echoMap`)
 		const result= qdbus(_);
-		echo(result);
+		return [ result, false ];
 	}
-	events.emit(exit_event);
-})
-.parse();
-
+}
 function qdbusGenerator({ service, methods, wallet, exit_event }){
 	const name= getScriptName();
 	const no_id= [
