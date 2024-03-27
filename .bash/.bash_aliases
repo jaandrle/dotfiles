@@ -54,6 +54,9 @@ alias m='cd.'
 alias cd-vifm='cd `vifm --choose-dir -`'
 mkcd(){ mkdir -p -- "$1" && cd -P -- "$1"; }
 
+alias gcalendar-dovolené='gcalendar --account "práce" --calendar "Dovolené"'
+alias gcalendar-události='gcalendar --account "default" --calendar "Události"'
+
 alias §find.='find . -maxdepth 1'
 
 alias pdftk='java -jar $HOME/bin/pdftk-all.jar'

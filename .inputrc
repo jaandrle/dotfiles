@@ -17,7 +17,7 @@ set menu-complete-display-prefix on
 "\e[A":history-search-backward
 "\e[B":history-search-forward
 
-"\e\C-e": history-and-alias-expand-line
+"OM": history-and-alias-expand-line
 
 set colored-stats On
 
