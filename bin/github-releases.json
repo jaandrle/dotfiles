@@ -211,6 +211,14 @@
             "last_update": "2024-03-11T06:34:40Z",
             "downloads": "/home/jaandrle/bin/jan",
             "version": "v0.4.8"
+        },
+        {
+            "repository": "Bin-Huang/chatbox",
+            "name": "Chatbox",
+            "description": "Chatbox is a desktop client for ChatGPT, Claude and other LLMs, available on Windows, Mac, Linux",
+            "group": "ai",
+            "file_name": "Chatbox",
+            "exec": "yes"
         }
     ]
 }
