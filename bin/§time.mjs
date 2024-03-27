@@ -11,9 +11,10 @@ const units= {
 
 $.api()
 .version("2024-03-27")
-.command("diff <time>", [
+.command("diff <time> [reference]", [
 	"Returns remaining time diff <time>.",
-	"The <time> is argument to bash `date -d <time> +%s`."
+	"The <time> is argument to bash `date -d <time> +%s`.",
+	"Optionally, you can specify <reference> (with the same format) to compare with. By default it is current time."
 ])
 .alias("?")
 .option("--unit", "Unit, use one of the: "+Object.keys(units).join(", "))
@@ -23,11 +24,10 @@ $.api()
 .action(zone)
 .parse();
 
-function diff(given, { unit }){
-	const date_now= new Date();
-	const date_given= new Date(s.$().run`date -d ${given} +%Y-%m-%dT%H:%M:%S%z`.trim());
-	if(date_given.toLocaleString() === "Invalid Date")
-		return $.exit(1, echo(date_given));
+function diff(given, reference, { unit }){
+	const date_now= !reference ? new Date() : date("[reference]", reference);
+	const date_given= date("<time>", given);
+	debugger;
 
 	const rtf= new Intl.RelativeTimeFormat();
 	let future= 1;
@@ -54,7 +54,7 @@ function zone(time, { z: zones }){
 	if(!zones.length)
 		return $.error("Please specify at least one zone.");
 	
-	const date_given= time ? new Date(s.$().run`date -d ${time} +%Y-%m-%dT%H:%M:%S%z`.trim()) : new Date();
+	const date_given= time ? date("[time]", time) : new Date();
 	if(date_given.toLocaleString() === "Invalid Date")
 		return $.error(date_given);
 	
@@ -66,6 +66,12 @@ function zone(time, { z: zones }){
 	$.exit(0);
 }
 
+function date(name, given){
+	const date_given= new Date(s.$().run`date -d ${given} +%Y-%m-%dT%H:%M:%S%z`.trim());
+	if(date_given.toLocaleString() === "Invalid Date")
+		return $.exit(1, echo(name, date_given));
+	return date_given;
+}
 /**
  * @param {1|-1} future
  * @param {number} num
