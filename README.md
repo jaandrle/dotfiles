@@ -43,14 +43,16 @@ Sekce obsahuje log změn v Tuxedo laptopu s KDE Neon.
 {NEXT <2024-03-20> *tilling* *hud* *html-wallpaper* *virtual-desktop* *klipper* agenda}$
 
 - mostly OK
-- [ ] Wayland go to sleep even the external monitor is connected (HDMI) *→ seems to be this issue [438716 – Lid close leads to suspend even when external monitor is attached](https://bugs.kde.org/show_bug.cgi?id=438716)*
 - [ ] Kup is missing in Settings (only restore files option is available): *investigation → report a bug*
 - [ ] !!! Event calendar widget (in progress [ALikesToCode/plasma-applet-eventcalendar at plasma-6](https://github.com/ALikesToCode/plasma-applet-eventcalendar/tree/plasma-6))
 - [ ] tilling → try to use native, try to use [zeroxoneafour/polonium: Tiling window manager for KWin 5.27](https://github.com/zeroxoneafour/polonium) (when there will be a new release)
-- [ ] WIP: hud ([Zren/plasma-hud](https://github.com/Zren/plasma-hud) still works on X11), but maybe Ctrl+Alt+i and so on is OK?
+- [ ] WIP: hud ([uszie/plasma-hud), in KDE Plasma.](https://github.com/uszie/plasma-hud)/[Zren/plasma-hud](https://github.com/Zren/plasma-hud) still works on X11), but maybe Ctrl+Alt+i and so on is OK?
 	- testing to use command palletes in programs and sets shortcuts to `ctr+;` (✓ kde programs, ✓ gimp, ✓ libreoffice, ✓ inkscape, ✓ vscode)
 - [ ] [Fingerprint reader support : r/tuxedocomputers](https://www.reddit.com/r/tuxedocomputers/comments/176fscp/fingerprint_reader_support/), still receiving “no match”
 - [ ] [Clipboard support in Wayland · Issue #5157 · vim/vim](https://github.com/vim/vim/issues/5157#issuecomment-776008833)
+- [ ] partially FIXED by update: Wayland go to sleep even the external monitor is connected (HDMI)
+	- *→ seems to be this issue [438716 – Lid close leads to suspend even when external monitor is attached](https://bugs.kde.org/show_bug.cgi?id=438716)*
+	- needs to keyboard/mouse imput to intterupt the go sleep process
 - [x] FIXED by update: ~desktop exceptionally freeze for less than a second: *investigation → report a bug*~
 - [x] FIXED by update: ~logout/poweroff dialog not showing and not working: *investigation → report a bug* … see below~
 - [x] krunner not launching → created `/usr/share/dbus-1/services/org.kde.krunner.service` (see below)
