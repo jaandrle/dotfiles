@@ -45,17 +45,12 @@ history_most_used(){ LC_ALL=C cat ~/.bash_history | cut -d ';' -f 2- | §awk 1 |
 
 alias §less='less -R -S'
 
-alias §cd.='clear;§ls'
-§cd..(){ cd $(eval printf '../'%.0s {1..$1}); }
-§cd(){
-	[[ "$1" == '--help' ]] && echo -e "
-	Usage: §cd NUMBER|PATH
-	See: dirs -v
-	" && return 0
-	[[ -z "$1" ]] && dirs -v | sed 1d && return 0
-	[[ $1 =~ ^[0-9]+$ ]] && cd "$(dirs -l +$1)" && dirs -v | sed 1d && return 0
-	builtin pushd "$1" >/dev/null && pushd .
+cd.(){
+	[[ -z "$1" ]] && return 1
+	[[ -z "$2" ]] && local p="$(pwd)" || local p="$(readlink -f $2)"
+	alias cd.$1="cd ${p}";
 }
+alias m='cd.'
 alias cd-vifm='cd `vifm --choose-dir -`'
 mkcd(){ mkdir -p -- "$1" && cd -P -- "$1"; }
 
