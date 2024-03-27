@@ -2,9 +2,10 @@
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 alias gitdotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 # enable color support of ls and also add handy aliases
+alias ls='ls -pQFh --group-directories-first'
 if [ -x /usr/bin/dircolors ]; then
 	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-	alias ls='ls --color=auto'
+	alias ls='ls --color=auto -pQFh --group-directories-first'
 	alias dir='dir --color=auto'
 	alias vdir='vdir --color=auto'
 
@@ -42,7 +43,6 @@ history_most_used(){ LC_ALL=C cat ~/.bash_history | cut -d ';' -f 2- | §awk 1 |
 	ls ~/bin | grep -P "^§" | sed 's/^§/~\/bin\/ §/'
 }
 
-alias ls='ls -pQFh --group-directories-first'
 alias §less='less -R -S'
 
 alias §cd.='clear;§ls'
