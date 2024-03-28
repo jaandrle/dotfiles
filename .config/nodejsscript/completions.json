@@ -32,6 +32,22 @@
 				"--help",
 				"--version"
 			]
+		},
+		"§time.mjs": {
+			"npx": false,
+			"completions": {
+				"diff": [
+					"--unit"
+				],
+				"?": "diff",
+				"zone": [
+					"--z"
+				]
+			},
+			"completions_all": [
+				"--help",
+				"--version"
+			]
 		}
 	}
 }

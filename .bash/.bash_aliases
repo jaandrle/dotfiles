@@ -45,12 +45,13 @@ history_most_used(){ LC_ALL=C cat ~/.bash_history | cut -d ';' -f 2- | §awk 1 |
 
 alias §less='less -R -S'
 
-cd.(){
+m(){
 	[[ -z "$1" ]] && return 1
+	local n="m$1"
+	[[ -z "${!n}" ]] || return 1
 	[[ -z "$2" ]] && local p="$(pwd)" || local p="$(readlink -f $2)"
-	alias cd.$1="cd ${p}";
+	export $n="$p"
 }
-alias m='cd.'
 alias cd-vifm='cd `vifm --choose-dir -`'
 mkcd(){ mkdir -p -- "$1" && cd -P -- "$1"; }
 
