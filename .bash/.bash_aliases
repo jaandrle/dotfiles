@@ -46,7 +46,18 @@ history_most_used(){ LC_ALL=C cat ~/.bash_history | cut -d ';' -f 2- | §awk 1 |
 alias §less='less -R -S'
 
 m(){
-	[[ -z "$1" ]] && return 1
+	if [[ -z "$1" ]]; then
+		printenv | grep -e '^m'
+		return 0
+	fi
+	if [[ "--help" == "$1" ]]; then
+		echo 'm [--help]'
+		echo ' Lists all marks or print this help.'
+		echo 'm <name> [path]'
+		echo ' Sets mark <name> to current directory or [path].'
+		echo ' The mark is just a bash variable, use `$m<name>`.'
+		return 0
+	fi
 	local n="m$1"
 	[[ -z "${!n}" ]] || return 1
 	[[ -z "$2" ]] && local p="$(pwd)" || local p="$(readlink -f $2)"
