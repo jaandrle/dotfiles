@@ -13,7 +13,6 @@ alias C--uu='eval "$($HOME/bin/uu --completion-bash)"'
 alias C--bs='eval "$(bs .completion bash)"'
 alias C--jc='eval "$(jc -B)" … newer version needed'
 \. "$BASH_DOTFILES/cordova.completion"
-\. "$BASH_DOTFILES/install-release.completion"
 eval "$(node --completion-bash)"
 eval "$(npm completion)"
 eval "$(nodejsscript --completion bash)"
