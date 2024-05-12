@@ -53,6 +53,7 @@ Sekce obsahuje log změn v Tuxedo laptopu s KDE Neon.
 - [ ] partially FIXED by update: Wayland go to sleep even the external monitor is connected (HDMI)
 	- *→ seems to be this issue [438716 – Lid close leads to suspend even when external monitor is attached](https://bugs.kde.org/show_bug.cgi?id=438716)*
 	- needs to keyboard/mouse imput to intterupt the go sleep process
+- [x] [PSA: How to re-enable LibreOffice integration in Plasma 6 : r/kde](https://www.reddit.com/r/kde/comments/1b9k755/psa_how_to_reenable_libreoffice_integration_in/)
 - [x] FIXED by update: ~desktop exceptionally freeze for less than a second: *investigation → report a bug*~
 - [x] FIXED by update: ~logout/poweroff dialog not showing and not working: *investigation → report a bug* … see below~
 - [x] krunner not launching → created `/usr/share/dbus-1/services/org.kde.krunner.service` (see below)
