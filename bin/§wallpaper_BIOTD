@@ -1,0 +1,6 @@
+#!/bin/bash
+nm-online -x -q && \
+	node "/home/jaandrle/.nvm/versions/node/$(node --version)/bin/nodejsscript" /home/jaandrle/bin/§wallpaper_WCPOTD.mjs pull && \
+	cd "/home/jaandrle/Obrázky/Bing Image Of The Day" && \
+	qdbus org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript 'const d= desktops().filter(d=> d.wallpaperPlugin==="de.unkn0wn.htmlwallpaper")[0];const url= (i= "")=> `file:///home/jaandrle/Obr%C3%A1zky/Bing%20Image%20Of%20The%20Day/index${i}.html`;d.currentConfigGroup= Array("Wallpaper", "de.unkn0wn.htmlwallpaper","General");d.writeConfig("DisplayPage", url("1"));d.writeConfig("DisplayPage", url());'
+#	convert now.jpg prev.jpg +append horizontally.jpg

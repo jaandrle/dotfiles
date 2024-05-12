@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bing Image Of The Day</title>
-    <style>
-        body{ display: flex; flex-flow: row nowrap;
-            width: 100vw; height: 100vh; overflow: hidden; margin: 0;
-        }
-        div{ position: relative; flex: 1; }
-        img{ height: 100%; width: 100%; object-fit: contain; }
-        .detail{ position: absolute; bottom: 0; left: 0; padding: .5rem 1rem;
-            text-align: center; background: rgba(0, 0, 0, .35); color: whitesmoke; }
-        .prev .detail{ left: initial; right: 0; }
-        @media screen and (max-aspect-ratio: 16/9){
-            .prev{display: none;}
-        }
-    </style>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Bing Image Of The Day</title>
+	<style>
+		body{ display: flex; flex-flow: row nowrap;
+			width: 100vw; height: 100vh; overflow: hidden; margin: 0;
+		}
+		div{ position: relative; flex: 1; }
+		img{ height: 100%; width: 100%; object-fit: cover; }
+		.detail{ position: absolute; bottom: 0; left: 0; padding: .5rem 1rem;
+			max-width: 35ch;
+			text-align: center; background: rgba(0, 0, 0, .35); color: whitesmoke; }
+		.prev .detail{ left: initial; right: 0; }
+		@media screen and (max-aspect-ratio: 16/9){
+			.prev{display: none;}
+		}
+	</style>
 </head>
 <body>
-    <div class="now">  <img src="now.jpg">  <div class="detail">::now::</div> </div>
-    <div class="prev"> <img src="prev.jpg"> <div class="detail">::prev::</div> </div>
+	<div class="now">  <img src="now.jpg">	<div class="detail">::now::</div> </div>
+	<div class="prev"> <img src="prev.jpg"> <div class="detail">::prev::</div> </div>
 </body>
 </html>
