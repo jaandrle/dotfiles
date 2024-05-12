@@ -89,6 +89,7 @@ alias §psmem='§psmem_all | head -n 10'
 alias §pscpu_all='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu'
 alias §pscpu='§pscpu_all | head -n 10'
 alias §psnet_all='lsof -P -i -n'
+alias §ck-grep='cat /usr/share/X11/locale/en_US.UTF-8/Compose ~/.XCompose | grep -i'
 
 §ping-test(){ # Pings ip address of noip.com and www.google.com.
   ping -c 1 -q 8.23.224.107 | grep --color=never -A 1 -i '\---'
@@ -116,7 +117,8 @@ alias npx-wca='npx -y web-component-analyzer'
 alias npx-qnm='npx -y qnm'
 alias npx-hint='npx -y hint'
 alias npx-markdown='nohup npx markserv'
-alias zfz=fzf-carroarmato0.fzf
+
+alias fzf=fzf-carroarmato0.fzf
 
 §url-curl(){ curl --silent -I "$1" | grep -i location; }
 
