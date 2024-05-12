@@ -53,6 +53,7 @@ bind-key U show-urls
 unbind-key ^B
 bind-key m bookmark
 
+# TODO: replace with nocodb
 bookmark-cmd "~/bin/pocket-sh-add.sh"
 bookmark-autopilot yes
 

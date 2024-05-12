@@ -7,8 +7,6 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCPeHT7xKjaw_-8hHW0GEXLg ! v
 https://www.youtube.com/feeds/videos.xml?channel_id=UCD9L1HvpYpmZ8rrXABARCRQ ! video
 https://www.youtube.com/feeds/videos.xml?channel_id=UCONH73CdRXUjlh3-DdLGCPw ! video
 https://herohero.co/services/functions/rss-feed?token=eyJhbGciOiJSUzI1NiJ9.eyJ1IjoiYWpzbHV6YnlsdXh1dnlueSIsImMiOiJuYXBvdGl0a3V6d3VhdWhvZCIsInQiOjE2ODU2MDk1ODl9.LfJHvtdm4fPq25NCfoC5ZU6cPmZLRjXO2Xhl6fcG78j-8tjatznyBDQdKwKiMfdQMKK9peOkYAKyIXTBvjBBN9XJ9CKoOnAfIyHiBlyo200TWeG3Ll37U8LRN7So4npT4-Qr_FzZGSMYO_ispVL6Gj2HYfwYORq6-1t78v9k5Ke7up-w4aM4-jUXD3_Zdsu70jJV5-fEAM11pgkfh8HydW9vm_MvkZ1q1DSIRlZR8jQNQZgGWeYMjzF9owD00TQGUGsXGNH0lit-IhFX9_VFqG5so5i6ugv8AyCJK7g3B59YV6TsWVANtWN5NB_B3f-TXSE4Cs7tOZrU0riVxI-4Ew ! video
-https://www.youtube.com/feeds/videos.xml?channel_id=UCKlOmM_eB0nzTNiDFZibSSA !
-"query:Sakitech – Note/Update:title =~ \"(Note|Phones|phones)\" and title !~ \"(Wallpaper|wallpaper)\" and rssurl == \"https://www.youtube.com/feeds/videos.xml?channel_id=UCKlOmM_eB0nzTNiDFZibSSA\"" video
 "exec:~/.newsboat/html2rss-streamCZ.mjs 'Kokoti na neděli' 'https://www.stream.cz/kokoti-na-nedeli'" ! video
 "exec:~/.newsboat/html2rss-streamCZ.mjs 'Šťastné pondělí' 'https://www.stream.cz/stastne-pondeli'" !
 "query:Šťastné pondělí:title =~ \"Šťastné pondělí\" and feedtitle == \"Šťastné pondělí\"" video
