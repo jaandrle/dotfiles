@@ -7,9 +7,9 @@
             "file_name": "github-desktop",
             "exec": "yes",
             "description": "Fork of GitHub Desktop to support various Linux distributions",
-            "last_update": "2024-02-04T22:31:22Z",
+            "last_update": "2024-03-31T17:49:36Z",
             "downloads": "/home/jaandrle/bin/github-desktop",
-            "version": "release-3.3.8-linux2"
+            "version": "release-3.3.12-linux2"
         },
         {
             "repository": "jaandrle/jaaCSS-cli",
@@ -29,9 +29,9 @@
             "group": "nondev",
             "file_name": "youtube-music",
             "exec": "yes",
-            "last_update": "2024-02-20T12:07:29Z",
+            "last_update": "2024-03-26T10:58:44Z",
             "downloads": "/home/jaandrle/bin/youtube-music",
-            "version": "v3.3.2"
+            "version": "v3.3.5"
         },
         {
             "repository": "ArchGPT/insomnium",
@@ -141,9 +141,9 @@
             "group": "dev",
             "file_name": "bs",
             "exec": "yes",
-            "last_update": "2023-06-30T07:48:58Z",
+            "last_update": "2024-03-28T13:16:41Z",
             "downloads": "/home/jaandrle/bin/bs",
-            "version": "v0.7.3"
+            "version": "v0.7.4"
         },
         {
             "repository": "h3poteto/fedistar",
@@ -152,9 +152,9 @@
             "group": "nondev",
             "file_name": "fedistar",
             "exec": "yes",
-            "last_update": "2024-02-29T11:08:37Z",
+            "last_update": "2024-03-29T15:39:36Z",
             "downloads": "/home/jaandrle/bin/fedistar",
-            "version": "v1.9.0"
+            "version": "v1.9.2"
         },
         {
             "repository": "ollama/ollama",
@@ -186,9 +186,9 @@
             "group": "dev",
             "file_name": "escrcpy",
             "exec": "yes",
-            "last_update": "2024-03-13T03:05:48Z",
+            "last_update": "2024-03-29T03:30:14Z",
             "downloads": "/home/jaandrle/bin/escrcpy",
-            "version": "v1.17.3"
+            "version": "v1.17.8"
         },
         {
             "repository": "drovp/drovp",
@@ -218,7 +218,21 @@
             "description": "Chatbox is a desktop client for ChatGPT, Claude and other LLMs, available on Windows, Mac, Linux",
             "group": "ai",
             "file_name": "Chatbox",
-            "exec": "yes"
+            "exec": "yes",
+            "last_update": "2024-03-15T15:58:59Z",
+            "downloads": "/home/jaandrle/bin/Chatbox",
+            "version": "v1.3.1"
+        },
+        {
+            "repository": "Helium314/HeliBoard",
+            "name": "HeliBoard",
+            "description": "Customizable and privacy-conscious open-source keyboard",
+            "group": "android",
+            "file_name": "heliboard.apk",
+            "exec": "no",
+            "last_update": "2024-03-31T20:11:03Z",
+            "downloads": "/home/jaandrle/bin/heliboard.apk",
+            "version": "v1.0"
         }
     ]
 }
