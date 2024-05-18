@@ -6,7 +6,7 @@
 [user]
 	name = Jan Andrle
 	email = andrle.jan@centrum.cz
-	signingkey = B3A25AED155AFFAB
+	# signingkey = B3A25AED155AFFAB
 [credential]
 	# see https://stackoverflow.com/questions/5343068/is-there-a-way-to-cache-https-credentials-for-pushing-commits/18362082#18362082
 	helper = /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
@@ -61,7 +61,7 @@
 [init]
 	defaultBranch = main
 [commit]
-	gpgsign = true
+	# gpgsign = true
 [rerere]
 	enabled = true
 [credential "https://github.com"]
@@ -74,6 +74,3 @@
 	helper = 
 	helper = !/usr/bin/gh auth git-credential
 [maintenance]
-	repo = /home/jaandrle/Vzdálené/GitHub/dcp-fe-container-certifedpassport
-	repo = /home/jaandrle/Vzdálené/GitHub/DHLC-Internet-Networking-old
-	repo = /home/jaandrle/Vzdálené/GitHub/DGF-Certified-Supervisory-Academy

@@ -51,8 +51,6 @@ set backspace=indent,eol,start
 set shiftround autoindent
 filetype plugin indent on
 colorscheme codedark
-if ($TERM =~ '256' && has("termguicolors"))
-	set termguicolors | endif
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
 	syntax on | endif
 set list listchars=tab:»·,trail:·,extends:#,nbsp:~,space:·
