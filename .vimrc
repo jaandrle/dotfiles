@@ -23,7 +23,6 @@ nnoremap <leader>A @@
 nnoremap <leader>u U
 nnoremap U <c-r>
 nnoremap <leader>l <c-]>
-nmap <silent><leader>m :nohlsearch<bar>diffupdate<cr>
 
 nnoremap <leader>o o<space><bs><esc>
 nnoremap <leader>O O<space><bs><esc>
@@ -42,7 +41,9 @@ set breakindent breakindentopt=shift:2 showbreak=↳
 set scrolloff=5 sidescrolloff=10										" offset for lines/columns when scrolling
 set autowrite autoread | autocmd FocusGained,BufEnter *.* checktime
 set modeline
-set hlsearch incsearch
+set hlsearch incsearch														  " highlight search, start when typing
+if maparg('<C-L>', 'n') ==# ''
+	nnoremap <silent> <c-l> :nohlsearch<c-r>=has('diff')?'<bar>diffupdate':''<cr><cr><c-l> | endif
 set smarttab
 command! -nargs=1 SETtab let &shiftwidth=<q-args> | let &tabstop=<q-args> | let &softtabstop=<q-args>
 SETtab 4
@@ -56,8 +57,9 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
 set list listchars=tab:»·,trail:·,extends:#,nbsp:~,space:·
 augroup syntax_sync_min_lines
 	autocmd!
-	autocmd Syntax * syn sync minlines=200
+	autocmd Syntax * syn sync minlines=20000
 augroup END
+set re=0
 command! -nargs=? SETspell if <q-args>==&spelllang || <q-args>=='' | set spell! | else | set spell | set spelllang=<args> | endif | if &spell | set spelllang | endif
 
 command! -nargs=0 SETFOLDregions set foldmethod=marker
