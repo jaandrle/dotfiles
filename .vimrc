@@ -302,7 +302,7 @@
 		\ GITblameThis GitMessenger
 "" #endregion GIT
 "" #region COC – COC and so on, compilers, code/commands completions
-	let g:coc_global_extensions= ['coc-css', 'coc-docthis', 'coc-emmet', 'coc-emoji', 'coc-eslint', 'coc-gitmoji', 'coc-html', 'coc-json', 'coc-marketplace', 'coc-phpls', 'coc-sh', 'coc-snippets', 'coc-styled-components', 'coc-svg', 'coc-tabnine', 'coc-tsserver']
+	let g:coc_global_extensions= ['coc-css', 'coc-docthis', 'coc-emmet', 'coc-emoji', 'coc-pretty-ts-errors', 'coc-eslint', 'coc-gitmoji', 'coc-html', 'coc-json', 'coc-marketplace', 'coc-phpls', 'coc-sh', 'coc-snippets', 'coc-styled-components', 'coc-svg', 'coc-tabnine', 'coc-tsserver']
 	" https://github.com/antonk52/cssmodules-language-server
 	call coc#config('languageserver.cssmodules', {
 	\ "command": "cssmodules-language-server",

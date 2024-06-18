@@ -8,7 +8,7 @@ set keymap vi-insert
 set show-mode-in-prompt on
 set vi-ins-mode-string ">_"
 set vi-cmd-mode-string "$_"
-# aka set wildmode=longest:full:list,full
+# aka set wildmode=longest:full:list,full (tab and shift+tab)
 TAB: menu-complete
 "\e[Z": menu-complete-backward
 set show-all-if-ambiguous on
@@ -17,6 +17,7 @@ set menu-complete-display-prefix on
 "\e[A":history-search-backward
 "\e[B":history-search-forward
 
+# shift+enter
 "OM": history-and-alias-expand-line
 
 set colored-stats On
