@@ -23,9 +23,11 @@ https://sdilenedomy.cz/feed/ ! stát
 
 https://www.irozhlas.cz/rss/irozhlas ! news
 https://denikn.cz/feed?ref=inc ! news
+# Voxpot Klub
 https://kill-the-newsletter.com/feeds/qghk07pleeqa2hiy6054.xml ! news
 https://www.voxpot.cz/feed/ ! news
 https://www.investigace.cz/feed/ ! news
+# PageNotFound.CZ
 https://kill-the-newsletter.com/feeds/rblo6you9l4fpbgs3i53.xml ! news
 "query:📰👋:tags # \"news\""
 
@@ -50,6 +52,7 @@ https://www.vzhurudolu.cz/rss ! news/tech
 https://anuradha.hashnode.dev/rss.xml ! news/tech
 https://lea.verou.me/feed.xml ! news/tech
 https://developer.mozilla.org/en-US/blog/rss.xml ! news/tech
+# mozilla.ai
 https://kill-the-newsletter.com/feeds/9a4r1e63xui0n5ozxs3j.xml ! news/tech
 https://www.omgubuntu.co.uk/feed ! news/tech
 https://servis.idnes.cz/rss.aspx?c=technet ! news/tech
@@ -67,7 +70,6 @@ https://lemmy.ml/feeds/c/kde.xml?sort=Active ! lemmy
 "query:📰👋💻💡 – Lemmy:tags # \"lemmy\""
 
 https://github.com/jordwalke.atom ! twitter/α
-https://kill-the-newsletter.com/feeds/j84ap89644upf5wkldxy.xml ! twitter/α
 https://gts.eilhart.cz/@kayla/feed.rss ! twitter/α
 # TODO: https://www.threads.net/@annie.tumova
 # TODO: https://www.threads.net/@filip.titlbach
@@ -93,8 +95,11 @@ https://mindly.social/@adrianacerna.rss ! twitter/mixed
 https://olgarichterova.cz/feed/ ! twitter/mixed
 https://faktaoklimatu.cz/feed.xml ! twitter/mixed
 https://www.youtube.com/feeds/videos.xml?channel_id=UCtYxnvekc2-3P74TdLx0srQ ! twitter/mixed
+# https://genderaveda.cz/
 https://kill-the-newsletter.com/feeds/c6e1z94wpw0eds67.xml ! twitter/mixed
+# FZU_AVCR
 https://kill-the-newsletter.com/feeds/39xfn7p1cvf8dif4.xml ! twitter/mixed
+# AVCR
 https://kill-the-newsletter.com/feeds/5tww0ecg9y4twnxz.xml ! twitter/mixed
 https://mastodonczech.cz/@ewajelinek.rss ! twitter/mixed
 # TODO: https://www.threads.net/@claireklingenberg
@@ -104,6 +109,7 @@ https://zpravobot.news/@dan_prokop.rss ! twitter/mixed
 https://www.paqresearch.cz/studie-a-clanky/rss/ ! twitter/mixed
 https://archetypal.cz/feed/ ! twitter/mixed
 # TODO: https://www.threads.net/@mariehermanova
+# Sociologicky
 https://kill-the-newsletter.com/feeds/xmub9gn72ecekvbi.xml ! twitter/mixed
 https://www.mimoagendu.cz/rss/ ! twitter/mixed
 # TODO: https://www.threads.net/@barasoukup
@@ -111,7 +117,9 @@ https://www.mimoagendu.cz/rss/ ! twitter/mixed
 "query:📰👋💻💡 – Twitter/mixed:tags # \"twitter/mixed\""
 
 https://us8.campaign-archive.com/feed?u=5ec4c91d59d1b26aefb919e61&id=2ebe3120ac ! newsletters
+# UX that actually works in 3 minutes or less
 https://kill-the-newsletter.com/feeds/mx8wi1fifxu6scj8.xml ! newsletters
+# Lékaři bez hranic
 https://kill-the-newsletter.com/feeds/9l096daq56dxjw3z.xml ! newsletters
 https://denikn.cz/autor/toman/feed/ ! newsletters
 https://denikn.cz/tag/vylety-n/feed/ ! newsletters
@@ -129,6 +137,7 @@ https://www.mozilla.cz/feed/ ! twitter/α
 "query:⌨🖱:tags # \"dev/servises\""
 
 https://github.com/mdn.atom ! dev/github
+# Charles Games
 https://kill-the-newsletter.com/feeds/spatxxuabdy4yboqeenu.xml ! dev/github
 https://github.com/LeaVerou.atom ! dev/github
 https://github.com/susieward/witchly-js/commits/main.atom ! dev/github
