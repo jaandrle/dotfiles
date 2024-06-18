@@ -9,7 +9,7 @@ const path_home= $.xdg.home`Obrázky/Bing Image Of The Day/`;
 const path_info= join(path_home, "images.json");
 
 $.api()
-.version("2024-05-12")
+.version("2024-06-17")
 .command("pull", "Pull new/today image(s)")
 .action(async function pull(){
 	const images= {
@@ -90,14 +90,19 @@ async function getImagePath(shift= 0){
 	 * */
 	return {
 		caption: caption,
-		url: url_image+encodeURI(filepath+img_params)
+		url: url_image+encodeURI(filepath)
 	};
 }
 
 /** @param {T_response} image @param {"prev"|"now"} type */
 async function downloadImage({ url }, type){
 	const filename= join(path_home, `${type}.jpg`);
-	const response= await fetch(url);
+	let response= await fetch(url+img_params);
+	if(response.status!==200){
+		response= await fetch(url);
+		if(response.status!==200)
+			throw new Error(`Failed to download image: ${response.status} ${response.statusText}`);
+	}
 	const buffer= await response.arrayBuffer();
 	writeFileSync(filename, Buffer.from(buffer));
 	return filename;
