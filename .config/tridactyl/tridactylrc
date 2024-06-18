@@ -43,7 +43,7 @@ unbindurl ^https://www.youtube.com/* <<
 " see https://gist.github.com/jaandrle/031198ab5130deb903065138532cc066
 bindurl ^https://www.youtube.com/* ss fillcmdline open B: YT
 bindurl ^https://www.o2tv.cz/* ss fillcmdline open B: O2
-bindurl ^https://chat.openai.com/* ss fillcmdline open B: OPENAI
+bindurl ^https://chatgpt.com/* ss fillcmdline open B: OPENAI
 
 
 command pauseVideos js Array.from(document.querySelectorAll("video")).forEach(el=> ( location.hostname!=="www.o2tv.cz" ? el.pause() : [ "Pauza" ].map(l=> document.querySelector(`[aria-label=${l}]`)).find(Boolean)?.dispatchEvent(new Event("click")) ))

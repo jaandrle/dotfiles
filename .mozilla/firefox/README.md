@@ -3,7 +3,7 @@ In fact, lots of settings are synced by Firefox itself.
 So this folder contains just some infos around and settings for [tridactyl](#tridactyl).
 
 ## Related files
-- [../../.tridactylrc](../../.tridactylrc)
+- [../../.config/tridactyl/](../../.config/tridactyl/)
 - [../native-messaging-hosts/tridactyl.json](../native-messaging-hosts/tridactyl.json)
 
 ## Extensions
