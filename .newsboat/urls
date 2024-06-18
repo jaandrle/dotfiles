@@ -1,23 +1,21 @@
 https://www.youtube.com/feeds/videos.xml?channel_id=UCMiyV_Ib77XLpzHPQH_q0qQ video
 https://www.youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg video
 https://www.youtube.com/feeds/videos.xml?channel_id=UCACJQqtYw6sASWAHXWkBWpw ! video
-https://www.youtube.com/feeds/videos.xml?playlist_id=PLanJ0JNOqYbysIbQ3KnHkWeotmTEWXCTA ! video
+https://www.youtube.com/feeds/videos.xml?channel_id=UC0398rTdnjLI1V_QypTEP4g ! video
 https://www.youtube.com/feeds/videos.xml?playlist_id=PLCKZKxlikAKzhux_uS3BZgejHhYk8yOYO ! video
 https://www.youtube.com/feeds/videos.xml?channel_id=UCPeHT7xKjaw_-8hHW0GEXLg ! video
 https://www.youtube.com/feeds/videos.xml?channel_id=UCD9L1HvpYpmZ8rrXABARCRQ ! video
 https://www.youtube.com/feeds/videos.xml?channel_id=UCONH73CdRXUjlh3-DdLGCPw ! video
-https://herohero.co/services/functions/rss-feed?token=eyJhbGciOiJSUzI1NiJ9.eyJ1IjoiYWpzbHV6YnlsdXh1dnlueSIsImMiOiJuYXBvdGl0a3V6d3VhdWhvZCIsInQiOjE2ODU2MDk1ODl9.LfJHvtdm4fPq25NCfoC5ZU6cPmZLRjXO2Xhl6fcG78j-8tjatznyBDQdKwKiMfdQMKK9peOkYAKyIXTBvjBBN9XJ9CKoOnAfIyHiBlyo200TWeG3Ll37U8LRN7So4npT4-Qr_FzZGSMYO_ispVL6Gj2HYfwYORq6-1t78v9k5Ke7up-w4aM4-jUXD3_Zdsu70jJV5-fEAM11pgkfh8HydW9vm_MvkZ1q1DSIRlZR8jQNQZgGWeYMjzF9owD00TQGUGsXGNH0lit-IhFX9_VFqG5so5i6ugv8AyCJK7g3B59YV6TsWVANtWN5NB_B3f-TXSE4Cs7tOZrU0riVxI-4Ew ! video
 "exec:~/.newsboat/html2rss-streamCZ.mjs 'Kokoti na neděli' 'https://www.stream.cz/kokoti-na-nedeli'" ! video
 "exec:~/.newsboat/html2rss-streamCZ.mjs 'Šťastné pondělí' 'https://www.stream.cz/stastne-pondeli'" !
 "query:Šťastné pondělí:title =~ \"Šťastné pondělí\" and feedtitle == \"Šťastné pondělí\"" video
-https://www.mall.tv/rssfeed/mikyrova-uzasna-pout-internetem ! video
 "query:📹:tags # \"video\""
 
 https://www.mfcr.cz/cs/rss/vydali-jsme-k-hospodareni-statu ! stát
 https://www.sporicidluhopisycr.cz/cs/rss/aktuality ! stát
 http://www.vlada.cz/cs/urad/RSS/rss.xml ! stát
-https://mastodonczech.cz/@SpravedlnostCZ ! stát
-https://zpravobot.news/@NUKIB_CZ ! stát
+https://mastodonczech.cz/@SpravedlnostCZ.rss ! stát
+https://zpravobot.news/@NUKIB_CZ.rss ! stát
 https://www.ceskezajmy.eu/feed/ ! stát
 https://poladprahu.cz/category/novinky/feed/ ! stát
 https://sdilenedomy.cz/feed/ ! stát
@@ -25,7 +23,10 @@ https://sdilenedomy.cz/feed/ ! stát
 
 https://www.irozhlas.cz/rss/irozhlas ! news
 https://denikn.cz/feed?ref=inc ! news
+https://kill-the-newsletter.com/feeds/qghk07pleeqa2hiy6054.xml ! news
+https://www.voxpot.cz/feed/ ! news
 https://www.investigace.cz/feed/ ! news
+https://kill-the-newsletter.com/feeds/rblo6you9l4fpbgs3i53.xml ! news
 "query:📰👋:tags # \"news\""
 
 https://denikn.cz/veda/feed?ref=inc ! news/science
@@ -49,6 +50,7 @@ https://www.vzhurudolu.cz/rss ! news/tech
 https://anuradha.hashnode.dev/rss.xml ! news/tech
 https://lea.verou.me/feed.xml ! news/tech
 https://developer.mozilla.org/en-US/blog/rss.xml ! news/tech
+https://kill-the-newsletter.com/feeds/9a4r1e63xui0n5ozxs3j.xml ! news/tech
 https://www.omgubuntu.co.uk/feed ! news/tech
 https://servis.idnes.cz/rss.aspx?c=technet ! news/tech
 "query:📰💻💡:tags # \"news/tech\""
@@ -65,7 +67,8 @@ https://lemmy.ml/feeds/c/kde.xml?sort=Active ! lemmy
 "query:📰👋💻💡 – Lemmy:tags # \"lemmy\""
 
 https://github.com/jordwalke.atom ! twitter/α
-https://gts.eilhart.cz/@kayla.rss ! twitter/α
+https://kill-the-newsletter.com/feeds/j84ap89644upf5wkldxy.xml ! twitter/α
+https://gts.eilhart.cz/@kayla/feed.rss ! twitter/α
 # TODO: https://www.threads.net/@annie.tumova
 # TODO: https://www.threads.net/@filip.titlbach
 https://www.youtube.com/feeds/videos.xml?channel_id=UCVHFbqXqoYvEWM1Ddxl0QDg ! twitter/α_hide
@@ -73,11 +76,11 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCVHFbqXqoYvEWM1Ddxl0QDg ! t
 # TODO: https://ubuntuunity.org/blog/
 https://blog.neon.kde.org/feed/ ! twitter/α
 https://undinealmani.com/feed/ ! twitter/α
-https://techhub.social/@erikengheim ! twitter/α
-https://bird.makeup/users/jpschroeder.rss ! twitter/α
+https://techhub.social/@erikengheim.rss ! twitter/α
+https://github.com/justin-schroeder.atom ! twitter/α
 # TODO: @jpschroeder@fosstodon.org 
 https://mastodon.social/@firt.rss ! twitter/α
-https://princiya.com/newblog/feeds/all.atom.xml ! twitter/α
+https://princiya.com/feed/ ! twitter/α
 https://davidwalsh.name/feed ! twitter/α
 https://jecas.cz/rss ! twitter/α
 # JanKoWeb geekovo zdrojak
@@ -93,12 +96,12 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCtYxnvekc2-3P74TdLx0srQ ! t
 https://kill-the-newsletter.com/feeds/c6e1z94wpw0eds67.xml ! twitter/mixed
 https://kill-the-newsletter.com/feeds/39xfn7p1cvf8dif4.xml ! twitter/mixed
 https://kill-the-newsletter.com/feeds/5tww0ecg9y4twnxz.xml ! twitter/mixed
-https://mastodonczech.cz/@ewajelinek ! twitter/mixed
+https://mastodonczech.cz/@ewajelinek.rss ! twitter/mixed
 # TODO: https://www.threads.net/@claireklingenberg
 # TODO: https://www.threads.net/@pavlahubalkova
 # TODO: https://www.threads.net/@popdetective
 https://zpravobot.news/@dan_prokop.rss ! twitter/mixed
-https://www.paqresearch.cz/blog-feed.xml ! twitter/mixed
+https://www.paqresearch.cz/studie-a-clanky/rss/ ! twitter/mixed
 https://archetypal.cz/feed/ ! twitter/mixed
 # TODO: https://www.threads.net/@mariehermanova
 https://kill-the-newsletter.com/feeds/xmub9gn72ecekvbi.xml ! twitter/mixed
@@ -126,6 +129,7 @@ https://www.mozilla.cz/feed/ ! twitter/α
 "query:⌨🖱:tags # \"dev/servises\""
 
 https://github.com/mdn.atom ! dev/github
+https://kill-the-newsletter.com/feeds/spatxxuabdy4yboqeenu.xml ! dev/github
 https://github.com/LeaVerou.atom ! dev/github
 https://github.com/susieward/witchly-js/commits/main.atom ! dev/github
 https://github.com/staltz.atom ! dev/github
@@ -143,7 +147,6 @@ https://manipulatori.cz/feed/ ! desinfo
 https://n3wjack.net/feed/ ! blogs
 https://boundedlyrational.substack.com/feed ! blogs
 https://blog.eischmann.cz/feed/ ! blogs
-https://www.zoonpolitikon.cz/feed/ ! blogs
 https://blog.zvestov.cz/feed.xml ! blogs
 https://www.pirati.cz/feed.xml ! blogs
 https://www.kdu.cz/system/rss ! blogs
@@ -159,14 +162,11 @@ https://www.edna.cz/doctor-who/rss/ ! news/info
 "query:🗞 💰📱:tags # \"news/info\""
 
 http://feeds.bbci.co.uk/news/world/rss.xml ! news/rest
-# https://feeds.a.dj.com/rss/RSSWorldNews.xml ! news/rest news/rest-wsj
-# https://feeds.a.dj.com/rss/RSSWSJD.xml ! news/rest news/rest-wsj
 https://domaci.hn.cz/?m=rss ! news/rest
 https://ekonom.cz/?m=rss ! news/rest
 https://vikend.hn.cz/?m=rss ! news/rest
 https://procne.hn.cz/?m=rss ! news/rest
 http://casopisargument.cz/?feed=rss2 ! news/rest
-"query:↓ The Wall Street Journal:tags # \"news/rest-wsj\""
 "query:🗞 🌐⏩:tags # \"news/rest\""
 
 https://www.seznamzpravy.cz/rss ! rest
