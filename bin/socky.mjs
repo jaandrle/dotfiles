@@ -71,6 +71,7 @@ function textSplit(file, { limit, counter, text }){
 function textInImage(file, { text, gravity, pointsize }){
 	text= getText(file, text);
 	const output= !file ? "textInImage.png" : (({ pathname: p })=> p.slice(1, p.lastIndexOf(".")+1)+"png")(new URL(file, "file://"));
+	if(s.test("-f", output)) s.rm(output);
 	const round_corners= [ //https://9to5answer.com/rounding-corners-of-pictures-with-imagemagick
 		"\\(",
 			"+clone  -alpha extract",

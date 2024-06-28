@@ -29,6 +29,7 @@ https://www.voxpot.cz/feed/ ! news
 https://www.investigace.cz/feed/ ! news
 # PageNotFound.CZ
 https://kill-the-newsletter.com/feeds/rblo6you9l4fpbgs3i53.xml ! news
+https://gitea.jaandrle.cz/jaandrle/pagenotfound-cli/raw/branch/main/rss.xml
 "query:📰👋:tags # \"news\""
 
 https://denikn.cz/veda/feed?ref=inc ! news/science
