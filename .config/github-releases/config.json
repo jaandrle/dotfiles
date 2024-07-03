@@ -8,9 +8,9 @@
 			"file_name": "github-desktop",
 			"exec": "yes",
 			"description": "Fork of GitHub Desktop to support various Linux distributions",
-			"last_update": "2024-06-02T17:43:15Z",
+			"last_update": "2024-07-01T20:15:47Z",
 			"downloads": "/home/jaandrle/bin/github-desktop",
-			"version": "release-3.3.18-linux1",
+			"version": "release-3.4.2-linux1",
 			"glare": ".*x86_64.*.AppImage"
 		},
 		{
@@ -176,9 +176,9 @@
 			"group": "ai",
 			"file_name": "ollama",
 			"exec": "yes",
-			"last_update": "2024-06-27T06:09:56Z",
+			"last_update": "2024-07-02T19:25:35Z",
 			"downloads": "/home/jaandrle/bin/ollama",
-			"version": "v0.1.47",
+			"version": "v0.1.49-rc3",
 			"glare": "linux-amd64"
 		},
 		{
@@ -200,9 +200,9 @@
 			"group": "dev",
 			"file_name": "escrcpy",
 			"exec": "yes",
-			"last_update": "2024-06-13T11:36:15Z",
+			"last_update": "2024-07-02T01:38:32Z",
 			"downloads": "/home/jaandrle/bin/escrcpy",
-			"version": "v1.19.3",
+			"version": "v1.19.4",
 			"glare": ".*x86_64.*.AppImage"
 		},
 		{
