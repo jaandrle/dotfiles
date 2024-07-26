@@ -17,7 +17,7 @@ see for example [How to Store Dotfiles - A Bare Git Repository \| Atlassian Git 
 - [Vifm](./.config/vifm/README.md)
 - [SSH](./.ssh/README.md)
 - [Newsboat](./.newsboat/README.md)
-- Git: [.gitconfig](./.gitconfig), [gh](./.config/gh/config.yml)
+- [git](./.config/git/config), [gh](./.config/gh/config.yml)
 - [KDE Neon](#kde-neon)
 - [Mozilla Firefox](./.mozilla/firefox/README.md)
 - [Bin – scripts and executables](./bin/README.md)

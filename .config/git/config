@@ -38,14 +38,17 @@
 	editor = vim
 	pager = delta
 	whitespace = -trailing-space,-space-before-tab
+[status]
+	submoduleSummary = true
 [diff]
 	tool = vimdiff
 	colorMoved = default
+	submodule = log
 [merge]
 	tool = vimdiff
 	conflictstyle = diff3
 [log]
-	date=iso
+	date = iso
 [interactive]
 	diffFilter = delta --color-only
 [delta] # [dandavison/delta: A syntax-highlighting pager for git, diff, and grep output](https://github.com/dandavison/delta)
