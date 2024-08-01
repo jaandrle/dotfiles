@@ -37,7 +37,7 @@ const path_config= $.xdg.config`github-releases`;
 const path_config_json= join(path_config, "config.json");
 const path_config_lock= join(path_config, "lock");
 const path_temp= $.xdg.temp`github-releases.json`;
-const url_api= "https://api.github.com/repos/";
+const url_api= "https://api.github.com/repos/"; // "https://ungh.cc/repos/";
 const url_download= "https://glare.now.sh/"; // https://github.com/Contextualist/glare
 const css= echo.css`
 	.pkg { color: lightcyan; }
@@ -215,11 +215,19 @@ async function fetchRelease({ repository, tag_name_regex }, cache){
 	const releases= await fetch(url, { headers }).then(res=> res.json());
 	if(releases.message) return $.error(url+": "+releases.message);
 
-	return releases.find(function ({ draft, published_at, tag_name }){
-		if(draft||!published_at) return false;
+	if(url.includes("github.com"))
+		return releases.find(function ({ draft, published_at, tag_name }){
+			if(draft||!published_at) return false;
+			if(!tag_name_regex) return true;
+			return (new RegExp(tag_name_regex, 'g')).test(tag_name);
+		});
+	
+	const { draft, publishedAt, tag }= releases.releases.find(function ({ draft, publishedAt, tag }){
+		if(draft||!publishedAt) return false;
 		if(!tag_name_regex) return true;
-		return (new RegExp(tag_name_regex, 'g')).test(tag_name);
+		return (new RegExp(tag_name_regex, 'g')).test(tag);
 	});
+	return { draft, published_at: publishedAt, tag_name: tag };
 }
 
 function readConfig(){

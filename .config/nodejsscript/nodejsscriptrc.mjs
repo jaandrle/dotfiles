@@ -9,7 +9,11 @@ globalThis.cyclicLoop= function*(items){
 }
 
 Reflect.defineProperty($, "clipboard", {
-	get(){ return s.$().run`xclip -o -selection clipboard`; }
+	get(){
+		if($.env.XDG_SESSION_TYPE === "x11")
+			return s.$().run`xclip -o -selection clipboard`;
+		return s.$().run`wl-paste`;
+	}
 })
 
 // /** Custom uncaughtException function */

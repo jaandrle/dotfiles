@@ -35,3 +35,8 @@ export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/"
 PATH=/home/jaandrle/.local/share/umake/bin:$PATH
 
 [ -f /home/jaandrle/.bash/.profile_androidsdk ] && . /home/jaandrle/.bash/.profile_androidsdk
+
+
+# Added by Toolbox App
+export PATH="$PATH:/home/jaandrle/.local/share/JetBrains/Toolbox/scripts"
+

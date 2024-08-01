@@ -14,6 +14,18 @@
 			"glare": ".*x86_64.*.AppImage"
 		},
 		{
+			"repository": "pinokiocomputer/pinokio",
+			"name": "Pinokio",
+			"group": "ai",
+			"file_name": "pinokio",
+			"exec": "yes",
+			"description": "AI Browser",
+			"glare": "AppImage",
+			"last_update": "2024-07-17T20:36:36Z",
+			"version": "2.0.4",
+			"downloads": "/home/jaandrle/bin/pinokio"
+		},
+		{
 			"repository": "jaandrle/jaaCSS-cli",
 			"name": "jaaCSS",
 			"description": "EXPERIMENT – Helper for managing functional CSS classes",
@@ -32,9 +44,9 @@
 			"group": "nondev",
 			"file_name": "youtube-music",
 			"exec": "yes",
-			"last_update": "2024-06-08T11:04:49Z",
+			"last_update": "2024-07-14T15:26:52Z",
 			"downloads": "/home/jaandrle/bin/youtube-music",
-			"version": "v3.3.12",
+			"version": "v3.4.1",
 			"glare": "AppImage"
 		},
 		{
@@ -164,9 +176,9 @@
 			"group": "nondev",
 			"file_name": "fedistar",
 			"exec": "yes",
-			"last_update": "2024-06-20T14:45:03Z",
+			"last_update": "2024-07-21T09:19:41Z",
 			"downloads": "/home/jaandrle/bin/fedistar",
-			"version": "v1.9.7",
+			"version": "v1.9.9",
 			"glare": ".*amd64.*.AppImage"
 		},
 		{
@@ -176,9 +188,9 @@
 			"group": "ai",
 			"file_name": "ollama",
 			"exec": "yes",
-			"last_update": "2024-07-02T19:25:35Z",
+			"last_update": "2024-07-21T18:21:56Z",
 			"downloads": "/home/jaandrle/bin/ollama",
-			"version": "v0.1.49-rc3",
+			"version": "v0.2.8-rc1",
 			"glare": "linux-amd64"
 		},
 		{
@@ -200,9 +212,9 @@
 			"group": "dev",
 			"file_name": "escrcpy",
 			"exec": "yes",
-			"last_update": "2024-07-02T01:38:32Z",
+			"last_update": "2024-07-14T08:47:24Z",
 			"downloads": "/home/jaandrle/bin/escrcpy",
-			"version": "v1.19.4",
+			"version": "v1.21.4",
 			"glare": ".*x86_64.*.AppImage"
 		},
 		{
@@ -224,9 +236,9 @@
 			"group": "ai",
 			"file_name": "jan",
 			"exec": "yes",
-			"last_update": "2024-06-21T09:44:25Z",
+			"last_update": "2024-07-15T08:37:42Z",
 			"downloads": "/home/jaandrle/bin/jan",
-			"version": "v0.5.1",
+			"version": "v0.5.2",
 			"glare": ".*x86_64.*.AppImage"
 		},
 		{

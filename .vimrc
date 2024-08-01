@@ -1,10 +1,10 @@
-""" VIM config file | Jan Andrle | 2024-02-07 (VIM >=8.1)
+""" VIM config file | Jan Andrle | 2024-07-10 (VIM >=8.1)
 "" #region B – Base
 	scriptencoding utf-8 | set encoding=utf-8
 	let $BASH_ENV = "~/.bashrc"
 	set runtimepath^=~/.vim/bundle/*
 	packadd! matchit
-	set hidden
+	" set hidden
 	
 	set title
 	colorscheme codedark
@@ -13,6 +13,7 @@
 	set belloff=esc
 	set confirm
 	set guioptions-=T
+	set shortmess-=i
 	
 	cabbrev <expr> %PWD%  execute('pwd')
 	cabbrev <expr> %CD%   fnameescape(expand('%:p:h'))
@@ -48,25 +49,15 @@
 	let g:vifm_replace_netrw= 1 | let g:loaded_netrw= 1 | let g:loaded_netrwPlugin= 1  " this line needs to be commented to let vim dowmload spelllangs!!! … see http://jdem.cz/fgyw25
 	""" #endregion BB
 "" #endregion B
-"" #region H – Helpers + remap 'sS' (primary ss, see `vim-scommands`)
-	nmap sh :execute 'ALTredir :map s \<bar> map '.mapleader.' \<bar> map § \<bar> map ů \<bar> map ; \<bar> map U \<bar> map ž'<cr>:g/^$/d<cr>:g/^v  s/m$<cr>úgg
-	call scommands#map('s', 'CL', "n,v")
+"" #region H – Helpers
 	command! -nargs=?  CLscratch 10split | enew | setlocal buftype=nofile bufhidden=wipe noswapfile nobuflisted | if <q-args>!='' | execute 'normal "'.<q-args>.'p' | endif | nnoremap <buffer> ;q :q<cr>
 	
-	call scommands#map('S', 'SET', "n,v")
-	call scommands#map('a', 'ALT', "n,V")
 	cabbrev ALTR ALTredrawSyntax
 	set grepprg=LC_ALL=C\ grep\ -nrsH
 	command! -nargs=0
 		\ ALTredrawSyntax edit | exec 'normal `"' | exec 'set ft='.&ft
 	command! -complete=command -bar -range -nargs=+
 		\ ALTredir call jaandrle_utils#redir(0, <q-args>, <range>, <line1>, <line2>)
-	command! -nargs=+ -complete=file_in_path -bar
-		\ ALTgrep  cgetexpr jaandrle_utils#grep(<f-args>) | call setqflist([], 'a', {'title': ':' . g:jaandrle_utils#last_command})
-	command! -nargs=+ -complete=file_in_path -bar
-		\ ALTlgrep lgetexpr jaandrle_utils#grep(<f-args>) | call setloclist(0, [], 'a', {'title': ':' . g:jaandrle_utils#last_command})
-	command! -nargs=0
-		\ ALTargsBWQA execute 'argdo bw' | %argdelete
 	
 	let g:quickfix_len= 0
 	function! QuickFixStatus() abort
@@ -99,7 +90,7 @@
 "" #endregion H
 "" #region SLH – Status Line + Command Line + History (general) + Sessions + File Update, …
 	set showcmd cmdheight=2 showmode
-	set wildmenu wildoptions=pum
+	set wildmenu wildoptions=pum,fuzzy
 	"" wildmode=list:longest,list:full									" Tab autocomplete in command mode
 
 	cabbrev wbw w<bar>bw
@@ -144,13 +135,12 @@
 	set pastetoggle=<F2> | nnoremap <F2> :set invpaste paste?<CR>
 	nnoremap <silent> <leader>" :call jaandrle_utils#copyRegister()<cr>
 	
-	nmap <expr> š buffer_number("#")==-1 ? "sš<cr>" : "\<c-^>"
-	nmap s3 :buffers<cr>:b<space>
-	nmap sš :CtrlPBuffer<cr>
-	nmap č sš
+	nmap <expr> š buffer_number("#")==-1 ? "\<leader>š<cr>" : "\<c-^>"
+	nmap <leader>3 :buffers<cr>:b<space>
+	nmap <leader>š :CtrlPBuffer<cr>
+	nmap č <leader>š
 	let g:ctrlp_map = 'ě'
 	command! -nargs=?	SETctrlp execute 'nnoremap '.g:ctrlp_map.' :CtrlP <args><cr>'
-	call scommands#map(g:ctrlp_map, 'CtrlP', "n")
 	let g:ctrlp_clear_cache_on_exit = 0
 	let g:ctrlp_prompt_mappings= {
 		\ 'ToggleType(1)':		  ['<c-up>'],
@@ -173,7 +163,6 @@
 	set wildignore+=*.pdf,*.psd
 
 	nmap <leader>e :Vifm<cr>
-	call scommands#map('e', 'Vifm', "n")
 	nnoremap gx :silent exec "!xdg-open '".shellescape(substitute(expand('<cfile>'), '?', '\\?', ''), 1)."'" \| redraw!<cr>
 	vnoremap gx :silent exec "!xdg-open '".shellescape(substitute(mini_enhancement#selectedText(), '?', '\\?', ''), 1)."'" \| redraw!<cr>
 "" #endregion FOS
@@ -181,13 +170,9 @@
 	set hlsearch incsearch														  " highlight search, start when typing
 	if maparg('<C-L>', 'n') ==# ''
 		nnoremap <silent> <c-l> :nohlsearch<c-r>=has('diff')?'<bar>diffupdate':''<cr><cr><c-l> | endif
-
-	call scommands#map('n', 'NAV', "n")
-	command! NAVjumps call jaandrle_utils#gotoJumpChange('jump')
-	command! NAVchanges call jaandrle_utils#gotoJumpChange('change')
-	command! NAVmarks call jaandrle_utils#gotoMarks()
 	
 	let g:markbar_persist_mark_names = v:false
+	let g:markbar_cache_with_hidden_buffers = v:false							" last buffers are reopened as hidden https://github.com/Yilin-Yang/vim-markbar/blob/9f5a948d44652074bf2b90d3da6a400d8a369ba5/doc/vim-markbar.txt#L136
 	nmap <Leader>m <Plug>ToggleMarkbar
 "" #endregion EN
 "" #region EA – Editing adjustment + Syntax + White chars + Folds
@@ -200,7 +185,7 @@
 	let g:markdown_fenced_languages= [ 'javascript', 'js=javascript', 'json', 'html', 'php', 'bash', 'vim', 'vimscript=javascript', 'sass' ]
 	augroup conceal
 		autocmd!
-		au FileType markdown 
+		au FileType markdown
 			\  syn region markdownLink matchgroup=markdownLinkDelimiter start="(" end=")" contains=markdownUrl keepend contained conceal
 			\| syn region markdownLinkText matchgroup=markdownLinkTextDelimiter start="!\=\[\%(\%(\_[^][]\|\[\_[^][]*\]\)*]\%( \=[[(]\)\)\@=" end="\]\%( \=[[(]\)\@=" nextgroup=markdownLink,markdownId skipwhite contains=@markdownInline,markdownLineStart concealends
 		au FileType markdown,json 
@@ -250,10 +235,10 @@
 	nnoremap <s-k> a<cr><esc>
 	for l in [ 'y', 'p', 'P', 'd' ] | for m in [ 'n', 'v' ]
 		execute m.'noremap <leader>'.l.' "+'.l | endfor | endfor
-	" FOLDS
-	command! -nargs=0 SETFOLDregions set foldmethod=marker
-	command! -nargs=1 SETFOLDindent set foldmethod=indent | let &foldlevel=<q-args> | let &foldnestmax=<q-args>+1
-	command! -nargs=* SETFOLDindents set foldmethod=indent | let &foldlevel=split(<q-args>, ' ')[0] | let &foldnestmax=split(<q-args>, ' ')[1]
+	" TODO DEL: FOLDS
+	" TODO DEL: command! -nargs=0 SETFOLDregions set foldmethod=marker
+	" TODO DEL: command! -nargs=1 SETFOLDindent set foldmethod=indent | let &foldlevel=<q-args> | let &foldnestmax=<q-args>+1
+	" TODO DEL: command! -nargs=* SETFOLDindents set foldmethod=indent | let &foldlevel=split(<q-args>, ' ')[0] | let &foldnestmax=split(<q-args>, ' ')[1]
 	set foldmarker=#region,#endregion
 	" SAVE VIEW
 	set viewoptions=cursor,folds
@@ -264,7 +249,6 @@
 	augroup END
 "" #endregion EA
 "" #region GIT
-	call scommands#map('g', 'GIT', "n,V")
 	function s:gitCompletion(_, CmdLine, __)
 		let l:cmd= a:CmdLine->split()
 		let l:cmd_start= l:cmd[0]
@@ -339,7 +323,7 @@
 		endif
 	endfunction
 
-	set completeopt=menuone,preview,noinsert,noselect
+	set completeopt=menuone,longest,preview "longest vs ,noinsert,noselect
 	inoremap <silent><expr> <F1> coc#pum#visible() ? coc#pum#confirm() : coc#refresh()
 	set wildcharm=<f1>
 	inoremap <silent><expr> <tab> coc#pum#visible() ? coc#pum#next(1) : <sid>check_back_space() ? "\<tab>" : coc#refresh()
@@ -352,11 +336,13 @@
 	nmap <silent> gd <Plug>(coc-definition)
 	nmap <leader>/ :CocSearch 
 	nmap <leader>? <leader>/
-	command! -bang NAVdiagnostic call CocActionAsync('diagnostic'.( "<bang>" == '!' ? 'Previous' : 'Next' ))
-	command! NAVdefinition		   call CocActionAsync('jumpDefinition')
-	command! NAVtype			   call CocActionAsync('jumpTypeDefinition')
-	command! NAVimplementation	   call CocActionAsync('jumpImplementation')
-	command! NAVreferences		   call CocActionAsync('jumpReferences')
+	command! -nargs=* -complete=customlist,<sid>SCommandCocActionComplete CocAction call CocActionAsync(<f-args>)
+	function s:SCommandCocActionComplete(argLead, cmdLine, cursorPos)
+		return readfile(expand('~/.vim/pack/coc/start/coc.nvim/doc/tags'), 'r')
+			\->filter('v:val =~ ''^CocAction''')
+			\->map({ k, v -> strpart(v, 11, stridx(v, ')')-12) })
+			\->filter({ k, v -> v =~ a:argLead && !v->empty() })
+	endfunction
 					" navigate diagnostics, use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 	nnoremap <silent> gh :call <sid>show_documentation(expand("<cword>"))<cr>
 	vnoremap <silent> gh :<c-u>call <sid>show_documentation(mini_enhancement#selectedText())<cr>
@@ -372,11 +358,13 @@
 		vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 	endif
 	""" #endregion COCP
-	command! -nargs=? SETFOLDcoc :call CocAction('fold', <f-args>)
+	" TODO DEL: command! -nargs=? SETFOLDcoc :call CocAction('fold', <f-args>)
 
-	call scommands#map('C', 'Coc', "n,v")
-	nmap sc :CocList lists<cr>
-	nmap Sc :CocListResume<cr>
+	command! -nargs=?  CLhelpMy if <q-args>!='' | exec 'map '.<q-args> | else | call popup_notification([
+		\ 'Custom mappings starting: '.mapleader.',§, ů, ;, U, ž',
+		\ 'Custom commands starting: CL, SET, ALT, CtrlP, Vifm, GIT, Coc',
+		\ 'Helpful commands: CocAction, CocCommand, CocList',
+		\], #{ line: &lines-3, pos: 'botleft', moved: 'any', close: 'button', time: 6000 }) | endif
 	nnoremap <c-g> :CLwhereami<cr>
 	command! CLwhereami			   :call popup_notification([
 										\expand('%:t').( coc#status() != "" ? '/'.CocAction("getCurrentFunctionSymbol")."\t…\t".coc#status() : '' ),
@@ -384,18 +372,13 @@
 										\"Line:\t".line('.').' / '.line('$'),
 										\"Column:\t".col('.').' / '.col('$'),
 										\"Path:\t".expand('%:p:h')
-										\], #{ line: &lines-3, pos: 'botleft', moved: 'any', close: 'button', time: 3000 })
+										\], #{ line: &lines-3, pos: 'botleft', moved: 'any', close: 'button', time: 6000 })
 	command! CLhelpCocPlug		   call feedkeys(':<c-u>help <Plug>(coc ', 'tn')
 	command! CLhelpCocAction	   call feedkeys(':<c-u>help CocAction(''	', 'tn')
-	command! CLrename			   call CocActionAsync('rename')
-	command! CLrenameFile		   exec 'CocCommand workspace.renameCurrentFile'
 	command! -nargs=? -bang
 		   \ CLreplace			   call feedkeys(':<c-u>'.(<q-args>==''?'.':<q-args>).'s/'.("<bang>"=='!'?mini_enhancement#selectedText():expand('<cword>')).'//cgODODOD', 'tn')
 	command! CLrepeatLastChange    call feedkeys('/\V<C-r>"<CR>cgn<C-a><Esc>', 'tn')
-	command! CLjsdoc			   exec 'CocCommand docthis.documentThis'
 	command! CLjshintGlobal		   normal yiwmm?\/\* global<cr><c-l>f*hi, p`m
-	command! CLcodeactionCursor    call CocActionAsync('codeAction', 'cursor')
-	command! CLfixCodeQuick		   call CocActionAsync('doQuickfix')
 	
 	function! AIcodeFn(range, ...) range abort
 		let l:instruction = 'Hi, can you help me with ' . &filetype . 'code? Thanks in advance. I would like to: '
