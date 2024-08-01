@@ -14,6 +14,7 @@ see for example [How to Store Dotfiles - A Bare Git Repository \| Atlassian Git 
 ## Files overview
 - [Bash](./.bash/README.md)
 - [Vim](./.vim/README.md)
+- [Geany](./.config/geany/README.md)
 - [Vifm](./.config/vifm/README.md)
 - [SSH](./.ssh/README.md)
 - [Newsboat](./.newsboat/README.md)
