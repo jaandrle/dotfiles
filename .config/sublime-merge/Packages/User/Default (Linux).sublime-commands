@@ -1,0 +1,24 @@
+// https://github.com/Sublime-Instincts/CommandsBrowser/tree/master/sm_commands_metadata
+[
+	{
+		"caption": "Switch…",
+		"command": "checkout_branch",
+	},
+	{
+		"caption": "Switch -C…",
+		"command": "create_branch",
+	},
+	{
+		"caption": "Checkout -B…",
+		"command": "create_branch",
+	},
+	{
+		"caption": "Commit…",
+		"command": "commit",
+	},
+	{
+		"caption": "Browse repository",
+		"command": "git",
+		"args": { "argv": [ "browse" ] }
+	},
+]

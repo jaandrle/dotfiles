@@ -1,0 +1,11 @@
+// Settings in here override those in "Default/Preferences.sublime-settings",
+// and are overridden in turn by syntax-specific settings.
+{
+	"hardware_acceleration": "opengl",
+	"diff_algorithm": "match_git",
+	"diff_style": "auto",
+	"font_face": "Ubuntu Mono",
+	"side_bar_layout": "tabs",
+	"signature_error_highlighting": "no_public_key",
+	"theme": "Merge Dark.sublime-theme",
+}

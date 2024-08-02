@@ -1,0 +1,6 @@
+[
+	{
+		"keys": ["ctrl+;"],
+		"command": "show_command_palette"
+	},
+]
