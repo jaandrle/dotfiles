@@ -9,116 +9,131 @@ function jaaENV {
 		echo "	jaaENV --save …to_save (example: jaaENV --save nodejs php)"
 		echo ""
 		echo "Description:"
-		echo "	- Without arguments loads infos from '.jaaENV'"
-		echo "	- 'ls' shows supported options to auto load"
-		echo "	- 'save' cerates config file '.jaaENV'"
+		echo "	- Without arguments, loads info from '.jaaENV'"
+		echo "	- 'ls' shows supported options to auto-load"
+		echo "	- 'save' creates a config file '.jaaENV'"
 		echo ""
 		echo "Usage '.jaaENV' files: "
 		echo "	  typical: '\nphp=5.6\nnodejs=16.13.0'"
 		echo "		 link: '. ../.jaaENV' … use settings from parent folder"
 		echo "	Options:"
-		echo "		'android_home': Exports 'ANDROID_HOME' (uses 'ANDROID_HOME_BAK') instead of new 'ANDROID_SDK_ROOT'. Value can be anything (use '1')."
-		echo "		         'jdk': Exports 'JAVA_HOME' based on wanted version (currently 11/1.8)"
+		echo "		'android_home': Exports 'ANDROID_HOME' (uses 'ANDROID_HOME_BAK') instead of 'ANDROID_SDK_ROOT'. Value can be anything (use '1')."
+		echo "		         'jdk': Exports 'JAVA_HOME' based on the wanted version (currently 11/1.8)"
 		echo "		'nodejs'|'php': NodeJS/PHP versions"
-		echo "		      'gradle': Cordova uses folder scoped → so unnecesarly"
+		echo "		      'gradle': Cordova uses folder-scoped → so unnecesarly"
 		echo ""
 		echo "Install: "
 		echo "	  gradle ⇒ https://sdkman.io/"
 		echo "		node ⇒ https://github.com/nvm-sh/nvm"
-		echo "		 php ⇒ http://jdem.cz/fgyu56 + https://deb.sury.org/"
+		echo "		 php ⇒ \`update-alternatives\` + https://deb.sury.org/"
+		echo "		java ⇒ \`update-alternatives\`"
 		echo ""
 		echo "Tips:"
 		echo "	sudo update-alternatives --set php /usr/bin/php\$php"
 		return 0
 	fi
-	if [ "$1" = "--save" ]; then
+
+	if [ "$1" == "--save" ]; then
 		shift
 		rm -vi .jaaENV
-		while test $# -gt 0
-		do
+		while [ $# -gt 0 ]; do
 			case "$1" in
 				nodejs|node)
-					local nodejs_version=$(node --version)
-					echo "nodejs=${nodejs_version:1}" >> .jaaENV
+					echo "nodejs=$(node --version | cut -c2-)" >> .jaaENV
 					;;
 				gradle)
-					local gradle_version=$(gradle --version | head -n 3 | tail -n 1 | §awk 2)
-					echo "gradle=$gradle_version" >> .jaaENV
+					echo "gradle=$(gradle --version | awk '/Gradle/ {print $2}')" >> .jaaENV
 					;;
 				php)
-					local php_version=$(php --version | head -n 1 | §awk 2)
-					echo "php=$php_version" >> .jaaENV
+					echo "php=$(php --version | awk '/^PHP/ {print $2}')" >> .jaaENV
 					;;
 				java)
-					local java_version=$(java -version 2>&1 | head -n 1 | cut -d'"' -f2 | cut -d'.' -f1)
+					local java_version=$(java -version 2>&1 | awk -F '"' '/version/ {print $2}')
+					if [[ "$java_version" == 1.8* ]]; then
+						java_version=8
+					else
+						java_version=$(echo "$java_version" | cut -d'.' -f1)
+					fi
 					echo "java=$java_version" >> .jaaENV
 					;;
 				*)
-					echo "unknown '$1' – skipped"
+					echo "Unknown '$1' – skipped"
 					;;
 			esac
 			shift
 		done
 		return 0
 	fi
-	if [ "$1" = "--ls" ]; then
-		echo ":: nvm ls ::\n"
-		nvm ls
-		echo ":: find /usr/bin/ -name php* ::\n"
-		find /usr/bin/ -name php*
-		echo ":: sdk ls gradle | cat :: "
-		sdk ls gradle | cat
+
+	if [ "$1" == "--ls" ]; then
+		echo ":: nvm ls --no-alias ::"
+		nvm ls --no-alias
+		echo ":: update-alternatives --list php ::"
+		update-alternatives --list php
+		echo ":: update-alternatives --list java ::"
+		update-alternatives --list java
+		echo ":: sdk ls gradle | grep -E '\*|>' :: "
+		sdk ls gradle | grep -E '\*|>'
 		return 0
 	fi
 	
 	if [ -f "compose.yaml" ]; then
 		jdk=$(grep -Po 'VERSION_JAVA=\K.*' compose.yaml)
 		nodejs=$(grep -Po 'VERSION_NODEJS=\K.*' compose.yaml)
-	else
+	elif [ -f ".jaaENV" ]; then
 		. ./.jaaENV
+	else
+		echo 'No env file `compose.yaml` or `.jaaENV`'
+		return 1
 	fi
 	if [ ! -z ${java+x} ]; then
 		[[ "$java" == "8" ]] && java=1.8
-		local java_local=$(java -version 2>&1 | head -n 1 | cut -d'"' -f2)
+		local java_local=$(java -version 2>&1 | awk -F '"' '/version/ {print $2}')
 		if [[ "$java_local" != "$java"* ]]; then
 			[[ "$java" == "1.8" ]] && java=8
-			echo "java $java ← $java_local"
-			local v="/usr/lib/jvm/java-$java-openjdk-amd64/"
-			[[ "$java" == "8" ]] && local vv="jre/" || local vv=""
-			sudo update-alternatives --set java ${v}${vv}bin/java
+			echo "Switching Java version: $java ← $java_local"
+			local java_path="/usr/lib/jvm/java-$java-openjdk-amd64/"
+			[[ "$java" == "8" ]] && java_path+="jre/"
+			sudo update-alternatives --set java "${java_path}bin/java"
 			local javac=$(update-alternatives --list javac | grep java-$java)
-			[ $javac ] && sudo update-alternatives --set javac $javac
+			[ -n "$javac" ] && sudo update-alternatives --set javac "$javac"
 			sudo -k
 		fi
-		export JAVA_HOME=$(update-alternatives --display java | grep momentálně | §awk 5 | cut -d \/ -f1-5)/
-		echo \$JAVA_HOME=$JAVA_HOME
+		export JAVA_HOME=$(readlink -f $(which java) | cut -d '/' -f1-5)/
+		echo "\$JAVA_HOME=$JAVA_HOME"
 	fi
-	if [ ! -z ${android_home+x} ]; then export ANDROID_HOME=$ANDROID_HOME_BAK; echo "\$ANDROID_HOME=$ANDROID_HOME"; else unset ANDROID_HOME; echo "\$ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT"; fi
-	if [ ! -z ${android_home_is_sdk+x} ]; then export ANDROID_HOME=$ANDROID_SDK_ROOT; echo "\$ANDROID_HOME=$ANDROID_HOME"; fi
+	if [ ! -z ${android_home+x} ]; then
+		export ANDROID_HOME=$ANDROID_HOME_BAK
+		echo "\$ANDROID_HOME=$ANDROID_HOME"
+	else
+		unset ANDROID_HOME
+		echo "\$ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT"
+	fi
+	if [ ! -z ${android_home_is_sdk+x} ]; then
+		export ANDROID_HOME=$ANDROID_SDK_ROOT
+		echo "\$ANDROID_HOME=$ANDROID_HOME"
+	fi
+	if [ ! -z ${JAVA_HOME_BAK+x} ]; then export JAVA_HOME=$JAVA_HOME_BAK; unset JAVA_HOME_BAK; fi
 	if [ ! -z ${jdk+x} ]; then
 		if (( $(echo "$jdk > 9" | bc -l) )); then
-			export JAVA_HOME_bk=$JAVA_HOME
-			export JAVA_HOME=/snap/android-studio/current/android-studio/jre;
-		elif [ ! -z ${JAVA_HOME_bk+x} ]; then
-			export JAVA_HOME=$JAVA_HOME_bk
+			export JAVA_HOME_BAK=$JAVA_HOME
+			export JAVA_HOME="/snap/android-studio/current/android-studio/jre"
 		fi
 		echo "\$JAVA_HOME=$JAVA_HOME"
 	fi
 	if [ ! -z ${nodejs+x} ]; then nvm use $nodejs; fi
 	if [ ! -z ${gradle+x} ]; then sdk use gradle $gradle | tr -d '\n'; echo ; fi
 	if [ ! -z ${php+x} ];	 then
-		local php_local=$(php --version | head -n 1 | §awk 2)
+		local php_local=$(php --version | awk '/^PHP/ {print $2}')
 		if [[ "$php_local" == "$php"* ]]; then
-			echo "php $php"
+			echo "PHP version: $php"
 		else
-			echo "php $php ← $php_local"
-			sudo update-alternatives --set php /usr/bin/php$php
+			echo "Switching PHP version: $php ← $php_local"
+			sudo update-alternatives --set php "/usr/bin/php$php"
 			sudo -k
 		fi
 	fi
-	unset android_home
-	unset nodejs
-	unset gradle
-	unset php
-	unset java
+	
+	# Cleanup variables
+	unset android_home nodejs gradle php java
 }
