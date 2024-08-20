@@ -8,9 +8,9 @@
 			"file_name": "github-desktop",
 			"exec": "yes",
 			"description": "Fork of GitHub Desktop to support various Linux distributions",
-			"last_update": "2024-07-01T20:15:47Z",
+			"last_update": "2024-08-10T17:00:04Z",
 			"downloads": "/home/jaandrle/bin/github-desktop",
-			"version": "release-3.4.2-linux1",
+			"version": "release-3.4.3-linux1",
 			"glare": ".*x86_64.*.AppImage"
 		},
 		{
@@ -21,8 +21,8 @@
 			"exec": "yes",
 			"description": "AI Browser",
 			"glare": "AppImage",
-			"last_update": "2024-07-17T20:36:36Z",
-			"version": "2.0.4",
+			"last_update": "2024-07-29T15:29:11Z",
+			"version": "2.1.17",
 			"downloads": "/home/jaandrle/bin/pinokio"
 		},
 		{
@@ -44,9 +44,9 @@
 			"group": "nondev",
 			"file_name": "youtube-music",
 			"exec": "yes",
-			"last_update": "2024-07-14T15:26:52Z",
+			"last_update": "2024-08-01T11:48:59Z",
 			"downloads": "/home/jaandrle/bin/youtube-music",
-			"version": "v3.4.1",
+			"version": "v3.5.1",
 			"glare": "AppImage"
 		},
 		{
@@ -176,9 +176,9 @@
 			"group": "nondev",
 			"file_name": "fedistar",
 			"exec": "yes",
-			"last_update": "2024-07-21T09:19:41Z",
+			"last_update": "2024-08-08T13:46:23Z",
 			"downloads": "/home/jaandrle/bin/fedistar",
-			"version": "v1.9.9",
+			"version": "v1.9.10",
 			"glare": ".*amd64.*.AppImage"
 		},
 		{
@@ -188,9 +188,9 @@
 			"group": "ai",
 			"file_name": "ollama",
 			"exec": "yes",
-			"last_update": "2024-07-21T18:21:56Z",
+			"last_update": "2024-08-13T20:27:42Z",
 			"downloads": "/home/jaandrle/bin/ollama",
-			"version": "v0.2.8-rc1",
+			"version": "v0.3.6",
 			"glare": "linux-amd64"
 		},
 		{
@@ -212,9 +212,9 @@
 			"group": "dev",
 			"file_name": "escrcpy",
 			"exec": "yes",
-			"last_update": "2024-07-14T08:47:24Z",
+			"last_update": "2024-08-03T17:09:45Z",
 			"downloads": "/home/jaandrle/bin/escrcpy",
-			"version": "v1.21.4",
+			"version": "v1.22.4",
 			"glare": ".*x86_64.*.AppImage"
 		},
 		{

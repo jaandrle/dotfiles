@@ -37,7 +37,11 @@ const path_config= $.xdg.config`github-releases`;
 const path_config_json= join(path_config, "config.json");
 const path_config_lock= join(path_config, "lock");
 const path_temp= $.xdg.temp`github-releases.json`;
-const url_api= "https://api.github.com/repos/"; // "https://ungh.cc/repos/";
+let url_api= "github";
+const urls_api= {
+	github: "https://api.github.com/repos/",
+	ungh: "https://ungh.cc/repos/"
+};
 const url_download= "https://glare.now.sh/"; // https://github.com/Contextualist/glare
 const css= echo.css`
 	.pkg { color: lightcyan; }
@@ -48,9 +52,19 @@ const css= echo.css`
 `;
 
 $.api()
-	.version("2.0.0")
+	.version("2.1.0")
 	.describe("Helper for working with “packages” stored in GitHub releases.")
-.command("config [mode]", [ "Config (file), use `mode` with these options:",
+	.option("--verbose", "Verbose output (WIP)")
+	.option("--group, -G", "Filter by group (not awaiable for noGRA)")
+	.option("--repository, -R", "Filter by repository (not awaiable for noGRA)")
+	.option("--api", [ "Choose API URL",  
+		"- GitHub (default): https://api.github.com/repos/",
+		"- Ungh: https://ungh.cc/repos/", "(not awaiable for noGRA)" ], "github")
+.command("unlock", "[noGRA] DANGER: Removes lock file. Use only if you know what you are doing!")
+.action(function(){
+	s.rm(path_config_lock);
+})
+.command("config [mode]", [ "[noGR] Config (file), use `mode` with these options:",
 		"- `edit`: opens config file in terminal editor using `$EDITOR` (defaults to vim)",
 		"- `path`: prints path to config file"
 	])
@@ -71,8 +85,6 @@ $.api()
 		"These are registered by this script but not managed by it (updates, etc).",
 		"Repositories marked with `+` signify that updates of the package are checked."
 	])
-	.option("--group, -G", "Filter by group")
-	.option("--repository, -R", "Filter by repository")
 	.action(function(filter){
 		const config = readConfig();
 		for(const { repository, version, description, group } of grepPackages(config, filter))
@@ -83,8 +95,6 @@ $.api()
 		$.exit(0);
 	})
 .command("check", "Shows/checks updates for registered packages")
-	.option("--group, -G", "Filter by group")
-	.option("--repository, -R", "Filter by repository")
 	.option("--cache", "Use cache [yes, no]", "yes")
 	.action(async function({ cache, ...filter }){
 		const config = readConfig();
@@ -95,8 +105,6 @@ $.api()
 		$.exit(0);
 	})
 .command("update", "Updates registered packages")
-	.option("--group, -G", "Filter by group")
-	.option("--repository, -R", "Filter by repository")
 	.action(async function(filter){
 		if(s.test("-f", path_config_lock))
 			return $.error(`The lock file '${path_config_lock}' already exists! Check if some other instance is running.`);
@@ -127,7 +135,7 @@ $.api()
 			echo("Updating packages completed:");
 			for (const { status, value, reason } of updates) {
 				if(status==="rejected"){
-					echo("%c✗ "+reason.local.repository+": %c"+reason.err, css.err);
+					echo("%c✗ TBD reason.local.repository: %c"+reason.err, css.err);
 					continue;
 				}
 				const { local, remote }= value;
@@ -162,11 +170,17 @@ async function download(value, onprogress, target){
 	return value;
 }
 
-function grepPackages({ packages }, { group, repository }){
+function grepPackages({ packages }, { group, repository, api, verbose }){
+	if(api && api!==url_api && urls_api.hasOwnProperty(api))
+		url_api= api;
+	if(verbose)
+		echo(`Using API: ${url_api} (${urls_api[url_api]})`);
 	const f= {};
 	let is_filter= false;
 	if(group){ is_filter= true; f.group= group; }
 	if(repository){ is_filter= true; f.repository= repository; }
+	if(verbose)
+		echo("Filter:", f);
 	if(!is_filter) return packages;
 	return packages.filter(r=> Object.keys(f).every(k=> r[k]===f[k]));
 }
@@ -211,7 +225,7 @@ function packageStatus({ last_update: local }, { published_at: remote }){
 async function fetchRelease({ repository, tag_name_regex }, cache){
 	const headers= { 'User-Agent': 'node' };
 	if(cache==="no") headers['Cache-Control'] = 'no-cache';
-	const url= url_api+repository+"/releases";
+	const url= urls_api[url_api]+repository+"/releases";
 	const releases= await fetch(url, { headers }).then(res=> res.json());
 	if(releases.message) return $.error(url+": "+releases.message);
 
