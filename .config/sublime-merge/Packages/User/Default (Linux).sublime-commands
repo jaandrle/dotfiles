@@ -21,4 +21,11 @@
 		"command": "git",
 		"args": { "argv": [ "browse" ] }
 	},
+	{
+		"caption": "Branch -D --all (delete remote and local branch)",
+		"command": "delete_branch",
+		"args": {
+			"argv": [ true, true, true ]
+		}
+	}
 ]
