@@ -9,23 +9,25 @@
 <summary>NPM executables</summary>
 ```
 #region >_:npm ls --location global
-/home/jaandrle/.nvm/versions/node/v18.19.0/lib
-├── @abhagsain/ai-cli@1.2.3
-├── @bitwarden/cli@2023.12.1
-├── azure-functions-core-tools@4.0.5455
+/home/jaandrle/.nvm/versions/node/v20.16.0/lib
+├── @abhagsain/ai-cli@1.3.0
+├── @bitwarden/cli@2024.8.1
+├── azure-functions-core-tools@4.0.5907
 ├── catage@1.1.3
-├── chrome-remote-interface@0.33.0
-├── corepack@0.24.0
-├── cssmodules-language-server@1.3.1
-├── eslint@8.56.0
+├── chrome-remote-interface@0.33.2
+├── cordova-res@0.15.4
+├── cordova@12.0.0
+├── corepack@0.29.3
+├── cssmodules-language-server@1.4.1
+├── eslint@9.9.1
 ├── jshint@2.13.6
-├── json-server@0.17.4
+├── json-server@1.0.0-beta.2
 ├── mdexpr-agenda@0.6.0 -> ./../../../../../Vzdálené/GitHub/mdexpr-agenda
-├── nodejsscript@1.0.0 -> ./../../../../../Vzdálené/GitHub/nodejsscript
-├── npm@10.2.5
-├── typescript-language-server@4.3.0
-├── typescript@5.3.3
-└── zx@7.2.3
+├── nodejsscript@1.0.2
+├── npm@10.8.3
+├── typescript-language-server@4.3.3
+├── typescript@5.5.4
+└── zx@8.1.5
 #endregion
 ```
 </details>
@@ -51,223 +53,237 @@ youtube-dl            2021.12.17
 <summary>APT</summary>
 ```
 #region apt list | grep '\[instalovaný\]'
-aha/jammy,jammy,jammy,jammy,jammy,now 0.5.1-2 amd64 [instalovaný]
-appmenu-gtk2-module/jammy,jammy,jammy,jammy,jammy,now 0.7.6-2 amd64 [instalovaný]
-appmenu-gtk3-module/jammy,jammy,jammy,jammy,jammy,now 0.7.6-2 amd64 [instalovaný]
-aspell-cs/jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,now 0.51.0-1.3 all [instalovaný]
-base-passwd/jammy,jammy,jammy,jammy,jammy,now 3.5.52build1 amd64 [instalovaný]
-bash/jammy,jammy,jammy,jammy,jammy,now 5.1-6ubuntu1 amd64 [instalovaný]
-curlftpfs/jammy,jammy,jammy,jammy,jammy,now 0.9.2-9build1 amd64 [instalovaný]
-dash/jammy,jammy,jammy,jammy,jammy,now 0.5.11+git20210903+057cd650a4ed-3build1 amd64 [instalovaný]
-datovka/neznámá,now 4.23.6-1 amd64 [instalovaný]
-dict/jammy,jammy,jammy,jammy,jammy,now 1.13.0+dfsg-1build2 amd64 [instalovaný]
-diffutils/jammy,jammy,jammy,jammy,jammy,now 1:3.8-0ubuntu2 amd64 [instalovaný]
-digikam/jammy,now 4:8.2.0-0xneon+22.04+jammy+release+build18 amd64 [instalovaný]
-docker-compose/jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,now 1.29.2-1 all [instalovaný]
-docker/jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,now 1.5-2 all [instalovaný]
-dpscreenocr/jammy,now 1.4.1-1~jammy1 amd64 [instalovaný]
-exo-utils/jammy,jammy,jammy,jammy,jammy,now 4.16.3-1 amd64 [instalovaný]
-exuberant-ctags/jammy-security,jammy-updates,now 1:5.9~svn20110310-16ubuntu0.22.04.1 amd64 [instalovaný]
-fd-find/jammy-security,jammy-updates,now 8.3.1-1ubuntu0.1 amd64 [instalovaný]
-festival/jammy,jammy,jammy,jammy,jammy,now 1:2.5.0-8 amd64 [instalovaný]
-festvox-us-slt-hts/jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,now 0.2010.10.25-4 all [instalovaný]
-ffmpeg/jammy-security,jammy-updates,now 7:4.4.2-0ubuntu0.22.04.1 amd64 [instalovaný]
-findutils/jammy,jammy,jammy,jammy,jammy,now 4.8.0-1ubuntu3 amd64 [instalovaný]
-firefox-locale-cs/jammy,now 123.0+build3-0ubuntu0.22.04.1~mt1 amd64 [instalovaný]
-firefox-locale-en/jammy,now 123.0+build3-0ubuntu0.22.04.1~mt1 amd64 [instalovaný]
-firefox/jammy,now 123.0+build3-0ubuntu0.22.04.1~mt1 amd64 [instalovaný]
-firmware-sof-signed/tuxedo,tuxedo,now 2.2.4-1.1 all [instalovaný]
-fonts-oxygen/jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,now 4:5.4.3-4 all [instalovaný]
-gaupol/jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,now 1.10.1-1 all [instalovaný]
-gh/neznámá,now 2.44.1 amd64 [instalovaný]
-gimp-help-en/jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,now 2.10.0-1 all [instalovaný]
-gimp/jammy-security,jammy-updates,now 2.10.30-1ubuntu0.1 amd64 [instalovaný]
-gir1.2-gtk-3.0/jammy-updates,now 3.24.33-1ubuntu2 amd64 [instalovaný]
-git-extras/jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,now 6.1.0-1 all [instalovaný]
-git-lfs/jammy-security,jammy-updates,now 3.0.2-1ubuntu0.2 amd64 [instalovaný]
-gnome-keyring/jammy-updates,now 40.0-3ubuntu3 amd64 [instalovaný]
-greed/jammy,jammy,jammy,jammy,jammy,now 4.2-1 amd64 [instalovaný]
-grep/jammy,jammy,jammy,jammy,jammy,now 3.7-1build1 amd64 [instalovaný]
-grub-efi-amd64-signed/jammy-security,jammy-updates,now 1.187.6+2.06-2ubuntu14.4 amd64 [instalovaný]
-grub-efi-ia32-bin/jammy-updates,now 2.06-2ubuntu7.2 amd64 [instalovaný]
-gzip/jammy-updates,now 1.10-4ubuntu4.1 amd64 [instalovaný]
-haveged/jammy,jammy,jammy,jammy,jammy,now 1.9.14-1ubuntu1 amd64 [instalovaný]
-hostname/jammy,jammy,jammy,jammy,jammy,now 3.23ubuntu2 amd64 [instalovaný]
-hplip/jammy,jammy,jammy,jammy,jammy,now 3.21.12+dfsg0-1 amd64 [instalovaný]
-hstr/jammy,jammy,jammy,jammy,jammy,now 2.5+ds-1 amd64 [instalovaný]
-htop/jammy,jammy,jammy,jammy,jammy,now 3.0.5-7build2 amd64 [instalovaný]
-hunspell-cs/jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,now 1:7.2.0-2 all [instalovaný]
-hunspell-en-au/jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,now 1:2020.12.07-2 all [instalovaný]
-hunspell-en-ca/jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,now 1:2020.12.07-2 all [instalovaný]
-hunspell-en-gb/jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,now 1:7.2.0-2 all [instalovaný]
-hunspell-en-za/jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,now 1:7.2.0-2 all [instalovaný]
-hunspell/jammy,jammy,jammy,jammy,jammy,now 1.7.0-4build1 amd64 [instalovaný]
-hyphen-cs/jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,now 1:7.2.0-2 all [instalovaný]
-hyphen-en-ca/jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,now 0.10 all [instalovaný]
-hyphen-en-gb/jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,now 1:7.2.0-2 all [instalovaný]
-hyphen-en-us/jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,now 2.8.8-7build2 all [instalovaný]
-init/jammy,jammy,jammy,jammy,jammy,now 1.62 amd64 [instalovaný]
-isoimagewriter/jammy,now 0.9-0xneon+22.04+jammy+release+build3 amd64 [instalovaný]
-jc/jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,now 1.17.3-1 all [instalovaný]
-jq/jammy,jammy,jammy,jammy,jammy,now 1.6-2.1ubuntu3 amd64 [instalovaný]
-kamoso/jammy,now 23.08.4-0xneon+22.04+jammy+release+build25 amd64 [instalovaný]
-kate/jammy,now 4:23.08.4-0xneon+22.04+jammy+release+build29 amd64 [instalovaný]
-katomic/jammy,now 4:23.08.4-0xneon+22.04+jammy+release+build22 amd64 [instalovaný]
-kcron/jammy,jammy,jammy,now 4:23.08.4-0xneon+22.04+jammy+release+build23 all [instalovaný]
-kigo/jammy,now 4:23.08.4-0xneon+22.04+jammy+release+build24 amd64 [instalovaný]
-kmahjongg/jammy,now 4:23.08.4-0xneon+22.04+jammy+release+build25 amd64 [instalovaný]
-knights/jammy,now 23.08.4-0xneon+22.04+jammy+release+build22 amd64 [instalovaný]
-konquest/jammy,now 4:23.08.4-0xneon+22.04+jammy+release+build25 amd64 [instalovaný]
-konversation/jammy,now 23.08.4-0xneon+22.04+jammy+release+build28 amd64 [instalovaný]
-krfb/jammy,now 4:23.08.4-0xneon+22.04+jammy+release+build28 amd64 [instalovaný]
-ksystemlog/jammy,now 4:23.08.4-0xneon+22.04+jammy+release+build23 amd64 [instalovaný]
-ktouch/jammy,now 4:23.08.4-0xneon+22.04+jammy+release+build26 amd64 [instalovaný]
-kubuntu-restricted-addons/jammy,jammy,jammy,jammy,jammy,now 26 amd64 [instalovaný]
-kubuntu-restricted-extras/jammy,jammy,jammy,jammy,jammy,now 67 amd64 [instalovaný]
-kwalletcli/jammy,jammy,jammy,jammy,jammy,now 3.03-1 amd64 [instalovaný]
-labplot/jammy,now 2.10.1-0xneon+22.04+jammy+release+build16 amd64 [instalovaný]
-language-pack-gnome-cs/jammy-updates,jammy-updates,now 1:22.04+20240212 all [instalovaný]
-language-pack-kde-cs/jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,now 1:19.10.0ubuntu1 all [instalovaný]
-language-pack-kde-en/jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,now 1:19.10.0ubuntu1 all [instalovaný]
-lib32z1/jammy-security,jammy-updates,now 1:1.2.11.dfsg-2ubuntu9.2 amd64 [instalovaný]
-libavif-bin/jammy,now 1.0.3-0xneon+22.04+jammy+release+build7 amd64 [instalovaný]
-libayatana-appindicator3-1/jammy,jammy,jammy,jammy,jammy,now 0.5.90-7ubuntu2 amd64 [instalovaný]
-libayatana-indicator3-7/jammy,jammy,jammy,jammy,jammy,now 0.9.1-1 amd64 [instalovaný]
-libc6/jammy-security,jammy-updates,now 2.35-0ubuntu3.6 amd64 [instalovaný]
-libdebconfclient0/jammy,jammy,jammy,jammy,jammy,now 0.261ubuntu1 amd64 [instalovaný]
-libfprint-2-2/jammy-updates,now 1:1.94.3+tod1-0ubuntu2~22.04.06 amd64 [instalovaný]
-libfreetype6/jammy-security,jammy-updates,now 2.11.1+dfsg-1ubuntu0.2 i386 [instalovaný]
-libk3b8/jammy,now 23.08.4-0xneon+22.04+jammy+release+build31 amd64 [instalovaný]
-libkf5configqml5/jammy,now 5.114.0-0xneon+22.04+jammy+release+build30 amd64 [instalovaný]
-libkf5guiaddons-bin/jammy,now 5.114.0-0xneon+22.04+jammy+release+build37 amd64 [instalovaný]
-libkf5guiaddons-data/jammy,jammy,jammy,now 5.114.0-0xneon+22.04+jammy+release+build37 all [instalovaný]
-libkf5i18nlocaledata5/jammy,now 5.114.0-0xneon+22.04+jammy+release+build32 amd64 [instalovaný]
-libkf5kcmutilscore5/jammy,now 5.114.0-0xneon+22.04+jammy+release+build56 amd64 [instalovaný]
-libkf5newstuffwidgets5/jammy,now 5.114.0-0xneon+22.04+jammy+release+build53 amd64 [instalovaný]
-libkf5prisonscanner5/jammy,now 5.114.0-0xneon+22.04+jammy+release+build32 amd64 [instalovaný]
-libkf5syndication5abi1/jammy,now 1:5.114.0-0xneon+22.04+jammy+release+build28 amd64 [instalovaný]
-libkpipewire5/jammy,now 5.27.10-0xneon+22.04+jammy+release+build26 amd64 [instalovaný]
-libkpmcore12/jammy,now 23.08.4-0xneon+22.04+jammy+release+build26 amd64 [instalovaný]
-libkwineffects14/jammy,now 4:5.27.10-0xneon+22.04+jammy+release+build51 amd64 [instalovaný]
-libkwinglutils14/jammy,now 4:5.27.10-0xneon+22.04+jammy+release+build51 amd64 [instalovaný]
-libncurses5/jammy-security,jammy-updates,now 6.3-2ubuntu0.1 i386 [instalovaný]
-libnotify-bin/jammy-updates,now 0.7.9-3ubuntu5.22.04.1 amd64 [instalovaný]
-libpcre2-posix3/jammy,now 10.42-3+ubuntu22.04.1+deb.sury.org+1 amd64 [instalovaný]
-libqt5quickshapes5/jammy,now 5.15.12+p22.04+vrelease+git20240113.1004-0 amd64 [instalovaný]
-libqt5webview5/jammy,now 5.15.12+p22.04+vrelease+git20240113.1147-0 amd64 [instalovaný]
-libqtav1/jammy,now 1.13.0+ds-4+22.04+jammy+release+build1 amd64 [instalovaný]
-libqtavwidgets1/jammy,now 1.13.0+ds-4+22.04+jammy+release+build1 amd64 [instalovaný]
-libreoffice-calc/jammy-security,jammy-updates,now 1:7.3.7-0ubuntu0.22.04.4 amd64 [instalovaný]
-libreoffice-help-cs/jammy-security,jammy-security,jammy-updates,jammy-updates,now 1:7.3.7-0ubuntu0.22.04.4 all [instalovaný]
-libreoffice-help-en-gb/jammy-security,jammy-security,jammy-updates,jammy-updates,now 1:7.3.7-0ubuntu0.22.04.4 all [instalovaný]
-libreoffice-help-en-us/jammy-security,jammy-security,jammy-updates,jammy-updates,now 1:7.3.7-0ubuntu0.22.04.4 all [instalovaný]
-libreoffice-impress/jammy-security,jammy-updates,now 1:7.3.7-0ubuntu0.22.04.4 amd64 [instalovaný]
-libreoffice-kde/jammy-security,jammy-security,jammy-updates,jammy-updates,now 1:7.3.7-0ubuntu0.22.04.4 all [instalovaný]
-libreoffice-l10n-cs/jammy-security,jammy-security,jammy-updates,jammy-updates,now 1:7.3.7-0ubuntu0.22.04.4 all [instalovaný]
-libreoffice-l10n-en-gb/jammy-security,jammy-security,jammy-updates,jammy-updates,now 1:7.3.7-0ubuntu0.22.04.4 all [instalovaný]
-libreoffice-l10n-en-za/jammy-security,jammy-security,jammy-updates,jammy-updates,now 1:7.3.7-0ubuntu0.22.04.4 all [instalovaný]
-libreoffice-lightproof-en/jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,now 0.4.3+1.6-2 all [instalovaný]
-libreoffice-nlpsolver/jammy-security,jammy-security,jammy-updates,jammy-updates,now 0.9+LibO7.3.7-0ubuntu0.22.04.4 all [instalovaný]
-libreoffice-writer/jammy-security,jammy-updates,now 1:7.3.7-0ubuntu0.22.04.4 amd64 [instalovaný]
-libsecret-1-0/jammy,jammy,jammy,jammy,jammy,now 0.20.5-2 amd64 [instalovaný]
-libsecret-1-dev/jammy,jammy,jammy,jammy,jammy,now 0.20.5-2 amd64 [instalovaný]
-libsodium23/jammy,jammy,jammy,jammy,jammy,now 1.0.18-1build2 amd64 [instalovaný]
-libxcvt0/jammy,jammy,jammy,jammy,jammy,now 0.1.1-3 amd64 [instalovaný]
-libxmlb2/jammy,now 0.3.14-0xneon+22.04+jammy+release+build4 amd64 [instalovaný]
-libzxingcore1/jammy,now 1.2.0-1+22.04+jammy+release+build3 amd64 [instalovaný]
-linux-generic/jammy-security,jammy-updates,now 5.15.0.94.91 amd64 [instalovaný]
-linux-tuxedo-22.04/tuxedo,now 6.5.0.10022.91 amd64 [instalovaný]
-lokalize/jammy,now 4:23.08.4-0xneon+22.04+jammy+release+build25 amd64 [instalovaný]
-mediainfo/jammy,jammy,jammy,jammy,jammy,now 22.03-1 amd64 [instalovaný]
-meld/jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,now 3.20.4-2 all [instalovaný]
-merkuro/jammy,now 23.08.4-0xneon+22.04+jammy+release+build21 amd64 [instalovaný]
-mlocate/jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,now 1.1.15-1ubuntu2 all [instalovaný]
-mozillavpn/jammy,now 2.20.0-jammy1 amd64 [instalovaný]
-mpack/jammy,jammy,jammy,jammy,jammy,now 1.6-18 amd64 [instalovaný]
-mythes-cs/jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,now 1:7.2.0-2 all [instalovaný]
-mythes-en-au/jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,now 2.1-5.6 all [instalovaný]
-mythes-en-us/jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,now 1:7.2.0-2 all [instalovaný]
-nala/scar,scar,scar,now 0.15.1 all [instalovaný]
-ncdu/jammy,jammy,jammy,jammy,jammy,now 1.15.1-1 amd64 [instalovaný]
-ncurses-base/jammy-security,jammy-security,jammy-updates,jammy-updates,now 6.3-2ubuntu0.1 all [instalovaný]
-ncurses-bin/jammy-security,jammy-updates,now 6.3-2ubuntu0.1 amd64 [instalovaný]
-neon-desktop/jammy,now 4+p22.04+vrelease+git20240125.1419 amd64 [instalovaný]
-neon-repositories-launchpad-mozilla/jammy,jammy,jammy,now 0.1+p22.04+vrelease+git20231224.0046 all [instalovaný]
-nethack-console/jammy,jammy,jammy,jammy,jammy,now 3.6.6-2build1 amd64 [instalovaný]
-newsboat/jammy,jammy,jammy,jammy,jammy,now 2.21-1 amd64 [instalovaný]
-nss-passwords/jammy,jammy,jammy,jammy,jammy,now 0.3-2 amd64 [instalovaný]
-openjdk-17-jre/jammy-security,jammy-updates,now 17.0.9+9-1~22.04 amd64 [instalovaný]
-openjdk-8-jdk/jammy-security,jammy-updates,now 8u392-ga-1~22.04 amd64 [instalovaný]
-openjdk-8-jre/jammy-security,jammy-updates,now 8u392-ga-1~22.04 amd64 [instalovaný]
-php5.6-cli/jammy,now 5.6.40-68+ubuntu22.04.1+deb.sury.org+1 amd64 [instalovaný]
-php7.4-cli/jammy,now 1:7.4.33-8+ubuntu22.04.1+deb.sury.org+1 amd64 [instalovaný]
-php8.0-bcmath/jammy,now 1:8.0.30-2+ubuntu22.04.1+deb.sury.org+1 amd64 [instalovaný]
-php8.0-cli/jammy,now 1:8.0.30-2+ubuntu22.04.1+deb.sury.org+1 amd64 [instalovaný]
-php8.0-common/jammy,now 1:8.0.30-2+ubuntu22.04.1+deb.sury.org+1 amd64 [instalovaný]
-php8.0-curl/jammy,now 1:8.0.30-2+ubuntu22.04.1+deb.sury.org+1 amd64 [instalovaný]
-php8.0-gd/jammy,now 1:8.0.30-2+ubuntu22.04.1+deb.sury.org+1 amd64 [instalovaný]
-php8.0-intl/jammy,now 1:8.0.30-2+ubuntu22.04.1+deb.sury.org+1 amd64 [instalovaný]
-php8.0-mbstring/jammy,now 1:8.0.30-2+ubuntu22.04.1+deb.sury.org+1 amd64 [instalovaný]
-php8.0-sqlite3/jammy,now 1:8.0.30-2+ubuntu22.04.1+deb.sury.org+1 amd64 [instalovaný]
-php8.0-xml/jammy,now 1:8.0.30-2+ubuntu22.04.1+deb.sury.org+1 amd64 [instalovaný]
-php8.0-zip/jammy,now 1:8.0.30-2+ubuntu22.04.1+deb.sury.org+1 amd64 [instalovaný]
-php8.0/jammy,jammy,now 1:8.0.30-2+ubuntu22.04.1+deb.sury.org+1 all [instalovaný]
-php8.2/jammy,jammy,now 8.2.15-1+ubuntu22.04.1+deb.sury.org+1 all [instalovaný]
-podman/jammy-security,jammy-updates,now 3.4.4+ds1-1ubuntu1.22.04.2 amd64 [instalovaný]
-python3-dbus/jammy,jammy,jammy,jammy,jammy,now 1.2.18-3build1 amd64 [instalovaný]
-python3-gpg/jammy,now 1.23.2-0xneon+22.04+jammy+release+build6 amd64 [instalovaný]
-python3-nacl/jammy,jammy,jammy,jammy,jammy,now 1.5.0-2 amd64 [instalovaný]
-python3-pip/jammy-security,jammy-security,jammy-updates,jammy-updates,now 22.0.2+dfsg-1ubuntu0.4 all [instalovaný]
-python3-pymacaroons/jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,now 0.13.0-4 all [instalovaný]
-python3-setproctitle/jammy,jammy,jammy,jammy,jammy,now 1.2.2-2build1 amd64 [instalovaný]
-python3-xlib/jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,now 0.29-1 all [instalovaný]
-python3/jammy-security,jammy-updates,now 3.10.6-1~22.04 amd64 [instalovaný]
-qml-module-org-kde-kcmutils/jammy,now 5.114.0-0xneon+22.04+jammy+release+build56 amd64 [instalovaný]
-qml-module-org-kde-pipewire/jammy,now 5.27.10-0xneon+22.04+jammy+release+build26 amd64 [instalovaný]
-qml-module-org-kde-sonnet/jammy,now 5.114.0-0xneon+22.04+jammy+release+build26 amd64 [instalovaný]
-qml-module-org-kde-syntaxhighlighting/jammy,now 5.114.0-0xneon+22.04+jammy+release+build26 amd64 [instalovaný]
-qml-module-qtquick-shapes/jammy,now 5.15.12+p22.04+vrelease+git20240113.1004-0 amd64 [instalovaný]
-rclone/jammy-security,jammy-updates,now 1.53.3-4ubuntu1.22.04.2 amd64 [instalovaný]
-ripgrep/jammy-security,jammy-updates,now 13.0.0-2ubuntu0.1 amd64 [instalovaný]
-rofi/jammy,jammy,jammy,jammy,jammy,now 1.7.1-0.1 amd64 [instalovaný]
-ruby-full/jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,now 1:3.0~exp1 all [instalovaný]
-scrcpy/jammy,jammy,jammy,jammy,jammy,now 1.21-1 amd64 [instalovaný]
-seafile-cli/stable,now 9.0.4 amd64 [instalovaný]
-seafile-gui/stable,now 9.0.4 amd64 [instalovaný]
-seahorse/jammy,jammy,jammy,jammy,jammy,now 41.0-2 amd64 [instalovaný]
-shellcheck/jammy,jammy,jammy,jammy,jammy,now 0.8.0-2 amd64 [instalovaný]
-shim-signed/jammy-security,jammy-updates,now 1.51.3+15.7-0ubuntu1 amd64 [instalovaný]
-shogivar/jammy,jammy,jammy,jammy,jammy,now 1.55b-3build1 amd64 [instalovaný]
-speech-dispatcher/jammy-updates,now 0.11.1-1ubuntu3 amd64 [instalovaný]
-sshpass/jammy,jammy,jammy,jammy,jammy,now 1.09-1 amd64 [instalovaný]
-sysvinit-utils/jammy,jammy,jammy,jammy,jammy,now 3.01-1ubuntu1 amd64 [instalovaný]
-tesseract-ocr-ces/jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,now 1:4.00~git30-7274cfa-1.1 all [instalovaný]
-tokodon/jammy,now 23.08.4-0xneon+22.04+jammy+release+build15 amd64 [instalovaný]
-translate-shell/jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,now 0.9.6.12-1 all [instalovaný]
-trash-cli/jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,now 0.17.1.14-5build1 all [instalovaný]
+aha/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 0.5.1-3build1 amd64 [instalovaný]
+appmenu-gtk2-module/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 0.7.6-2.1ubuntu2 amd64 [instalovaný]
+appmenu-gtk3-module/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 0.7.6-2.1ubuntu2 amd64 [instalovaný]
+aspell-cs/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 0.51.0-1.3 all [instalovaný]
+backintime-qt/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1.4.3-1 all [instalovaný]
+base-passwd/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 3.6.3build1 amd64 [instalovaný]
+bash/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 5.2.21-2ubuntu4 amd64 [instalovaný]
+bat/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 0.24.0-1build1 amd64 [instalovaný]
+ca-certificates/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 20240203 all [instalovaný]
+caffeine/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 2.9.12-1 all [instalovaný]
+curl/noble-updates,now 8.5.0-2ubuntu10.4 amd64 [instalovaný]
+dash/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 0.5.12-6ubuntu5 amd64 [instalovaný]
+dict/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1.13.1+dfsg-1build1 amd64 [instalovaný]
+diffpdf/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 2.1.3.1-2build3 amd64 [instalovaný]
+diffutils/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1:3.10-1build1 amd64 [instalovaný]
+evolution-ews/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 3.52.0-1build1 amd64 [instalovaný]
+evolution-plugin-spamassassin/noble-updates,now 3.52.3-0ubuntu1 amd64 [instalovaný]
+evolution/noble-updates,now 3.52.3-0ubuntu1 amd64 [instalovaný]
+exo-utils/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 4.18.0-1build4 amd64 [instalovaný]
+exuberant-ctags/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1:5.9~svn20110310-19build1 amd64 [instalovaný]
+fd-find/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 9.0.0-1 amd64 [instalovaný]
+festival/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1:2.5.0-10 amd64 [instalovaný]
+festvox-us-slt-hts/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 0.2010.10.25-4 all [instalovaný]
+ffmpeg/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 7:6.1.1-3ubuntu5 amd64 [instalovaný]
+findutils/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 4.9.0-5build1 amd64 [instalovaný]
+firefox/mozilla,now 131.0.2~build1 amd64 [instalovaný]
+firmware-sof-signed/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 2023.12.1-1ubuntu1 all [instalovaný]
+flatpak/noble-updates,now 1.14.6-1ubuntu0.1 amd64 [instalovaný]
+fonts-oxygen/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 4:5.4.3-4 all [instalovaný]
+fprintd/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1.94.3-1 amd64 [instalovaný]
+gaupol/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1.11-2 all [instalovaný]
+geany-plugin-addons/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 2.0-4ubuntu5 amd64 [instalovaný]
+geany-plugin-autoclose/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 2.0-4ubuntu5 amd64 [instalovaný]
+geany-plugin-automark/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 2.0-4ubuntu5 amd64 [instalovaný]
+geany-plugin-commander/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 2.0-4ubuntu5 amd64 [instalovaný]
+geany-plugin-ctags/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 2.0-4ubuntu5 amd64 [instalovaný]
+geany-plugin-extrasel/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 2.0-4ubuntu5 amd64 [instalovaný]
+geany-plugin-keyrecord/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 2.0-4ubuntu5 amd64 [instalovaný]
+geany-plugin-macro/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 2.0-4ubuntu5 amd64 [instalovaný]
+geany-plugin-projectorganizer/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 2.0-4ubuntu5 amd64 [instalovaný]
+geany-plugin-vimode/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 2.0-4ubuntu5 amd64 [instalovaný]
+geany/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 2.0-1build2 amd64 [instalovaný]
+gimp-help-en/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 2.10.34-2 all [instalovaný]
+gir1.2-fprint-2.0/noble-updates,now 1:1.94.7+tod1-0ubuntu5~24.04.1 amd64 [instalovaný]
+gir1.2-gtk-3.0/noble-updates,now 3.24.41-4ubuntu1.1 amd64 [instalovaný]
+gir1.2-vte-2.91/noble-updates,now 0.76.0-1ubuntu0.1 amd64 [instalovaný]
+git-delta/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 0.16.5-5 amd64 [instalovaný]
+git-extras/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 7.1.0-1 all [instalovaný]
+git-ftp/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1.6.0+dfsg-1 all [instalovaný]
+git-lfs/noble-updates,now 3.4.1-1ubuntu0.1 amd64 [instalovaný]
+gnome-keyring/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 46.1-2build1 amd64 [instalovaný]
+greed/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 4.2-1 amd64 [instalovaný]
+grep/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 3.11-4build1 amd64 [instalovaný]
+grub-efi-amd64-signed/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1.202+2.12-1ubuntu7 amd64 [instalovaný]
+grub-efi-ia32-bin/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 2.12-1ubuntu7 amd64 [instalovaný]
+gzip/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1.12-1ubuntu3 amd64 [instalovaný]
+haveged/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1.9.14-1ubuntu2 amd64 [instalovaný]
+hostname/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 3.23+nmu2ubuntu2 amd64 [instalovaný]
+hplip/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 3.23.12+dfsg0-0ubuntu5 amd64 [instalovaný]
+hstr/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 3.1+ds-1build2 amd64 [instalovaný]
+htop/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 3.3.0-4build1 amd64 [instalovaný]
+hunspell-cs/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1:24.2.1-1 all [instalovaný]
+hunspell-en-au/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1:2020.12.07-2 all [instalovaný]
+hunspell-en-ca/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1:2020.12.07-2 all [instalovaný]
+hunspell-en-gb/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1:24.2.1-1 all [instalovaný]
+hunspell-en-za/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1:24.2.1-1 all [instalovaný]
+hunspell/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1.7.2+really1.7.2-10build3 amd64 [instalovaný]
+hyphen-cs/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1:24.2.1-1 all [instalovaný]
+hyphen-en-ca/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 0.10ubuntu2 all [instalovaný]
+hyphen-en-gb/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1:24.2.1-1 all [instalovaný]
+hyphen-en-us/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 2.8.8-7build3 all [instalovaný]
+init/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1.66ubuntu1 amd64 [instalovaný]
+isoimagewriter/noble,now 24.08.1-0zneon+24.04+noble+release+build3 amd64 [instalovaný]
+jc/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1.25.1-1 all [instalovaný]
+jq/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1.7.1-3build1 amd64 [instalovaný]
+kamoso/noble,now 24.08.1-0zneon+24.04+noble+release+build3 amd64 [instalovaný]
+karbon/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1:3.2.1+dfsg-8build4 amd64 [instalovaný]
+katomic/noble,now 4:24.08.1-0zneon+24.04+noble+release+build4 amd64 [instalovaný]
+kcron/noble,noble,now 4:24.08.1-0zneon+24.04+noble+release+build4 all [instalovaný]
+kdiff3/noble,now 1.11.4-0zneon+24.04+noble+release+build3 amd64 [instalovaný]
+kigo/noble,now 4:24.08.1-0zneon+24.04+noble+release+build4 amd64 [instalovaný]
+kmahjongg/noble,now 4:24.08.1-0zneon+24.04+noble+release+build4 amd64 [instalovaný]
+knights/noble,now 24.08.1-0zneon+24.04+noble+release+build4 amd64 [instalovaný]
+konquest/noble,now 4:24.08.1-0zneon+24.04+noble+release+build4 amd64 [instalovaný]
+kontrast/noble,now 24.08.1-0zneon+24.04+noble+release+build3 amd64 [instalovaný]
+konversation/noble,now 24.08.1-0zneon+24.04+noble+release+build3 amd64 [instalovaný]
+krfb/noble,now 4:24.08.1-0zneon+24.04+noble+release+build4 amd64 [instalovaný]
+ksystemlog/noble,now 4:24.08.1-0zneon+24.04+noble+release+build5 amd64 [instalovaný]
+ktouch/noble,now 4:24.08.1-0zneon+24.04+noble+release+build4 amd64 [instalovaný]
+kubuntu-restricted-addons/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 29 amd64 [instalovaný]
+kubuntu-restricted-extras/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 67 amd64 [instalovaný]
+kup-backup/noble,now 0.10.0-0zneon+24.04+noble+release+build3 amd64 [instalovaný]
+kup-client/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 0.3.6-2.1 all [instalovaný]
+kwalletcli/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 3.03-1build2 amd64 [instalovaný]
+labplot/noble,now 2.11.1-1+24.04+noble+release+build2 amd64 [instalovaný]
+language-pack-gnome-cs/noble-updates,noble-updates,now 1:24.04+20240817 all [instalovaný]
+language-pack-kde-cs/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1:24.04.0ubuntu1 all [instalovaný]
+language-pack-kde-en/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1:24.04.0ubuntu1 all [instalovaný]
+lftp/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 4.9.2-2ubuntu1 amd64 [instalovaný]
+lib32z1/noble-updates,now 1:1.3.dfsg-3.1ubuntu2.1 amd64 [instalovaný]
+libavif-bin/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1.0.4-1ubuntu3 amd64 [instalovaný]
+libayatana-appindicator3-1/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 0.5.93-1build3 amd64 [instalovaný]
+libayatana-indicator3-7/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 0.9.4-1build1 amd64 [instalovaný]
+libc6/noble-updates,now 2.39-0ubuntu8.3 amd64 [instalovaný]
+libdebconfclient0/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 0.271ubuntu3 amd64 [instalovaný]
+libfprint-2-2/noble-updates,now 1:1.94.7+tod1-0ubuntu5~24.04.1 amd64 [instalovaný]
+libfprint-2-tod-dev/noble-updates,now 1:1.94.7+tod1-0ubuntu5~24.04.1 amd64 [instalovaný]
+libfreetype6/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 2.13.2+dfsg-1build3 i386 [instalovaný]
+libk3b8/noble,now 24.08.1-0zneon+24.04+noble+release+build6 amd64 [instalovaný]
+libkf5configqml5/noble,now 5.116.0-1zneon+24.04+noble+release+build3 amd64 [instalovaný]
+libkf5guiaddons-bin/noble,now 5.116.0-1zneon+24.04+noble+release+build3 amd64 [instalovaný]
+libkf5guiaddons-data/noble,noble,now 5.116.0-1zneon+24.04+noble+release+build3 all [instalovaný]
+libkf5i18nlocaledata5/noble,now 5.116.0-1zneon+24.04+noble+release+build3 amd64 [instalovaný]
+libkf5kcmutilscore5/noble,now 5.116.0-1zneon+24.04+noble+release+build3 amd64 [instalovaný]
+libkf5newstuffwidgets5/noble,now 5.116.0-1zneon+24.04+noble+release+build3 amd64 [instalovaný]
+libkf5prisonscanner5/noble,now 5.116.0-1zneon+24.04+noble+release+build3 amd64 [instalovaný]
+libkf5syndication5abi1/noble,now 1:5.116.0-1zneon+24.04+noble+release+build2 amd64 [instalovaný]
+libkpmcore12/noble,now 24.08.1-0zneon+24.04+noble+release+build4 amd64 [instalovaný]
+libkwineffects14/noble,noble,now 4:6.2.0-0zneon+24.04+noble+release+build4 all [instalovaný]
+libkwinglutils14/noble,noble,now 4:6.2.0-0zneon+24.04+noble+release+build4 all [instalovaný]
+libndp0/noble-updates,now 1.8-1fakesync1ubuntu0.24.04.1 amd64 [instalovaný]
+libnotify-bin/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 0.8.3-1build2 amd64 [instalovaný]
+libpcre2-posix3/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 10.42-4ubuntu2 amd64 [instalovaný]
+libqt5quickshapes5/noble,now 5.15.14+p24.04+vrelease+git20240821.1031-0 amd64 [instalovaný]
+libqt5webview5/noble,now 5.15.14+p24.04+vrelease+git20240821.2140-0 amd64 [instalovaný]
+libreoffice-calc/noble-updates,now 4:24.2.6-0ubuntu0.24.04.1 amd64 [instalovaný]
+libreoffice-help-cs/noble-updates,noble-updates,now 4:24.2.6-0ubuntu0.24.04.1 all [instalovaný]
+libreoffice-help-en-gb/noble-updates,noble-updates,now 4:24.2.6-0ubuntu0.24.04.1 all [instalovaný]
+libreoffice-help-en-us/noble-updates,noble-updates,now 4:24.2.6-0ubuntu0.24.04.1 all [instalovaný]
+libreoffice-impress/noble-updates,now 4:24.2.6-0ubuntu0.24.04.1 amd64 [instalovaný]
+libreoffice-l10n-cs/noble-updates,noble-updates,now 4:24.2.6-0ubuntu0.24.04.1 all [instalovaný]
+libreoffice-l10n-en-gb/noble-updates,noble-updates,now 4:24.2.6-0ubuntu0.24.04.1 all [instalovaný]
+libreoffice-l10n-en-za/noble-updates,noble-updates,now 4:24.2.6-0ubuntu0.24.04.1 all [instalovaný]
+libreoffice-lightproof-en/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 0.4.3+1.6-3 all [instalovaný]
+libreoffice-nlpsolver/noble-updates,noble-updates,now 4:0.9+LibO24.2.6-0ubuntu0.24.04.1 all [instalovaný]
+libreoffice-writer/noble-updates,now 4:24.2.6-0ubuntu0.24.04.1 amd64 [instalovaný]
+libsecret-1-0/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 0.21.4-1build3 amd64 [instalovaný]
+libsecret-1-dev/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 0.21.4-1build3 amd64 [instalovaný]
+libsodium23/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1.0.18-1build3 amd64 [instalovaný]
+libvte-2.91-0/noble-updates,now 0.76.0-1ubuntu0.1 amd64 [instalovaný]
+libxcvt0/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 0.1.2-1build1 amd64 [instalovaný]
+libxmlb2/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 0.3.18-1 amd64 [instalovaný]
+linux-generic/noble-updates,now 6.8.0-45.45 amd64 [instalovaný]
+linux-tuxedo/tuxedo,now 6.8.0-107045.45tux1 amd64 [instalovaný]
+lokalize/noble,now 4:24.08.1-0zneon+24.04+noble+release+build5 amd64 [instalovaný]
+mediainfo/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 24.01.1-1build2 amd64 [instalovaný]
+meld/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 3.22.2-1 all [instalovaný]
+mpack/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1.6-18 amd64 [instalovaný]
+mystiq/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 20.03.23-3build2 amd64 [instalovaný]
+mythes-cs/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1:24.2.1-1 all [instalovaný]
+mythes-en-au/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 2.1-6 all [instalovaný]
+mythes-en-us/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1:24.2.1-1 all [instalovaný]
+nala/nala,nala,nala,now 0.15.4 all [instalovaný]
+ncdu/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1.19-0.1 amd64 [instalovaný]
+ncurses-base/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 6.4+20240113-1ubuntu2 all [instalovaný]
+ncurses-bin/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 6.4+20240113-1ubuntu2 amd64 [instalovaný]
+neon-desktop/noble,now 4+p24.04+vrelease+git20240927.1544 amd64 [instalovaný]
+nethack-console/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 3.6.7-1build3 amd64 [instalovaný]
+nfs-common/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1:2.6.4-3ubuntu5 amd64 [instalovaný]
+nss-passwords/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 0.4-1 amd64 [instalovaný]
+openjdk-17-jdk/noble-updates,now 17.0.12+7-1ubuntu2~24.04 amd64 [instalovaný]
+openjdk-17-jre/noble-updates,now 17.0.12+7-1ubuntu2~24.04 amd64 [instalovaný]
+openjdk-21-jre/noble-updates,now 21.0.4+7-1ubuntu2~24.04 amd64 [instalovaný]
+openjdk-8-jdk/noble-updates,now 8u422-b05-1~24.04 amd64 [instalovaný]
+openjdk-8-jre/noble-updates,now 8u422-b05-1~24.04 amd64 [instalovaný]
+pandoc/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 3.1.3+ds-2 amd64 [instalovaný]
+partitionmanager/noble,now 24.08.1-0zneon+24.04+noble+release+build3 amd64 [instalovaný]
+plasma-discover-backend-flatpak/noble,now 6.2.0-0zneon+24.04+noble+release+build4 amd64 [instalovaný]
+plymouth-theme-breeze/noble,now 6.2.0-0zneon+24.04+noble+release+build4 amd64 [instalovaný]
+podman/noble-updates,now 4.9.3+ds1-1ubuntu0.1 amd64 [instalovaný]
+powertop/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 2.15-3build1 amd64 [instalovaný]
+python3-dbus/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1.3.2-5build3 amd64 [instalovaný]
+python3-gpg/noble,now 1.23.2-0zneon+24.04+noble+release+build1 amd64 [instalovaný]
+python3-nacl/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1.5.0-4build1 amd64 [instalovaný]
+python3-pkg-resources/nala,nala,nala,now 73.0.1-1 all [instalovaný]
+python3-pymacaroons/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 0.13.0-6 all [instalovaný]
+python3-setproctitle/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1.3.3-1build2 amd64 [instalovaný]
+python3-uno/noble-updates,now 4:24.2.6-0ubuntu0.24.04.1 amd64 [instalovaný]
+python3-xlib/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 0.33-2 all [instalovaný]
+python3/noble-updates,now 3.12.3-0ubuntu2 amd64 [instalovaný]
+qml-module-org-kde-kcmutils/noble,now 5.116.0-1zneon+24.04+noble+release+build3 amd64 [instalovaný]
+qml-module-org-kde-sonnet/noble,now 5.116.0-1zneon+24.04+noble+release+build2 amd64 [instalovaný]
+qml-module-org-kde-syntaxhighlighting/noble,now 5.116.0-1zneon+24.04+noble+release+build2 amd64 [instalovaný]
+qml-module-qtquick-shapes/noble,now 5.15.14+p24.04+vrelease+git20240821.1031-0 amd64 [instalovaný]
+qtchooser/noble,now 66+p24.04+vrelease+git20240903.0820-0 amd64 [instalovaný]
+qttools5-dev-tools/noble,now 5.15.14+p24.04+vrelease+git20240821.1232-0 amd64 [instalovaný]
+rclone/noble-updates,now 1.60.1+dfsg-3ubuntu0.24.04.1 amd64 [instalovaný]
+ripgrep/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 14.1.0-1 amd64 [instalovaný]
+rofi/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1.7.5-0.1build2 amd64 [instalovaný]
+ruby-full/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1:3.2~ubuntu1 all [instalovaný]
+scrcpy/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1.25-1ubuntu1 amd64 [instalovaný]
+seahorse/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 43.0-3build2 amd64 [instalovaný]
+shellcheck/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 0.9.0-1 amd64 [instalovaný]
+shim-signed/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1.58+15.8-0ubuntu1 amd64 [instalovaný]
+shogivar/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1.55b-3build3 amd64 [instalovaný]
+snapd/noble-updates,now 2.63.1+24.04 amd64 [instalovaný]
+speech-dispatcher/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 0.12.0~rc2-2build3 amd64 [instalovaný]
+speedcrunch/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 0.12.0-6build2 amd64 [instalovaný]
+sshpass/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1.09-1 amd64 [instalovaný]
+synaptic/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 0.91.3build4 amd64 [instalovaný]
+sysvinit-utils/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 3.08-6ubuntu3 amd64 [instalovaný]
+tesseract-ocr-ces/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1:4.1.0-2 all [instalovaný]
+texlive-xetex/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 2023.20240207-1 all [instalovaný]
+tokodon/noble,now 24.08.1-0zneon+24.04+noble+release+build3 amd64 [instalovaný]
+translate-shell/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 0.9.7.1-2 all [instalovaný]
+transmission-qt/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 4.0.5-1build5 amd64 [instalovaný]
+trash-cli/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 0.23.11.10-1 all [instalovaný]
+tree/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 2.1.1-2ubuntu3 amd64 [instalovaný]
 tuxedo-archive-keyring/tuxedo,tuxedo,now 2022.04.01~tux all [instalovaný]
-tuxedo-control-center/tuxedo,now 2.1.6 amd64 [instalovaný]
-tuxedo-dgpu-run/tuxedo,tuxedo,now 1.1.0 all [instalovaný]
-tuxedo-drivers/tuxedo,tuxedo,now 4.2.2 all [instalovaný]
-tuxedo-tomte/tuxedo,tuxedo,now 2.24.1 all [instalovaný]
-ubuntu-dbgsym-keyring/jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,now 2021.03.26 all [instalovaný]
-ubuntu-make/jammy,jammy,now 22.10+202401071313~ubuntu22.04.1 all [instalovaný]
-ubuntu-minimal/jammy-updates,now 1.481.1 amd64 [instalovaný]
-ubuntu-restricted-extras/jammy,jammy,jammy,jammy,jammy,now 67 amd64 [instalovaný]
-ubuntu-standard/jammy-updates,now 1.481.1 amd64 [instalovaný]
-vifm/jammy,jammy,jammy,jammy,jammy,now 0.12-1 amd64 [instalovaný]
-vim-gtk/jammy,jammy,now 2:9.0.0749-0york0~22.04 all [instalovaný]
-volian-archive-keyring/scar,scar,scar,now 0.2.0 all [instalovaný]
-volian-archive-nala/scar,scar,scar,now 0.2.0 all [instalovaný]
-vulkan-tools/jammy,jammy,jammy,jammy,jammy,now 1.3.204.0+dfsg1-1 amd64 [instalovaný]
-wayland-utils/jammy,now 1.0.0.1.0.0-0xneon+22.04+jammy+release+build1 amd64 [instalovaný]
-wbritish/jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,jammy,now 2020.12.07-2 all [instalovaný]
-webp/jammy-security,jammy-updates,now 1.2.2-2ubuntu0.22.04.2 amd64 [instalovaný]
-wine64/jammy,jammy,jammy,jammy,jammy,now 6.0.3~repack-1 amd64 [instalovaný]
-wmctrl/jammy,jammy,jammy,jammy,jammy,now 1.07-7build1 amd64 [instalovaný]
-xclip/jammy,jammy,jammy,jammy,jammy,now 0.13-2 amd64 [instalovaný]
-xdotool/jammy,jammy,jammy,jammy,jammy,now 1:3.20160805.1-4 amd64 [instalovaný]
-xsel/jammy,jammy,jammy,jammy,jammy,now 1.2.0+git9bfc13d.20180109-3 amd64 [instalovaný]
+tuxedo-control-center/tuxedo,now 2.1.13-4 amd64 [instalovaný]
+tuxedo-drivers/tuxedo,tuxedo,now 4.8.0 all [instalovaný]
+tuxedo-tomte/tuxedo,tuxedo,now 2.39.2 all [instalovaný]
+ubuntu-dbgsym-keyring/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 2023.11.28.1 all [instalovaný]
+ubuntu-minimal/noble-updates,now 1.539.1 amd64 [instalovaný]
+ubuntu-restricted-extras/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 67 amd64 [instalovaný]
+ubuntu-standard/noble-updates,now 1.539.1 amd64 [instalovaný]
+vifm/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 0.12-1build2 amd64 [instalovaný]
+volian-archive-keyring/nala,nala,nala,now 0.3.1 all [instalovaný]
+volian-archive-nala/nala,nala,nala,now 0.3.1 all [instalovaný]
+vulkan-tools/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1.3.275.0+dfsg1-1 amd64 [instalovaný]
+watchman/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 4.9.0-7build4 amd64 [instalovaný]
+wayland-utils/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1.2.0-1build1 amd64 [instalovaný]
+wbritish/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 2020.12.07-2 all [instalovaný]
+webp/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1.3.2-0.4build3 amd64 [instalovaný]
+wine64/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 9.0~repack-4build3 amd64 [instalovaný]
+wireguard-tools/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1.0.20210914-1ubuntu4 amd64 [instalovaný]
+wl-clipboard/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 2.2.1-1build1 amd64 [instalovaný]
+wmctrl/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1.07-7ubuntu3 amd64 [instalovaný]
+xclip/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 0.13-3 amd64 [instalovaný]
+xdotool/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1:3.20160805.1-5build1 amd64 [instalovaný]
+xsel/noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,noble,now 1.2.1-1 amd64 [instalovaný]
 #endregion
 ```
 </details>
@@ -276,35 +292,45 @@ xsel/jammy,jammy,jammy,jammy,jammy,now 1.2.0+git9bfc13d.20180109-3 amd64 [instal
 ```
 #region snap list
 Název                              Verze                       Rev    Následuje         Vydavatel               Poznámky
-android-studio                     2023.1.1.28-Hedgehog        148    latest/stable     snapcrafters*           classic
-bare                               1.0                         5      latest/stable     canonical**             base
-chromium                           121.0.6167.184              2757   latest/stable     canonical**             -
-code                               903b1e9d                    152    latest/stable     vscode**                classic
-core                               16-2.61.1                   16574  latest/stable     canonical**             core
-core18                             20231027                    2812   latest/stable     canonical**             base
-core20                             20240111                    2182   latest/stable     canonical**             base
-core22                             20240111                    1122   latest/stable     canonical**             base
-cups                               2.4.7-3                     1024   latest/stable     openprinting**          -
-figma-linux                        0.11.3                      189    latest/stable     youdonthavepermissiony  -
+android-studio                     2024.1.1.11-Koala           161    latest/stable     snapcrafters✪           classic
+bare                               1.0                         5      latest/stable     canonical✓              base
+chromium                           129.0.6668.89               2965   latest/stable     canonical✓              -
+code                               384ff738                    172    latest/stable     vscode✓                 classic
+core                               16-2.61.4-20240607          17200  latest/stable     canonical✓              core
+core18                             20240920                    2846   latest/stable     canonical✓              base
+core20                             20240705                    2379   latest/stable     canonical✓              base
+core22                             20240904                    1621   latest/stable     canonical✓              base
+core24                             20240710                    490    latest/stable     canonical✓              base
+cups                               2.4.10-1                    1058   latest/stable     openprinting✓           -
+dust                               v1.1.1                      19     latest/stable     danie.dejager           -
+figma-linux                        0.11.4                      197    latest/stable     youdonthavepermissiony  -
+firefox                            131.0.2-1                   5091   latest/stable     mozilla✓                -
 fzf-carroarmato0                   0.27.0                      27     latest/stable     carroarmato0            -
-gnome-3-28-1804                    3.28.0-19-g98f9e67.98f9e67  198    latest/stable     canonical**             -
-gnome-3-38-2004                    0+git.efb213a               143    latest/stable     canonical**             -
-gnome-42-2204                      0+git.ff35a85               141    latest/stable     canonical**             -
-gtk-common-themes                  0.1-81-g442e511             1535   latest/stable     canonical**             -
-kde-frameworks-5-core18            5.67.0                      35     latest/stable     kde**                   -
-kde-frameworks-5-qt-5-15-3-core20  5.87.0                      8      latest/stable     kde**                   -
-kf5-5-110-qt-5-15-11-core22        5.110                       3      latest/stable     kde**                   -
-kf5-5-111-qt-5-15-11-core22        5.111                       7      latest/stable     kde**                   -
-notepad-plus-plus                  8.6.4                       399    latest/stable     mmtrt                   -
-qt551                              5.x-core18                  43     latest/stable     keshavnrj*              -
-snapd                              2.61.1                      20671  latest/stable     canonical**             snapd
-storage-explorer                   1.32.1                      58     latest/stable     msft-storage-tools**    -
-teams                              1.5.00.23861                8      latest/stable     msteams**               -
+gnome-3-28-1804                    3.28.0-19-g98f9e67.98f9e67  198    latest/stable     canonical✓              -
+gnome-3-38-2004                    0+git.efb213a               143    latest/stable     canonical✓              -
+gnome-42-2204                      0+git.510a601               176    latest/stable     canonical✓              -
+gnome-46-2404                      0+git.5d6be1b               48     latest/stable     canonical✓              -
+gtk-common-themes                  0.1-81-g442e511             1535   latest/stable     canonical✓              -
+kde-frameworks-5-core18            5.67.0                      35     latest/stable     kde✓                    -
+kde-frameworks-5-qt-5-15-3-core20  5.87.0                      8      latest/stable     kde✓                    -
+kf5-5-110-qt-5-15-11-core22        5.110                       3      latest/stable     kde✓                    -
+kf5-5-111-qt-5-15-11-core22        5.111                       7      latest/stable     kde✓                    -
+mesa-2404                          24.0.9                      143    latest/stable     canonical✓              -
+notepad-plus-plus                  8.6.9                       408    latest/stable     mmtrt                   -
+pyqt5-runtime-core20               20.04                       9      latest/stable     rishabh3354             -
+qt551                              5.x-core18                  45     latest/stable     keshavnrj✪              -
+snapd                              2.63                        21759  latest/stable     canonical✓              snapd
+storage-explorer                   1.35.0                      62     latest/stable     msft-storage-tools✓     -
+sublime-merge                      2096                        85     latest/stable     snapcrafters✪           classic
+teams                              1.5.00.23861                8      latest/stable     msteams✓                -
 viu-image-viewer                   v1.3.0-10-g0dba818          1      latest/candidate  rhys-davies             -
 wine-platform-6-stable             6.0.4                       19     latest/stable     mmtrt                   -
 wine-platform-7-devel-core20       7.22                        24     latest/stable     mmtrt                   -
-wine-platform-runtime              v1.0                        357    latest/stable     mmtrt                   -
-wine-platform-runtime-core20       v1.0                        100    latest/stable     mmtrt                   -
+wine-platform-9-devel-core22       9.19                        28     latest/stable     mmtrt                   -
+wine-platform-runtime              v1.0                        390    latest/stable     mmtrt                   -
+wine-platform-runtime-core20       v1.0                        138    latest/stable     mmtrt                   -
+wine-platform-runtime-core22       v1.0                        85     latest/stable     mmtrt                   -
+yazi                               v0.2.4                      x1     -                 -                       classic
 #endregion
 ```
 </details>
@@ -312,56 +338,65 @@ wine-platform-runtime-core20       v1.0                        100    latest/sta
 <summary>FLATPAK</summary>
 ```
 #region flatpak list
-Text Pieces	com.github.liferooter.textpieces	3.4.1	stable	system
-Flatseal	com.github.tchx84.Flatseal	2.1.1	stable	system
-Frog	com.github.tenderowl.frog	1.5.1	stable	system
-Google Chrome	com.google.Chrome	121.0.6167.184-1	stable	system
-Sigil	com.sigil_ebook.Sigil	2.0.1	stable	system
-Láhve	com.usebottles.bottles	51.11	stable	system
-Blobby Volley 2	de.blobbyvolley.BlobbyVolley2	1.0	stable	system
-Qalculate! (GTK UI)	io.github.Qalculate	4.9.0	stable	system
-Endless Sky	io.github.endless_sky.endless_sky	0.10.4	stable	system
-Gear Lever	it.mijorus.gearlever	1.3.0	stable	system
-Minetest	net.minetest.Minetest	5.8.0	stable	system
-jPDF Tweak	net.sourceforge.jpdftweak.jPdfTweak	1.1	stable	system
-Freedesktop Platform	org.freedesktop.Platform	20.08.21	20.08	system
-Freedesktop Platform	org.freedesktop.Platform	22.08.21	22.08	system
-Freedesktop Platform	org.freedesktop.Platform	23.08.11	23.08	system
-i386	org.freedesktop.Platform.Compat.i386		23.08	system
-Mesa	org.freedesktop.Platform.GL.default	21.1.8	20.08	system
-Mesa	org.freedesktop.Platform.GL.default	23.3.5	22.08	system
-Mesa (Extra)	org.freedesktop.Platform.GL.default	23.3.5	22.08-extra	system
-Mesa	org.freedesktop.Platform.GL.default	23.3.4	23.08	system
-Mesa (Extra)	org.freedesktop.Platform.GL.default	23.3.4	23.08-extra	system
-Mesa	org.freedesktop.Platform.GL32.default	23.3.4	23.08	system
-Intel	org.freedesktop.Platform.VAAPI.Intel		20.08	system
-Intel	org.freedesktop.Platform.VAAPI.Intel		22.08	system
-Intel	org.freedesktop.Platform.VAAPI.Intel		23.08	system
-ffmpeg-full	org.freedesktop.Platform.ffmpeg-full		23.08	system
-i386	org.freedesktop.Platform.ffmpeg_full.i386		23.08	system
-openh264	org.freedesktop.Platform.openh264	2.1.0	2.0	system
-openh264	org.freedesktop.Platform.openh264	2.1.0	2.2.0	system
-Freedesktop SDK	org.freedesktop.Sdk	20.08.21	20.08	system
-Freedesktop SDK	org.freedesktop.Sdk	22.08.21	22.08	system
-Web	org.gnome.Epiphany	45.2	stable	system
-Síťové displeje GNOME	org.gnome.NetworkDisplays	0.92.1	stable	system
-GNOME Application Platform version 44	org.gnome.Platform		44	system
-GNOME Application Platform version 45	org.gnome.Platform		45	system
-i386	org.gnome.Platform.Compat.i386		45	system
-Adwaita dark GTK theme	org.gtk.Gtk3theme.Adwaita-dark		3.22	system
-Breeze GTK theme	org.gtk.Gtk3theme.Breeze	5.27.8	3.22	system
-Breeze Gtk theme	org.gtk.Gtk3theme.Breeze-Dark		3.22	system
-Inkscape	org.inkscape.Inkscape	1.3.2	stable	system
-KDE Application Platform	org.kde.Platform		5.15-22.08	system
-KDE Application Platform	org.kde.Platform		5.15-23.08	system
-KDE Application Platform	org.kde.Platform		6.5	system
-Kalkulačka	org.kde.kalk	23.08.4	stable	system
-Glaxnimate	org.mattbas.Glaxnimate	0.5.4	stable	system
-Battle for Wesnoth	org.wesnoth.Wesnoth	1.14.17	1.14	system
-DXVK	org.winehq.Wine.DLLs.dxvk	2.3	stable-23.08	system
-Gecko	org.winehq.Wine.gecko		stable-23.08	system
-Mono	org.winehq.Wine.mono		stable-23.08	system
-q4wine	ua.org.brezblock.q4wine	1.3.13	stable	system
+Saber                                                com.adilhanney.saber                                                          0.25.0                                  stable                      system
+NormCap                                              com.github.dynobo.normcap                                                     0.5.8                                   stable                      system
+Frog                                                 com.github.tenderowl.frog                                                     1.5.2                                   stable                      system
+Google Chrome                                        com.google.Chrome                                                             129.0.6668.100-1                        stable                      system
+Sigil                                                com.sigil_ebook.Sigil                                                         2.2.0                                   stable                      system
+Láhve                                                com.usebottles.bottles                                                        51.13                                   stable                      system
+Blobby Volley 2                                      de.blobbyvolley.BlobbyVolley2                                                 1.0                                     stable                      system
+Qalculate! (GTK UI)                                  io.github.Qalculate                                                           5.3.0                                   stable                      system
+Endless Sky                                          io.github.endless_sky.endless_sky                                             0.10.9                                  stable                      system
+Endless Sky High DPI                                 io.github.endless_sky.endless_sky.plugins.endless_sky_high_dpi                0.10.6                                  stable                      system
+Text Pieces                                          io.gitlab.liferooter.TextPieces                                               4.1.0                                   stable                      system
+VoiceGen                                             io.gitlab.persiangolf.voicegen                                                2.1.0                                   stable                      system
+Qt QDBusViewer                                       io.qt.qdbusviewer                                                             6.7                                     stable                      system
+Gear Lever                                           it.mijorus.gearlever                                                          2.1.0                                   stable                      system
+Minetest                                             net.minetest.Minetest                                                         5.9.1                                   stable                      system
+jPDF Tweak                                           net.sourceforge.jpdftweak.jPdfTweak                                           1.1                                     stable                      system
+Freedesktop Platform                                 org.freedesktop.Platform                                                      21.08.22                                21.08                       system
+Freedesktop Platform                                 org.freedesktop.Platform                                                      freedesktop-sdk-23.08.23                23.08                       system
+Freedesktop Platform                                 org.freedesktop.Platform                                                      freedesktop-sdk-24.08.3                 24.08                       system
+i386                                                 org.freedesktop.Platform.Compat.i386                                                                                  23.08                       system
+Mesa                                                 org.freedesktop.Platform.GL.default                                           21.3.9                                  21.08                       system
+Mesa                                                 org.freedesktop.Platform.GL.default                                           24.2.3                                  23.08                       system
+Mesa (Extra)                                         org.freedesktop.Platform.GL.default                                           24.2.3                                  23.08-extra                 system
+Mesa                                                 org.freedesktop.Platform.GL.default                                           24.2.4                                  24.08                       system
+Mesa (Extra)                                         org.freedesktop.Platform.GL.default                                           24.2.4                                  24.08extra                  system
+Mesa                                                 org.freedesktop.Platform.GL32.default                                         24.2.3                                  23.08                       system
+Intel                                                org.freedesktop.Platform.VAAPI.Intel                                                                                  21.08                       system
+Intel                                                org.freedesktop.Platform.VAAPI.Intel                                                                                  23.08                       system
+Intel                                                org.freedesktop.Platform.VAAPI.Intel                                                                                  24.08                       system
+i386                                                 org.freedesktop.Platform.VAAPI.Intel.i386                                                                             23.08                       system
+ffmpeg-full                                          org.freedesktop.Platform.ffmpeg-full                                                                                  23.08                       system
+i386                                                 org.freedesktop.Platform.ffmpeg_full.i386                                                                             23.08                       system
+openh264                                             org.freedesktop.Platform.openh264                                             2.1.0                                   2.0                         system
+openh264                                             org.freedesktop.Platform.openh264                                             2.1.0                                   2.2.0                       system
+openh264                                             org.freedesktop.Platform.openh264                                             2.4.1                                   2.4.1                       system
+Freedesktop SDK                                      org.freedesktop.Sdk                                                           freedesktop-sdk-23.08.23                23.08                       system
+Geany                                                org.geany.Geany                                                               2.0                                     stable                      system
+Web                                                  org.gnome.Epiphany                                                            47.0                                    stable                      system
+Síťové displeje GNOME                                org.gnome.NetworkDisplays                                                     0.93.0                                  stable                      system
+GNOME Application Platform version 45                org.gnome.Platform                                                                                                    45                          system
+GNOME Application Platform version 46                org.gnome.Platform                                                                                                    46                          system
+GNOME Application Platform version 47                org.gnome.Platform                                                                                                    47                          system
+i386                                                 org.gnome.Platform.Compat.i386                                                                                        46                          system
+Tau                                                  org.gnome.Tau                                                                 0.12.0                                  stable                      system
+Adwaita dark GTK theme                               org.gtk.Gtk3theme.Adwaita-dark                                                                                        3.22                        system
+Breeze GTK theme                                     org.gtk.Gtk3theme.Breeze                                                      6.2.0                                   3.22                        system
+Inkscape                                             org.inkscape.Inkscape                                                         1.3.2                                   stable                      system
+KDE Application Platform                             org.kde.Platform                                                                                                      5.15-23.08                  system
+KDE Application Platform                             org.kde.Platform                                                                                                      6.6                         system
+KDE Application Platform                             org.kde.Platform                                                                                                      6.7                         system
+KDE Software Development Kit                         org.kde.Sdk                                                                                                           6.6                         system
+KDE Software Development Kit                         org.kde.Sdk                                                                                                           6.7                         system
+Kalkulačka                                           org.kde.kalk                                                                  24.08.1                                 stable                      system
+Glaxnimate                                           org.mattbas.Glaxnimate                                                        0.5.4                                   stable                      system
+Battle for Wesnoth                                   org.wesnoth.Wesnoth                                                           1.18.2                                  stable                      system
+DXVK                                                 org.winehq.Wine.DLLs.dxvk                                                     2.4.1                                   stable-23.08                system
+Gecko                                                org.winehq.Wine.gecko                                                                                                 stable-23.08                system
+Mono                                                 org.winehq.Wine.mono                                                                                                  stable-23.08                system
+q4wine                                               ua.org.brezblock.q4wine                                                       1.3.13                                  stable                      system
 #endregion
 ```
 </details>
