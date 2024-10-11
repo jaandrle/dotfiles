@@ -14,6 +14,9 @@ if [ -x /usr/bin/dircolors ]; then
 	alias egrep='egrep --color=auto'
 	alias diff='diff --color=auto'
 fi
+
+~sezení(){ ~/Dokumenty/Projekty/Sezení; }
+
 alias §rm='rm -vi'
 alias §cp='cp -vi'
 alias §mv='mv -vi'

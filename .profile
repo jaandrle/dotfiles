@@ -40,3 +40,5 @@ PATH=/home/jaandrle/.local/share/umake/bin:$PATH
 # Added by Toolbox App
 export PATH="$PATH:/home/jaandrle/.local/share/JetBrains/Toolbox/scripts"
 
+
+. "$HOME/.cargo/env"

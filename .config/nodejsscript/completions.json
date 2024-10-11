@@ -48,6 +48,17 @@
 				"--help",
 				"--version"
 			]
+		},
+		"/home/jaandrle/Vzdálené/GitHub/DGF-Certified-Supervisory-Academy/build/bs/publishModule.mjs": {
+			"npx": true,
+			"completions": {},
+			"completions_all": [
+				"--lang",
+				"--division",
+				"--APP_CODE",
+				"--help",
+				"--version"
+			]
 		}
 	}
 }

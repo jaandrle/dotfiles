@@ -86,6 +86,20 @@ function jaaENV {
 		echo 'No env file `compose.yaml` or `.jaaENV`'
 		return 1
 	fi
+	
+	local chP="\[\033[0;35m\]"	  #purple
+	local chW="\[\033[00m\]"	  #white
+	export PS1_jaaENV="${chP}⋮${chW}"
+	
+	if [ ! -z ${ANDROID_SDK_ROOT_BAK+x} ]; then
+		export ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT_BAK
+		echo \$ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT_BAK
+		unset ANDROID_SDK_ROOT_BAK
+	fi
+	if [ ! -z ${unset_android_sdk+x} ]; then
+		export ANDROID_SDK_ROOT_BAK=$ANDROID_SDK_ROOT
+		unset ANDROID_SDK_ROOT
+	fi
 	if [ ! -z ${java+x} ]; then
 		[[ "$java" == "8" ]] && java=1.8
 		local java_local=$(java -version 2>&1 | awk -F '"' '/version/ {print $2}')
@@ -135,5 +149,5 @@ function jaaENV {
 	fi
 	
 	# Cleanup variables
-	unset android_home nodejs gradle php java
+	unset android_home unset_android_sdk nodejs gradle php java
 }

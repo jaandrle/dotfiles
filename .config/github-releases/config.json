@@ -8,9 +8,9 @@
 			"file_name": "github-desktop",
 			"exec": "yes",
 			"description": "Fork of GitHub Desktop to support various Linux distributions",
-			"last_update": "2024-08-10T17:00:04Z",
+			"last_update": "2024-08-17T01:47:21Z",
 			"downloads": "/home/jaandrle/bin/github-desktop",
-			"version": "release-3.4.3-linux1",
+			"version": "release-3.4.4-linuxbeta2",
 			"glare": ".*x86_64.*.AppImage"
 		},
 		{
@@ -21,8 +21,8 @@
 			"exec": "yes",
 			"description": "AI Browser",
 			"glare": "AppImage",
-			"last_update": "2024-07-29T15:29:11Z",
-			"version": "2.1.17",
+			"last_update": "2024-09-17T15:03:29Z",
+			"version": "2.15.1",
 			"downloads": "/home/jaandrle/bin/pinokio"
 		},
 		{
@@ -44,9 +44,9 @@
 			"group": "nondev",
 			"file_name": "youtube-music",
 			"exec": "yes",
-			"last_update": "2024-08-01T11:48:59Z",
+			"last_update": "2024-09-17T12:41:29Z",
 			"downloads": "/home/jaandrle/bin/youtube-music",
-			"version": "v3.5.1",
+			"version": "v3.5.3",
 			"glare": "AppImage"
 		},
 		{
@@ -176,9 +176,9 @@
 			"group": "nondev",
 			"file_name": "fedistar",
 			"exec": "yes",
-			"last_update": "2024-08-08T13:46:23Z",
+			"last_update": "2024-09-17T12:12:24Z",
 			"downloads": "/home/jaandrle/bin/fedistar",
-			"version": "v1.9.10",
+			"version": "v1.9.11",
 			"glare": ".*amd64.*.AppImage"
 		},
 		{
@@ -188,9 +188,9 @@
 			"group": "ai",
 			"file_name": "ollama",
 			"exec": "yes",
-			"last_update": "2024-08-13T20:27:42Z",
+			"last_update": "2024-09-23T03:39:10Z",
 			"downloads": "/home/jaandrle/bin/ollama",
-			"version": "v0.3.6",
+			"version": "v0.3.12",
 			"glare": "linux-amd64"
 		},
 		{
@@ -212,9 +212,9 @@
 			"group": "dev",
 			"file_name": "escrcpy",
 			"exec": "yes",
-			"last_update": "2024-08-03T17:09:45Z",
+			"last_update": "2024-09-16T08:23:35Z",
 			"downloads": "/home/jaandrle/bin/escrcpy",
-			"version": "v1.22.4",
+			"version": "v1.24.2",
 			"glare": ".*x86_64.*.AppImage"
 		},
 		{
@@ -224,9 +224,9 @@
 			"group": "dev-test",
 			"file_name": "drovp",
 			"exec": "yes",
-			"last_update": "2023-12-06T11:30:02Z",
+			"last_update": "2024-10-06T16:26:38Z",
 			"downloads": "/home/jaandrle/bin/drovp",
-			"version": "0.8.0",
+			"version": "0.8.2",
 			"glare": "x64.AppImage"
 		},
 		{
@@ -236,9 +236,9 @@
 			"group": "ai",
 			"file_name": "jan",
 			"exec": "yes",
-			"last_update": "2024-07-15T08:37:42Z",
+			"last_update": "2024-10-04T09:57:58Z",
 			"downloads": "/home/jaandrle/bin/jan",
-			"version": "v0.5.2",
+			"version": "v0.5.6",
 			"glare": ".*x86_64.*.AppImage"
 		},
 		{
@@ -248,9 +248,9 @@
 			"group": "ai",
 			"file_name": "Chatbox",
 			"exec": "yes",
-			"last_update": "2024-05-15T06:10:47Z",
+			"last_update": "2024-09-20T13:20:44Z",
 			"downloads": "/home/jaandrle/bin/Chatbox",
-			"version": "v1.3.10",
+			"version": "v0.10.0",
 			"glare": ".*x86_64.*.AppImage"
 		}
 	]

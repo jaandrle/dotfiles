@@ -2,8 +2,8 @@
 /* jshint esversion: 11,-W097, -W040, module: true, node: true, expr: true, undef: true *//* global echo, $, pipe, s, fetch, cyclicLoop */
 
 $.api("")
-.version("2024-03-18")
-.command("silicon [file]", [
+.version("2024-09-05")
+.command("silicon <file>", [
 	"Generovat obrázek s kódem pro sdílení na sociálních sítích. (alternativa k Carbon)",
 	"Toto je jen drobný wrapper s mými defaultními parametry.",
 	"Další nápověda viz `silicon --help`.",

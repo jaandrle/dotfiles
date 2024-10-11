@@ -52,7 +52,11 @@ function updatePromt {
 		PS1+="] "
 	fi
 	PS1+="${chB}\w${chW}"
-	PS1+="\n:"
+	if [ ! -z ${PS1_jaaENV+x} ]; then
+        PS1+="\n$PS1_jaaENV"
+    else
+        PS1+="\n:"
+    fi
 	history -a
 }
 setPromt

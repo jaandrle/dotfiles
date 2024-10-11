@@ -14,6 +14,7 @@ shopt -s expand_aliases
 # Install Ruby Gems to ~/.local/share/gems
 export GEM_HOME="$HOME/.local/share/gems"
 export PATH="$HOME/.local/share/gems/bin:$HOME/.local/bin:$PATH"
+. "$HOME/.cargo/env" # https://docs.astral.sh/uv/
 [ -f $BASH_DOTFILES/.bash_completions ] && . $BASH_DOTFILES/.bash_completions # for Vim
 
 [[ $- != *i* ]] && return					# If not running interactively, don't do anything
@@ -62,4 +63,4 @@ export GPG_TTY=$(tty)
 
 # HSTR configuration - add this to ~/.bashrc
 # if this is interactive shell, then bind hstr to Ctrl-space
-if [[ $- =~ .*i.* ]]; then bind '"\C-@": "\e^ihstr -- \n"'; fi
+if [[ $- =~ .*i.* ]]; then bind '"\C-@": "\e^ihstr -- \C-j"'; fi
