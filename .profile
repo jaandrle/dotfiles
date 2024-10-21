@@ -30,15 +30,7 @@ export GTK_MODULES
 export UBUNTU_MENUPROXY
 
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/"
-
-# Ubuntu make installation of Ubuntu Make binary symlink
-PATH=/home/jaandrle/.local/share/umake/bin:$PATH
-
 [ -f /home/jaandrle/.bash/.profile_androidsdk ] && . /home/jaandrle/.bash/.profile_androidsdk
-
 
 # Added by Toolbox App
 export PATH="$PATH:/home/jaandrle/.local/share/JetBrains/Toolbox/scripts"
-
-
-. "$HOME/.cargo/env"

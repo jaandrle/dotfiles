@@ -11,10 +11,8 @@ shopt -s expand_aliases
 [ -f $BASH_DOTFILES/.bash_jaaENV ] && . $BASH_DOTFILES/.bash_jaaENV
 [ -f $BASH_DOTFILES/.bash_sdkman ] && . $BASH_DOTFILES/.bash_sdkman
 [ -f $BASH_DOTFILES/.bash_nvm ] && . $BASH_DOTFILES/.bash_nvm
-# Install Ruby Gems to ~/.local/share/gems
-export GEM_HOME="$HOME/.local/share/gems"
-export PATH="$HOME/.local/share/gems/bin:$HOME/.local/bin:$PATH"
-. "$HOME/.cargo/env" # https://docs.astral.sh/uv/
+export NODE_COMPILE_CACHE=~/.cache/nodejs-compile-cache # https://nolanlawson.com/2024/10/20/why-im-skeptical-of-rewriting-javascript-tools-in-faster-languages/
+export PATH="$HOME/.local/bin:$PATH"
 [ -f $BASH_DOTFILES/.bash_completions ] && . $BASH_DOTFILES/.bash_completions # for Vim
 
 [[ $- != *i* ]] && return					# If not running interactively, don't do anything
@@ -23,7 +21,7 @@ export PATH="$HOME/.local/share/gems/bin:$HOME/.local/bin:$PATH"
 set -o vi									# VIM mode for bash
 bind -m vi-command 'Control-l: clear-screen'
 bind -m vi-insert 'Control-l: clear-screen'
-export MANPAGER="/bin/sh -c \"col -b | vim --not-a-term -c 'set ft=man ts=8 nomod nolist noma' -\""
+export MANPAGER="/bin/sh -c \"col -b | vim --appimage-extract-and-run --not-a-term -c 'set ft=man ts=8 nomod nolist noma' -\""
 shopt -s checkwinsize						# dynamic columns update after every cmd
 
 ## History

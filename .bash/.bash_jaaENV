@@ -89,7 +89,7 @@ function jaaENV {
 	
 	local chP="\[\033[0;35m\]"	  #purple
 	local chW="\[\033[00m\]"	  #white
-	export PS1_jaaENV="${chP}⋮${chW}"
+	export PS1_jaaENV="${chP}¦${chW}"
 	
 	if [ ! -z ${ANDROID_SDK_ROOT_BAK+x} ]; then
 		export ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT_BAK

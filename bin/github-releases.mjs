@@ -34,8 +34,10 @@
  */
 import { join } from "node:path";
 const path_config= $.xdg.config`github-releases`;
-const path_config_json= join(path_config, "config.json");
-const path_config_lock= join(path_config, "lock");
+const paths= {
+	/** config file path — JSON stringify of {@link Config} */	config: join(path_config, "config.json"),
+	/** path to lock file to prevent multiple instances */		lock: join(path_config, "lock"),
+};
 const path_temp= $.xdg.temp`github-releases.json`;
 let url_api= "github";
 const urls_api= {
@@ -52,7 +54,7 @@ const css= echo.css`
 `;
 
 $.api()
-	.version("2.1.0")
+	.version("2.2.0")
 	.describe("Helper for working with “packages” stored in GitHub releases.")
 	.option("--verbose", "Verbose output (WIP)")
 	.option("--group, -G", "Filter by group (not awaiable for noGRA)")
@@ -61,24 +63,70 @@ $.api()
 		"- GitHub (default): https://api.github.com/repos/",
 		"- Ungh: https://ungh.cc/repos/", "(not awaiable for noGRA)" ], "github")
 .command("unlock", "[noGRA] DANGER: Removes lock file. Use only if you know what you are doing!")
-.action(function(){
-	s.rm(path_config_lock);
-})
-.command("config [mode]", [ "[noGR] Config (file), use `mode` with these options:",
+	.action(function(){
+		s.rm(paths.lock);
+	})
+.command("config [mode]", [ "[noGRA] Config (file), use `mode` with these options:",
 		"- `edit`: opens config file in terminal editor using `$EDITOR` (defaults to vim)",
 		"- `path`: prints path to config file"
 	])
 	.action(async function(mode= "path"){
 		switch(mode){
-			case "path": echo(path_config_json); break;
+			case "path": echo(paths.config); break;
 			case "edit":
 				const editor= $.env.EDITOR || "vim";
-				await s.runA`${editor} ${path_config_json}`.pipe(process.stdout);
+				await s.runA`${editor} ${paths.config}`.pipe(process.stdout);
 				break;
 			default:
 				echo(`Unknown mode: '${mode}'. See '--help' for details.`);
 		}
 		$.exit(0);
+	})
+.command("edit <repository>", "Edit “package” information")
+	.alias("add")
+	.action(async function(repository){
+		if(!repository || !repository.includes("/"))
+			$.error(`Invalid repository: '${repository}'. Repository must be in the form '<owner>/<repo>'.`);
+		const config= /** @type {Config} */ ( readConfig() );
+		const i= config.packages.findIndex(r=> r.repository===repository);
+		echo(repository + ` — ${i==-1 ? "New" : "Edit"} package:`);
+		echo(`Use <tab> to autocomplete${i===-1 ? "" : " and empty to keep current value"}.`);
+		echo("");
+		const pkg= config.packages[i] || { repository, group: "" };
+		const groups= [ ...new Set(config.packages.map(r=> r.group)) ];
+		const q= (question, initial, ...c)=> {
+			const completions= [ ...new Set([initial, ...c.flat()]) ].filter(Boolean);
+			if(initial) question+= ` (current \`${initial}\`)`;
+			question= echo.format("%c"+question, css.pkg);
+			return s.read({ "-p": question+": ", completions }).then(pipe(
+				value=> value || initial,
+				value=> value ? value : $.error(`Missing '${question}'.`)
+			));
+		};
+		
+		try{
+			const name= await q("Name", pkg.name);
+			echo("(i) use `skip` as part of the group to skip it during checking/updating (“just register package”).");
+			const group= await q("Group", pkg.group, groups);
+			const { description: description_remote }= await fetch(urls_api[url_api]+repository).then(r=> r.json()).catch(_=> ({}));
+			const description= await q("Description", pkg.description, description_remote);
+			const file_name= await q("File name", pkg.file_name, repository.split("/"));
+			const downloads= config.target+file_name;
+			const exec= await q("Is executable", pkg.exec, [ "yes", "no" ]);
+			echo("(i) The glare is used to determine the right file to download. It is regular expression.");
+			const glare= await q("Glare", pkg.glare);
+		
+			const pkg_edit= Object.assign({}, pkg,
+				{ repository, name, description, group, file_name, exec, downloads, glare });
+			config.packages[i===-1 ? config.packages.length : i]= pkg_edit;
+			s.echo(JSON.stringify(config, null, "\t")).to(paths.config);
+			echo(`%cSaved into config file '${paths.config}'.`, css.ok);
+			$.exit(0);
+		} catch(e){
+			if(e instanceof $.Error) echo("%c"+e, css.err);
+			else echo();
+			$.exit(1);
+		}
 	})
 .command("ls", [ "Lists registered packages",
 		"Repositories marked with `-` signifies that the package is in the 'skip' group.",
@@ -88,7 +136,7 @@ $.api()
 	.action(function(filter){
 		const config = readConfig();
 		for(const { repository, version, description, group } of grepPackages(config, filter))
-			if(group!=="skip")
+			if(group && !group.includes("skip"))
 				echo(`+ %c${repository}%c@${version ? version : "—"}: %c${description}`, css.pkg, css.unset, css.skip);
 			else
 				echo(`- %c${repository}: ${description}`, css.skip);
@@ -106,17 +154,16 @@ $.api()
 	})
 .command("update", "Updates registered packages")
 	.action(async function(filter){
-		if(s.test("-f", path_config_lock))
-			return $.error(`The lock file '${path_config_lock}' already exists! Check if some other instance is running.`);
-		s.touch(path_config_lock);
+		if(s.test("-f", paths.lock))
+			return $.error(`The lock file '${paths.lock}' already exists! Check if some other instance is running.`);
+		s.touch(paths.lock);
 		const config = readConfig();
 		const results= await check(grepPackages(config, filter));
-		const start= Date.now();
 		let done= 0;
 		let todo= [];
 		echo("Collecting packages to update…");
 		for(const { status, value } of results){
-			if(status!==3 || value.local.group==="skip") continue;
+			if(status!==3 || (value.local.group || "skip").includes("skip")) continue;
 			echo("%c"+value.local.repository, css.pkg);
 			todo.push(download(
 				value,
@@ -141,9 +188,9 @@ $.api()
 				const { local, remote }= value;
 				echo("%c✓ "+local.repository+"%c@"+remote.tag_name, css.ok, css.skip);
 			}
-			s.echo(JSON.stringify(config, null, "\t")).to(path_config_json);
+			s.echo(JSON.stringify(config, null, "\t")).to(paths.config);
 		}
-		s.rm(path_config_lock);
+		s.rm(paths.lock);
 		$.exit(0);
 	})
 .parse();
@@ -186,7 +233,7 @@ function grepPackages({ packages }, { group, repository, api, verbose }){
 }
 function echoPkgStatus(status, { local, remote }){
 	let status_css, status_text;
-	if(local.group==="skip"){
+	if(local.group && local.group.includes("skip")){
 		status_text= "skipped";
 		status_css= "skip";
 	} else {
@@ -198,7 +245,7 @@ function echoPkgStatus(status, { local, remote }){
 }
 /**
  * @param {Config.packages} packages
- * @return {{ status: 0|1|2|3, value: { remote: GitHubRelease, local: ConfigPackage } }}
+ * @return {Promise<{ status: 0|1|2|3, value: { remote: GitHubRelease, local: ConfigPackage } }>}
  * */
 async function check(packages, cache){
 	return (await pipe(
@@ -245,9 +292,9 @@ async function fetchRelease({ repository, tag_name_regex }, cache){
 }
 
 function readConfig(){
-	if(!s.test("-f", path_config_json)) return { packages: [] };
+	if(!s.test("-f", paths.config)) return { packages: [] };
 	const out= Object.assign({ target: "~/bin/" },
-		s.cat(path_config_json).xargs(JSON.parse));
+		s.cat(paths.config).xargs(JSON.parse));
 	if(out.target.startsWith("~/")) out.target= $.xdg.home(out.target.slice(2));
 	return out;
 }

@@ -1,6 +1,7 @@
-""" VIM config file | Jan Andrle | 2024-07-10 (VIM >=8.1)
+""" VIM config file | Jan Andrle | 2024-10-21 (VIM >=9.1 AppImage)
 "" #region B – Base
 	scriptencoding utf-8 | set encoding=utf-8
+	set pythonthreedll=/lib/x86_64-linux-gnu/libpython3.10.so.1.0
 	let $BASH_ENV = "~/.bashrc"
 	set runtimepath^=~/.vim/bundle/*
 	packadd! matchit

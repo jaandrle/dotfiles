@@ -4,7 +4,7 @@
 		{
 			"repository": "shiftkey/desktop",
 			"name": "GitHub Desktop",
-			"group": "dev",
+			"group": "skip-dev",
 			"file_name": "github-desktop",
 			"exec": "yes",
 			"description": "Fork of GitHub Desktop to support various Linux distributions",
@@ -41,19 +41,19 @@
 			"repository": "th-ch/youtube-music",
 			"name": "youtube-music",
 			"description": "YouTube Music Desktop App bundled with custom plugins (and built-in ad blocker / downloader)",
-			"group": "nondev",
+			"group": "skip-nondev",
 			"file_name": "youtube-music",
 			"exec": "yes",
-			"last_update": "2024-09-17T12:41:29Z",
+			"last_update": "2024-10-16T11:58:54Z",
 			"downloads": "/home/jaandrle/bin/youtube-music",
-			"version": "v3.5.3",
+			"version": "v3.6.2",
 			"glare": "AppImage"
 		},
 		{
 			"repository": "ArchGPT/insomnium",
 			"name": "insomnium",
 			"description": "Insomnium is a fast local API testing tool that is privacy-focused and 100% local. For testing GraphQL, REST, WebSockets and gRPC. This is a fork of Kong/insomnia",
-			"group": "dev",
+			"group": "skip-dev",
 			"file_name": "insomnium",
 			"exec": "yes",
 			"last_update": "2023-11-13T10:03:28Z",
@@ -63,58 +63,42 @@
 			"glare": "AppImage"
 		},
 		{
-			"repository": "Kong/insomnia",
-			"name": "insomnia",
-			"description": "The open-source, cross-platform API client for GraphQL, REST, and gRPC.",
-			"group": "skip",
-			"file_name": "insomnia",
-			"exec": "yes",
-			"last_update": "2024-04-17T16:38:03Z",
-			"downloads": "/home/jaandrle/bin/insomnia",
-			"tag_name_regex": "core@.*",
-			"version": "core@9.0.0-beta.4",
-			"glare": "AppImage"
-		},
-		{
 			"repository": "rvpanoz/luna",
 			"name": "luna",
 			"description": "Manage npm dependencies through a modern UI.",
-			"group": "skip",
+			"group": "skip-dev",
 			"file_name": "luna",
 			"exec": "yes",
-			"glare": "AppImage"
+			"glare": "AppImage",
+			"last_update": "2020-10-29T23:06:39Z",
+			"version": "v.3.4.6",
+			"downloads": "/home/jaandrle/bin/luna"
 		},
 		{
 			"repository": "angela-d/wifi-channel-watcher",
 			"name": "wifi-channel-watcher",
-			"group": "skip",
+			"group": "skip-nondev",
 			"file_name": "wifi-channel-watcher",
 			"exec": "no",
 			"description": "Monitor channel usage of neighboring routers & get an alert if your active channel is not optimal.\tTroubleshoot wifi without lifting a finger!"
 		},
 		{
-			"repository": "vinceliuice/Tela-circle-icon-theme",
-			"name": "Tela-circle-icon-theme",
-			"description": "Tela-circle-icon-theme",
-			"group": "skip",
-			"file_name": "tela-circle-icon-theme.zip",
-			"last_update": "2021-07-19T14:12:05Z",
-			"exec": "no"
-		},
-		{
 			"repository": "AppImage/AppImageKit",
 			"name": "AppImageKit",
-			"group": "skip",
+			"group": "skip-nondev",
 			"file_name": "appimagekit",
 			"exec": "yes",
 			"description": "Package desktop applications as AppImages that run on common Linux-based operating systems, such as RHEL, CentOS, openSUSE, SLED, Ubuntu, Fedora, debian and derivatives. Join #AppImage on irc.freenode.net",
-			"glare": ".*x86_64.*.AppImage"
+			"glare": ".*x86_64.*.AppImage",
+			"last_update": "2023-03-08T23:25:46Z",
+			"version": "continuous",
+			"downloads": "/home/jaandrle/bin/appimagekit"
 		},
 		{
 			"repository": "dynobo/normcap",
 			"name": "NormCap",
 			"description": "Switched to flatpak version | OCR powered screen-capture tool to capture information instead of images",
-			"group": "skip",
+			"group": "skip-nondev",
 			"file_name": "normcap",
 			"exec": "yes",
 			"last_update": "2023-12-12T22:23:37Z",
@@ -132,30 +116,6 @@
 			"downloads": "/home/jaandrle/bin/upscayl",
 			"version": "v2.11.5",
 			"glare": "AppImage"
-		},
-		{
-			"repository": "RasmusLindroth/tut",
-			"name": "tut",
-			"description": "TUI for Mastodon with vim inspired keys",
-			"group": "nondev",
-			"file_name": "tut",
-			"exec": "yes",
-			"last_update": "2023-01-26T17:48:00Z",
-			"downloads": "/home/jaandrle/bin/tut",
-			"version": "2.0.1",
-			"glare": "tut-amd64"
-		},
-		{
-			"repository": "sunner/ChatALL",
-			"name": "ChatALL",
-			"description": " Concurrently chat with ChatGPT, Bing Chat, bard, Alpaca, Vincuna, Claude, ChatGLM, MOSS, iFlytek Spark, ERNIE and more, discover the best answers",
-			"group": "skip",
-			"file_name": "chatall",
-			"exec": "yes",
-			"last_update": "2024-04-14T02:09:42Z",
-			"downloads": "/home/jaandrle/bin/chatall",
-			"version": "v1.71.100",
-			"glare": ".*x86_64.*.AppImage"
 		},
 		{
 			"repository": "jaandrle/bs",
@@ -188,9 +148,9 @@
 			"group": "ai",
 			"file_name": "ollama",
 			"exec": "yes",
-			"last_update": "2024-09-23T03:39:10Z",
+			"last_update": "2024-10-21T05:10:12Z",
 			"downloads": "/home/jaandrle/bin/ollama",
-			"version": "v0.3.12",
+			"version": "v0.4.0-rc3",
 			"glare": "linux-amd64"
 		},
 		{
@@ -198,12 +158,24 @@
 			"name": "neovim",
 			"tag_name_regex": "v.*",
 			"description": "Vim-fork focused on extensibility and usability",
-			"group": "skip",
+			"group": "skip-dev",
 			"file_name": "nvim",
 			"exec": "yes",
 			"downloads": "/home/jaandrle/bin/nvim",
 			"version": "v0.9.5",
 			"last_update": "2023-12-30T13:31:47Z"
+		},
+		{
+			"repository": "vim/vim-appimage",
+			"name": "vim",
+			"description": "AppImage for gVim",
+			"group": "dev",
+			"file_name": "vim",
+			"exec": "yes",
+			"downloads": "/home/jaandrle/bin/vim",
+			"version": "v9.1.0794",
+			"last_update": "2024-10-21T01:18:07Z",
+			"glare": "GVim.*x86_64.*.AppImage"
 		},
 		{
 			"repository": "viarotel-org/escrcpy",
@@ -212,9 +184,9 @@
 			"group": "dev",
 			"file_name": "escrcpy",
 			"exec": "yes",
-			"last_update": "2024-09-16T08:23:35Z",
+			"last_update": "2024-10-21T02:03:58Z",
 			"downloads": "/home/jaandrle/bin/escrcpy",
-			"version": "v1.24.2",
+			"version": "v1.24.3",
 			"glare": ".*x86_64.*.AppImage"
 		},
 		{
@@ -236,9 +208,9 @@
 			"group": "ai",
 			"file_name": "jan",
 			"exec": "yes",
-			"last_update": "2024-10-04T09:57:58Z",
+			"last_update": "2024-10-17T10:32:20Z",
 			"downloads": "/home/jaandrle/bin/jan",
-			"version": "v0.5.6",
+			"version": "v0.5.7-rc2-beta",
 			"glare": ".*x86_64.*.AppImage"
 		},
 		{
@@ -248,9 +220,9 @@
 			"group": "ai",
 			"file_name": "Chatbox",
 			"exec": "yes",
-			"last_update": "2024-09-20T13:20:44Z",
+			"last_update": "2024-10-19T04:09:10Z",
 			"downloads": "/home/jaandrle/bin/Chatbox",
-			"version": "v0.10.0",
+			"version": "v0.10.1",
 			"glare": ".*x86_64.*.AppImage"
 		}
 	]

@@ -298,8 +298,8 @@
 				\*.php,
 				\*.md,*.html,
 				\*.json,*.xml
-				\ env -uCOLORTERM bat --color always --theme 'Visual Studio Dark+' --wrap never --pager never --tabs 2 %c -p
-	fileviewer <text/x-*>,<application/*> env -uCOLORTERM bat --color always --theme 'Visual Studio Dark+' --wrap never --pager never --tabs 2 %c -p
+				\ env -uCOLORTERM batcat --color always --theme 'Visual Studio Dark+' --wrap never --pager never --tabs 2 %c -p
+	fileviewer <text/x-*>,<application/*> env -uCOLORTERM batcat --color always --theme 'Visual Studio Dark+' --wrap never --pager never --tabs 2 %c -p
 " #endregion F
 " #region S – sS keys
 	nnoremap sf :file &
