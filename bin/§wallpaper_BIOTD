@@ -1,6 +1,20 @@
 #!/bin/bash
+# heredoc
+read -r -d '' JS <<JS
+const dir= '/home/jaandrle/Obrázky/Bing Image Of The Day/';
+const img= 'horizontally.jpg';
+desktops()
+.filter(d=> d.wallpaperPlugin==='org.kde.image')
+.forEach(d=> {
+    d.currentConfigGroup= ['Wallpaper', 'org.kde.image', 'General'];
+    if(!d.readConfig('Image').endsWith(img)) return;
+    d.writeConfig('Image', 'file://' + dir + 'now.jpg');
+    d.writeConfig('Image', 'file://' + dir + img);
+});
+JS
 nm-online -x -q && \
 	node "/home/jaandrle/.nvm/versions/node/$(node --version)/bin/nodejsscript" /home/jaandrle/bin/§wallpaper_WCPOTD.mjs pull && \
-	cd "/home/jaandrle/Obrázky/Bing Image Of The Day" && \
-	qdbus org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript 'const d= desktops().filter(d=> d.wallpaperPlugin==="de.unkn0wn.htmlwallpaper")[0];const url= (i= "")=> `file:///home/jaandrle/Obr%C3%A1zky/Bing%20Image%20Of%20The%20Day/index${i}.html`;d.currentConfigGroup= Array("Wallpaper", "de.unkn0wn.htmlwallpaper","General");d.writeConfig("DisplayPage", url("1"));d.writeConfig("DisplayPage", url());'
-#	convert now.jpg prev.jpg +append horizontally.jpg
+	qdbus org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript "$JS"
+#	plasma-apply-wallpaperimage '/home/jaandrle/Obrázky/Bing Image Of The Day/now.jpg' && plasma-apply-wallpaperimage '/home/jaandrle/Obrázky/Bing Image Of The Day/horizontally.jpg'
+#	cd "/home/jaandrle/Obrázky/Bing Image Of The Day" && \
+#	qdbus org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript 'const d= desktops().filter(d=> d.wallpaperPlugin==="de.unkn0wn.htmlwallpaper")[0];const url= (i= "")=> `file:///home/jaandrle/Obr%C3%A1zky/Bing%20Image%20Of%20The%20Day/index${i}.html`;d.currentConfigGroup= Array("Wallpaper", "de.unkn0wn.htmlwallpaper","General");d.writeConfig("DisplayPage", url("1"));d.writeConfig("DisplayPage", url());' && \

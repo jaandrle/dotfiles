@@ -1,5 +1,6 @@
 # IMPORT IN `$HOME/.profile`
-export ANDROID_HOME_BAK="$HOME/.local/share/JetBrains/Toolbox/apps/android-studio/"
+export ANDROID_HOME_BAK2="$HOME/.local/share/JetBrains/Toolbox/apps/android-studio/"
+export ANDROID_HOME_BAK="$HOME/Android/Sdk"
 export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
 export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools/
 export PATH=$PATH:$ANDROID_SDK_ROOT/emulator/

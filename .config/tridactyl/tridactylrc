@@ -59,7 +59,7 @@ bind ůůl fillcmdline_notrail js document.querySelector("video").currentTime+= 
 bind ůk js (v=> { if(!v) return; v.playbackRate+= 0.25 })(document.querySelector("video"))
 bind ůj js (v=> { if(!v) return; v.playbackRate-= 0.25 })(document.querySelector("video"))
 bind ů= js (v=> { if(!v) return; v.playbackRate= 1 })(document.querySelector("video"))
-bind ůG js (v=> { if(!v) return; v.play(); v.currentTime= v.duration-10; setTimeout(()=> tri.controller.acceptExCmd("pauseVideos"), 5000); })(document.querySelector("video"))
+bind ůG js (v=> { if(!v) return; v.play(); v.currentTime= ( location.hostname!=="www.disneyplus.com" ? v.duration : (document.querySelector(".time-remaining-label").textContent.split(":").reduce((acc, curr, i)=> (!i ? 60 : 1)*curr+acc, 0)+v.currentTime) )-10; setTimeout(()=> tri.controller.acceptExCmd("pauseVideos"), 5000); })(document.querySelector("video"))
 
 unbind --mode=normal d
 bind dd tabclose
@@ -103,7 +103,7 @@ alias hint_focus hint -;
 quickmark c moz-extension://616498c0-3916-4f0b-b0a9-ce01ecf2298d/popup.html
 
 command mastodonUncoverAll composite hint_focus .scrollable ; js (onclick=document.createEvent("Events"), onclick.initEvent("click", true, false), Array.from(document.activeElement.getElementsByClassName("status__content__spoiler-link")).forEach(el=> el.dispatchEvent(onclick)))
-command mastodonRedirectHome js const parts = location.pathname.split('/'); if(parts.length===2) location.href= `https://fosstodon.org/${parts[1]}@${location.host}`; else location.href= `https://fosstodon.org/authorize_interaction?uri=${location.href}`;
+command mastodonRedirectHome js const canonicalHref = document.querySelector('link[rel=canonical]')?.href; const parts = (canonicalHref ? new URL(canonicalHref) : location).pathname.split('/'); if(parts.length===2) location.href= `https://fosstodon.org/${parts[1]}@${location.host}`; else location.href= `https://fosstodon.org/authorize_interaction?uri=${location.href}`;
 bind sm fillcmdline_notrail mastodon
 
 command data_delall composite hint_focus * ; js document.activeElement.querySelectorAll("input").forEach(el=> el.checked=false)

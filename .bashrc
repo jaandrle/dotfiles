@@ -12,7 +12,7 @@ shopt -s expand_aliases
 [ -f $BASH_DOTFILES/.bash_sdkman ] && . $BASH_DOTFILES/.bash_sdkman
 [ -f $BASH_DOTFILES/.bash_nvm ] && . $BASH_DOTFILES/.bash_nvm
 export NODE_COMPILE_CACHE=~/.cache/nodejs-compile-cache # https://nolanlawson.com/2024/10/20/why-im-skeptical-of-rewriting-javascript-tools-in-faster-languages/
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH:/home/linuxbrew/.linuxbrew/bin"
 [ -f $BASH_DOTFILES/.bash_completions ] && . $BASH_DOTFILES/.bash_completions # for Vim
 
 [[ $- != *i* ]] && return					# If not running interactively, don't do anything
@@ -21,7 +21,7 @@ export PATH="$HOME/.local/bin:$PATH"
 set -o vi									# VIM mode for bash
 bind -m vi-command 'Control-l: clear-screen'
 bind -m vi-insert 'Control-l: clear-screen'
-export MANPAGER="/bin/sh -c \"col -b | vim --appimage-extract-and-run --not-a-term -c 'set ft=man ts=8 nomod nolist noma' -\""
+export MANPAGER="/bin/sh -c \"sed -e 's/\x1B\[[[:digit:]]\+m//g' | col -b | vim --appimage-extract-and-run --not-a-term -c 'set ft=man ts=8 nomod nolist noma' -\""
 shopt -s checkwinsize						# dynamic columns update after every cmd
 
 ## History
@@ -61,4 +61,5 @@ export GPG_TTY=$(tty)
 
 # HSTR configuration - add this to ~/.bashrc
 # if this is interactive shell, then bind hstr to Ctrl-space
-if [[ $- =~ .*i.* ]]; then bind '"\C-@": "\e^ihstr -- \C-j"'; fi
+# if [[ $- =~ .*i.* ]]; then bind '"\C-@": "\e^ihstr -- \C-j"'; fi
+if [[ $- =~ .*i.* ]]; then bind '"\C-@": "\e^I history | grep '\''\e\e^A'\''\e\ei"'; fi

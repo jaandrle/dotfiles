@@ -122,10 +122,12 @@ alias npx-hint='npx -y hint'
 alias npx-markdown='nohup npx markserv'
 
 alias fzf=fzf-carroarmato0.fzf
+alias smerge='/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=sublime_merge --file-forwarding com.sublimemerge.App @@u %u @@'
+kommit(){ command kommit $* > /dev/null 2>&1 & disown; }
 
 §url-curl(){ curl --silent -I "$1" | grep -i location; }
 
-alias bathelp='bat --plain --language=help'
+alias bathelp='batcat --plain --language=help'
 
 rpg(){
 	rpg-cli "$@"

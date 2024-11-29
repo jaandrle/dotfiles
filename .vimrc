@@ -168,6 +168,7 @@
 	vnoremap gx :silent exec "!xdg-open '".shellescape(substitute(mini_enhancement#selectedText(), '?', '\\?', ''), 1)."'" \| redraw!<cr>
 "" #endregion FOS
 "" #region EN – Editor navigation + search
+	set grepprg=LC_ALL=C\ grep\ -HRIns
 	set hlsearch incsearch														  " highlight search, start when typing
 	if maparg('<C-L>', 'n') ==# ''
 		nnoremap <silent> <c-l> :nohlsearch<c-r>=has('diff')?'<bar>diffupdate':''<cr><cr><c-l> | endif
@@ -435,6 +436,8 @@
 "" #endregion COC
 let g:codeium_disable_bindings = 1
 imap <script><silent><nowait><expr> <f3><f3> codeium#Accept()
+imap <script><silent><nowait><expr> <f3><w> codeium#AcceptNextWord()
+imap <script><silent><nowait><expr> <f3><j> codeium#AcceptLine()
 imap <f3>n   <Cmd>call codeium#CycleCompletions(1)<CR>
 imap <f3>N   <Cmd>call codeium#CycleCompletions(-1)<CR>
 imap <f3>d   <Cmd>call codeium#Clear()<CR>

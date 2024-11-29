@@ -124,9 +124,9 @@
 			"group": "dev",
 			"file_name": "bs",
 			"exec": "yes",
-			"last_update": "2024-03-28T13:16:41Z",
+			"last_update": "2024-10-22T12:04:29Z",
 			"downloads": "/home/jaandrle/bin/bs",
-			"version": "v0.7.4",
+			"version": "v0.8.0",
 			"glare": "bs-linux"
 		},
 		{
@@ -136,9 +136,9 @@
 			"group": "nondev",
 			"file_name": "fedistar",
 			"exec": "yes",
-			"last_update": "2024-09-17T12:12:24Z",
+			"last_update": "2024-10-23T12:45:06Z",
 			"downloads": "/home/jaandrle/bin/fedistar",
-			"version": "v1.9.11",
+			"version": "v1.9.12",
 			"glare": ".*amd64.*.AppImage"
 		},
 		{
@@ -148,9 +148,9 @@
 			"group": "ai",
 			"file_name": "ollama",
 			"exec": "yes",
-			"last_update": "2024-10-21T05:10:12Z",
+			"last_update": "2024-11-08T19:58:30Z",
 			"downloads": "/home/jaandrle/bin/ollama",
-			"version": "v0.4.0-rc3",
+			"version": "v0.4.1",
 			"glare": "linux-amd64"
 		},
 		{
@@ -173,8 +173,8 @@
 			"file_name": "vim",
 			"exec": "yes",
 			"downloads": "/home/jaandrle/bin/vim",
-			"version": "v9.1.0794",
-			"last_update": "2024-10-21T01:18:07Z",
+			"version": "v9.1.0857",
+			"last_update": "2024-11-12T01:13:27Z",
 			"glare": "GVim.*x86_64.*.AppImage"
 		},
 		{
@@ -184,9 +184,9 @@
 			"group": "dev",
 			"file_name": "escrcpy",
 			"exec": "yes",
-			"last_update": "2024-10-21T02:03:58Z",
+			"last_update": "2024-11-08T07:30:51Z",
 			"downloads": "/home/jaandrle/bin/escrcpy",
-			"version": "v1.24.3",
+			"version": "v1.26.3",
 			"glare": ".*x86_64.*.AppImage"
 		},
 		{
@@ -208,9 +208,9 @@
 			"group": "ai",
 			"file_name": "jan",
 			"exec": "yes",
-			"last_update": "2024-10-17T10:32:20Z",
+			"last_update": "2024-10-24T08:03:18Z",
 			"downloads": "/home/jaandrle/bin/jan",
-			"version": "v0.5.7-rc2-beta",
+			"version": "v0.5.7",
 			"glare": ".*x86_64.*.AppImage"
 		},
 		{
@@ -220,9 +220,9 @@
 			"group": "ai",
 			"file_name": "Chatbox",
 			"exec": "yes",
-			"last_update": "2024-10-19T04:09:10Z",
+			"last_update": "2024-11-07T15:22:15Z",
 			"downloads": "/home/jaandrle/bin/Chatbox",
-			"version": "v0.10.1",
+			"version": "v0.10.2",
 			"glare": ".*x86_64.*.AppImage"
 		}
 	]

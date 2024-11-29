@@ -9,7 +9,7 @@ const path_home= $.xdg.home`Obrázky/Bing Image Of The Day/`;
 const path_info= join(path_home, "images.json");
 
 $.api()
-.version("2024-06-17")
+.version("2024-11-14")
 .command("pull", "Pull new/today image(s)")
 .action(async function pull(){
 	const images= {
@@ -18,15 +18,19 @@ $.api()
 	};
 	const paths= await downloadImages(images);
 	updateHTML(images);
-	convert(paths);
-	pipe(
-		images=> Object.entries(images)
-			.reduce((acc, [ key, { caption } ])=>
-				Reflect.set(acc, key, caption) && acc,
-				{}),
-		images=> JSON.stringify(images, null, "\t"),
-		s.echo
-	)(images).to(path_info);
+	const images_save= Object.entries(images)
+		.reduce((acc, [ key, { caption } ])=>
+			Reflect.set(acc, key, caption) && acc,
+	{});
+	convert(paths, images_save);
+	s.echo(JSON.stringify(images_save, null, "\t")).to(path_info);
+	$.exit(0);
+})
+.command("redraw")
+.action(function redraw(){
+	const paths= [ "now", "prev" ].map(key=> join(path_home, `${key}.jpg`));
+	const images= s.cat(path_info).xargs(JSON.parse);
+	convert(paths, images);
 	$.exit(0);
 })
 .command("status")
@@ -40,13 +44,35 @@ $.api()
 /** @typedef {{ url: string, caption: string }} T_response */
 /** @typedef {Record<"now"|"prev",T_response>} T_images */
 /** @param {Record<"now"|"prev",string>} paths */
-function convert(paths){
+function convert(paths, images){
 	const resize_to= "1920x1080";
 	
 	paths= Object.values(paths);
 	const target= join(path_home, "horizontally.jpg");
 	const params= `-resize ${resize_to}^ -gravity center -extent ${resize_to}`.split(" ");
+	const caption= (position, text)=> [
+		"convert",
+		`"${target}"`,
+			"\\(",
+				"-pointsize", "12",
+				"-background", "transparent",
+				"-fill", "white",
+				"-family", `"Ubuntu Mono"`,
+				"-weight", "Bold",
+				"-gravity", "center",
+				"-bordercolor",  '"rgba(0,0,0,0.3)"',
+				"-border", "10",
+				"-size", "500x",
+				`caption:"${text}"`,
+			"\\)",
+			"-gravity", position,
+			"-geometry", "+0+0",
+			"-composite",
+		`"${target}"`,
+	].join(" ");
 	s.run`convert ${paths} ${params} +append ${target}`;
+	s.run(caption("southwest", images.now));
+	s.run(caption("southeast", images.prev));
 }
 import { writeFileSync } from "node:fs";
 /** @param {T_images} images */

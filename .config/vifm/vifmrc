@@ -280,7 +280,7 @@
 		else
 			fileviewer
 				\*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm,
-				\ env -u COLORTERM viu-image-viewer.viu %"c -w %pw -t &&
+				\ env -u COLORTERM viu %"c -w %pw -t &&
 				\ echo $(file -b %f)
 				\ %pc
 			fileviewer 

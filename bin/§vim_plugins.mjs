@@ -78,7 +78,7 @@ function removePack(path){
 	s.cd(dirs.pack);
 	s.$("-V").rm("-rf", path);
 	const root= dirs.pack+path.split("/")[0];
-	const { code, stdout }= s.$().find(root+"/*/*");
+	const { code, stdout }= s.$("-Sf").find(root+"/*/*");
 	if(!code) echo(stdout);
 	else if(s.test("-d", root))
 		s.$("-V").rm("-rf", root);
