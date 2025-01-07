@@ -60,8 +60,6 @@
 	cabbrev ALTR ALTredrawSyntax
 	command! -nargs=0
 		\ ALTredrawSyntax edit | exec 'normal `"' | exec 'set ft='.&ft
-	command! -complete=command -bar -range -nargs=+
-		\ ALTredir call jaandrle_utils#redir(0, <q-args>, <range>, <line1>, <line2>)
 	
 	let g:quickfix_len= 0
 	function! QuickFixStatus() abort
@@ -129,7 +127,23 @@
 "" #endregion LLW
 "" #region CN – Clipboard + Navigation throught Buffers + Windows + … (CtrlP)
 	set pastetoggle=<F2> | nnoremap <F2> :set invpaste paste?<CR>
-	nnoremap <silent> <leader>" :call jaandrle_utils#copyRegister()<cr>
+	function! JaaCopyRegister()
+		echo "Copy content of the register: "
+		let sourceReg = nr2char(getchar())
+		if sourceReg !~# '\v^[a-z0-9"*+]'
+			echon sourceReg." – invalid register"
+			return
+		endif
+		echon sourceReg."\ninto the register: "
+		let destinationReg = nr2char(getchar())
+		if destinationReg !~# '\v^[a-z0-9"*+]'
+			echon destinationReg." – invalid register"
+			return
+		endif
+		call setreg(destinationReg, getreg(sourceReg, 1))
+		echon destinationReg
+	endfunction
+	nnoremap <silent> <leader>" :call JaaCopyRegister()<cr>
 	
 	nmap <expr> š buffer_number("#")==-1 ? "\<leader>š<cr>" : "\<c-^>"
 	nmap <leader>3 :buffers<cr>:b<space>
@@ -147,8 +161,25 @@
 "" #region FOS – File(s) + Openning + Saving
 	set autowrite autoread | autocmd FocusGained,BufEnter *.* checktime
 	set modeline
-	command! -nargs=?
-		\ CLmodeline :call jaandrle_utils#AppendModeline(<q-args>=='basic' ? 0 : 1)
+	function! JaaAppendModeline(additional= 0)
+		let l:modeline= printf(" vim: set tabstop=%d shiftwidth=%d textwidth=%d %sexpandtab :",
+			\ &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
+		let l:modeline= substitute(&commentstring, "%s", l:modeline, "")
+		call append(line("$"), l:modeline)
+		
+		if !a:additional | return 0 | endif
+		if &foldmethod=="marker"
+			let l:modeline= printf(" vim>60: set foldmethod=marker foldmarker=%s :",
+				\ &foldmarker)
+		elseif &foldmethod=="indent"
+			let l:modeline= printf(" vim>60: set foldmethod=indent foldlevel=%d foldnestmax=%d:",
+				\ &foldlevel, &foldnestmax)
+		else
+			return 0
+		endif
+		let l:modeline= substitute(&commentstring, "%s", l:modeline, "")
+		call append(line("$"), l:modeline)
+	endfunction
 
 	set path+=src/**,app/**,build/**														" File matching for `:find`
 	for ignore in [ '.git', '.npm', 'node_modules' ]
