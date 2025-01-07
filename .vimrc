@@ -1,10 +1,13 @@
-""" VIM config file | Jan Andrle | 2024-10-21 (VIM >=9.1 AppImage)
+""" VIM config file | Jan Andrle | 2025-01-07 (VIM >=9.1 AppImage)
 "" #region B – Base
 	scriptencoding utf-8 | set encoding=utf-8
 	set pythonthreedll=/lib/x86_64-linux-gnu/libpython3.10.so.1.0
 	let $BASH_ENV = "~/.bashrc"
 	set runtimepath^=~/.vim/bundle/*
 	packadd! matchit
+	packadd! cfilter
+	let g:ft_man_folding_enable = 1
+	runtime! ftplugin/man.vim
 	" set hidden
 	
 	set title
@@ -51,10 +54,10 @@
 	""" #endregion BB
 "" #endregion B
 "" #region H – Helpers
+	" TODO DEL
 	command! -nargs=?  CLscratch 10split | enew | setlocal buftype=nofile bufhidden=wipe noswapfile nobuflisted | if <q-args>!='' | execute 'normal "'.<q-args>.'p' | endif | nnoremap <buffer> ;q :q<cr>
 	
 	cabbrev ALTR ALTredrawSyntax
-	set grepprg=LC_ALL=C\ grep\ -nrsH
 	command! -nargs=0
 		\ ALTredrawSyntax edit | exec 'normal `"' | exec 'set ft='.&ft
 	command! -complete=command -bar -range -nargs=+
@@ -77,16 +80,6 @@
 	augroup quickfix
 		autocmd!
 		autocmd QuickFixCmdPost * call <sid>QuickFixCmdPost()
-		autocmd filetype qf
-			\  if filter(getwininfo(), {i,v -> v.winnr == winnr()})[0].loclist
-			\|		nnoremap <buffer> ;q :lclose<cr>
-			\|		nnoremap <buffer> ;w :lgetbuffer<CR>:lclose<CR>:lopen<CR>
-			\|		nnoremap <buffer> ;s :ldo s///gc \| update<c-left><c-left><c-left><right><right>
-			\| else
-			\|		nnoremap <buffer> ;q :cclose<cr>
-			\|		nnoremap <buffer> ;w :cgetbuffer<CR>:cclose<CR>:copen<CR>
-			\|		nnoremap <buffer> ;s :cdo s///gc \| update<c-left><c-left><c-left><right><right>
-			\| endif
 	augroup END
 "" #endregion H
 "" #region SLH – Status Line + Command Line + History (general) + Sessions + File Update, …
@@ -97,6 +90,7 @@
 	cabbrev wbw w<bar>bw
 	
 	set sessionoptions-=options
+	" TODO DEL
 	command! -nargs=1
 		\ CLSESSIONcreate :call mini_sessions#create(<f-args>)
 	command! -nargs=0
@@ -125,6 +119,7 @@
 	set cursorline cursorcolumn															" Always show current position
 	set number foldcolumn=2								  " enable line numbers and add a bit extra margin to the left
 	set colorcolumn=+1																				  " …marker visual
+	" TODO DEL
 	command -nargs=? SETtextwidth if <q-args> | let &textwidth=<q-args> | let &colorcolumn='<args>,120,240' | else | let &textwidth=250 | let &colorcolumn='120,240' | endif
 	SETtextwidth																	" wraping lines and show two lines
 	set nowrap											" Don't wrap long lines by default
@@ -181,7 +176,6 @@
 	" use <c-v>§ for §
 	inoremap § <esc>
 	set nrformats-=octal
-	command! -nargs=1 SETTOGGLEnrformats if &nf=~<q-args> | set nf-=<args> | else | set nf+=<args> | endif
 
 	let g:htl_css_templates=1
 	let g:markdown_fenced_languages= [ 'javascript', 'js=javascript', 'json', 'html', 'php', 'bash', 'vim', 'vimscript=javascript', 'sass' ]
@@ -202,7 +196,6 @@
 	let g:rainbow#blacklist = [203,9]
 	autocmd VimEnter * try
 		\| call rainbow_parentheses#toggle() | catch | endtry
-	command! SETTOGGLErainbowParentheses call rainbow_parentheses#toggle()
 	" HIGHLIGHT&YANK plugins machakann/vim-highlightedyank & cwordhi.vim
 	let g:highlightedyank_highlight_duration= 250
 	let g:cwordhi#autoload= 1
@@ -211,6 +204,7 @@
 	if v:version > 703 || v:version == 703 && has("patch541")
 		set formatoptions+=j | endif							" Delete comment character when joining commented lines
 	set smarttab
+	" TODO DEL
 	command! -nargs=1 SETtab let &shiftwidth=<q-args> | let &tabstop=<q-args> | let &softtabstop=<q-args>
 	SETtab 4
 	set backspace=indent,eol,start					" Allow cursor keys in insert mode:  http://vi.stackexchange.com/a/2163
@@ -284,9 +278,17 @@
 		autocmd!
 		autocmd FileType gitmessengerpopup setlocal keywordprg=git\ show
 	augroup END
-	command! -nargs=0
-		\ GITblameThis GitMessenger
 "" #endregion GIT
+"" #region AI
+let g:codeium_disable_bindings = 1
+imap <script><silent><nowait><expr> <f3><f3> codeium#Accept()
+imap <script><silent><nowait><expr> <f3><w> codeium#AcceptNextWord()
+imap <script><silent><nowait><expr> <f3><j> codeium#AcceptLine()
+imap <f3>n   <Cmd>call codeium#CycleCompletions(1)<CR>
+imap <f3>N   <Cmd>call codeium#CycleCompletions(-1)<CR>
+imap <f3>d   <Cmd>call codeium#Clear()<CR>
+imap <f3>!   <Cmd>call codeium#Complete()<CR>
+"" #endregion AI
 "" #region COC – COC and so on, compilers, code/commands completions
 	let g:coc_global_extensions= ['coc-css', 'coc-docthis', 'coc-emmet', 'coc-emoji', 'coc-pretty-ts-errors', 'coc-eslint', 'coc-gitmoji', 'coc-html', 'coc-json', 'coc-marketplace', 'coc-phpls', 'coc-sh', 'coc-snippets', 'coc-styled-components', 'coc-svg', 'coc-tabnine', 'coc-tsserver']
 	" https://github.com/antonk52/cssmodules-language-server
@@ -298,21 +300,6 @@
 	\ "settings": {}
 	\ })
 	autocmd FileType scss setl iskeyword+=@-@
-	command -nargs=? ALTmake if &filetype=='javascript' | compiler jshint | elseif &filetype=='php' | compiler php | endif
-						  \| if <q-args>!='' | silent make <args> | else | silent make '%' | endif | checktime | silent redraw!		   " …prev line, hotfix (filetype detection does’t works)
-	function <sid>ToggleALTmakeOnWrite()
-		if exists('#ALTmake_auto#BufWritePost')
-			augroup ALTmake_auto
-				autocmd!
-			augroup END
-		else
-			augroup ALTmake_auto
-				autocmd!
-				autocmd BufWritePost *.{php,js,mjs} execute 'ALTmake' | call <sid>QuickFixCmdPost()
-			augroup END
-		endif
-	endfunction
-	command! ALTmakeOnWrite call <sid>ToggleALTmakeOnWrite()
 	function! CustomKeyWord(word)
 		if(a:word=="gulp_place")
 			highlight link gulp_place ErrorMsg
@@ -336,8 +323,6 @@
 	endfunction
 
 	nmap <silent> gd <Plug>(coc-definition)
-	nmap <leader>/ :CocSearch 
-	nmap <leader>? <leader>/
 	command! -nargs=* -complete=customlist,<sid>SCommandCocActionComplete CocAction call CocActionAsync(<f-args>)
 	function s:SCommandCocActionComplete(argLead, cmdLine, cursorPos)
 		return readfile(expand('~/.vim/pack/coc/start/coc.nvim/doc/tags'), 'r')
@@ -360,7 +345,6 @@
 		vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 	endif
 	""" #endregion COCP
-	" TODO DEL: command! -nargs=? SETFOLDcoc :call CocAction('fold', <f-args>)
 
 	command! -nargs=?  CLhelpMy if <q-args>!='' | exec 'map '.<q-args> | else | call popup_notification([
 		\ 'Custom mappings starting: '.mapleader.',§, ů, ;, U, ž',
@@ -422,6 +406,7 @@
 			return <sid>show_documentation_vim('h '.a:word)
 		endif
 		if (!CocAction('hasProvider', 'hover'))
+			if &filetype=='man' | call dist#man#PreGetPage(0) | return 0 | endif
 			return feedkeys('K', 'in')
 		endif
 		if &filetype=='html' && coc#source#custom_elements#hover(a:word)!=0
@@ -434,14 +419,6 @@
 		call execute(a:cmd) | call histadd("cmd", a:cmd)
 	endfunction
 "" #endregion COC
-let g:codeium_disable_bindings = 1
-imap <script><silent><nowait><expr> <f3><f3> codeium#Accept()
-imap <script><silent><nowait><expr> <f3><w> codeium#AcceptNextWord()
-imap <script><silent><nowait><expr> <f3><j> codeium#AcceptLine()
-imap <f3>n   <Cmd>call codeium#CycleCompletions(1)<CR>
-imap <f3>N   <Cmd>call codeium#CycleCompletions(-1)<CR>
-imap <f3>d   <Cmd>call codeium#Clear()<CR>
-imap <f3>!   <Cmd>call codeium#Complete()<CR>
 
 " vim: set textwidth=250 :
 " vim>60: set foldmethod=marker foldmarker=#region,#endregion :
