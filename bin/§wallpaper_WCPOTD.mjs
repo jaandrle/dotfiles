@@ -9,7 +9,7 @@ const path_home= $.xdg.home`Obrázky/Bing Image Of The Day/`;
 const path_info= join(path_home, "images.json");
 
 $.api()
-.version("2024-11-14")
+.version("2025-01-06")
 .command("pull", "Pull new/today image(s)")
 .action(async function pull(){
 	const images= {
@@ -96,8 +96,15 @@ async function getImagePath(shift= 0){
 		prop: "wikitext",
 		text: `{{Potd/${date}}}`,
 	});
+	const pluckCaption= response=> response.expandtemplates.wikitext;
+	const caption_fallback= await fetchGet({
+		action: "expandtemplates",
+		prop: "wikitext",
+		text: `{{Potd/${date} (en)}}`,
+	}).then(pluckCaption);
 	const caption= pipe(
-		response=> response.expandtemplates.wikitext,
+		pluckCaption,
+		caption=> caption !== `[[:Template:Potd/${date} (cs)]]` ? caption : caption_fallback,
 		caption=> caption.replace(/\[\[.*?\]\]/g, m=> m.slice(2, -2).split("|").reverse()[0]),
 		caption=> caption.replace(/''(.*?)''/g, "„$1”"),
 	)(await fetchGet({

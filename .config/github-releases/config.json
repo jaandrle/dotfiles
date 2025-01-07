@@ -21,8 +21,8 @@
 			"exec": "yes",
 			"description": "AI Browser",
 			"glare": "AppImage",
-			"last_update": "2024-09-17T15:03:29Z",
-			"version": "2.15.1",
+			"last_update": "2025-01-01T14:34:08Z",
+			"version": "3.2.0",
 			"downloads": "/home/jaandrle/bin/pinokio"
 		},
 		{
@@ -112,9 +112,9 @@
 			"group": "nondev",
 			"file_name": "upscayl",
 			"exec": "yes",
-			"last_update": "2024-06-01T14:48:20Z",
+			"last_update": "2024-12-25T13:44:34Z",
 			"downloads": "/home/jaandrle/bin/upscayl",
-			"version": "v2.11.5",
+			"version": "v2.15.0",
 			"glare": "AppImage"
 		},
 		{
@@ -134,11 +134,11 @@
 			"name": "Fedistar",
 			"description": "Multi-column Mastodon, Pleroma, and Friendica client for desktop",
 			"group": "nondev",
-			"file_name": "fedistar",
+			"file_name": "fedistar.appimage",
 			"exec": "yes",
-			"last_update": "2024-10-23T12:45:06Z",
-			"downloads": "/home/jaandrle/bin/fedistar",
-			"version": "v1.9.12",
+			"last_update": "2025-01-04T02:33:29Z",
+			"downloads": "/home/jaandrle/bin/fedistar.appimage",
+			"version": "v1.10.1",
 			"glare": ".*amd64.*.AppImage"
 		},
 		{
@@ -148,9 +148,9 @@
 			"group": "ai",
 			"file_name": "ollama",
 			"exec": "yes",
-			"last_update": "2024-11-08T19:58:30Z",
+			"last_update": "2024-12-17T21:54:59Z",
 			"downloads": "/home/jaandrle/bin/ollama",
-			"version": "v0.4.1",
+			"version": "v0.5.4",
 			"glare": "linux-amd64"
 		},
 		{
@@ -173,8 +173,8 @@
 			"file_name": "vim",
 			"exec": "yes",
 			"downloads": "/home/jaandrle/bin/vim",
-			"version": "v9.1.0857",
-			"last_update": "2024-11-12T01:13:27Z",
+			"version": "v9.1.0990",
+			"last_update": "2025-01-06T01:20:31Z",
 			"glare": "GVim.*x86_64.*.AppImage"
 		},
 		{
@@ -182,11 +182,11 @@
 			"name": "Escrcpy",
 			"description": "📱 Graphical Scrcpy to display and control Android, devices powered by Electron. | 使用图形化的 Scrcpy 显示和控制您的 Android 设备，由 Electron 驱动。",
 			"group": "dev",
-			"file_name": "escrcpy",
+			"file_name": "escrcpy.appimage",
 			"exec": "yes",
-			"last_update": "2024-11-08T07:30:51Z",
-			"downloads": "/home/jaandrle/bin/escrcpy",
-			"version": "v1.26.3",
+			"last_update": "2024-12-28T11:05:28Z",
+			"downloads": "/home/jaandrle/bin/escrcpy.appimage",
+			"version": "v1.28.3",
 			"glare": ".*x86_64.*.AppImage"
 		},
 		{
@@ -208,9 +208,9 @@
 			"group": "ai",
 			"file_name": "jan",
 			"exec": "yes",
-			"last_update": "2024-10-24T08:03:18Z",
+			"last_update": "2025-01-06T08:15:48Z",
 			"downloads": "/home/jaandrle/bin/jan",
-			"version": "v0.5.7",
+			"version": "v0.5.13",
 			"glare": ".*x86_64.*.AppImage"
 		},
 		{
@@ -220,10 +220,22 @@
 			"group": "ai",
 			"file_name": "Chatbox",
 			"exec": "yes",
-			"last_update": "2024-11-07T15:22:15Z",
+			"last_update": "2024-12-16T12:18:19Z",
 			"downloads": "/home/jaandrle/bin/Chatbox",
-			"version": "v0.10.2",
+			"version": "v0.10.3",
 			"glare": ".*x86_64.*.AppImage"
+		},
+		{
+			"repository": "Martichou/rquickshare",
+			"group": "nondev",
+			"name": "r-quick-share",
+			"description": "Rust implementation of NearbyShare/QuickShare from Android for Linux and macOS.",
+			"file_name": "r-quick-share",
+			"exec": "yes",
+			"downloads": "/home/jaandrle/bin/r-quick-share",
+			"glare": ".*main.*amd64.AppImage",
+			"last_update": "2024-08-21T21:17:54Z",
+			"version": "v0.11.2"
 		}
 	]
 }

@@ -21,7 +21,8 @@ export PATH="$HOME/.local/bin:$PATH:/home/linuxbrew/.linuxbrew/bin"
 set -o vi									# VIM mode for bash
 bind -m vi-command 'Control-l: clear-screen'
 bind -m vi-insert 'Control-l: clear-screen'
-export MANPAGER="/bin/sh -c \"sed -e 's/\x1B\[[[:digit:]]\+m//g' | col -b | vim --appimage-extract-and-run --not-a-term -c 'set ft=man ts=8 nomod nolist noma' -\""
+# export MANPAGER="/bin/sh -c \"sed -e 's/\x1B\[[[:digit:]]\+m//g' | col -b | vim --appimage-extract-and-run --not-a-term -c 'set ft=man ts=8 nomod nolist noma' -\""
+export MANPAGER="vim --appimage-extract-and-run +MANPAGER --not-a-term -c 'set ts=8 nolist' -"
 shopt -s checkwinsize						# dynamic columns update after every cmd
 
 ## History
