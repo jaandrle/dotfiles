@@ -15,8 +15,6 @@ if [ -x /usr/bin/dircolors ]; then
 	alias diff='diff --color=auto'
 fi
 
-~sezení(){ ~/Dokumenty/Projekty/Sezení; }
-
 alias §rm='rm -vi'
 alias §cp='cp -vi'
 alias §mv='mv -vi'
@@ -29,9 +27,42 @@ alias §df='df -Th'
 alias §xclip-copy='xclip -selection clipboard'
 alias §xclip-paste='xclip -o -selection clipboard'
 
-LAST_PWD_PATH="$BASH_DOTFILES/.bash_last_pwd"
-[ -f "$LAST_PWD_PATH" ] && OLDPWD=`cat $LAST_PWD_PATH`
-cd(){ builtin cd "$@" && echo `pwd` > "$LAST_PWD_PATH"; }
+CROSS_SESSION="$BASH_DOTFILES/.bash_cross_session"
+[ -f "$CROSS_SESSION" ] && . "$CROSS_SESSION"
+crossSession() {
+	if [[ '--help' == "${1:---help}"  ]]; then
+		echo 'crossSession [--help]'
+		echo ' Print this help.'
+		echo 'crossSession [--list]'
+		echo ' Lists all cross session variables or print this help.'
+		echo 'crossSession <name> [<value>]'
+		echo ' Sets cross session variable <name> to <value> (or empty for unset).'
+		return 0
+	fi
+	if [[ '--list' == "$1"  ]]; then
+		cat "$CROSS_SESSION"
+		return 0
+	fi
+    local name="$1"
+    local value="$2"
+
+    # Check if the variable already exists in the file
+    if grep -q "^export $name=" "$CROSS_SESSION"; then
+        if [ -z "$value" ]; then
+            # If new value is empty, remove the variable from the file
+            sed -i "/^export $name=/d" "$CROSS_SESSION"
+        else
+            # If it exists, replace the old value with the new value
+            sed -i "s|^export $name=.*|export $name=\"$value\"|" "$CROSS_SESSION"
+        fi
+    else
+        if [ -n "$value" ]; then
+            # If it doesn't exist and new value is not empty, append the new variable to the file
+            echo "export $name=\"$value\"" >> "$CROSS_SESSION"
+        fi
+    fi
+}
+cd(){ builtin cd "$@" && crossSession 'OLDPWD' "$(pwd)"; }
 
 history_clean(){ awk '!seen[$0]++ {print $0}' $HOME/.bash_history; }
 history_edit(){ vim $HOME/.bash_history; }
@@ -49,6 +80,11 @@ history_most_used(){ LC_ALL=C cat ~/.bash_history | cut -d ';' -f 2- | §awk 1 |
 alias §less='less -R -S'
 
 m(){
+	if [[ '-d' == "$1" ]]; then
+		unset "m$2"
+		crossSession "m$2"
+		return 0
+	fi
 	if [[ -z "$1" ]]; then
 		printenv | grep -e '^m'
 		return 0
@@ -56,6 +92,8 @@ m(){
 	if [[ "--help" == "$1" ]]; then
 		echo 'm [--help]'
 		echo ' Lists all marks or print this help.'
+		echo 'm -d <name>'
+		echo ' Deletes mark <name>. Unsets variable and cross session variable.'
 		echo 'm <name> [path]'
 		echo ' Sets mark <name> to current directory or [path].'
 		echo ' The mark is just a bash variable, use `$m<name>`.'
@@ -64,6 +102,7 @@ m(){
 	local n="m$1"
 	[[ -z "${!n}" ]] || return 1
 	[[ -z "$2" ]] && local p="$(pwd)" || local p="$(readlink -f $2)"
+	crossSession "$n" "$p"
 	export $n="$p"
 }
 alias cd-vifm='cd `vifm --choose-dir -`'

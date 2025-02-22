@@ -26,5 +26,6 @@
 				"complexity": ["error", 15]
 			}
 		}
-	}
+  },
+  "snippets.ultisnips.pythonPrompt": false
 }

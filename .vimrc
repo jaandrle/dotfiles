@@ -1,7 +1,7 @@
-""" VIM config file | Jan Andrle | 2025-01-07 (VIM >=9.1 AppImage)
+""" VIM config file | Jan Andrle | 2025-01-08 (VIM >=9.1 AppImage)
 "" #region B – Base
 	scriptencoding utf-8 | set encoding=utf-8
-	set pythonthreedll=/lib/x86_64-linux-gnu/libpython3.10.so.1.0
+	set pythonthreedll=/lib/x86_64-linux-gnu/libpython3.12.so.1.0
 	let $BASH_ENV = "~/.bashrc"
 	set runtimepath^=~/.vim/bundle/*
 	packadd! matchit
@@ -291,7 +291,7 @@
 	command! -nargs=* -complete=customlist,<sid>gitCompletion
 		\ GITstatus !git status-- <args>
 	command! -nargs=* -complete=customlist,<sid>gitCompletion
-		\ GITcommit !git commit-- <args>
+		\ GITcommit !git commit--interactive-v <args>
 	command! -nargs=* -complete=customlist,<sid>gitCompletion
 		\ GITpush !git push <args>
 	command! -nargs=* -complete=customlist,<sid>gitCompletion

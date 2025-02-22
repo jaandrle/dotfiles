@@ -21,8 +21,8 @@
 			"exec": "yes",
 			"description": "AI Browser",
 			"glare": "AppImage",
-			"last_update": "2025-01-01T14:34:08Z",
-			"version": "3.2.0",
+			"last_update": "2025-02-01T14:42:48Z",
+			"version": "3.6.0",
 			"downloads": "/home/jaandrle/bin/pinokio"
 		},
 		{
@@ -136,9 +136,9 @@
 			"group": "nondev",
 			"file_name": "fedistar.appimage",
 			"exec": "yes",
-			"last_update": "2025-01-04T02:33:29Z",
+			"last_update": "2025-01-09T12:37:14Z",
 			"downloads": "/home/jaandrle/bin/fedistar.appimage",
-			"version": "v1.10.1",
+			"version": "v1.11.0",
 			"glare": ".*amd64.*.AppImage"
 		},
 		{
@@ -148,9 +148,9 @@
 			"group": "ai",
 			"file_name": "ollama",
 			"exec": "yes",
-			"last_update": "2024-12-17T21:54:59Z",
+			"last_update": "2025-02-14T08:25:18Z",
 			"downloads": "/home/jaandrle/bin/ollama",
-			"version": "v0.5.4",
+			"version": "v0.5.11",
 			"glare": "linux-amd64"
 		},
 		{
@@ -173,8 +173,8 @@
 			"file_name": "vim",
 			"exec": "yes",
 			"downloads": "/home/jaandrle/bin/vim",
-			"version": "v9.1.0990",
-			"last_update": "2025-01-06T01:20:31Z",
+			"version": "v9.1.1106",
+			"last_update": "2025-02-12T01:15:34Z",
 			"glare": "GVim.*x86_64.*.AppImage"
 		},
 		{
@@ -184,9 +184,9 @@
 			"group": "dev",
 			"file_name": "escrcpy.appimage",
 			"exec": "yes",
-			"last_update": "2024-12-28T11:05:28Z",
+			"last_update": "2025-02-17T13:16:44Z",
 			"downloads": "/home/jaandrle/bin/escrcpy.appimage",
-			"version": "v1.28.3",
+			"version": "v1.28.7",
 			"glare": ".*x86_64.*.AppImage"
 		},
 		{
@@ -208,9 +208,9 @@
 			"group": "ai",
 			"file_name": "jan",
 			"exec": "yes",
-			"last_update": "2025-01-06T08:15:48Z",
+			"last_update": "2025-02-11T07:09:50Z",
 			"downloads": "/home/jaandrle/bin/jan",
-			"version": "v0.5.13",
+			"version": "v0.5.15-rc9-beta",
 			"glare": ".*x86_64.*.AppImage"
 		},
 		{
@@ -220,9 +220,9 @@
 			"group": "ai",
 			"file_name": "Chatbox",
 			"exec": "yes",
-			"last_update": "2024-12-16T12:18:19Z",
+			"last_update": "2025-01-14T13:29:06Z",
 			"downloads": "/home/jaandrle/bin/Chatbox",
-			"version": "v0.10.3",
+			"version": "v0.10.4",
 			"glare": ".*x86_64.*.AppImage"
 		},
 		{
@@ -234,8 +234,8 @@
 			"exec": "yes",
 			"downloads": "/home/jaandrle/bin/r-quick-share",
 			"glare": ".*main.*amd64.AppImage",
-			"last_update": "2024-08-21T21:17:54Z",
-			"version": "v0.11.2"
+			"last_update": "2025-01-14T08:36:53Z",
+			"version": "v0.11.4"
 		}
 	]
 }
