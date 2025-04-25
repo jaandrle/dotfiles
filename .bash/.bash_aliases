@@ -152,13 +152,14 @@ alias §ck-grep='cat /usr/share/X11/locale/en_US.UTF-8/Compose ~/.XCompose | gre
 §cmdfu(){ curl "https://www.commandlinefu.com/commands/matching/$@/$(echo -n $@ | openssl base64)/plaintext"; }
 aai(){
 	[[ "$1" == '--help' ]] && ai ask --help && return 0;
-	echo "ai ask \"$*, thanks for your help\""; ai ask "\"$*, thanks for your help\"";
+	#echo "ai ask \"$*, thanks for your help\""; ai ask "\"$*, thanks for your help\"";
+	aipick -m "hi, would like to ask for help: $*\n…please response only with plain text to be used in terminal command without any explanation, thanks for your help";
 }
 
 alias npx-wca='npx -y web-component-analyzer'
 alias npx-qnm='npx -y qnm'
 alias npx-hint='npx -y hint'
-alias npx-markdown='nohup npx markserv'
+alias npx-markdown='npx -y markserv'
 
 alias fzf=fzf-carroarmato0.fzf
 alias smerge='/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=sublime_merge --file-forwarding com.sublimemerge.App @@u %u @@'

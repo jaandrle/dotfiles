@@ -9,7 +9,7 @@ const path_home= $.xdg.home`Obrázky/Bing Image Of The Day/`;
 const path_info= join(path_home, "images.json");
 
 $.api()
-.version("2025-01-06")
+.version("2025-04-02")
 .command("pull", "Pull new/today image(s)")
 .action(async function pull(){
 	const images= {
@@ -24,6 +24,7 @@ $.api()
 	{});
 	convert(paths, images_save);
 	s.echo(JSON.stringify(images_save, null, "\t")).to(path_info);
+	newPanel(images_save.now);
 	$.exit(0);
 })
 .command("redraw")
@@ -31,6 +32,7 @@ $.api()
 	const paths= [ "now", "prev" ].map(key=> join(path_home, `${key}.jpg`));
 	const images= s.cat(path_info).xargs(JSON.parse);
 	convert(paths, images);
+	newPanel(images.now);
 	$.exit(0);
 })
 .command("status")
@@ -41,6 +43,10 @@ $.api()
 	$.exit(0);
 })
 .parse();
+function newPanel(caption){
+	const link= `<a href="https://commons.wikimedia.org/wiki/Template:Potd/${dateISO(0)} (cs)">(i)</a>`;
+	s.sed("-i", /\<aside\>.*?\<\/aside\>/, `<aside>${link} ${caption}</aside>`, join(path_home, "Nový panel.html"));
+}
 /** @typedef {{ url: string, caption: string }} T_response */
 /** @typedef {Record<"now"|"prev",T_response>} T_images */
 /** @param {Record<"now"|"prev",string>} paths */

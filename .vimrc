@@ -1,4 +1,4 @@
-""" VIM config file | Jan Andrle | 2025-01-08 (VIM >=9.1 AppImage)
+""" VIM config file | Jan Andrle | 2025-04-05 (VIM >=9.1 AppImage)
 "" #region B – Base
 	scriptencoding utf-8 | set encoding=utf-8
 	set pythonthreedll=/lib/x86_64-linux-gnu/libpython3.12.so.1.0
@@ -12,7 +12,7 @@
 	
 	set title
 	colorscheme codedark
-	set updatetime=300 lazyredraw ttyfast	" Having longer updatetime (default is 4s) leads to noticeable delays and poor user experience. Also reduce redraw frequency and fast terminal typing
+	set updatetime=300 "TODO DEL lazyredraw
 	set noerrorbells novisualbell
 	set belloff=esc
 	set confirm
@@ -88,21 +88,15 @@
 	cabbrev wbw w<bar>bw
 	
 	set sessionoptions-=options
-	" TODO DEL
-	command! -nargs=1
-		\ CLSESSIONcreate :call mini_sessions#create(<f-args>)
-	command! -nargs=0
-		\ CLSESSIONconfig :call mini_sessions#sessionConfig()
-	command! -nargs=1 -complete=customlist,mini_sessions#complete
-		\ CLSESSIONload :call mini_sessions#load(<f-args>)
-	command! -nargs=0
-		\ Scd :call mini_sessions#recoverPwd()
 	
-	if !has("gui_running")
-		execute 'hi! User2 ctermbg='.synIDattr(synIDtrans(hlID('StatusLine')), 'bg').' ctermfg=grey' | endif
+	function! NumberOfBuffers()
+		return len(filter(range(1, bufnr('$')), 'buflisted(v:val)'))
+	endfunction
 	set laststatus=2																	 " Show status line on startup
-	set statusline+=··%1*≡·%{QuickFixStatus()}%*··%2*»·%{user_tips#current()}%*··%=
-	set statusline+=%<%f%R\%M··▶·%{&fileformat}·%{&fileencoding?&fileencoding:&encoding}·%{&filetype}··∷·%{mini_sessions#name('–')}·· 
+	set statusline+=··≡·%{QuickFixStatus()}%*··»·%{user_tips#current()}%*··%=
+	set statusline+=(%{NumberOfBuffers()})··%<%f%R\%M··▶·%{&fileformat}·%{&fileencoding?&fileencoding:&encoding}·%{&filetype}
+	set statusline+=··
+	" set statusline+=··∷·%{mini_sessions#name('–')}·· 
 	
 	set history=500													  " How many lines of (cmd) history has to remember
 	set nobackup nowritebackup noswapfile		  " …there is issue #649 (for servers) and I’m using git/system backups
@@ -112,8 +106,7 @@
 	command! SETundoClear let old_undolevels=&undolevels | set undolevels=-1 | exe "normal a \<BS>\<Esc>" | let &undolevels=old_undolevels | unlet old_undolevels | write
 "" #endregion SLH
 "" #region LLW – Left Column + Line + Wrap + Scrolling
-	if has("nvim-0.5.0") || has("patch-8.1.1564")			" Recently vim can merge signcolumn and number column into one
-		set signcolumn=number | else | set signcolumn=yes | endif  " show always to prevent shifting when diagnosticappears
+	set signcolumn=yes
 	set cursorline cursorcolumn															" Always show current position
 	set number foldcolumn=2								  " enable line numbers and add a bit extra margin to the left
 	set colorcolumn=+1																				  " …marker visual
@@ -145,18 +138,12 @@
 	endfunction
 	nnoremap <silent> <leader>" :call JaaCopyRegister()<cr>
 	
-	nmap <expr> š buffer_number("#")==-1 ? "\<leader>š<cr>" : "\<c-^>"
+	" CtrlP previously
+	nmap <expr> š buffer_number("#")==-1 ? ":CocList --normal buffers\<cr>" : "\<c-^>"
+	nmap ě :CocList 
 	nmap <leader>3 :buffers<cr>:b<space>
-	nmap <leader>š :CtrlPBuffer<cr>
+	nmap <leader>š :CocList buffers<cr>
 	nmap č <leader>š
-	let g:ctrlp_map = 'ě'
-	command! -nargs=?	SETctrlp execute 'nnoremap '.g:ctrlp_map.' :CtrlP <args><cr>'
-	let g:ctrlp_clear_cache_on_exit = 0
-	let g:ctrlp_prompt_mappings= {
-		\ 'ToggleType(1)':		  ['<c-up>'],
-		\ 'ToggleType(-1)':		  ['<c-down>'],
-		\ 'PrtCurStart()':		  ['<c-b>'],
-	\}
 "" #endregion CN
 "" #region FOS – File(s) + Openning + Saving
 	set autowrite autoread | autocmd FocusGained,BufEnter *.* checktime
@@ -197,7 +184,7 @@
 	set grepprg=LC_ALL=C\ grep\ -HRIns
 	set hlsearch incsearch														  " highlight search, start when typing
 	if maparg('<C-L>', 'n') ==# ''
-		nnoremap <silent> <c-l> :nohlsearch<c-r>=has('diff')?'<bar>diffupdate':''<cr><cr><c-l> | endif
+		nnoremap <silent> <c-l> :nohlsearch<c-r>=has('diff')?'<bar>diffupdate':''<cr><cr><c-l> | endif " TODO? <bar>syntax sync fromstart
 	
 	let g:markbar_persist_mark_names = v:false
 	let g:markbar_cache_with_hidden_buffers = v:false							" last buffers are reopened as hidden https://github.com/Yilin-Yang/vim-markbar/blob/9f5a948d44652074bf2b90d3da6a400d8a369ba5/doc/vim-markbar.txt#L136
@@ -227,8 +214,9 @@
 	let g:rainbow#blacklist = [203,9]
 	autocmd VimEnter * try
 		\| call rainbow_parentheses#toggle() | catch | endtry
-	" HIGHLIGHT&YANK plugins machakann/vim-highlightedyank & cwordhi.vim
-	let g:highlightedyank_highlight_duration= 250
+	" HIGHLIGHT&YANK plugins (buildin) hlyank & cwordhi.vim
+	packadd hlyank
+	let g:hlyank_duration= 250
 	let g:cwordhi#autoload= 1
 	set showmatch												" Quick highlight oppening bracket/… for currently writted
 	set timeoutlen=1000 ttimeoutlen=0												   " Remove timeout when hitting escape TAB
@@ -245,11 +233,12 @@
 	if ($TERM =~ '256' && has("termguicolors"))
 		set termguicolors | endif
 	if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
-		syntax on | endif
+		syntax enable | endif
 	set list listchars=tab:»·,trail:·,extends:#,nbsp:~,space:·		" Highlight spec. chars / Display extra whitespace
+	set redrawtime=10000
 	augroup syntax_sync_min_lines
 		autocmd!
-		autocmd Syntax * syn sync minlines=2000
+		autocmd BufEnter * syntax sync fromstart "TODO DEL syn sync minlines=2000
 	augroup END
 	let g:vim_vue_plugin_config = { 'foldexpr': 1, 'attribute': 1, 'keyword': 1 }
 	" SPELL
@@ -261,7 +250,7 @@
 	nnoremap <leader>O O<space><bs><esc>
 	nnoremap <s-k> a<cr><esc>
 	for l in [ 'y', 'p', 'P', 'd' ] | for m in [ 'n', 'v' ]
-		execute m.'noremap <leader>'.l.' "+'.l | endfor | endfor
+		execute m.'map <leader>'.l.' "+'.l | endfor | endfor " no noremap ⇐ https://github.com/jasonccox/vim-wayland-clipboard?tab=readme-ov-file#non-recursive-mappings
 	" TODO DEL: FOLDS
 	" TODO DEL: command! -nargs=0 SETFOLDregions set foldmethod=marker
 	" TODO DEL: command! -nargs=1 SETFOLDindent set foldmethod=indent | let &foldlevel=<q-args> | let &foldnestmax=<q-args>+1
@@ -275,41 +264,6 @@
 		autocmd BufWinEnter *.* silent! loadview
 	augroup END
 "" #endregion EA
-"" #region GIT
-	function s:gitCompletion(_, CmdLine, __)
-		let l:cmd= a:CmdLine->split()
-		let l:cmd_start= l:cmd[0]
-			\ ->substitute('GIThub', 'gh', '')
-			\ ->substitute('GIT', 'git ', '')->trim()->split(' ')
-		return bash#complete((l:cmd_start+l:cmd[1:])->join())
-	endfunction
-	function s:gitCmd(candidate)
-		execute '!clear && echo ":: git '.a:candidate->escape('"').' ::" && git '.a:candidate
-	endfunction
-	command! -nargs=* -complete=customlist,<sid>gitCompletion
-		\ GIT call <sid>gitCmd(<q-args>)
-	command! -nargs=* -complete=customlist,<sid>gitCompletion
-		\ GITstatus !git status-- <args>
-	command! -nargs=* -complete=customlist,<sid>gitCompletion
-		\ GITcommit !git commit--interactive-v <args>
-	command! -nargs=* -complete=customlist,<sid>gitCompletion
-		\ GITpush !git push <args>
-	command! -nargs=* -complete=customlist,<sid>gitCompletion
-		\ GITdiff if <q-args>=='' | execute '!clear && git diff %:p' | else | silent! execute '!git diff <args>' | endif
-	command! -nargs=*
-		\ GITrestore execute '!clear && git status '.(<q-args>=='.' ? '%:p':'<args>').' -bs & git restore '.(<q-args>=='' ? '%:p':'<args>').' --patch'
-	command! -nargs=* -complete=customlist,<sid>gitCompletion
-		\ GIThub execute '!clear && echo ":: gh '.<q-args>->escape('"').' ::" && gh '.<q-args>
-	command! -nargs=?
-		\ GIThubIssue execute '!clear && gh issue view '.expand('<cword>').' '.<q-args>
-	let g:git_messenger_no_default_mappings= v:true
-	let g:git_messenger_date_format= '%Y-%m-%d (%c)'
-	let g:git_messenger_always_into_popup= v:true
-	augroup git_messenger_help
-		autocmd!
-		autocmd FileType gitmessengerpopup setlocal keywordprg=git\ show
-	augroup END
-"" #endregion GIT
 "" #region AI
 let g:codeium_disable_bindings = 1
 imap <script><silent><nowait><expr> <f3><f3> codeium#Accept()
@@ -321,7 +275,7 @@ imap <f3>d   <Cmd>call codeium#Clear()<CR>
 imap <f3>!   <Cmd>call codeium#Complete()<CR>
 "" #endregion AI
 "" #region COC – COC and so on, compilers, code/commands completions
-	let g:coc_global_extensions= ['coc-css', 'coc-docthis', 'coc-emmet', 'coc-emoji', 'coc-pretty-ts-errors', 'coc-eslint', 'coc-gitmoji', 'coc-html', 'coc-json', 'coc-marketplace', 'coc-phpls', 'coc-sh', 'coc-snippets', 'coc-styled-components', 'coc-svg', 'coc-tabnine', 'coc-tsserver']
+	let g:coc_global_extensions= ['coc-css', 'coc-docthis', 'coc-emmet', 'coc-emoji', 'coc-git', 'coc-pretty-ts-errors', 'coc-eslint', 'coc-gitmoji', 'coc-html', 'coc-json', 'coc-lists', 'coc-marketplace', 'coc-phpls', 'coc-sh', 'coc-snippets', 'coc-styled-components', 'coc-svg', 'coc-tsserver']
 	" https://github.com/antonk52/cssmodules-language-server
 	call coc#config('languageserver.cssmodules', {
 	\ "command": "cssmodules-language-server",
@@ -353,7 +307,7 @@ imap <f3>!   <Cmd>call codeium#Complete()<CR>
 		return !col || getline('.')[col - 1]  =~# '\s'
 	endfunction
 
-	nmap <silent> gd <Plug>(coc-definition)
+	nmap <silent><nowait> gd <Plug>(coc-definition)
 	command! -nargs=* -complete=customlist,<sid>SCommandCocActionComplete CocAction call CocActionAsync(<f-args>)
 	function s:SCommandCocActionComplete(argLead, cmdLine, cursorPos)
 		return readfile(expand('~/.vim/pack/coc/start/coc.nvim/doc/tags'), 'r')
@@ -364,8 +318,8 @@ imap <f3>!   <Cmd>call codeium#Complete()<CR>
 					" navigate diagnostics, use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 	nnoremap <silent> gh :call <sid>show_documentation(expand("<cword>"))<cr>
 	vnoremap <silent> gh :<c-u>call <sid>show_documentation(mini_enhancement#selectedText())<cr>
-	nnoremap <leader>gf :let g:ctrlp_default_input=expand("<cword>") <bar> execute 'CtrlP' <bar> unlet g:ctrlp_default_input <cr>
-	vnoremap <leader>gf :<c-u>let g:ctrlp_default_input=mini_enhancement#selectedText() <bar> execute 'CtrlP' <bar> unlet g:ctrlp_default_input <cr>
+	nnoremap <leader>gf :CocList --interactive --normal --input='<c-r>=expand("<cword>")<cr>' files<cr>
+	vnoremap <leader>gf :<c-u>CocList --interactive --normal --input='<c-r>=mini_enhancement#selectedText()<cr>' files<cr>
 	""" #region COCP – Coc popups scroll (Remap <C-f> and <C-b> for scroll float windows/popups.)
 	if has('nvim-0.4.0') || has('patch-8.2.0750')
 		nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
@@ -379,7 +333,7 @@ imap <f3>!   <Cmd>call codeium#Complete()<CR>
 
 	command! -nargs=?  CLhelpMy if <q-args>!='' | exec 'map '.<q-args> | else | call popup_notification([
 		\ 'Custom mappings starting: '.mapleader.',§, ů, ;, U, ž',
-		\ 'Custom commands starting: CL, SET, ALT, CtrlP, Vifm, GIT, Coc',
+		\ 'Custom commands starting: CL, SET, ALT, Vifm, Coc',
 		\ 'Helpful commands: CocAction, CocCommand, CocList',
 		\], #{ line: &lines-3, pos: 'botleft', moved: 'any', close: 'button', time: 6000 }) | endif
 	nnoremap <c-g> :CLwhereami<cr>
@@ -415,27 +369,6 @@ imap <f3>!   <Cmd>call codeium#Complete()<CR>
 		   \ CLcheat call cheat_copilot#open(<q-args>==''?&filetype:<q-args>)
 	
 	function! s:show_documentation(word)
-		if (index(['vim', 'help'], &filetype) >= 0)
-			" inspired by https://github.com/tpope/vim-scriptease/blob/74bd5bf46a63b982b100466f9fd47d2d0597fcdd/autoload/scriptease.vim#L737
-			let syn= get(reverse(map(synstack(line('.'), col('.')), 'synIDattr(v:val,"name")')), 0, '')
-			if		syn ==# 'vimFuncName'		| return <sid>show_documentation_vim('h '.a:word.'()')
-			elseif	syn ==# 'vimOption'			| return <sid>show_documentation_vim("h '".a:word."'")
-			elseif	syn ==# 'vimUserAttrbKey'	| return <sid>show_documentation_vim('h :command-'.a:word)
-			endif
-
-			let col= col('.') - 1
-			while col && getline('.')[col] =~# '\k' | let col-= 1 | endwhile
-			let pre= col == 0 ? '' : getline('.')[0 : col]
-			let col= col('.') - 1
-			while col && getline('.')[col] =~# '\k' | let col+= 1 | endwhile
-			if		pre =~# '^\s*:\=$'	| return <sid>show_documentation_vim('h :'.a:word)
-			elseif	pre =~# '\<v:$'		| return <sid>show_documentation_vim('h v:'.a:word)
-			endif
-			
-			let post= getline('.')[col : -0]
-			if a:word ==# 'v' && post =~# ':\w\+' | return <sid>show_documentation_vim('h v'.matchstr(post, ':\w\+')) | endif
-			return <sid>show_documentation_vim('h '.a:word)
-		endif
 		if (!CocAction('hasProvider', 'hover'))
 			if &filetype=='man' | call dist#man#PreGetPage(0) | return 0 | endif
 			return feedkeys('K', 'in')
@@ -445,9 +378,6 @@ imap <f3>!   <Cmd>call codeium#Complete()<CR>
 		endif
 		
 		return CocActionAsync('doHover')
-	endfunction
-	function! s:show_documentation_vim(cmd)
-		call execute(a:cmd) | call histadd("cmd", a:cmd)
 	endfunction
 "" #endregion COC
 

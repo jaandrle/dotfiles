@@ -1,5 +1,41 @@
+# better? defaults
+[help]
+	autocorrect = prompt
 [init]
 	defaultBranch = main
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
+[rebase]
+	updateRefs = true
+[tag]
+	sort = version:refname
+[status]
+	submoduleSummary = true
+[log]
+	date = iso
+[fetch]
+	prune = true
+	pruneTags = true
+	all = true
+[push]
+	autoSetupRemote = true
+	followTags = true
+[rerere]
+	enabled = true
+	autoupdate = true
+[gc]
+	reflogExpire = 200
+	reflogExpireUnreachable = 90
+[commit]
+	verbose = true
+	gpgsign = true
+[rebase]
+	autoSquash = true
+	autoStash = true
+	updateRefs = true
+# me
 [user]
 	name = Jan Andrle
 	email = andrle.jan@centrum.cz
@@ -7,6 +43,20 @@
 [credential]
 	# see https://stackoverflow.com/questions/5343068/is-there-a-way-to-cache-https-credentials-for-pushing-commits/18362082#18362082
 	helper = /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://git.dhl.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+# my setup
+[core]
+	editor = vim
+	pager = delta
+	whitespace = -trailing-space,-space-before-tab
 [alias]
 	# * replaced by git-extras
 	aliases = !git config -l | grep ^alias | cut -c 7- | sort # List all aliases.  Stolen from here: https://twitter.com/TrevorBramble/status/774292970681937920
@@ -28,51 +78,38 @@
 	submodule-update-merge = submodule update --remote --merge
 	set-upstream-to-current = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
 	push-new=!git push -u origin `git rev-parse --abbrev-ref HEAD`
-[core]
-	editor = vim
-	pager = delta
-	whitespace = -trailing-space,-space-before-tab
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-[status]
-	submoduleSummary = true
 [diff]
 	tool = vimdiff
-	colorMoved = default
 	submodule = log
-[merge]
-	tool = vimdiff
-	conflictstyle = diff3
-[log]
-	date = iso
+	algorithm = histogram
+# https://git-scm.com/docs/git-diff#Documentation/git-diff.txt-code--color-movedltmodegtcode
+	colorMoved = dimmed-zebra
+	mnemonicPrefix = true
+	renames = true
 [interactive]
 	diffFilter = delta --color-only
+[merge]
+	tool = vimdiff
+	conflictstyle = zdiff3
 [delta] # [dandavison/delta: A syntax-highlighting pager for git, diff, and grep output](https://github.com/dandavison/delta)
 	syntax-theme= Visual Studio Dark+
 	navigate = true
 	side-by-side = true
 	line-numbers = true
-[gc]
-	reflogExpire = 200
-	reflogExpireUnreachable = 90
-[push]
-	autoSetupRemote = true
-[commit]
-	gpgsign = true
-[rerere]
-	enabled = true
-[credential "https://github.com"]
-	helper = 
-	helper = !/usr/bin/gh auth git-credential
-[credential "https://gist.github.com"]
-	helper = 
-	helper = !/usr/bin/gh auth git-credential
-[credential "https://git.dhl.com"]
-	helper = 
-	helper = !/usr/bin/gh auth git-credential
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[diff "exif"]
+	textconv = exiftool
+[difftool "kommitdiff"]
+	cmd = kommitdiff \"$LOCAL\" \"$REMOTE\"
+[mergetool "kommitmerge"]
+	cmd = kommitmerge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+	trustExitCode = true
+
 [maintenance]
 	repo = /home/jaandrle/Vzdálené/GitHub/dcp-fe-container-certifedpassport
 	repo = /home/jaandrle/Vzdálené/GitHub/DHLC-Internet-Networking-old

@@ -11,11 +11,11 @@ alias C--asana='eval "$($HOME/bin/asana.mjs completion_bash)"'
 alias C--himalaya='\. "$BASH_DOTFILES/himalaya.completion"'
 alias C--uu='eval "$($HOME/bin/uu --completion-bash)"'
 alias C--jc='eval "$(jc -B)" … newer version needed'
-eval "$(bs .completion bash)"
+\. <(bs .completion bash)
 \. "$BASH_DOTFILES/cordova.completion"
-eval "$(node --completion-bash)"
-eval "$(npm completion)"
-eval "$(nodejsscript --completion bash)"
+\. <(node --completion-bash)
+\. <(npm completion)
+\. <(nodejsscript --completion bash)
 \. "$BASH_DOTFILES/pnpm.completion"
 
 _npx() {

@@ -21,8 +21,8 @@
 			"exec": "yes",
 			"description": "AI Browser",
 			"glare": "AppImage",
-			"last_update": "2025-02-01T14:42:48Z",
-			"version": "3.6.0",
+			"last_update": "2025-03-25T01:43:01Z",
+			"version": "3.7.1",
 			"downloads": "/home/jaandrle/bin/pinokio"
 		},
 		{
@@ -136,9 +136,9 @@
 			"group": "nondev",
 			"file_name": "fedistar.appimage",
 			"exec": "yes",
-			"last_update": "2025-01-09T12:37:14Z",
+			"last_update": "2025-03-03T15:06:09Z",
 			"downloads": "/home/jaandrle/bin/fedistar.appimage",
-			"version": "v1.11.0",
+			"version": "v1.11.1",
 			"glare": ".*amd64.*.AppImage"
 		},
 		{
@@ -148,9 +148,9 @@
 			"group": "ai",
 			"file_name": "ollama",
 			"exec": "yes",
-			"last_update": "2025-02-14T08:25:18Z",
+			"last_update": "2025-03-22T02:56:08Z",
 			"downloads": "/home/jaandrle/bin/ollama",
-			"version": "v0.5.11",
+			"version": "v0.6.3-rc0",
 			"glare": "linux-amd64"
 		},
 		{
@@ -173,8 +173,8 @@
 			"file_name": "vim",
 			"exec": "yes",
 			"downloads": "/home/jaandrle/bin/vim",
-			"version": "v9.1.1106",
-			"last_update": "2025-02-12T01:15:34Z",
+			"version": "v9.1.1238",
+			"last_update": "2025-03-26T01:19:17Z",
 			"glare": "GVim.*x86_64.*.AppImage"
 		},
 		{
@@ -208,9 +208,9 @@
 			"group": "ai",
 			"file_name": "jan",
 			"exec": "yes",
-			"last_update": "2025-02-11T07:09:50Z",
+			"last_update": "2025-03-24T02:02:04Z",
 			"downloads": "/home/jaandrle/bin/jan",
-			"version": "v0.5.15-rc9-beta",
+			"version": "v0.5.16",
 			"glare": ".*x86_64.*.AppImage"
 		},
 		{
@@ -234,8 +234,8 @@
 			"exec": "yes",
 			"downloads": "/home/jaandrle/bin/r-quick-share",
 			"glare": ".*main.*amd64.AppImage",
-			"last_update": "2025-01-14T08:36:53Z",
-			"version": "v0.11.4"
+			"last_update": "2025-02-23T18:15:49Z",
+			"version": "v0.11.5"
 		}
 	]
 }

@@ -27,19 +27,18 @@
 "" #region G – General
 														" set vicmd=elvis\ -G\ termcap | " set vicmd=vile
 	set vicmd=vim
-	"set vimhelp
 	command! README :!vim ~/Dokumenty/GitHub/dotfiles/vifm/README.md
 	command! Help :!vim ~/.config/vifm/vifm-help.txt
 	map <f1> :Help<cr>
-	cabbrev help Help
+	" cabbrev help Help
+	set vimhelp
 	if !has('win')
 		set fusehome=/tmp/vifm_FUSE
 		set slowfs=curlftpfs
 	endif
 	set syscalls norunexec
 														" Automatically resolve symbolic links on l or Enter.
-	set nofollowlinks
-	set trash
+	set notrash
 	nmap dd :!trash %"f<cr>
 	nmap d? :exe "!clear && echo 'Native system trash (`trash-cli`): use `trash`|`trash-empty`|`trash-list`|`trash-put`|`trash-restore`|`trash-rm`' && trash-list | sort -r" | shell<cr>
 	set history=100 undolevels=100
@@ -291,8 +290,8 @@
 			fileviewer <video/*>,<audio/*> mediainfo %c
 		endif
 	" #endregion FmediaBin
-	fileviewer .*/,*/ tree %c -L 3 &
-	fileviewer ../ tree %c -L 1 &
+	fileviewer .*/,*/ tree %c -L 3 -C &
+	fileviewer ../ tree %c -L 1 -C &
 	fileviewer	 *.js,*.mjs,*.ts,*.sh,
 				\*.css,*.scss,
 				\*.php,

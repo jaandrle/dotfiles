@@ -9,4 +9,5 @@
 	"signature_error_highlighting": "no_public_key",
 	"theme": "Merge Dark.sublime-theme",
 	"expand_merge_commits_by_default": true,
+	"ignore_diff_white_space": false,
 }
