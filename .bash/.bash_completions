@@ -8,7 +8,8 @@ source "$SCRIPT_DIR/complete-alias/complete_alias"
 complete -F _complete_alias gitdotfiles
 
 alias C--asana='eval "$($HOME/bin/asana.mjs completion_bash)"'
-alias C--himalaya='\. "$BASH_DOTFILES/himalaya.completion"'
+alias C--brew='\. "$BASH_DOTFILES/brew.completion"'
+alias C--pnpm='\. "$BASH_DOTFILES/pnpm.completion"'
 alias C--uu='eval "$($HOME/bin/uu --completion-bash)"'
 alias C--jc='eval "$(jc -B)" … newer version needed'
 \. <(bs .completion bash)
@@ -16,7 +17,6 @@ alias C--jc='eval "$(jc -B)" … newer version needed'
 \. <(node --completion-bash)
 \. <(npm completion)
 \. <(nodejsscript --completion bash)
-\. "$BASH_DOTFILES/pnpm.completion"
 
 _npx() {
   local cur="${COMP_WORDS[COMP_CWORD]}"

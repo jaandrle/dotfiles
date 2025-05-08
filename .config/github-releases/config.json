@@ -21,8 +21,8 @@
 			"exec": "yes",
 			"description": "AI Browser",
 			"glare": "AppImage",
-			"last_update": "2025-03-25T01:43:01Z",
-			"version": "3.7.1",
+			"last_update": "2025-04-01T05:57:12Z",
+			"version": "3.8.0",
 			"downloads": "/home/jaandrle/bin/pinokio"
 		},
 		{
@@ -136,9 +136,9 @@
 			"group": "nondev",
 			"file_name": "fedistar.appimage",
 			"exec": "yes",
-			"last_update": "2025-03-03T15:06:09Z",
+			"last_update": "2025-04-08T11:56:38Z",
 			"downloads": "/home/jaandrle/bin/fedistar.appimage",
-			"version": "v1.11.1",
+			"version": "v1.11.3",
 			"glare": ".*amd64.*.AppImage"
 		},
 		{
@@ -148,9 +148,9 @@
 			"group": "ai",
 			"file_name": "ollama",
 			"exec": "yes",
-			"last_update": "2025-03-22T02:56:08Z",
+			"last_update": "2025-04-26T09:16:02Z",
 			"downloads": "/home/jaandrle/bin/ollama",
-			"version": "v0.6.3-rc0",
+			"version": "v0.6.7-rc1",
 			"glare": "linux-amd64"
 		},
 		{
@@ -173,8 +173,8 @@
 			"file_name": "vim",
 			"exec": "yes",
 			"downloads": "/home/jaandrle/bin/vim",
-			"version": "v9.1.1238",
-			"last_update": "2025-03-26T01:19:17Z",
+			"version": "v9.1.1355",
+			"last_update": "2025-04-30T01:25:38Z",
 			"glare": "GVim.*x86_64.*.AppImage"
 		},
 		{
@@ -184,9 +184,9 @@
 			"group": "dev",
 			"file_name": "escrcpy.appimage",
 			"exec": "yes",
-			"last_update": "2025-02-17T13:16:44Z",
+			"last_update": "2025-04-27T07:04:58Z",
 			"downloads": "/home/jaandrle/bin/escrcpy.appimage",
-			"version": "v1.28.7",
+			"version": "v1.29.6",
 			"glare": ".*x86_64.*.AppImage"
 		},
 		{
@@ -236,6 +236,18 @@
 			"glare": ".*main.*amd64.AppImage",
 			"last_update": "2025-02-23T18:15:49Z",
 			"version": "v0.11.5"
+		},
+		{
+			"repository": "konnektoren/konnektoren-mobile-app",
+			"group": "nondev",
+			"name": "Konnektoren",
+			"description": "Konnektoren Mobile App (learning german) — https://konnektoren.help/home/",
+			"file_name": "konnektoren",
+			"exec": "yes",
+			"downloads": "/home/jaandrle/bin/konnektoren",
+			"glare": "AppImage",
+			"last_update": "2025-04-27T07:33:51Z",
+			"version": "konnektoren-mobile-app-v0.1.4"
 		}
 	]
 }

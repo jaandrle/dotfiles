@@ -142,7 +142,7 @@
 	nmap <expr> š buffer_number("#")==-1 ? ":CocList --normal buffers\<cr>" : "\<c-^>"
 	nmap ě :CocList 
 	nmap <leader>3 :buffers<cr>:b<space>
-	nmap <leader>š :CocList buffers<cr>
+	nmap <leader>š :CocList buffers<cr> | :syntax on<cr>
 	nmap č <leader>š
 "" #endregion CN
 "" #region FOS – File(s) + Openning + Saving

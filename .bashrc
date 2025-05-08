@@ -61,6 +61,8 @@ if ! shopt -oq posix; then
 fi
 export GPG_TTY=$(tty)
 
+shopt -s cdspell # autocorrects cd misspellings
+
 # HSTR configuration - add this to ~/.bashrc
 # if this is interactive shell, then bind hstr to Ctrl-space
 # if [[ $- =~ .*i.* ]]; then bind '"\C-@": "\e^ihstr -- \C-j"'; fi

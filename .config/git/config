@@ -7,21 +7,25 @@
 	ui = auto
 [branch]
 	sort = -committerdate
-[rebase]
-	updateRefs = true
 [tag]
 	sort = version:refname
 [status]
+	branch = true
+	short = true
+	showStash = true
+	showUntrackedFiles = all
 	submoduleSummary = true
 [log]
 	date = iso
 [fetch]
 	prune = true
 	pruneTags = true
-	all = true
 [push]
 	autoSetupRemote = true
 	followTags = true
+	recurseSubmodules = on-demand
+[pull]
+	rebase = true
 [rerere]
 	enabled = true
 	autoupdate = true
@@ -31,6 +35,7 @@
 [commit]
 	verbose = true
 	gpgsign = true
+	template = ~/.config/git/template
 [rebase]
 	autoSquash = true
 	autoStash = true
@@ -44,41 +49,35 @@
 	# see https://stackoverflow.com/questions/5343068/is-there-a-way-to-cache-https-credentials-for-pushing-commits/18362082#18362082
 	helper = /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
 [credential "https://github.com"]
-	helper = 
 	helper = !/usr/bin/gh auth git-credential
 [credential "https://gist.github.com"]
-	helper = 
 	helper = !/usr/bin/gh auth git-credential
 [credential "https://git.dhl.com"]
-	helper = 
 	helper = !/usr/bin/gh auth git-credential
 # my setup
 [core]
 	editor = vim
 	pager = delta
 	whitespace = -trailing-space,-space-before-tab
+	compression = 9  # trade cpu for network
 [alias]
 	# * replaced by git-extras
-	aliases = !git config -l | grep ^alias | cut -c 7- | sort # List all aliases.  Stolen from here: https://twitter.com/TrevorBramble/status/774292970681937920
-	checkout-default= !git checkout `git branch-default`
+	# * (alias) aliases = !git config -l | grep ^alias | cut -c 7- | sort # List all aliases.  Stolen from here: https://twitter.com/TrevorBramble/status/774292970681937920
 	branch-default = !git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
-	branches = for-each-ref --sort=-committerdate refs --format=\"%(authordate:iso8601)\t%(color:blue)%(refname:short)%(HEAD)\t%(if:notequals="")%(upstream:short)%(then)→ %(upstream:short)%(color:reset)%(else)%(color:yellow)%(objectname:short)%(color:reset)\t%(contents:subject)%(end)\"
+	# * branches (↓) = for-each-ref --sort=-committerdate refs --format=\"%(authordate:iso8601)\t%(color:blue)%(refname:short)%(HEAD)\t%(if:notequals="")%(upstream:short)%(then)→ %(upstream:short)%(color:reset)%(else)%(color:yellow)%(objectname:short)%(color:reset)\t%(contents:subject)%(end)\"
+	h-branches = !echo 'brv (git-extras)'
 	tags = tag -l --sort=-creatordate --format='%(refname:short):	[%(creatordate:short)]	%(subject)'
 	# * authors: log-authors = shortlog -ns
-	log-list = log --color --graph --pretty=format:'%Cred%h%Creset %Cgreen[%ad] -%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset'
-	log-list-nocolors = log --graph --pretty=format:'%h [%ad] -%d %s <%an>'
-	status--= !git fetch && git status && echo && echo Commits unpushed: && git log @{push}..HEAD && echo
-	commit--interactive-v= !clear && git status -sb | grep -v -e '^ M' & git commit --interactive -v
-	pu-shll-stash = !git stash && git pull && git push && git stash pop
-	unstage = reset HEAD --
-	undoall = reset --soft HEAD^
+	h-format-htma = !echo '%Cred%h%Creset %Cgreen[%ad] -%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset'
+	commit--interactive= !clear && git status && git commit --interactive
+	h-unstage = !echo reset HEAD --
+	h-undoall = !echo reset --soft HEAD^
 	diff-dirs = diff --dirstat --find-copies --find-renames --histogram --color
-	submodule-foreach-status = !git submodule --quiet foreach 'git fetch' && git submodule foreach 'git status && echo'
-	# * delete-submodule: rm-submodule = !git submodule deinit -f $1 && rm -rf .git/modules/$1 && git rm -rf $1
+	h-submodule-delete = !echo 'delete-submodule (git-extras)' # * delete-submodule: rm-submodule = !git submodule deinit -f $1 && rm -rf .git/modules/$1 && git rm -rf $1
 	submodule-update-merge = submodule update --remote --merge
 	set-upstream-to-current = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
-	push-new=!git push -u origin `git rev-parse --abbrev-ref HEAD`
 [diff]
+	wsErrorHighlight = all
 	tool = vimdiff
 	submodule = log
 	algorithm = histogram
@@ -101,7 +100,6 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
-	required = true
 [diff "exif"]
 	textconv = exiftool
 [difftool "kommitdiff"]
@@ -114,3 +112,25 @@
 	repo = /home/jaandrle/Vzdálené/GitHub/dcp-fe-container-certifedpassport
 	repo = /home/jaandrle/Vzdálené/GitHub/DHLC-Internet-Networking-old
 	repo = /home/jaandrle/Vzdálené/GitHub/DGF-Certified-Supervisory-Academy
+[submodule]
+	recurse = true
+
+[format]
+	coverLetter = auto
+	compactSummary = true
+	minimal = true
+	signOff = true
+	outputDirectory = .patches
+	thread = shallow
+	numbered = auto
+[am]
+	# keepcr = true # to preserve line endings
+	threeWay = true
+[sendemail]
+	anotate = true
+	smtpserver = smtp.centrum.cz
+	# chainReplyTo = false
+	suppresscc = self
+	smtpuser = andrle.jan@centrum.cz
+	smtpencryption = ssl
+	smtpserverport = 465
