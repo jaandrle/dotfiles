@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+set -euo pipefail
+config="$HOME/.config/git/identities"
+input="${1:-}"
+usage="Usage
+	git identity [<name>|help|-]
+	git-identity --help
+"
+[ -z "$input" ] \
+	&& echo "$usage"\
+	&& echo -e "$config/current.conf … current identity:" \
+	&& cat "$config/current.conf" \
+	&& exit 0
+[ "$input" = --help ] \
+	&& input="help"
+[ "$input" = help ] \
+	&& echo "$usage"\
+	&& echo '- _empty_: shows usage and current identity' \
+	&& echo '- <name>: set identity' \
+	&& echo '- -: show path to identities directory' \
+	&& echo '- help: shows this help' \
+	&& echo -e '\n\nExamples' \
+	&& echo '- git identity' \
+	&& echo '- git identity user' \
+	&& echo '- ls $(git identity -)' \
+	&& echo -e '\n\nGit config' \
+	&& echo "- git config --global include.path '$config/current.conf'" \
+	&& exit 0
+[ "$input" = - ] \
+	&& echo "$config" \
+	&& exit 0
+
+identity="$config/$input.conf"
+[ ! -e "$identity" ] \
+	&& echo "No such identity: $input" >&2 \
+	&& echo "$identity" >&2 \
+	&& exit 1
+
+ln --verbose --force "$identity" "$config/current.conf"

@@ -40,20 +40,6 @@
 	autoSquash = true
 	autoStash = true
 	updateRefs = true
-# me
-[user]
-	name = Jan Andrle
-	email = andrle.jan@centrum.cz
-	signingkey = B3A25AED155AFFAB
-[credential]
-	# see https://stackoverflow.com/questions/5343068/is-there-a-way-to-cache-https-credentials-for-pushing-commits/18362082#18362082
-	helper = /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
-[credential "https://github.com"]
-	helper = !/usr/bin/gh auth git-credential
-[credential "https://gist.github.com"]
-	helper = !/usr/bin/gh auth git-credential
-[credential "https://git.dhl.com"]
-	helper = !/usr/bin/gh auth git-credential
 # my setup
 [core]
 	editor = vim
@@ -126,11 +112,5 @@
 [am]
 	# keepcr = true # to preserve line endings
 	threeWay = true
-[sendemail]
-	anotate = true
-	smtpserver = smtp.centrum.cz
-	# chainReplyTo = false
-	suppresscc = self
-	smtpuser = andrle.jan@centrum.cz
-	smtpencryption = ssl
-	smtpserverport = 465
+[include]
+	path = ./identities/current.conf
