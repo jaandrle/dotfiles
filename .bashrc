@@ -24,7 +24,23 @@ bind -m vi-command 'Control-l: clear-screen'
 bind -m vi-insert 'Control-l: clear-screen'
 # export MANPAGER="/bin/sh -c \"sed -e 's/\x1B\[[[:digit:]]\+m//g' | col -b | vim --appimage-extract-and-run --not-a-term -c 'set ft=man ts=8 nomod nolist noma' -\""
 export MANPAGER="vim --appimage-extract-and-run +MANPAGER --not-a-term -c 'set ts=8 nolist' -"
-shopt -s checkwinsize						# dynamic columns update after every cmd
+export PAGER=/usr/bin/vimpager
+alias less=$PAGER
+alias cat=/usr/bin/vimcat
+vhead() {
+	if [[ -t 1 && -n $1 ]]; then
+		command head "$@" | command vimcat
+	else
+		command head "$@"
+	fi
+}
+vtail() {
+	if [[ -t 1 && -n $1 ]]; then
+		command tail "$@" | command vimcat
+	else
+		command tail "$@"
+	fi
+}
 
 ## History
 export HISTCONTROL=ignoreboth:erasedups		# No duplicate entries and started with spaces. See bash(1) for more options
@@ -62,6 +78,7 @@ fi
 export GPG_TTY=$(tty)
 
 shopt -s cdspell # autocorrects cd misspellings
+shopt -s dirspell 2>/dev/null || true	# bash >= 4
 
 # HSTR configuration - add this to ~/.bashrc
 # if this is interactive shell, then bind hstr to Ctrl-space

@@ -3,7 +3,7 @@ AntiAliasFonts=true
 BoldIntense=true
 ColorScheme=DarkPastels
 DimmValue=54
-Font=Ubuntu Mono,9,-1,5,500,0,0,0,0,0,0,0,0,0,0,1,Medium
+Font=BlexMono Nerd Font Mono Medium,8,-1,5,500,0,0,0,0,0,0,0,0,0,0,1,Regular
 UseFontLineChararacters=true
 
 [General]

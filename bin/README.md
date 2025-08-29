@@ -4,6 +4,9 @@
 - [./uu](./uu)
 - [../.config/uurc](../.config/uurc)
 
+## asciinema, asciinema-agg
+plays/records terminal commands (agg cast→gif)
+
 ## Lists executables via `npm`, `pip`, …
 <details>
 <summary>brew</summary>

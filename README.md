@@ -40,55 +40,38 @@ Sekce obsahuje log změn v Tuxedo laptopu s KDE Neon.
 
 - [Aloxaf/silicon: Create beautiful image of your source code.](https://github.com/Aloxaf/silicon) {DONE <2024-03-07> *utils* agenda}$
 
-### KDE Neon 6.0 (22.04)
-{NEXT <2024-03-20> *tilling* *hud* *html-wallpaper* *virtual-desktop* *klipper* agenda}$
+### TUXEDO OS (24.04.2 LTS / 2025-07-15)
+- [ ] (temporaly created new) `~/.config/plasma-org.kde.plasma.desktop-appletsrc.bak` see below
+- [x] fixed by update (2025-07-17) — :bug: kwallet6 (pam) autounlock
+- [ ] :zap: disabled (`Hiden`) for `/home/jaandrle/.config/autostart/re.sonny.Eloquent.desktop`
 
-- mostly OK
-- [ ] Kup is missing in Settings (only restore files option is available): *investigation → report a bug*
-- [ ] !!! Event calendar widget (in progress [ALikesToCode/plasma-applet-eventcalendar at plasma-6](https://github.com/ALikesToCode/plasma-applet-eventcalendar/tree/plasma-6))
-- [ ] tilling → try to use native, try to use [zeroxoneafour/polonium: Tiling window manager for KWin 5.27](https://github.com/zeroxoneafour/polonium) (when there will be a new release)
-- [ ] WIP: hud ([uszie/plasma-hud), in KDE Plasma.](https://github.com/uszie/plasma-hud)/[Zren/plasma-hud](https://github.com/Zren/plasma-hud) still works on X11), but maybe Ctrl+Alt+i and so on is OK?
+
+```terminal
+plasmashell --replace
+
+kf.plasma.quick: Applet preload policy set to 1
+file:///usr/share/plasma/plasmoids/org.kde.desktopcontainment/contents/ui/main.qml:178:25: QML FolderView
+DropArea (parent or ancestor of QQuickLayoutAttached): Binding loop detected for property "minimumWidth":
+file:///usr/share/plasma/plasmoids/org.kde.desktopcontainment/contents/ui/main.qml:201:9
+Toolbox not loading, toolbox package is either invalid or disabled.
+```
+
+### TUXEDO OS (24.04.1 LTS)
+- [x] no need anymore: !!! Event calendar widget (in progress [ALikesToCode/plasma-applet-eventcalendar at plasma-6](https://github.com/ALikesToCode/plasma-applet-eventcalendar/tree/plasma-6))
+- [x] ended up with Tiler: tilling → try to use native, try to use [zeroxoneafour/polonium: Tiling window manager for KWin 5.27](https://github.com/zeroxoneafour/polonium) (when there will be a new release)
+- [x] see ↓: hud ([uszie/plasma-hud), in KDE Plasma.](https://github.com/uszie/plasma-hud)/[Zren/plasma-hud](https://github.com/Zren/plasma-hud) still works on X11), but maybe Ctrl+Alt+i and so on is OK?
 	- testing to use command palletes in programs and sets shortcuts to `ctr+;` (✓ kde programs, ✓ gimp, ✓ libreoffice, ✓ inkscape, ✓ vscode)
 - [ ] [Fingerprint reader support : r/tuxedocomputers](https://www.reddit.com/r/tuxedocomputers/comments/176fscp/fingerprint_reader_support/), still receiving “no match”
-- [ ] [Clipboard support in Wayland · Issue #5157 · vim/vim](https://github.com/vim/vim/issues/5157#issuecomment-776008833)
-- [ ] partially FIXED by update: Wayland go to sleep even the external monitor is connected (HDMI)
-	- *→ seems to be this issue [438716 – Lid close leads to suspend even when external monitor is attached](https://bugs.kde.org/show_bug.cgi?id=438716)*
-	- needs to keyboard/mouse imput to intterupt the go sleep process
-- [x] [PSA: How to re-enable LibreOffice integration in Plasma 6 : r/kde](https://www.reddit.com/r/kde/comments/1b9k755/psa_how_to_reenable_libreoffice_integration_in/)
-- [x] FIXED by update: ~desktop exceptionally freeze for less than a second: *investigation → report a bug*~
-- [x] FIXED by update: ~logout/poweroff dialog not showing and not working: *investigation → report a bug* … see below~
-- [x] krunner not launching → created `/usr/share/dbus-1/services/org.kde.krunner.service` (see below)
-- [x] meta+tab (last virtual desktop) → workaround [./bin/kde6-workarounds.mjs](./bin/kde6-workarounds.mjs)
-- [x] klipper (edit last item) → workaround [./bin/kde6-workarounds.mjs](./bin/kde6-workarounds.mjs)
-- [x] Active Window Control replaced with Window Title widget and its better
-- [x] FIXED by widget update: ~html wallpaper → workaround just concat images (see [./bin/§wallpaper\_BIOTD](./bin/§wallpaper_BIOTD))~
-- [x] ctrl+tab using [k0kubun/xremap: Key remapper for X11 and Wayland](https://github.com/k0kubun/xremap) and `sudo crontab -e`+`@reboot` and [./.config/xremap.yml](./.config/xremap.yml)
-
 - [ ] [`npx npmkill` — Why are node_modules SO BIG 🤦‍♂️ #javascript #software #technology #code #webdev - YouTube](https://www.youtube.com/shorts/VgPNtow7fNM?app=desktop&si=Kl7CH3vCoyH7tqFU)
+- [ ] `brew install fabric-ai`
 
-```bash
-qdbus org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout 1
-Cannot find 'org.kde.KSMServerInterface.logout' in object /KSMServer at org.kde.ksmserver
-```
-[KDE Bugtracking System Main Page](https://bugs.kde.org/)
-```ini
-[D-BUS Service]
-Name=org.kde.krunner
-Exec=/usr/bin/krunner
-```
-
-### KDE neon 5.26 (22.04)
-{DONE <2022-10-25 17:21> *mail* *hud* *klíčenka* agenda}$
-
-- Ve směs OK
-- HUD ztratil stylování, použito breeze pro celé rofi (vygóglováno)
-- mailnag začal zapomínat heslo po příštím spuštění → nakonec: [Bubblemail - Downloads](http://bubblemail.free.fr/downloads)
-	- z článku [The 10 Best Mail Notification Tools for Linux System](https://www.ubuntupit.com/best-mail-notification-tools-for-linux/)
-	- zkoušen KMail – šlo by s ním žít, jen když už klient tak aby mi vyhovoval/fungoval
-	- thunderbird: nemá možnost notifikací na pozadí (celý program musí běžet)
-	- himalaya: má `watch`, ale detekuje jen nové (ne nově označené jako nepřečtené – asi OK), ale hl. se nedařilo zprovoznit přihlašování (kombinace s bitwarden)
-- `canonical-livepatch` nefunguje
-- Gnome klíčenka se neodemyká → přeinstalováno → uvidíme
+### KDE Neon (staré)
+- [x] KDE Plasma5 Fixes](https://zren.github.io/kde/)
+- [x] `sudo apt install $(check-language-support)`, see [Popup Language support is incomplete](http://unix.stackexchange.com/questions/421066/ddg#421079)
+- [x] kde plasma 5 - How to use miracast as an extended desktop on Linux? - Super User](https://superuser.com/questions/1160078/how-to-use-miracast-as-an-extended-desktop-on-linux)
+- [x] Setup git on the CLI to use 2FA with GitHub](https://gist.github.com/ateucher/4634038875263d10fb4817e5ad3d332f)
+- [x] G'MIC - GREYC's Magic for Image Computing: A Full-Featured Open-Source Framework for Image Processing - Main](https://gmic.eu/)
+- [x] [PSA: How to re-enable LibreOffice integration in Plasma 6 : r/kde](https://www.reddit.com/r/kde/comments/1b9k755/psa_how_to_reenable_libreoffice_integration_in/)
 
 ### Konsolidace klíčenek správce hesel
 {DONE <2022-07-14 20:40> *cli* *hesla* agenda}$
@@ -105,19 +88,6 @@ Exec=/usr/bin/krunner
 {DONE <2022-07-09 20:37> *python* *workaround* agenda}$
 
 Postupováno podle návodu [Rename the `~/.local/lib/python3.8/site-packages/pkg_resources` folder to `pkg_resources_back`](https://askubuntu.com/a/1398073).
-
-### KDE Neon
-- [KDE Plasma5 Fixes](https://zren.github.io/kde/)
-- Using ‘HTML Wallpaper’ (wip)
-	- [Bing Image Of The Day](./Obrázky/Bing Image Of The Day/index_template.html)
-- [GNOME Keyring in KDE Plasma - JWillikers](https://www.jwillikers.com/gnome-keyring-in-kde-plasma)
-- `sudo apt install $(check-language-support)`, see [Popup Language support is incomplete](http://unix.stackexchange.com/questions/421066/ddg#421079)
-- [KDE Neon does not have an hibernation option? : kde](https://www.reddit.com/r/kde/comments/6n5m49/kde_neon_does_not_have_an_hibernation_option/dk7hd8v/)
-- [kde plasma 5 - How to use miracast as an extended desktop on Linux? - Super User](https://superuser.com/questions/1160078/how-to-use-miracast-as-an-extended-desktop-on-linux)
-- [Best tiling extensions for kwin? : kde](https://www.reddit.com/r/kde/comments/qgsv2u/best_tiling_extensions_for_kwin/?sort=new), https://gitlab.com/faho/kwin-tiling/
-- [KDE Plasma5 Fixes](https://zren.github.io/kde/)
-- [Setup git on the CLI to use 2FA with GitHub](https://gist.github.com/ateucher/4634038875263d10fb4817e5ad3d332f)
-- [G'MIC - GREYC's Magic for Image Computing: A Full-Featured Open-Source Framework for Image Processing - Main](https://gmic.eu/)
 
 <details>
 <summary>`{… cmd}$` explanation</summary>

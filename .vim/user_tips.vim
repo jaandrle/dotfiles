@@ -46,7 +46,7 @@ let g:user_tips_list= [
 	\ ':lhistory :lolder :lnewer',
 	\ ':[m]ove :[co]py (:t) :p :#',
 	\ ':help i_CTRL-<tab> … i_CTRL-Y … i<c-u>',
-	\ '*grep onchange -r . --include=*.\{js,md\} …or http://jdem.cz/fgytv8',
+	\ '*grep onchange -r . --include=*.\{js,md\}',
 	\ '%bdelete|edit #|normal `"',
 	\ ':diffget :diffput c] [c',
 	\ ':chistory :colder :cnewer',

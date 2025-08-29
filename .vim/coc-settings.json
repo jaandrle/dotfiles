@@ -13,7 +13,8 @@
 	"html.autoCreateQuotes": false,
 	"javascript.preferences.quoteStyle": "double",
 	"javascript.preferences.importModuleSpecifierEnding": "js",
-	"javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+	"javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+	"typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
 	"___eslint.options": {
 		"overrideConfig":{
 			"extends": [

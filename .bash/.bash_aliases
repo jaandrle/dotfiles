@@ -160,14 +160,25 @@ alias npx-wca='npx -y web-component-analyzer'
 alias npx-qnm='npx -y qnm'
 alias npx-hint='npx -y hint'
 alias npx-markdown='npx -y markserv'
+§interfaces() {
+	node <<-EOF
+	var os = require('os');
+	var i = os.networkInterfaces();
+	Object.keys(i).forEach(function(name) {
+		i[name].forEach(function(int) {
+			if (int.family === 'IPv4') {
+				console.log('%s: %s', name, int.address);
+			}
+		});
+	});
+	EOF
+}
 
 alias fzf=fzf-carroarmato0.fzf
 alias smerge='/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=sublime_merge --file-forwarding com.sublimemerge.App @@u %u @@'
 kommit(){ command kommit $* > /dev/null 2>&1 & disown; }
 
 §url-curl(){ curl --silent -I "$1" | grep -i location; }
-
-alias bathelp='batcat --plain --language=help'
 
 rpg(){
 	rpg-cli "$@"

@@ -43,25 +43,21 @@
 # my setup
 [core]
 	editor = vim
-	pager = delta
+	pager = PAGER=less delta
 	whitespace = -trailing-space,-space-before-tab
 	compression = 9  # trade cpu for network
 [alias]
-	# * replaced by git-extras
-	# * (alias) aliases = !git config -l | grep ^alias | cut -c 7- | sort # List all aliases.  Stolen from here: https://twitter.com/TrevorBramble/status/774292970681937920
-	branch-default = !git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
-	# * branches (↓) = for-each-ref --sort=-committerdate refs --format=\"%(authordate:iso8601)\t%(color:blue)%(refname:short)%(HEAD)\t%(if:notequals="")%(upstream:short)%(then)→ %(upstream:short)%(color:reset)%(else)%(color:yellow)%(objectname:short)%(color:reset)\t%(contents:subject)%(end)\"
-	h-branches = !echo 'brv (git-extras)'
-	tags = tag -l --sort=-creatordate --format='%(refname:short):	[%(creatordate:short)]	%(subject)'
-	# * authors: log-authors = shortlog -ns
-	h-format-htma = !echo '%Cred%h%Creset %Cgreen[%ad] -%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset'
 	commit--interactive= !clear && git status && git commit --interactive
+	diff-dirs = diff --dirstat --find-copies --find-renames --histogram --color
+	notes-json = !git notes | njs -p '$.stdin.lines().map(l=> l.split(\" \")).map(([ id_note, id_commit ])=> ({id_commit, id_note, head: s.$().run`git show ${id_note}`.head().toString().split(\"\\n\")}))' 'o=> JSON.stringify(o, null, \"\t\")'
+	submodule-update-merge = submodule update --remote --merge
+	symbolic-ref-defaultBranch = !git symbolic-ref refs/remotes/origin/HEAD | cut -d'/' -f4-
+	tag-l = tag -l --sort=-creatordate --format='%(refname:short):	[%(creatordate:short)]	%(subject)'
+	h-branches = !echo 'brv (git-extras)'
+	h-format-htma = !echo '%Cred%h%Creset %Cgreen[%ad] -%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset'
 	h-unstage = !echo reset HEAD --
 	h-undoall = !echo reset --soft HEAD^
-	diff-dirs = diff --dirstat --find-copies --find-renames --histogram --color
-	h-submodule-delete = !echo 'delete-submodule (git-extras)' # * delete-submodule: rm-submodule = !git submodule deinit -f $1 && rm -rf .git/modules/$1 && git rm -rf $1
-	submodule-update-merge = submodule update --remote --merge
-	set-upstream-to-current = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
+	h-submodule-delete = !echo 'delete-submodule (git-extras)'
 [diff]
 	wsErrorHighlight = all
 	tool = vimdiff
@@ -78,6 +74,7 @@
 	conflictstyle = zdiff3
 [delta] # [dandavison/delta: A syntax-highlighting pager for git, diff, and grep output](https://github.com/dandavison/delta)
 	syntax-theme= Visual Studio Dark+
+	dark = true
 	navigate = true
 	side-by-side = true
 	line-numbers = true

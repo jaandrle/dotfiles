@@ -12,6 +12,7 @@ alias C--brew='\. "$BASH_DOTFILES/brew.completion"'
 alias C--pnpm='\. "$BASH_DOTFILES/pnpm.completion"'
 alias C--uu='eval "$($HOME/bin/uu --completion-bash)"'
 alias C--jc='eval "$(jc -B)" … newer version needed'
+alias C--gb='source <(gb completion bash) && complete -F __start_git-bug gb'
 \. <(bs .completion bash)
 \. "$BASH_DOTFILES/cordova.completion"
 \. <(node --completion-bash)
