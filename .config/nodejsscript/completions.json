@@ -59,6 +59,19 @@
 				"--help",
 				"--version"
 			]
+		},
+		"§pdftk-data.mjs": {
+			"npx": false,
+			"completions": {
+				"extract": [],
+				"update": [],
+				"convert": []
+			},
+			"completions_all": [
+				"--debug",
+				"--help",
+				"--version"
+			]
 		}
 	}
 }
