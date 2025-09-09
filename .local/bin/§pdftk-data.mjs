@@ -12,14 +12,11 @@ $.api()
 ])
 .option("--debug", "Debug mode")
 .command("extract <file_pdf> [file_info]", "Extract data from PDF.")
-.action(function extract(file_pdf, file_info, { debug }){
+.action(function extractCMD(file_pdf, file_info, { debug }){
 	if(!s.test("-f", file_pdf)) $.error("PDF File not found");
 	if(!file_info) file_info= filename(file_pdf) + ".json";
 	
-	const temp= `${tmp}${tmpname(file_pdf)}.info` ;
-	s.run`pdftk ${file_pdf} dump_data_utf8 output ${temp}`;
-	const info= infoToJSON(temp);
-	if(!debug) s.rm(temp);
+	const info= extract(file_pdf);
 	s.echo(info).to(file_info);
 	$.exit(0);
 })
@@ -28,8 +25,10 @@ $.api()
 	if(!s.test("-f", file_pdf)) $.error("PDF File not found");
 	if(!file_info) file_info= filename(file_pdf) + ".json";
 	if(!s.test("-f", file_info)) $.error("Info File not found");
+
+	const infoIsHtml= file_info.endsWith(".html");
 	
-	const info= infoFromJSON(file_info);
+	const info= infoIsHtml ? infoFromHTML(file_info, file_pdf, debug) : infoFromJSON(file_info);
 	const temp= `${tmp}${tmpname(file_pdf)}.info`;
 	s.echo(info).to(temp);
 	const tmp_pdf= `${tmp}${tmpname(file_pdf)}.pdf`;
@@ -51,13 +50,52 @@ $.api()
 })
 .parse();
 
+function extract(file_pdf, debug){
+	const temp= `${tmp}${tmpname(file_pdf)}.info` ;
+	s.run`pdftk ${file_pdf} dump_data_utf8 output ${temp}`;
+	const out= infoToJSON(temp);
+	if(!debug) s.rm(temp);
+	return out;
+}
 function filename(path){ return path.slice(path.lastIndexOf("/")+1, path.lastIndexOf(".")); }
 function tmpname(path){ return filename(path) + "-" + Date.now(); }
+function infoFromHTML(file_info, file_pdf, debug){
+	const info_orig= JSON.parse(extract(file_pdf, debug));
+	const info= s.cat(file_info).trim();
+	let isInside= false;
+	for(const line_raw of info.split("\n")){
+		const line= line_raw.trim();
+		if(line.startsWith("<head")){
+			isInside= true;
+			continue;
+		}
+		if(!line || !isInside) continue;
+		if(line.startsWith("<title>")){
+			const title= line.slice(7).replace("</title>", "").trim();
+			info_orig.Info.Title= title;
+			continue;
+		}
+		if(line.startsWith("<meta") && line.includes("name=")){
+			const [,, key]= line.match(/name=("|')(.*?)(\1)/);
+			const [,, value]= line.match(/content=("|')(.*?)(\1)/);
+			info_orig.Info[key[0].toUpperCase()+key.slice(1)]= value;
+		}
+		if(line.startsWith("</head>")){
+			break;
+		}
+	}
+	const tmp_json= `${tmp}${tmpname(file_pdf)}.json`;
+	s.echo(JSON.stringify(info_orig, null, "\t")).to(tmp_json);
+	const out= infoFromJSON(tmp_json);
+	if(!debug) s.rm(tmp_json);
+	return out;
+}
 function infoFromJSON(file_info){
 	const info= s.cat(file_info).xargs(JSON.parse);
 	const output= [];
 	info.Bookmark= Object.entries(info.Bookmark)
 		.map(/** @param {[string, string]} _ */([PageNumber, Title])=> {
+			PageNumber= Number.parseInt(PageNumber);
 			const level= Title.search(/[^ ]/);
 			return {
 				PageNumber,
@@ -134,7 +172,7 @@ function infoToJSON(file_info){
 		output.set(key, value);
 	}
 	output.set("Bookmark", pipe(
-		items=> items.map(({ PageNumber, Title, Level })=> ([PageNumber, " ".repeat(Number(Level)-1) + Title])),
+		items=> items.map(({ PageNumber, Title, Level }, i)=> ([PageNumber+"-"+i, " ".repeat(Number(Level)-1) + Title])),
 		Object.fromEntries,
 	)(output.get("Bookmark") || []));
 	return pipe(

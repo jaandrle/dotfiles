@@ -2,7 +2,7 @@
 
 ## uu
 - [./uu](./uu)
-- [../.config/uurc](../.config/uurc)
+- [~/.config/uurc](../../.config/uurc)
 
 ## asciinema, asciinema-agg
 plays/records terminal commands (agg cast→gif)

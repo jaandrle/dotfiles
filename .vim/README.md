@@ -1,10 +1,8 @@
 # Vim
 My cross-platform config file. Now primarly **Ubuntu**, in the past also Windows (I don't use them so much now → not tested!).
 
-To navigate my secondary editor use [../vscode](../vscode).
-
 ## Related files
-- [../.vimrc](../.vimrc)
+- [./.vimrc](./.vimrc)
 - [../.config/coc/ultisnips](../.config/coc/ultisnips)
 - [./\*](./)
 

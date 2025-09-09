@@ -148,9 +148,9 @@
 			"group": "ai",
 			"file_name": "ollama",
 			"exec": "yes",
-			"last_update": "2025-08-25T18:04:05Z",
+			"last_update": "2025-09-04T17:27:40Z",
 			"downloads": "/home/jaandrle/bin/ollama",
-			"version": "v0.11.7",
+			"version": "v0.11.10",
 			"glare": "linux-amd64"
 		},
 		{
@@ -173,8 +173,8 @@
 			"file_name": "vim",
 			"exec": "yes",
 			"downloads": "/home/jaandrle/bin/vim",
-			"version": "v9.1.1696",
-			"last_update": "2025-08-27T01:22:07Z",
+			"version": "v9.1.1744",
+			"last_update": "2025-09-09T01:22:24Z",
 			"glare": "GVim.*x86_64.*.AppImage"
 		},
 		{
@@ -184,9 +184,9 @@
 			"group": "dev",
 			"file_name": "escrcpy.appimage",
 			"exec": "yes",
-			"last_update": "2025-07-15T10:25:01Z",
+			"last_update": "2025-09-08T03:15:03Z",
 			"downloads": "/home/jaandrle/bin/escrcpy.appimage",
-			"version": "v1.30.2",
+			"version": "v1.32.0",
 			"glare": ".*x86_64.*.AppImage"
 		},
 		{
@@ -208,9 +208,9 @@
 			"group": "ai",
 			"file_name": "jan",
 			"exec": "yes",
-			"last_update": "2025-08-14T09:29:09Z",
+			"last_update": "2025-08-28T10:22:10Z",
 			"downloads": "/home/jaandrle/bin/jan",
-			"version": "v0.6.8",
+			"version": "v0.6.9",
 			"glare": ".*x86_64.*.AppImage"
 		},
 		{

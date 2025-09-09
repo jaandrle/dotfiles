@@ -21,7 +21,7 @@ see for example [How to Store Dotfiles - A Bare Git Repository \| Atlassian Git 
 - [git](./.config/git/config), [gh](./.config/gh/config.yml)
 - [KDE Neon](#kde-neon)
 - [Mozilla Firefox](./.mozilla/firefox/README.md)
-- [Bin – scripts and executables](./bin/README.md)
+- [Bin – scripts and executables](./.local/bin/README.md)
 
 ## On a new machine
 1. install git
