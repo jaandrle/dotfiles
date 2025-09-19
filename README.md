@@ -38,56 +38,21 @@ see for example [How to Store Dotfiles - A Bare Git Repository \| Atlassian Git 
 ## PC log (cs)
 Sekce obsahuje log změn v Tuxedo laptopu s KDE Neon.
 
-- [Aloxaf/silicon: Create beautiful image of your source code.](https://github.com/Aloxaf/silicon) {DONE <2024-03-07> *utils* agenda}$
+### TUXEDO OS (24.04.3 LTS / 2025-09-12)
+- [ ] git new setup (fresh install)
 
-### TUXEDO OS (24.04.2 LTS / 2025-07-15)
-- [ ] (temporaly created new) `~/.config/plasma-org.kde.plasma.desktop-appletsrc.bak` see below
-- [x] fixed by update (2025-07-17) — :bug: kwallet6 (pam) autounlock
-- [ ] :zap: disabled (`Hiden`) for `/home/jaandrle/.config/autostart/re.sonny.Eloquent.desktop`
-
-
-```terminal
-plasmashell --replace
-
-kf.plasma.quick: Applet preload policy set to 1
-file:///usr/share/plasma/plasmoids/org.kde.desktopcontainment/contents/ui/main.qml:178:25: QML FolderView
-DropArea (parent or ancestor of QQuickLayoutAttached): Binding loop detected for property "minimumWidth":
-file:///usr/share/plasma/plasmoids/org.kde.desktopcontainment/contents/ui/main.qml:201:9
-Toolbox not loading, toolbox package is either invalid or disabled.
-```
-
-### TUXEDO OS (24.04.1 LTS)
-- [x] no need anymore: !!! Event calendar widget (in progress [ALikesToCode/plasma-applet-eventcalendar at plasma-6](https://github.com/ALikesToCode/plasma-applet-eventcalendar/tree/plasma-6))
-- [x] ended up with Tiler: tilling → try to use native, try to use [zeroxoneafour/polonium: Tiling window manager for KWin 5.27](https://github.com/zeroxoneafour/polonium) (when there will be a new release)
-- [x] see ↓: hud ([uszie/plasma-hud), in KDE Plasma.](https://github.com/uszie/plasma-hud)/[Zren/plasma-hud](https://github.com/Zren/plasma-hud) still works on X11), but maybe Ctrl+Alt+i and so on is OK?
-	- testing to use command palletes in programs and sets shortcuts to `ctr+;` (✓ kde programs, ✓ gimp, ✓ libreoffice, ✓ inkscape, ✓ vscode)
-- [ ] [Fingerprint reader support : r/tuxedocomputers](https://www.reddit.com/r/tuxedocomputers/comments/176fscp/fingerprint_reader_support/), still receiving “no match”
-- [ ] [`npx npmkill` — Why are node_modules SO BIG 🤦‍♂️ #javascript #software #technology #code #webdev - YouTube](https://www.youtube.com/shorts/VgPNtow7fNM?app=desktop&si=Kl7CH3vCoyH7tqFU)
-- [ ] `brew install fabric-ai`
-
-### KDE Neon (staré)
-- [x] KDE Plasma5 Fixes](https://zren.github.io/kde/)
-- [x] `sudo apt install $(check-language-support)`, see [Popup Language support is incomplete](http://unix.stackexchange.com/questions/421066/ddg#421079)
-- [x] kde plasma 5 - How to use miracast as an extended desktop on Linux? - Super User](https://superuser.com/questions/1160078/how-to-use-miracast-as-an-extended-desktop-on-linux)
-- [x] Setup git on the CLI to use 2FA with GitHub](https://gist.github.com/ateucher/4634038875263d10fb4817e5ad3d332f)
-- [x] G'MIC - GREYC's Magic for Image Computing: A Full-Featured Open-Source Framework for Image Processing - Main](https://gmic.eu/)
-- [x] [PSA: How to re-enable LibreOffice integration in Plasma 6 : r/kde](https://www.reddit.com/r/kde/comments/1b9k755/psa_how_to_reenable_libreoffice_integration_in/)
-
-### Konsolidace klíčenek správce hesel
-{DONE <2022-07-14 20:40> *cli* *hesla* agenda}$
-
-- [x] cli pro KWalletManager
-	1. `keyring get imap centrumCZ`
-	1. `kwalletcli -f imap -e centrumCZ`
-- [x] Firefox
-	- `nss-password -d ~/.mozilla/firefox/ezjfn8hg.default-release NAME`
-	- [infinity0/mozilla-gnome-keyring: A firefox extension that enables Gnome Keyring integration](https://github.com/infinity0/mozilla-gnome-keyring)
-- [x] [Bitwarden CLI](https://bitwarden.com/help/cli/)
-
-### Varování v python scriptech
-{DONE <2022-07-09 20:37> *python* *workaround* agenda}$
-
-Postupováno podle návodu [Rename the `~/.local/lib/python3.8/site-packages/pkg_resources` folder to `pkg_resources_back`](https://askubuntu.com/a/1398073).
+### Old device
+- ended up with TUXEDO OS (24.04.2 LTS / 2025-07-15)
+	- [ ] :zap: disabled (`Hiden`) for `/home/jaandrle/.config/autostart/re.sonny.Eloquent.desktop`
+	- [Aloxaf/silicon: Create beautiful image of your source code.](https://github.com/Aloxaf/silicon) {DONE <2024-03-07> *utils* agenda}$
+	- [x] no need anymore: !!! Event calendar widget (in progress [ALikesToCode/plasma-applet-eventcalendar at plasma-6](https://github.com/ALikesToCode/plasma-applet-eventcalendar/tree/plasma-6))
+	- [x] ended up with Tiler: tilling → try to use native, try to use [zeroxoneafour/polonium: Tiling window manager for KWin 5.27](https://github.com/zeroxoneafour/polonium) (when there will be a new release)
+	- [ ] [`npx npmkill` — Why are node_modules SO BIG 🤦‍♂️ #javascript #software #technology #code #webdev - YouTube](https://www.youtube.com/shorts/VgPNtow7fNM?app=desktop&si=Kl7CH3vCoyH7tqFU)
+	- [ ] `brew install fabric-ai`
+- prev (KDE Neon)
+	- [x] G'MIC - GREYC's Magic for Image Computing: A Full-Featured Open-Source Framework for Image Processing - Main](https://gmic.eu/)
+	- [x] [PSA: How to re-enable LibreOffice integration in Plasma 6 : r/kde](https://www.reddit.com/r/kde/comments/1b9k755/psa_how_to_reenable_libreoffice_integration_in/)
+	- [x] `sudo apt install $(check-language-support)`, see [Popup Language support is incomplete](http://unix.stackexchange.com/questions/421066/ddg#421079)
 
 <details>
 <summary>`{… cmd}$` explanation</summary>

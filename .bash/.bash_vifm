@@ -1,0 +1,93 @@
+[[ $(command -v crossSession) ]] || source "$BASH_DOTFILES/.bash_aliases"
+vifm() {
+	echo 'Use bash build-in:'
+	echo '	- cd (ch dir), ls or tree (list), find'
+	echo '	- mkdir (make dir), touch (make file), rm (remove)'
+	echo '	- cp (copy), mv (move+rename)'
+	echo '	- cat (print file), head (print first lines), tail (print last lines)'
+	echo '	- info (print file info), file (print file type), mimetype'
+	echo '	- ln (link), chmod (change perm), chown (change owner)'
+	echo '	- cd stack: pushd, popd, dirs -v'
+	echo 'Use helpers:'
+	echo '	- rsync (copy), fd (verbo-less find)'
+	echo '	- m (marks, `cd "$m<name>"`), cd-kdialog'
+	echo '	- trash-* (trash)'
+	echo 'Use bash/terminal features:'
+	echo '	- history search (`cd …`)'
+	echo '	- tab completion'
+	echo '	- substitution: `!#:`, `!!:`'
+	echo 'Use GUI:'
+	echo '	- open . or open <file/dir>'
+	echo '	- dolphin'
+	echo 'Use VIM:'
+	echo '	- ls > <batch>.sh → vim <batch>.sh → :wq → bash <batch>.sh'
+}
+m(){
+	if [[ '-d' == "$1" ]]; then
+		unset "m$2"
+		crossSession "m$2"
+		return 0
+	fi
+	if [[ -z "$1" ]]; then
+		printenv | grep -e '^m' | sort | xargs -I{} echo \${}
+		return 0
+	fi
+	if [[ "--help" == "$1" ]]; then
+		echo 'm [--help]'
+		echo ' Lists all marks or print this help.'
+		echo 'm -d <name>'
+		echo ' Deletes mark <name>. Unsets variable and cross session variable.'
+		echo 'm <name> [path]'
+		echo ' Sets mark <name> to current directory or [path].'
+		echo ' The mark is just a bash variable, use `$m<name>`.'
+		echo 'cd $m<name>'
+		echo ' cd to mark <name>.'
+		return 0
+	fi
+	local n="m$1"
+	[[ -z "${!n}" ]] || return 1
+	[[ -z "$2" ]] && local p="$(pwd)" || local p="$(readlink -f $2)"
+	crossSession "$n" "$p"
+	export $n="$p"
+}
+alias cd-kdialog='cd "$(kdialog --getexistingdirectory --title "Vyberte složku" 2>/dev/null)"'
+alias fd='fdfind'
+
+# vim-like aliases?
+alias dw='rm'
+alias cw='mv'
+alias g='fdfind'
+
+# yanked files
+export YANKED=()
+p() {
+	for f in "${YANKED[@]}"; do
+		IFS=$'' echo "$f"
+	done
+} # p | xargs -I{} …
+P() { YANKED=(); echo 'YANKED=()'; }
+y() {
+	local pwd="$(pwd)"
+	if [[ -z "$1" ]]; then
+		YANKED=("$pwd")
+	else
+		for f in "$@"; do
+			if [[ "$f" == /* ]]; then
+				YANKED+=("$f")
+			elif [[ "$f" == ./* || "$f" == '.' ]]; then
+				YANKED+=("$pwd${f:1}")
+			else
+				YANKED+=("$pwd/$f")
+			fi
+		done
+	fi
+	echo $(p)
+}
+
+# tab completion
+[[ $(command -v _complete_alias) ]] || source "$BASH_DOTFILES/complete-alias/complete_alias"
+\. <(fdfind --gen-completions)
+complete -F _complete_alias fd
+complete -F _complete_alias dw
+complete -F _complete_alias cw
+complete -F _complete_alias g

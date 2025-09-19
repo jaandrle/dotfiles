@@ -88,14 +88,14 @@
 	set nobackup nowritebackup noswapfile		  " …there is issue #649 (for servers) and I’m using git/system backups
 	try
 		set undodir=~/.vim/undodir undofile | catch | endtry
-	command HELPundoClear echo 'undolevel='.&undolevels
+	command! HELPundoClear echo 'undolevel='.&undolevels
 "" #endregion SLH
 "" #region LLW – Left Column + Line + Wrap + Scrolling
 	set signcolumn=yes
 	set cursorline cursorcolumn															" Always show current position
 	set number foldcolumn=2								  " enable line numbers and add a bit extra margin to the left
 	set textwidth=120 colorcolumn=81,+1
-	command HELPtextwidth echo "textwidth=".&textwidth." colorcolumn=".&colorcolumn
+	command! HELPtextwidth echo "textwidth=".&textwidth." colorcolumn=".&colorcolumn
 	set nowrap											" Don't wrap long lines by default
 	set breakindent breakindentopt=shift:2 showbreak=↳ 
 	set scrolloff=5 sidescrolloff=10										" offset for lines/columns when scrolling
@@ -130,7 +130,7 @@
 "" #region FOS – File(s) + Openning + Saving
 	set autowrite autoread | autocmd FocusGained,BufEnter *.* checktime
 	set modeline
-	command HELPmodeline
+	command! HELPmodeline
 		\ echo "tabstop=".&tabstop." shiftwidth=".&shiftwidth." textwidth=".&textwidth." expandtab=".&expandtab
 	set path+=src/**,app/**,build/**														" File matching for `:find`
 	for ignore in [ '.git', '.npm', 'node_modules' ]
@@ -140,7 +140,15 @@
 	set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
 	set wildignore+=*.pdf,*.psd
 
-	nmap <leader>e :Vifm<cr>
+	function! Explore()
+		let pwd = expand('%:p:h')
+		let file = system('kdialog --getopenfilename --title "Vyberte soubor" "'.pwd.'" 2>/dev/null')
+		if file != ''
+			exec 'e '.file
+		endif
+	endfunction
+	command! Explore call Explore()
+	nmap <silent> <leader>e :Explore<cr>
 	nnoremap gx :silent exec "!xdg-open '".shellescape(substitute(expand('<cfile>'), '?', '\\?', ''), 1)."'" \| redraw!<cr>
 	vnoremap gx :silent exec "!xdg-open '".shellescape(substitute(mini_enhancement#selectedText(), '?', '\\?', ''), 1)."'" \| redraw!<cr>
 "" #endregion FOS

@@ -50,19 +50,6 @@
 			"glare": "AppImage"
 		},
 		{
-			"repository": "ArchGPT/insomnium",
-			"name": "insomnium",
-			"description": "Insomnium is a fast local API testing tool that is privacy-focused and 100% local. For testing GraphQL, REST, WebSockets and gRPC. This is a fork of Kong/insomnia",
-			"group": "skip-dev",
-			"file_name": "insomnium",
-			"exec": "yes",
-			"last_update": "2023-11-13T10:03:28Z",
-			"downloads": "/home/jaandrle/bin/insomnium",
-			"tag_name_regex": "core@.*",
-			"version": "core@0.2.3-a",
-			"glare": "AppImage"
-		},
-		{
 			"repository": "rvpanoz/luna",
 			"name": "luna",
 			"description": "Manage npm dependencies through a modern UI.",
@@ -142,18 +129,6 @@
 			"glare": ".*amd64.*.AppImage"
 		},
 		{
-			"repository": "ollama/ollama",
-			"name": "ollama",
-			"description": "Get up and running with Llama 2 and other large language models locally",
-			"group": "ai",
-			"file_name": "ollama",
-			"exec": "yes",
-			"last_update": "2025-09-04T17:27:40Z",
-			"downloads": "/home/jaandrle/bin/ollama",
-			"version": "v0.11.10",
-			"glare": "linux-amd64"
-		},
-		{
 			"repository": "neovim/neovim",
 			"name": "neovim",
 			"tag_name_regex": "v.*",
@@ -211,7 +186,7 @@
 			"last_update": "2025-08-28T10:22:10Z",
 			"downloads": "/home/jaandrle/bin/jan",
 			"version": "v0.6.9",
-			"glare": ".*x86_64.*.AppImage"
+			"glare": ".*amd64.AppImage"
 		},
 		{
 			"repository": "Bin-Huang/chatbox",

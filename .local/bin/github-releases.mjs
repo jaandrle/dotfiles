@@ -273,7 +273,7 @@ async function fetchRelease({ repository, tag_name_regex }, cache){
 	const headers= { 'User-Agent': 'node' };
 	if(cache==="no") headers['Cache-Control'] = 'no-cache';
 	const url= urls_api[url_api]+repository+"/releases";
-	const releases= await fetch(url, { headers }).then(res=> res.json());
+	const releases= await fetch(url, { headers, redirect: "follow" }).then(res=> res.json());
 	if(releases.message) return $.error(url+": "+releases.message);
 
 	if(url.includes("github.com"))

@@ -12,6 +12,7 @@ shopt -s expand_aliases
 [ -f $BASH_DOTFILES/.bash_sdkman ] && . $BASH_DOTFILES/.bash_sdkman
 [ -f $BASH_DOTFILES/.bash_nvm ] && . $BASH_DOTFILES/.bash_nvm
 export NODE_COMPILE_CACHE=~/.cache/nodejs-compile-cache # https://nolanlawson.com/2024/10/20/why-im-skeptical-of-rewriting-javascript-tools-in-faster-languages/
+export PATH="$HOME/.local/bin:$PATH"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 [ -f $BASH_DOTFILES/.bash_completions ] && . $BASH_DOTFILES/.bash_completions # for Vim
 
@@ -22,24 +23,10 @@ set -o vi									# VIM mode for bash
 bind -m vi-command 'Control-l: clear-screen'
 bind -m vi-insert 'Control-l: clear-screen'
 # export MANPAGER="/bin/sh -c \"sed -e 's/\x1B\[[[:digit:]]\+m//g' | col -b | vim --appimage-extract-and-run --not-a-term -c 'set ft=man ts=8 nomod nolist noma' -\""
-export MANPAGER="vim --appimage-extract-and-run +MANPAGER --not-a-term -c 'set ts=8 nolist' -"
-export PAGER=/usr/bin/vimpager
+export MANPAGER="vim --appimage-extract-and-run +MANPAGER --not-a-term -c 'set ts=8 nolist number' -"
+export PAGER=/usr/local/bin/vimpager
 alias less=$PAGER
-alias cat=/usr/bin/vimcat
-vhead() {
-	if [[ -t 1 && -n $1 ]]; then
-		command head "$@" | command vimcat
-	else
-		command head "$@"
-	fi
-}
-vtail() {
-	if [[ -t 1 && -n $1 ]]; then
-		command tail "$@" | command vimcat
-	else
-		command tail "$@"
-	fi
-}
+alias cat=/usr/local/bin/vimcat
 
 ## History
 export HISTCONTROL=ignoreboth:erasedups		# No duplicate entries and started with spaces. See bash(1) for more options
@@ -59,6 +46,7 @@ export LS_COLORS=$LS_COLORS:'tw=01;04;34:ow=01;04;34:'
 [ ! -x /usr/bin/tput ] || ! tput setaf 1 >&/dev/null && color_prompt=
 
 [ -f $BASH_DOTFILES/.bash_promt ] && . $BASH_DOTFILES/.bash_promt
+[ -f $BASH_DOTFILES/.bash_vifm ] && . $BASH_DOTFILES/.bash_vifm
 
 # Add an "alert" alias for long running commands.  Use like so:
 #	sleep 10; alert
@@ -83,3 +71,7 @@ shopt -s dirspell 2>/dev/null || true	# bash >= 4
 # if this is interactive shell, then bind hstr to Ctrl-space
 # if [[ $- =~ .*i.* ]]; then bind '"\C-@": "\e^ihstr -- \C-j"'; fi
 if [[ $- =~ .*i.* ]]; then bind '"\C-@": "\e^I history | grep '\''\e\e^A'\''\e\ei"'; fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

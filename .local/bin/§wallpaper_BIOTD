@@ -13,7 +13,7 @@ desktops()
 });
 JS
 nm-online -x -q && \
-	node "/home/jaandrle/.nvm/versions/node/$(node --version)/bin/nodejsscript" /home/jaandrle/bin/§wallpaper_WCPOTD.mjs pull && \
+	node "/home/jaandrle/.nvm/versions/node/$(node --version)/bin/nodejsscript" /home/jaandrle/.local/bin/§wallpaper_WCPOTD.mjs pull && \
 	qdbus org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript "$JS"
 #	plasma-apply-wallpaperimage '/home/jaandrle/Obrázky/Bing Image Of The Day/now.jpg' && plasma-apply-wallpaperimage '/home/jaandrle/Obrázky/Bing Image Of The Day/horizontally.jpg'
 #	cd "/home/jaandrle/Obrázky/Bing Image Of The Day" && \
