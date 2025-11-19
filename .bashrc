@@ -33,10 +33,9 @@ export HISTCONTROL=ignoreboth:erasedups		# No duplicate entries and started with
 shopt -s histappend cmdhist					# saving multiline + append
 export HISTFILESIZE=10000					# increase history file size (default is 500)
 export HISTSIZE=${HISTFILESIZE}				# increase history size (default is 500)
-export HSTR_CONFIG=hicolor,prompt-bottom
-export HSTR_PROMPT='?: '
 
 ## UI/UX
+shopt -s checkwinsize				# check the window size after each command and, if necessary, update the values of LINES and COLUMNS.
 									# clors for .inputrc (set colored-stats On)
 export LS_COLORS=$LS_COLORS:'tw=01;04;34:ow=01;04;34:'
 									# set variable identifying the chroot you work in (used in the prompt below)
@@ -56,11 +55,11 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-	. /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-	. /etc/bash_completion
-  fi
+	if [ -f /usr/share/bash-completion/bash_completion ]; then
+		. /usr/share/bash-completion/bash_completion
+	elif [ -f /etc/bash_completion ]; then
+		. /etc/bash_completion
+	fi
 fi
 export GPG_TTY=$(tty)
 

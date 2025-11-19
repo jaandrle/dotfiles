@@ -1,26 +1,34 @@
 [[ $(command -v crossSession) ]] || source "$BASH_DOTFILES/.bash_aliases"
 vifm() {
-	echo 'Use bash build-in:'
-	echo '	- cd (ch dir), ls or tree (list), find'
-	echo '	- mkdir (make dir), touch (make file), rm (remove)'
-	echo '	- cp (copy), mv (move+rename)'
-	echo '	- cat (print file), head (print first lines), tail (print last lines)'
-	echo '	- info (print file info), file (print file type), mimetype'
-	echo '	- ln (link), chmod (change perm), chown (change owner)'
-	echo '	- cd stack: pushd, popd, dirs -v'
-	echo 'Use helpers:'
-	echo '	- rsync (copy), fd (verbo-less find)'
-	echo '	- m (marks, `cd "$m<name>"`), cd-kdialog'
-	echo '	- trash-* (trash)'
-	echo 'Use bash/terminal features:'
-	echo '	- history search (`cd …`)'
-	echo '	- tab completion'
-	echo '	- substitution: `!#:`, `!!:`'
-	echo 'Use GUI:'
-	echo '	- open . or open <file/dir>'
-	echo '	- dolphin'
-	echo 'Use VIM:'
-	echo '	- ls > <batch>.sh → vim <batch>.sh → :wq → bash <batch>.sh'
+	\cat <<- "HELP"
+		Use bash build-in:
+		  - cd (ch dir), ls or tree (list), find
+		  - mkdir (make dir), touch (make file), rm (remove)
+		  - cp (copy), mv (move+rename)
+		  - cat (print file), head (print first lines), tail (print last lines)
+		  - ln (link), chmod (change perm), chown (change owner)
+		  - file/dir info: stat , file , mimetype
+		  - cd stack: pushd, popd, dirs -v
+		Use helpers:
+		  - rsync (copy), fd (verbo-less find)
+		  - m (marks, `cd "$m<name>"`), cd-kdialog
+		  - trash-* (trash)
+		Use bash/terminal features:
+		  - history search (`cd …`)
+		  - tab completion
+		  - substitution: `!#:`, `!!:`
+		  - globbing: `*`, `?`, `{}` … `for file in *; do …; done`
+		Use GUI:
+		  - open . or open <file/dir>
+		  - dolphin
+		Use VIM:
+		  - ls > <batch>.sh → vim <batch>.sh → :wq → bash <batch>.sh
+		Use vim aliases?:
+		  - y (yank), p (paste), P (paste and clear)
+		  - y [file(s)|dir(s)]; p | xargs -I{} <cp|mv|…> {} …; P
+		Use `$PROMPT_COMMAND`:
+			- `PROMPT_COMMAND+='; ls -A'; PROMPT_COMMAND="${PROMPT_COMMAND/; ls -A}"`
+	HELP
 }
 m(){
 	if [[ '-d' == "$1" ]]; then
@@ -33,15 +41,17 @@ m(){
 		return 0
 	fi
 	if [[ "--help" == "$1" ]]; then
-		echo 'm [--help]'
-		echo ' Lists all marks or print this help.'
-		echo 'm -d <name>'
-		echo ' Deletes mark <name>. Unsets variable and cross session variable.'
-		echo 'm <name> [path]'
-		echo ' Sets mark <name> to current directory or [path].'
-		echo ' The mark is just a bash variable, use `$m<name>`.'
-		echo 'cd $m<name>'
-		echo ' cd to mark <name>.'
+		\cat <<- "HELP"
+			m [--help]
+			  Lists all marks or print this help.
+			m -d <name>
+			  Deletes mark <name>. Unsets variable and cross session variable.
+			m <name> [path]
+			  Sets mark <name> to current directory or [path].
+			  The mark is just a bash variable, use `$m<name>`.
+			cd $m<name>
+			  cd to mark <name>.
+		HELP
 		return 0
 	fi
 	local n="m$1"

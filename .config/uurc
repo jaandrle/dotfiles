@@ -1,4 +1,6 @@
 #! /usr/bin/
+uu_wd_alias="v2d.wttr.in/${1:-prague}?M"
+uu_wd_is_raw=1
 uu_w_alias="wttr.in/${1:-prague}?M"
 uu_w_is_raw=0
 uu_h_alias="cheat.sh/$1"

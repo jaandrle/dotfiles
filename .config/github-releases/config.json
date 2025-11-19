@@ -1,5 +1,5 @@
 {
-	"target": "/home/jaandrle/bin/",
+	"target": "/home/jaandrle/.local/bin/",
 	"packages": [
 		{
 			"repository": "shiftkey/desktop",
@@ -9,7 +9,7 @@
 			"exec": "yes",
 			"description": "Fork of GitHub Desktop to support various Linux distributions",
 			"last_update": "2024-08-17T01:47:21Z",
-			"downloads": "/home/jaandrle/bin/github-desktop",
+			"downloads": "/home/jaandrle/.local/bin/github-desktop",
 			"version": "release-3.4.4-linuxbeta2",
 			"glare": ".*x86_64.*.AppImage"
 		},
@@ -23,7 +23,7 @@
 			"glare": "AppImage",
 			"last_update": "2025-06-09T14:57:33Z",
 			"version": "3.9.0",
-			"downloads": "/home/jaandrle/bin/pinokio"
+			"downloads": "/home/jaandrle/.local/bin/pinokio"
 		},
 		{
 			"repository": "jaandrle/jaaCSS-cli",
@@ -32,7 +32,7 @@
 			"group": "dev",
 			"file_name": "jaaCSS.js",
 			"exec": "yes",
-			"downloads": "/home/jaandrle/bin/jaaCSS.js",
+			"downloads": "/home/jaandrle/.local/bin/jaaCSS.js",
 			"version": "v1.3.2",
 			"last_update": "2022-09-02T13:33:16Z",
 			"glare": "jaaCSS.js"
@@ -45,7 +45,7 @@
 			"file_name": "youtube-music",
 			"exec": "yes",
 			"last_update": "2024-10-16T11:58:54Z",
-			"downloads": "/home/jaandrle/bin/youtube-music",
+			"downloads": "/home/jaandrle/.local/bin/youtube-music",
 			"version": "v3.6.2",
 			"glare": "AppImage"
 		},
@@ -59,7 +59,7 @@
 			"glare": "AppImage",
 			"last_update": "2020-10-29T23:06:39Z",
 			"version": "v.3.4.6",
-			"downloads": "/home/jaandrle/bin/luna"
+			"downloads": "/home/jaandrle/.local/bin/luna"
 		},
 		{
 			"repository": "angela-d/wifi-channel-watcher",
@@ -79,7 +79,7 @@
 			"glare": ".*x86_64.*.AppImage",
 			"last_update": "2023-03-08T23:25:46Z",
 			"version": "continuous",
-			"downloads": "/home/jaandrle/bin/appimagekit"
+			"downloads": "/home/jaandrle/.local/bin/appimagekit"
 		},
 		{
 			"repository": "dynobo/normcap",
@@ -89,7 +89,7 @@
 			"file_name": "normcap",
 			"exec": "yes",
 			"last_update": "2023-12-12T22:23:37Z",
-			"downloads": "/home/jaandrle/bin/normcap",
+			"downloads": "/home/jaandrle/.local/bin/normcap",
 			"version": "v0.5.2"
 		},
 		{
@@ -100,7 +100,7 @@
 			"file_name": "upscayl",
 			"exec": "yes",
 			"last_update": "2024-12-25T13:44:34Z",
-			"downloads": "/home/jaandrle/bin/upscayl",
+			"downloads": "/home/jaandrle/.local/bin/upscayl",
 			"version": "v2.15.0",
 			"glare": "AppImage"
 		},
@@ -112,7 +112,7 @@
 			"file_name": "bs",
 			"exec": "yes",
 			"last_update": "2024-10-22T12:04:29Z",
-			"downloads": "/home/jaandrle/bin/bs",
+			"downloads": "/home/jaandrle/.local/bin/bs",
 			"version": "v0.8.0",
 			"glare": "bs-linux"
 		},
@@ -124,7 +124,7 @@
 			"file_name": "fedistar.appimage",
 			"exec": "yes",
 			"last_update": "2025-07-29T14:08:34Z",
-			"downloads": "/home/jaandrle/bin/fedistar.appimage",
+			"downloads": "/home/jaandrle/.local/bin/fedistar.appimage",
 			"version": "v1.11.8",
 			"glare": ".*amd64.*.AppImage"
 		},
@@ -136,7 +136,7 @@
 			"group": "skip-dev",
 			"file_name": "nvim",
 			"exec": "yes",
-			"downloads": "/home/jaandrle/bin/nvim",
+			"downloads": "/home/jaandrle/.local/bin/nvim",
 			"version": "v0.9.5",
 			"last_update": "2023-12-30T13:31:47Z"
 		},
@@ -147,10 +147,10 @@
 			"group": "dev",
 			"file_name": "vim",
 			"exec": "yes",
-			"downloads": "/home/jaandrle/bin/vim",
-			"version": "v9.1.1744",
-			"last_update": "2025-09-09T01:22:24Z",
-			"glare": "GVim.*x86_64.*.AppImage"
+			"downloads": "/home/jaandrle/.local/bin/vim",
+			"version": "v9.1.1896",
+			"glare": "GVim.*x86_64.*.AppImage",
+			"last_update": "2025-11-03T01:27:22Z"
 		},
 		{
 			"repository": "viarotel-org/escrcpy",
@@ -159,9 +159,9 @@
 			"group": "dev",
 			"file_name": "escrcpy.appimage",
 			"exec": "yes",
-			"last_update": "2025-09-08T03:15:03Z",
-			"downloads": "/home/jaandrle/bin/escrcpy.appimage",
-			"version": "v1.32.0",
+			"last_update": "2025-09-29T07:00:43Z",
+			"downloads": "/home/jaandrle/.local/bin/escrcpy.appimage",
+			"version": "v1.32.2",
 			"glare": ".*x86_64.*.AppImage"
 		},
 		{
@@ -172,7 +172,7 @@
 			"file_name": "drovp",
 			"exec": "yes",
 			"last_update": "2024-10-06T16:26:38Z",
-			"downloads": "/home/jaandrle/bin/drovp",
+			"downloads": "/home/jaandrle/.local/bin/drovp",
 			"version": "0.8.2",
 			"glare": "x64.AppImage"
 		},
@@ -183,9 +183,9 @@
 			"group": "ai",
 			"file_name": "jan",
 			"exec": "yes",
-			"last_update": "2025-08-28T10:22:10Z",
-			"downloads": "/home/jaandrle/bin/jan",
-			"version": "v0.6.9",
+			"last_update": "2025-10-16T05:27:29Z",
+			"downloads": "/home/jaandrle/.local/bin/jan",
+			"version": "v0.7.2",
 			"glare": ".*amd64.AppImage"
 		},
 		{
@@ -195,9 +195,9 @@
 			"group": "ai",
 			"file_name": "Chatbox",
 			"exec": "yes",
-			"last_update": "2025-01-14T13:29:06Z",
-			"downloads": "/home/jaandrle/bin/Chatbox",
-			"version": "v0.10.4",
+			"last_update": "2025-11-04T03:56:22Z",
+			"downloads": "/home/jaandrle/.local/bin/Chatbox",
+			"version": "v1.17.1",
 			"glare": ".*x86_64.*.AppImage"
 		},
 		{
@@ -207,7 +207,7 @@
 			"description": "Rust implementation of NearbyShare/QuickShare from Android for Linux and macOS.",
 			"file_name": "r-quick-share",
 			"exec": "yes",
-			"downloads": "/home/jaandrle/bin/r-quick-share",
+			"downloads": "/home/jaandrle/.local/bin/r-quick-share",
 			"glare": ".*main.*amd64.AppImage",
 			"last_update": "2025-02-23T18:15:49Z",
 			"version": "v0.11.5"
@@ -219,10 +219,22 @@
 			"description": "Konnektoren Mobile App (learning german) — https://konnektoren.help/home/",
 			"file_name": "konnektoren",
 			"exec": "yes",
-			"downloads": "/home/jaandrle/bin/konnektoren",
+			"downloads": "/home/jaandrle/.local/bin/konnektoren",
 			"glare": "AppImage",
 			"last_update": "2025-04-27T07:33:51Z",
 			"version": "konnektoren-mobile-app-v0.1.4"
+		},
+		{
+			"repository": "TibixDev/winboat",
+			"group": "nondev",
+			"name": "WinBoat",
+			"description": "Run Windows apps on 🐧 Linux with ✨ seamless integration",
+			"file_name": "winboat",
+			"exec": "yes",
+			"downloads": "/home/jaandrle/.local/bin/winboat",
+			"glare": ".*x86_64.AppImage",
+			"version": "v0.8.7",
+			"last_update": "2025-10-08T07:45:20Z"
 		}
 	]
 }

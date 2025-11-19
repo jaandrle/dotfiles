@@ -163,6 +163,9 @@
 	nmap <Leader>m <Plug>ToggleMarkbar
 "" #endregion EN
 "" #region EA – Editing adjustment + Syntax + White chars + Folds
+	" surround `:echo char2nr(…)`
+	let g:surround_8222= "„\r”"
+	let g:surround_8218= "‚\r’"
 	" use <c-v>§ for §
 	inoremap § <esc>
 	set nrformats-=octal
@@ -236,7 +239,7 @@ imap <f3>d   <Cmd>call codeium#Clear()<CR>
 imap <f3>!   <Cmd>call codeium#Complete()<CR>
 "" #endregion AI
 "" #region COC – COC and so on, compilers, code/commands completions
-	let g:coc_global_extensions= ['coc-css', 'coc-docthis', 'coc-emmet', 'coc-emoji', 'coc-git', 'coc-pretty-ts-errors', 'coc-eslint', 'coc-gitmoji', 'coc-html', 'coc-json', 'coc-lists', 'coc-marketplace', 'coc-phpls', 'coc-sh', 'coc-snippets', 'coc-styled-components', 'coc-svg', 'coc-tsserver']
+	let g:coc_global_extensions= ['coc-css', 'coc-biome', 'coc-docthis', 'coc-emmet', 'coc-emoji', 'coc-git', 'coc-pretty-ts-errors', 'coc-eslint', 'coc-gitmoji', 'coc-html', 'coc-json', 'coc-lists', 'coc-marketplace', 'coc-phpls', 'coc-sh', 'coc-snippets', 'coc-styled-components', 'coc-svg', 'coc-tsserver']
 	" https://github.com/antonk52/cssmodules-language-server
 	call coc#config('languageserver.cssmodules', {
 		\ "command": "cssmodules-language-server",

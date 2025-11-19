@@ -2,3 +2,7 @@
 	path = .bash/complete-alias
 	url = git@github.com:cykerway/complete-alias.git
 	branch = master
+[submodule ".bash/vimv"]
+	path = .bash/vimv
+	url = git@github.com:thameera/vimv.git
+	branch = master

@@ -9,7 +9,7 @@ complete -F _complete_alias gitdotfiles
 
 alias C--brew='\. "$BASH_DOTFILES/brew.completion"'
 alias C--pnpm='\. "$BASH_DOTFILES/pnpm.completion"'
-alias C--uu='eval "$($HOME/.loacl/bin/uu --completion-bash)"'
+alias C--uu='eval "$($HOME/.local/bin/uu --completion-bash)"'
 alias C--jc='eval "$(jc -B)" … newer version needed'
 \. <(bs .completion bash)
 \. "$BASH_DOTFILES/cordova.completion"

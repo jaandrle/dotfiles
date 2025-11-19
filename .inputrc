@@ -20,6 +20,11 @@ set menu-complete-display-prefix on
 # shift+enter
 "OM": history-and-alias-expand-line
 
+"\"\"": "\"\e\ea\"\e\ei"
+"''": "'\e\ea'\e\ei"
+"()": "(\e\ea)\e\ei"
+"{}": "{\e\ea}\e\ei"
+
 set colored-stats On
 
 "":"\C-W"

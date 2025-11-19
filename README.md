@@ -40,6 +40,25 @@ Sekce obsahuje log změn v Tuxedo laptopu s KDE Neon.
 
 ### TUXEDO OS (24.04.3 LTS / 2025-09-12)
 - [ ] git new setup (fresh install)
+- [ ] nextcloud (issue with multiple users)
+    - [x] Celleste sync non-recursive
+    - [ ] rclone?
+- [x] https://github.com/simonw/llm-llamafile/issues/2 (`/home/linuxbrew/.linuxbrew/Cellar/llm/0.27.1/libexec/lib/python3.13/site-packages/`)
+- [ ] To uninstall, run '~/.local/share/vdhcoapp/vdhcoapp uninstall' and remove '~/.local/share/vdhcoapp'.
+
+```terminal
+>_: brew upgrade
+…
+Bash completion has been installed to:
+  /home/linuxbrew/.linuxbrew/etc/bash_completion.d
+==> rclone
+Homebrew's installation does not include the `mount` subcommand on macOS which depends on FUSE, use `nfsmount` instead.
+==> docker-compose
+Compose is a Docker plugin. For Docker to find the plugin, add "cliPluginsExtraDirs" to ~/.docker/config.json:
+  "cliPluginsExtraDirs": [
+      "/home/linuxbrew/.linuxbrew/lib/docker/cli-plugins"
+  ]
+```
 
 ### Old device
 - ended up with TUXEDO OS (24.04.2 LTS / 2025-07-15)

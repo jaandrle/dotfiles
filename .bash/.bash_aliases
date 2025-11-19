@@ -50,7 +50,7 @@ crossSession() {
 	else
 		if [ -n "$value" ]; then
 			# If it doesn't exist and new value is not empty, append the new variable to the file
-			echo "export $name=\"$value\"" >> "$CROSS_SESSION"
+			echo "export $name='$value'" >> "$CROSS_SESSION"
 		fi
 	fi
 }
@@ -68,7 +68,6 @@ cd(){
 	printenv | grep -e '^l' | xargs -I{} echo \${}
 }
 
-alias pdftk='java -jar $HOME/bin/pdftk-all.jar'
 bw-session(){
 	bw logout
 	# login=`kwallet-query kdewallet -f accounts -r Bitwarden 2> /dev/null`
@@ -81,10 +80,10 @@ bw-session(){
 	unset BW_CLIENTID
 }
 
-export lps_mem='-eo pid,ppid,cmd,%mem,%cpu --sort=-%mem'
-export lps_cpu='-eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu'
-export llsoft_all='-P -i -n'
-export lgrep_compose='-i /usr/share/X11/locale/en_US.UTF-8/Compose ~/.XCompose'
+alias §ps-mem='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem'
+alias §ps-cpu='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu'
+alias §lsoft-all='lsoft -P -i -n'
+alias §grep-compose='grep -i /usr/share/X11/locale/en_US.UTF-8/Compose ~/.XCompose'
 
 §ping-test(){ # Pings ip address of noip.com and www.google.com.
   ping -c 1 -q 8.23.224.107 | grep --color=never -A 1 -i '\---'
@@ -138,8 +137,10 @@ kommit(){
 		command kommit $* > /dev/null 2>&1 & disown;
 	fi
 }
+export SVN_CONFIG_DIR="$HOME/.config/subversion"
+alias svn='svn --config-dir "$SVN_CONFIG_DIR"'
 
-§url-curl(){ curl --silent -I "$1" | grep -i location; }
+§curl-location(){ curl --silent -I "$1" | grep -i location; }
 
 rpg(){
 	rpg-cli "$@"

@@ -2,7 +2,7 @@
 /* jshint esversion: 8,-W097, -W040, node: true, expr: true, undef: true *//* global echo, $, pipe, s, style, fetch, cyclicLoop */
 $.is_fatal= true;
 $.api("<...query_array>", true)
-.version("v2022-09-23")
+.version("v2025-10-31")
 .describe([
 	"This is just redirection to [WolframAlpha](https://www.wolframalpha.com/) site.",
 	"Use the same expressions as on web page."
@@ -14,7 +14,7 @@ $.api("<...query_array>", true)
 	query_array.unshift(first);
 	echo("Opening:");
 	echo("https://www.wolframalpha.com/input/?i="+encodeURI(query_array.join(" ")).replace(/\+/g, '%2B'))
-	.xargs(s.runA, "exo-open --launch WebBrowser {}")
+	.xargs(s.runA, "xdg-open {}")
 	.then($.exit.bind(null, 0)).catch($.exit.bind(null, 1));
 })
 .parse();

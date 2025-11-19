@@ -43,7 +43,7 @@ complete  -o bashdefault -o default -F _${this}_completion ${this}
 	exit 0;
 fi
 
-_echo(){ [[ $is_raw == 1 ]] && echo -e "$1" || echo "$1" | less -R -S; }
+_echo(){ [[ $is_raw == 1 ]] && echo -e "$1" || echo "$1" | \less -R -S; }
 [[ "$arg" = "--raw" ]] && is_raw=1 && command shift && arg=${1:---help} || is_raw=0
 
 if [[ "$arg" = "--help" ]]; then

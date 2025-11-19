@@ -11,6 +11,9 @@ DimWhenInactive=false
 Name=Můj
 Parent=FALLBACK/
 
+[Interaction Options]
+UnderlineFilesEnabled=true
+
 [Scrolling]
 HistoryMode=2
 ScrollBarPosition=2
