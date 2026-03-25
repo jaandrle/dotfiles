@@ -1,0 +1,28 @@
+[metadata]
+name = "pkgs-npm"
+description = "List globally installed npm packages"
+requirements = ["npm"]
+
+[source]
+command = [
+	"npm outdated -g --depth=0 --json | njs -p '$.stdin.json()' 'Object.entries' 'e=> e.map(([p,i])=> `${p} @${i.current} → ${i.wanted} (${i.latest})`).join(\"\\n\")'",
+	"npm list -g --depth=0 --json | njs -p '$.stdin.json().dependencies' 'Object.entries' 'e=> e.map(([p,i])=> p).join(\"\\n\")'",
+]
+output = "{split: :0}"
+
+[preview]
+command = "npm info '{split: :0}' 2>/dev/null | head -30"
+
+[keybindings]
+ctrl-u = "actions:update"
+ctrl-d = "actions:uninstall"
+
+[actions.uninstall]
+description = "Uninstall the selected global package"
+command = "npm uninstall -g '{split: :0}'"
+mode = "execute"
+
+[actions.update]
+description = "Update the selected global package"
+command = "npm update -g '{split: :0}'"
+mode = "execute"

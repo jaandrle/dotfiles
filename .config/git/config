@@ -42,8 +42,8 @@
 	updateRefs = true
 # my setup
 [core]
-	editor = vim
 	pager = PAGER=less delta
+	editor = vim
 	whitespace = -trailing-space,-space-before-tab
 	compression = 9  # trade cpu for network
 [alias]
@@ -58,7 +58,12 @@
 	h-unstage = !echo reset HEAD --
 	h-undoall = !echo reset --soft HEAD^
 	h-submodule-delete = !echo 'delete-submodule (git-extras)'
+[but "alias"]
+	sta = status -v
+	sta-f = status -vf
+	co = commit
 [diff]
+	pager = diffnav
 	wsErrorHighlight = all
 	tool = vimdiff
 	submodule = log
@@ -86,7 +91,6 @@
 [diff "exif"]
 	textconv = exiftool
 [difftool "kommitdiff"]
-	cmd = kommitdiff \"$LOCAL\" \"$REMOTE\"
 [mergetool "kommitmerge"]
 	cmd = kommitmerge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
 	trustExitCode = true

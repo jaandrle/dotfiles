@@ -1,0 +1,23 @@
+[metadata]
+name = "channels"
+description = "A channel to find and select other channels"
+
+[source]
+command = "tv list-channels"
+
+[keybindings]
+enter = "actions:zap"
+ctrl-t = "actions:echo"
+
+[actions.echo]
+description = "Echo the channel name"
+command = "echo '{}'"
+mode = "execute"
+
+[actions.zap]
+description = "Switch to the channel"
+command = "tv '{}'"
+mode = "execute"
+
+# [preview]
+# command = "bat -n --color=always ~/.config/television/cable/'{}'.toml"

@@ -1,0 +1,23 @@
+[metadata]
+name = "compose"
+description = "Search XCompose key mappings (no preview)"
+
+[source]
+command = [
+	"cat ~/.XCompose /usr/share/X11/locale/cs_CZ.UTF-8/Compose",
+	"cat /usr/share/X11/locale/en_US.UTF-8/Compose",
+]
+ansi = false
+output = "{}"
+
+[ui]
+ui_scale = 90
+layout = "portrait"
+input_bar_position = "top"
+input_header = "Search Compose mappings:"
+
+[ui.preview_panel]
+hidden = true  # No preview panel
+
+[ui.remote_control]
+show_channel_descriptions = true

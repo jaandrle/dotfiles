@@ -7,5 +7,7 @@ uu_h_alias="cheat.sh/$1"
 uu_h_is_raw=0
 uu_surl_alias="tinyurl.com/api-create.php?url=$1"
 uu_surl_is_raw=1
-uu_ip_alias="ifconfig.co/json"
+uu_ip_alias="ip-api.com"
 uu_ip_is_raw=1
+uu_qr_alias="qrenco.de/$1"
+uu_qr_is_raw=1

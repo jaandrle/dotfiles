@@ -13,6 +13,17 @@ $.api()
 	.option("--debug", "Debug mode")
 	.option("--force", "Overwrite output file.")
 
+	.command("metaFromFrontmatter <name-input>", "Print metadata from frontmatter as `--metadata …` to be used with `pandoc`.")
+	.alias("meta")
+	.action(function metaFromFrontmatterCMD(input){
+		const metadata= frontmatterToDict(s.cat(input).trim());
+		let metadata_str= [];
+		for(const [ key, value ] of Object.entries(metadata))
+			metadata_str.push(`--metadata ${key}="${value}"`);
+		echo(metadata_str.join(" "));
+		$.exit(0);
+	})
+
 	.command("to-html <name-input> [name-output]", "Convert markdown to html.")
 	.alias("tohtml")
 	.action(function tohtmlCMD(input, output, options){
@@ -87,6 +98,20 @@ function tempFileGenerator(orig){
 	const basename= orig.slice(basepath.length, orig.lastIndexOf("."));
 	return ext=> basepath+"."+basename+"-"+nameHash()+ext;
 }
+function frontmatterToDict(content){
+	const dict= {};
+	if(!content.startsWith("---"))
+		return dict;
+	for(const line_raw of content.split("\n").slice(1)){
+		const line= line_raw.trim();
+		if(!line) continue;
+		if(line==="---") break;
+		const [key_raw, value]= line.split(/: */);
+		let key= key_raw.replace(/^-+/, "");
+		dict[key]= value;
+	}
+	return dict;
+}
 /**
  * @param {string} input
  * @param {(ext: string)=> string} tempFile
@@ -97,16 +122,10 @@ function prepareInput(input, tempFile){
 	const content= s.cat(input).trim();
 	let input_data= {};
 	echo("	extract input metadata and eval `~` to $HOME (CSS)");
-	if(content.startsWith("---"))
-		for(const line_raw of content.split("\n").slice(1)){
-			const line= line_raw.trim();
-			if(!line) continue;
-			if(line==="---") break;
-			const [key_raw, value]= line.split(/: */);
-			let key= key_raw.replace(/^-+/, "");
-			key= key[0].toUpperCase()+key.slice(1);
-			input_data[key]= value;
-		}
+	for(const [ key, value ] of Object.entries(frontmatterToDict(content))){
+		key= key[0].toUpperCase()+key.slice(1);
+		input_data[key]= value;
+	}
 	s.echo(content.replaceAll("file:///~", "file:///"+process.env.HOME)).to(input_tmp);
 	return { input_tmp, input_data };
 }

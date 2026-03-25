@@ -21,8 +21,8 @@
 			"exec": "yes",
 			"description": "AI Browser",
 			"glare": "AppImage",
-			"last_update": "2025-06-09T14:57:33Z",
-			"version": "3.9.0",
+			"last_update": "2026-01-27T19:10:41Z",
+			"version": "v6.0.10",
 			"downloads": "/home/jaandrle/.local/bin/pinokio"
 		},
 		{
@@ -105,27 +105,15 @@
 			"glare": "AppImage"
 		},
 		{
-			"repository": "jaandrle/bs",
-			"name": "bs",
-			"description": "The simplest possible build system using executables",
-			"group": "dev",
-			"file_name": "bs",
-			"exec": "yes",
-			"last_update": "2024-10-22T12:04:29Z",
-			"downloads": "/home/jaandrle/.local/bin/bs",
-			"version": "v0.8.0",
-			"glare": "bs-linux"
-		},
-		{
 			"repository": "h3poteto/fedistar",
 			"name": "Fedistar",
 			"description": "Multi-column Mastodon, Pleroma, and Friendica client for desktop",
 			"group": "nondev",
 			"file_name": "fedistar.appimage",
 			"exec": "yes",
-			"last_update": "2025-07-29T14:08:34Z",
+			"last_update": "2026-02-26T15:30:17Z",
 			"downloads": "/home/jaandrle/.local/bin/fedistar.appimage",
-			"version": "v1.11.8",
+			"version": "v1.12.5",
 			"glare": ".*amd64.*.AppImage"
 		},
 		{
@@ -148,9 +136,9 @@
 			"file_name": "vim",
 			"exec": "yes",
 			"downloads": "/home/jaandrle/.local/bin/vim",
-			"version": "v9.1.1896",
+			"version": "v9.2.0110",
 			"glare": "GVim.*x86_64.*.AppImage",
-			"last_update": "2025-11-03T01:27:22Z"
+			"last_update": "2026-03-05T01:59:40Z"
 		},
 		{
 			"repository": "viarotel-org/escrcpy",
@@ -159,9 +147,9 @@
 			"group": "dev",
 			"file_name": "escrcpy.appimage",
 			"exec": "yes",
-			"last_update": "2025-09-29T07:00:43Z",
+			"last_update": "2026-02-27T02:20:44Z",
 			"downloads": "/home/jaandrle/.local/bin/escrcpy.appimage",
-			"version": "v1.32.2",
+			"version": "v2.5.1",
 			"glare": ".*x86_64.*.AppImage"
 		},
 		{
@@ -183,9 +171,9 @@
 			"group": "ai",
 			"file_name": "jan",
 			"exec": "yes",
-			"last_update": "2025-10-16T05:27:29Z",
+			"last_update": "2026-02-11T10:30:05Z",
 			"downloads": "/home/jaandrle/.local/bin/jan",
-			"version": "v0.7.2",
+			"version": "v0.7.7",
 			"glare": ".*amd64.AppImage"
 		},
 		{
@@ -195,9 +183,9 @@
 			"group": "ai",
 			"file_name": "Chatbox",
 			"exec": "yes",
-			"last_update": "2025-11-04T03:56:22Z",
+			"last_update": "2026-02-13T04:42:28Z",
 			"downloads": "/home/jaandrle/.local/bin/Chatbox",
-			"version": "v1.17.1",
+			"version": "v1.19.0",
 			"glare": ".*x86_64.*.AppImage"
 		},
 		{
@@ -233,8 +221,32 @@
 			"exec": "yes",
 			"downloads": "/home/jaandrle/.local/bin/winboat",
 			"glare": ".*x86_64.AppImage",
-			"version": "v0.8.7",
-			"last_update": "2025-10-08T07:45:20Z"
+			"version": "v0.9.0",
+			"last_update": "2025-11-23T23:23:48Z"
+		},
+		{
+			"repository": "Sarwarhridoy4/github-ssh-manager",
+			"group": "dev",
+			"name": "GitHub SSH Manager",
+			"description": "A cross-platform GUI tool built with **Go** and **Fyne** that allows you to manage multiple GitHub SSH keys effortlessly. Generate keys, view public keys, upload to GitHub, test SSH connections, and manage your `~/.ssh/config` all from one place.",
+			"file_name": "github-ssh-manager",
+			"exec": "yes",
+			"downloads": "/home/jaandrle/.local/bin/github-ssh-manager",
+			"glare": "AppImage",
+			"last_update": "2026-02-23T06:22:10Z",
+			"version": "2.5"
+		},
+		{
+			"repository": "asinglebit/guitar",
+			"group": "dev",
+			"name": "guitar",
+			"description": "A terminal based git client with topological graph rendering",
+			"file_name": "guitar",
+			"exec": "yes",
+			"downloads": "/home/jaandrle/.local/bin/guitar",
+			"glare": "linux",
+			"last_update": "2026-01-21T20:18:29Z",
+			"version": "v0.1.45"
 		}
 	]
 }

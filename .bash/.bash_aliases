@@ -58,6 +58,13 @@ cd(){
 	builtin cd "$@" || return $?
 	crossSession 'OLDPWD' "$(pwd)"
 }
+git(){
+	if [[ -z "$1" ]]; then
+		git-i
+		return 0
+	fi
+	command git "$@"
+}
 
 §(){
 	[[ -z "$1" ]] && clear && return 0
@@ -83,7 +90,6 @@ bw-session(){
 alias §ps-mem='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem'
 alias §ps-cpu='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu'
 alias §lsoft-all='lsoft -P -i -n'
-alias §grep-compose='grep -i /usr/share/X11/locale/en_US.UTF-8/Compose ~/.XCompose'
 
 §ping-test(){ # Pings ip address of noip.com and www.google.com.
   ping -c 1 -q 8.23.224.107 | grep --color=never -A 1 -i '\---'
@@ -102,16 +108,12 @@ alias §grep-compose='grep -i /usr/share/X11/locale/en_US.UTF-8/Compose ~/.XComp
 	printf "\n"
 }
 §cmdfu(){ curl "https://www.commandlinefu.com/commands/matching/$@/$(echo -n $@ | openssl base64)/plaintext"; }
-aai(){
-	[[ "$1" == '--help' ]] && ai ask --help && return 0;
-	#echo "ai ask \"$*, thanks for your help\""; ai ask "\"$*, thanks for your help\"";
-	aipick -m "hi, would like to ask for help: $*\n…please response only with plain text to be used in terminal command without any explanation, thanks for your help";
-}
 
 alias npx-wca='npx -y web-component-analyzer'
 alias npx-qnm='npx -y qnm'
 alias npx-hint='npx -y hint'
 alias npx-markdown='npx -y markserv'
+alias npx-toon='npx -y @toon-format/cli'
 §interfaces() {
 	node <<-EOF
 	var os = require('os');
@@ -124,6 +126,9 @@ alias npx-markdown='npx -y markserv'
 		});
 	});
 	EOF
+}
+§speedtest() {
+	curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -
 }
 
 alias smerge='/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=sublime_merge --file-forwarding com.sublimemerge.App @@u %u @@'
@@ -141,6 +146,10 @@ export SVN_CONFIG_DIR="$HOME/.config/subversion"
 alias svn='svn --config-dir "$SVN_CONFIG_DIR"'
 
 §curl-location(){ curl --silent -I "$1" | grep -i location; }
+
+portkiller(){
+	"$BASH_DOTFILES/portkiller/portkiller.sh" $*
+}
 
 rpg(){
 	rpg-cli "$@"

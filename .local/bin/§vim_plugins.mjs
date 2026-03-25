@@ -17,7 +17,7 @@ const css= echo.css`
 `;
 
 $.api()
-.version("2023-04-18")
+.version("2026-03-16")
 .describe([
 	"Utility for managing vim plugins “native” way. It uses two types:",
 	`- “old” way (${f("bundle", css.code)}): inspiration from ${f("https://shapeshed.com/vim-packages/", css.url)}`,
@@ -275,7 +275,7 @@ function echoProgress(length, message_start= "Working"){
 	};
 }
 
-function getPack(){ return s.ls(dirs.pack).flatMap(f=> s.find(dirs.pack+f+"/start/*/")[0]).filter(Boolean); }
+function getPack(){ return s.ls("-l", dirs.pack).filter(e=> e.isDirectory()).map(e=> e.name).flatMap(f=> s.find(dirs.pack+f+"/start/*/")[0]).filter(Boolean); }
 function getBundle(){ return s.cd(dirs.bundle).grep("path", ".gitmodules").split("\n").filter(Boolean).map(l=> dirs.bundle+l.split(" = ")[1]); }
 function getOneFiles(){ return s.find(dirs.one_files+"*"); }
 function getOneFilesUrls(){ return s.cat(file_one_file).xargs(JSON.parse); }

@@ -1,0 +1,24 @@
+[metadata]
+name = "images"
+description = "Browse image files with preview"
+requirements = ["fdfind", "chafa"]
+
+[source]
+command = [
+  "fdfind -t f -e png -e jpg -e jpeg -e gif -e webp -e bmp -e svg .",
+  "fdfind -t f -e png -e jpg -e jpeg -e gif -e webp -e bmp -e svg -H .",
+]
+
+[preview]
+command = [
+	"viu -w 40 -h 80 '{}'",
+	"chafa -s 80x40 '{}' 2>/dev/null || file '{}'",
+]
+
+[keybindings]
+ctrl-o = "actions:open"
+
+[actions.open]
+description = "Open the selected image with default viewer"
+command = "xdg-open '{}' 2>/dev/null || open '{}'"
+mode = "fork"

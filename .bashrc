@@ -12,7 +12,7 @@ shopt -s expand_aliases
 [ -f $BASH_DOTFILES/.bash_sdkman ] && . $BASH_DOTFILES/.bash_sdkman
 [ -f $BASH_DOTFILES/.bash_nvm ] && . $BASH_DOTFILES/.bash_nvm
 export NODE_COMPILE_CACHE=~/.cache/nodejs-compile-cache # https://nolanlawson.com/2024/10/20/why-im-skeptical-of-rewriting-javascript-tools-in-faster-languages/
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH:$HOME/.local/share/soar/bin"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 [ -f $BASH_DOTFILES/.bash_completions ] && . $BASH_DOTFILES/.bash_completions # for Vim
 
@@ -33,6 +33,7 @@ export HISTCONTROL=ignoreboth:erasedups		# No duplicate entries and started with
 shopt -s histappend cmdhist					# saving multiline + append
 export HISTFILESIZE=10000					# increase history file size (default is 500)
 export HISTSIZE=${HISTFILESIZE}				# increase history size (default is 500)
+export HISTIGNORE="??:but:but rub *:but commit:but ?? ??:tree:vim:git info:git i"
 
 ## UI/UX
 shopt -s checkwinsize				# check the window size after each command and, if necessary, update the values of LINES and COLUMNS.
@@ -74,3 +75,11 @@ if [[ $- =~ .*i.* ]]; then bind '"\C-@": "\e^I history | grep '\''\e\e^A'\''\e\e
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/jaandrle/.lmstudio/bin"
+# End of LM Studio CLI section
+
+
+# Added by GitButler installer
+eval "$(but completions bash)"

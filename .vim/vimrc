@@ -1,16 +1,20 @@
-""" VIM config file | Jan Andrle | 2025-08-28 (VIM >=9.1 AppImage)
+""" VIM config file | Jan Andrle | 2026-03-05 (VIM >=9.2 AppImage)
 "" #region B – Base
 	scriptencoding utf-8 | set encoding=utf-8
 	set pythonthreedll=/lib/x86_64-linux-gnu/libpython3.12.so.1.0
 	let $BASH_ENV = "~/.bashrc"
-	set runtimepath^=~/.vim/bundle/*
+	" preparation for moving to ~/.config/vim, but lots of plugins depend on the old path!
+	let s:root = fnamemodify(resolve(expand('<sfile>:p')), ':h')
+	for dir in split(globpath(s:root . '/bundle', '*'), '\n')
+		execute 'set runtimepath^=' . fnameescape(dir)
+	endfor
 	packadd! matchit
 	packadd! cfilter
 	let g:ft_man_folding_enable = 1
 	runtime! ftplugin/man.vim
 	" set hidden
 	
-	source ~/.vim/rc-cat.vim
+	execute 'source' fnameescape(s:root . '/rc-cat.vim')
 	
 	cabbrev <expr> %PWD%  execute('pwd')
 	cabbrev <expr> %CD%   fnameescape(expand('%:p:h'))
@@ -31,8 +35,11 @@
 	" <c-bs>
 	imap  <c-w>
 	cmap  <c-w>
+	" use tab/s-tab for tabnex/tabNext
+	nnoremap <silent><tab> :tabnext<cr>
+	nnoremap <silent><s-tab> :tabprevious<cr>
 	
-	set diffopt+=algorithm:patience,indent-heuristic,inline:word
+	set diffopt+=algorithm:patience,inline:word,linematch:60
 	augroup vimrc_help
 		autocmd!
 		autocmd BufEnter *.txt if &buftype == 'help' | wincmd L | vertical resize 90 | endif
@@ -68,8 +75,9 @@
 	augroup END
 "" #endregion H
 "" #region SLH – Status Line + Command Line + History (general) + Sessions + File Update, …
-	set showcmd cmdheight=2 cmdwinheight=9 showmode
-	set wildmenu wildoptions=pum,fuzzy wildmode=longest,full
+	" set showcmd showmode wildmenu … default since v9.2
+	set cmdheight=2 cmdwinheight=9
+	set wildoptions=pum,fuzzy wildmode=longest,full
 
 	cabbrev wbw w<bar>bw
 	
@@ -87,7 +95,7 @@
 	set history=500													  " How many lines of (cmd) history has to remember
 	set nobackup nowritebackup noswapfile		  " …there is issue #649 (for servers) and I’m using git/system backups
 	try
-		set undodir=~/.vim/undodir undofile | catch | endtry
+		execute 'set undodir=' . fnameescape(s:root . '/undodir') . ' undofile' | catch | endtry
 	command! HELPundoClear echo 'undolevel='.&undolevels
 "" #endregion SLH
 "" #region LLW – Left Column + Line + Wrap + Scrolling
@@ -129,7 +137,7 @@
 "" #endregion CN
 "" #region FOS – File(s) + Openning + Saving
 	set autowrite autoread | autocmd FocusGained,BufEnter *.* checktime
-	set modeline
+	" set modeline … default since v9.2
 	command! HELPmodeline
 		\ echo "tabstop=".&tabstop." shiftwidth=".&shiftwidth." textwidth=".&textwidth." expandtab=".&expandtab
 	set path+=src/**,app/**,build/**														" File matching for `:find`
@@ -140,9 +148,27 @@
 	set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
 	set wildignore+=*.pdf,*.psd
 
+	function! Television(channel = '')
+		let temp = tempname()
+		echo temp
+		execute '!tv '.a:channel.' > '.temp
+		let lines = readfile(temp)
+		if empty(lines)
+			return
+		endif
+		let target = trim(lines[-1])
+		let target = escape(target, '$')
+		let target = substitute(target, "[']", '', 'g')
+		if target == ''
+			return
+		endif
+		return target
+	endfunction
+	command! -nargs=* Television execute 'e '.Television(<f-args>)
+	cabbrev tv Television
 	function! Explore()
-		let pwd = expand('%:p:h')
-		let file = system('kdialog --getopenfilename --title "Vyberte soubor" "'.pwd.'" 2>/dev/null')
+		let pwd = expand('%:p:h')->trim()->escape('$')
+		let file = system('kdialog --getopenfilename --title "Vyberte soubor" "'.pwd.'" 2>/dev/null')->trim()->escape('$')
 		if file != ''
 			exec 'e '.file
 		endif
@@ -166,6 +192,32 @@
 	" surround `:echo char2nr(…)`
 	let g:surround_8222= "„\r”"
 	let g:surround_8218= "‚\r’"
+	let g:surround_8220= "“\r”"
+	let g:surround_8216= "‘\r’"
+	function! s:SmartQuoteTextObject(inner) abort
+		let open = '[“‘„‚]'
+		let close = '[”’]'
+		let start = searchpos(open, 'bncW')
+		let end   = searchpos(close, 'ncW')
+		if start[0] == 0 || end[0] == 0
+			return
+		endif
+		if a:inner
+			let open_len = matchstr(getline(start[0]), '.', start[1] - 1)->len()
+			call cursor(start[0], start[1] + open_len)
+			normal! v
+			call cursor(end[0], end[1] - 1)
+		else
+			call cursor(start)
+			normal! v
+			let close_len = matchstr(getline(end[0]), '.', end[1] - 1)->len()
+			call cursor(end[0], end[1] + close_len - 1)
+		endif
+	endfunction
+	xnoremap iq :<C-u>call <SID>SmartQuoteTextObject(1)<CR>
+	onoremap iq :<C-u>call <SID>SmartQuoteTextObject(1)<CR>
+	xnoremap aq :<C-u>call <SID>SmartQuoteTextObject(0)<CR>
+	onoremap aq :<C-u>call <SID>SmartQuoteTextObject(0)<CR>
 	" use <c-v>§ for §
 	inoremap § <esc>
 	set nrformats-=octal
@@ -188,12 +240,13 @@
 	let g:hlyank_duration= 250
 	let g:cwordhi#autoload= 1
 	set showmatch											" Quick highlight oppening bracket/… for currently writted
-	set timeoutlen=1000 ttimeoutlen=0										   " Remove timeout when hitting escape TAB
+	" set timeoutlen=1000 … default since v9.2
+	set ttimeoutlen=0										   " Remove timeout when hitting escape TAB
 	set formatoptions+=j									" Delete comment character when joining commented lines
 	set smarttab
 	command! -nargs=1 SETtab let &shiftwidth=<q-args> | let &tabstop=<q-args> | let &softtabstop=<q-args>
 	SETtab 4
-	set backspace=indent,eol,start					" Allow cursor keys in insert mode:  http://vi.stackexchange.com/a/2163
+	" set backspace=indent,eol,start				" default since v9.2: Allow cursor keys in insert mode:  http://vi.stackexchange.com/a/2163
 	set shiftround autoindent	" round diff shifts to the base of n*shiftwidth,  https://stackoverflow.com/a/18415867
 	filetype plugin indent on
 	" SYNTAX&COLORS
@@ -203,10 +256,6 @@
 		syntax enable | endif
 	set list listchars=tab:»·,trail:·,extends:#,nbsp:~,space:·		" Highlight spec. chars / Display extra whitespace
 	set redrawtime=10000
-	" augroup syntax_sync_min_lines
-	" 	autocmd!
-	" 	autocmd BufEnter * syntax sync fromstart "TODO DEL syn sync minlines=2000
-	" augroup END
 	let g:vim_vue_plugin_config = { 'foldexpr': 1, 'attribute': 1, 'keyword': 1 }
 	" SPELL
 	if !has("gui_running")
@@ -274,16 +323,19 @@ imap <f3>!   <Cmd>call codeium#Complete()<CR>
 	nmap <silent><nowait> gd <Plug>(coc-definition)
 	command! -nargs=* -complete=customlist,<sid>SCommandCocActionComplete CocAction call CocActionAsync(<f-args>)
 	function s:SCommandCocActionComplete(argLead, cmdLine, cursorPos)
-		return readfile(expand('~/.vim/pack/coc/start/coc.nvim/doc/tags'), 'r')
-			\->filter('v:val =~ ''^CocAction''')
-			\->map({ k, v -> strpart(v, 11, stridx(v, ')')-12) })
-			\->filter({ k, v -> v =~ a:argLead && !v->empty() })
+		let l:tags = s:root . '/pack/coc/start/coc.nvim/doc/tags'
+		return filereadable(l:tags)
+			\ ? readfile(l:tags, 'r')
+			\   ->filter('v:val =~ ''^CocAction''')
+			\   ->map({ k, v -> strpart(v, 11, stridx(v, ')')-12) })
+			\   ->filter({ k, v -> v =~ a:argLead && !v->empty() })
+			\ : []
 	endfunction
 					" navigate diagnostics, use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 	nnoremap <silent> gh :call <sid>show_documentation(expand("<cword>"))<cr>
 	vnoremap <silent> gh :<c-u>call <sid>show_documentation(mini_enhancement#selectedText())<cr>
-	nnoremap <leader>gf :CocList --interactive --normal --input='<c-r>=expand("<cword>")<cr>' files<cr>
-	vnoremap <leader>gf :<c-u>CocList --interactive --normal --input='<c-r>=mini_enhancement#selectedText()<cr>' files<cr>
+	nnoremap <leader>gf :CocList --normal --input='<c-r>=expand("<cword>")<cr>' g
+	vnoremap <leader>gf :<c-u>CocList --normal --input='<c-r>=mini_enhancement#selectedText()<cr>' g
 	""" #region COCP – Coc popups scroll (Remap <C-f> and <C-b> for scroll float windows/popups.)
 	if has('nvim-0.4.0') || has('patch-8.2.0750')
 		nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"

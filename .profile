@@ -34,3 +34,8 @@ export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/"
 
 # Added by Toolbox App
 export PATH="$PATH:/home/jaandrle/.local/share/JetBrains/Toolbox/scripts"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/jaandrle/.lmstudio/bin"
+# End of LM Studio CLI section
+

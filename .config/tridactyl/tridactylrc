@@ -42,7 +42,6 @@ unbindurl ^https://www.youtube.com/* >>
 unbindurl ^https://www.youtube.com/* <<
 " see https://gist.github.com/jaandrle/031198ab5130deb903065138532cc066
 bindurl ^https://www.youtube.com/* ss fillcmdline open B: YT
-bindurl ^https://www.o2tv.cz/* ss fillcmdline open B: O2
 bindurl ^https://chatgpt.com/* ss fillcmdline open B: OPENAI
 bindurl ^https://chat.mistral.ai/chat* ss fillcmdline open B: OPENAI
 bindurl ^https://rss.jaandrle.cz/* ss nmode ignore 1 mode normal

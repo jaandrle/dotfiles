@@ -1,3 +1,6 @@
+[TabBox]
+LayoutName=org.kde.breeze.desktop
+
 [Windows]
 Placement=Centered
 

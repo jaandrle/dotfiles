@@ -10,7 +10,7 @@ vifm() {
 		  - file/dir info: stat , file , mimetype
 		  - cd stack: pushd, popd, dirs -v
 		Use helpers:
-		  - rsync (copy), fd (verbo-less find)
+		  - rsync (copy), fd (verbo-less find), chafa (ascii images viewer)
 		  - m (marks, `cd "$m<name>"`), cd-kdialog
 		  - trash-* (trash)
 		Use bash/terminal features:

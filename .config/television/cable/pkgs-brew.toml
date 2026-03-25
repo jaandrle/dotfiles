@@ -1,0 +1,29 @@
+[metadata]
+name = "pkgs-brew"
+description = "List and manage Homebrew packages, including outdated ones (installed on request)"
+requirements = ["brew"]
+
+[source]
+command = [
+  "comm -12 <(brew list --installed-on-request | sort) <(brew outdated | sort)",
+  "brew list --installed-on-request",
+  "brew list --formula",
+  "brew list --cask",
+]
+
+[preview]
+command = "brew info '{}'"
+
+[keybindings]
+ctrl-u = "actions:upgrade"
+ctrl-d = "actions:uninstall"
+
+[actions.upgrade]
+description = "Upgrade the selected package"
+command = "brew upgrade '{}'"
+mode = "execute"
+
+[actions.uninstall]
+description = "Uninstall the selected package"
+command = "brew uninstall '{}'"
+mode = "execute"
