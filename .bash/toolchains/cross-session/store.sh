@@ -1,0 +1,9 @@
+# vim: filetype=bash
+export OLDPWD="/home/jaandrle/Dokumenty/Projekty/CommaFeedPodcasts"
+export mwdcp='/home/jaandrle/Vzdálené/GitHub/dcp-fe-container-certifedpassport'
+export mdde='/home/jaandrle/Vzdálené/GitHub/deka-dom-el'
+export mwdgf='/home/jaandrle/Vzdálené/GitHub/DGF-Certified-Supervisory-Academy'
+export mwdgfapi='/home/jaandrle/Vzdálené/GitHub/DGF-Certified-Supervisory-Academy-API'
+export mkde='/home/jaandrle/Dokumenty/Projekty/kde-překlady'
+export mwnetcell='/home/jaandrle/Vzdálené/GitHub/facilitator-network-cell'
+export mb='/home/jaandrle/.bash'

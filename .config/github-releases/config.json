@@ -21,8 +21,8 @@
 			"exec": "yes",
 			"description": "AI Browser",
 			"glare": "AppImage",
-			"last_update": "2026-01-27T19:10:41Z",
-			"version": "v6.0.10",
+			"last_update": "2026-04-15T14:22:20Z",
+			"version": "v7.2.0",
 			"downloads": "/home/jaandrle/.local/bin/pinokio"
 		},
 		{
@@ -111,9 +111,9 @@
 			"group": "nondev",
 			"file_name": "fedistar.appimage",
 			"exec": "yes",
-			"last_update": "2026-02-26T15:30:17Z",
+			"last_update": "2026-03-16T00:48:08Z",
 			"downloads": "/home/jaandrle/.local/bin/fedistar.appimage",
-			"version": "v1.12.5",
+			"version": "v1.12.8",
 			"glare": ".*amd64.*.AppImage"
 		},
 		{
@@ -136,9 +136,9 @@
 			"file_name": "vim",
 			"exec": "yes",
 			"downloads": "/home/jaandrle/.local/bin/vim",
-			"version": "v9.2.0110",
+			"version": "v9.2.0360",
 			"glare": "GVim.*x86_64.*.AppImage",
-			"last_update": "2026-03-05T01:59:40Z"
+			"last_update": "2026-04-17T02:20:55Z"
 		},
 		{
 			"repository": "viarotel-org/escrcpy",
@@ -147,9 +147,9 @@
 			"group": "dev",
 			"file_name": "escrcpy.appimage",
 			"exec": "yes",
-			"last_update": "2026-02-27T02:20:44Z",
+			"last_update": "2026-04-07T11:27:21Z",
 			"downloads": "/home/jaandrle/.local/bin/escrcpy.appimage",
-			"version": "v2.5.1",
+			"version": "v2.8.1",
 			"glare": ".*x86_64.*.AppImage"
 		},
 		{
@@ -171,9 +171,9 @@
 			"group": "ai",
 			"file_name": "jan",
 			"exec": "yes",
-			"last_update": "2026-02-11T10:30:05Z",
+			"last_update": "2026-03-23T06:09:34Z",
 			"downloads": "/home/jaandrle/.local/bin/jan",
-			"version": "v0.7.7",
+			"version": "v0.7.9",
 			"glare": ".*amd64.AppImage"
 		},
 		{
@@ -183,9 +183,9 @@
 			"group": "ai",
 			"file_name": "Chatbox",
 			"exec": "yes",
-			"last_update": "2026-02-13T04:42:28Z",
+			"last_update": "2026-04-09T03:25:01Z",
 			"downloads": "/home/jaandrle/.local/bin/Chatbox",
-			"version": "v1.19.0",
+			"version": "v1.20.1",
 			"glare": ".*x86_64.*.AppImage"
 		},
 		{

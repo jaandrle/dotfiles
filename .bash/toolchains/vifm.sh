@@ -1,6 +1,8 @@
-[[ $(command -v crossSession) ]] || source "$BASH_DOTFILES/.bash_aliases"
+#!/usr/bin/env bash
+# VIFM configuration - migrated from .bash_vifm
+
 vifm() {
-	\cat <<- "HELP"
+	\cat <<-"HELP"
 		Use bash build-in:
 		  - cd (ch dir), ls or tree (list), find
 		  - mkdir (make dir), touch (make file), rm (remove)
@@ -28,10 +30,11 @@ vifm() {
 		  - y [file(s)|dir(s)]; p | xargs -I{} <cp|mv|…> {} …; P
 		Use `$PROMPT_COMMAND`:
 			- `PROMPT_COMMAND+='; ls -A'; PROMPT_COMMAND="${PROMPT_COMMAND/; ls -A}"`
-	HELP
+HELP
 }
-m(){
-	if [[ '-d' == "$1" ]]; then
+
+m() {
+	if [[ "-d" == "$1" ]]; then
 		unset "m$2"
 		crossSession "m$2"
 		return 0
@@ -41,17 +44,17 @@ m(){
 		return 0
 	fi
 	if [[ "--help" == "$1" ]]; then
-		\cat <<- "HELP"
+		\cat <<-"HELP"
 			m [--help]
 			  Lists all marks or print this help.
 			m -d <name>
 			  Deletes mark <name>. Unsets variable and cross session variable.
 			m <name> [path]
 			  Sets mark <name> to current directory or [path].
-			  The mark is just a bash variable, use `$m<name>`.
+			  The mark is just a bash variable, use `$m<name>`.
 			cd $m<name>
 			  cd to mark <name>.
-		HELP
+HELP
 		return 0
 	fi
 	local n="m$1"
@@ -60,6 +63,7 @@ m(){
 	crossSession "$n" "$p"
 	export $n="$p"
 }
+
 alias cd-kdialog='cd "$(kdialog --getexistingdirectory --title "Vyberte složku" 2>/dev/null)"'
 alias fd='fdfind'
 
@@ -77,7 +81,8 @@ p() {
 } # p | xargs -I{} …
 P() { YANKED=(); echo 'YANKED=()'; }
 y() {
-	local pwd="$(pwd)"
+	local pwd
+	pwd="$(pwd)"
 	if [[ -z "$1" ]]; then
 		YANKED=("$pwd")
 	else
@@ -91,12 +96,12 @@ y() {
 			fi
 		done
 	fi
-	echo $(p)
+	echo "$(p)"
 }
 
 # tab completion
-[[ $(command -v _complete_alias) ]] || source "$BASH_DOTFILES/complete-alias/complete_alias"
-\. <(fdfind --gen-completions)
+[[ $(command -v _complete_alias) ]] || source "$BASH_DOTFILES/shell/complete-alias/complete_alias"
+source <(fdfind --gen-completions)
 complete -F _complete_alias fd
 complete -F _complete_alias dw
 complete -F _complete_alias cw

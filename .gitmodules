@@ -1,8 +1,7 @@
-[submodule ".bash/complete-alias"]
-	path = .bash/complete-alias
+[submodule ".bash/shell/complete-alias"]
+	path = .bash/shell/complete-alias
 	url = git@github.com:cykerway/complete-alias.git
 	branch = master
-[submodule ".bash/vimv"]
-	path = .bash/vimv
-	url = git@github.com:thameera/vimv.git
-	branch = master
+[submodule "/home/jaandrle/.bash/toolchains/portkiller"]
+	path = /home/jaandrle/.bash/toolchains/portkiller
+	url = git@github.com:AIMLdr/portkiller.git

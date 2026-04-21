@@ -39,9 +39,8 @@ see for example [How to Store Dotfiles - A Bare Git Repository \| Atlassian Git 
 Sekce obsahuje log změn v Tuxedo laptopu s KDE Neon.
 
 ### TUXEDO OS (24.04.4 LTS / 2026-03-20)
-- [ ] installed tv
-    - [television/cable/unix at main · alexpasmantier/television](https://github.com/alexpasmantier/television/tree/main/cable/unix)
-    - https://github.com/omerxx/dotfiles/tree/master
+- [ ] bash hooks?
+
 ### TUXEDO OS (24.04.3 LTS / 2025-09-12)
 - [ ] git new setup (fresh install)
 - [ ] nextcloud (issue with multiple users)

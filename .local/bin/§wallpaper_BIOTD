@@ -1,5 +1,4 @@
 #!/bin/bash
-# heredoc
 read -r -d '' JS <<JS
 const dir= '/home/jaandrle/Obrázky/Bing Image Of The Day/';
 const img= 'horizontally.jpg';

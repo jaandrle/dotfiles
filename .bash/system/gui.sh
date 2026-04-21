@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+export APPMENU_DISPLAY_BOTH=1
+[[ -z "$UBUNTU_MENUPROXY" ]] && \
+	export UBUNTU_MENUPROXY=1
+export GTK_MODULES UBUNTU_MENUPROXY

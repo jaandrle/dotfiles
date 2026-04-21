@@ -1,11 +1,24 @@
-# Bash
+# Bash Configuration
 
-## Related files
-- [../.bashrc](../.bashrc)
-- [../.profile](../.profile)
-- [../.inputrc](../.inputrc) – Vim bindings for bash
-- [../.XCompose](../.XCompose) – [Compose key - Wikipedia (en)](https://en.wikipedia.org/wiki/Compose_key), [Klávesa Compose a typografický exkurz z rychlíku (cs)](https://jaandrle.github.io/blog/2020-10/klavesa-compose-a-typografie/)
-- [./\*](./)
+This directory contains the bash configuration files organized by responsibility.
 
-## Bash completion
-Completions on demand, use `C--*`, see [./.bash_completions](./.bash_completions)
+## Structure
+
+```
+.bash/
+```
+- [`system/`](./system/README.md): System-level configurations for `.profile`
+- [`shell/`](./shell/README.md): Shell-specific configurations
+- [`toolchains/`](./toolchains/README.md): (Development) toolchain configurations
+- [`hooks/`](./hooks/README.md): hooks scripts
+
+## Usage
+
+The main `.bashrc` and `.profile` files source the appropriate index files from each category:
+
+```bash
+# In .bashrc:
+[ -f "$BASH_DOTFILES/system/index.sh" ] && . "$BASH_DOTFILES/system/index.sh"
+[ -f "$BASH_DOTFILES/shell/index.sh" ] && . "$BASH_DOTFILES/shell/index.sh"
+[ -f "$BASH_DOTFILES/toolchains/index.sh" ] && . "$BASH_DOTFILES/toolchains/index.sh"
+```

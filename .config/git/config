@@ -42,11 +42,15 @@
 	updateRefs = true
 # my setup
 [core]
-	pager = PAGER=less delta
 	editor = vim
 	whitespace = -trailing-space,-space-before-tab
 	compression = 9  # trade cpu for network
+[pager]
+	diff = diffnav
+	show = diffnav
 [alias]
+	lazy = !lazygit
+	l = !lazygit
 	commit--interactive= !clear && git status && git commit --interactive
 	diff-dirs = diff --dirstat --find-copies --find-renames --histogram --color
 	notes-json = !git notes | njs -p '$.stdin.lines().map(l=> l.split(\" \")).map(([ id_note, id_commit ])=> ({id_commit, id_note, head: s.$().run`git show ${id_note}`.head().toString().split(\"\\n\")}))' 'o=> JSON.stringify(o, null, \"\t\")'
@@ -63,7 +67,6 @@
 	sta-f = status -vf
 	co = commit
 [diff]
-	pager = diffnav
 	wsErrorHighlight = all
 	tool = vimdiff
 	submodule = log
