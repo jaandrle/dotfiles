@@ -39,3 +39,7 @@ Development tool configurations including aliases and environment managers.
 - Contains development tools and shortcuts
 - Environment managers handle Java, Node.js, PHP, Gradle versions
 - Automatically sourced by main `.bashrc`
+
+## Todo
+
+- special behaviour inside dolphin? ([`if [[ $(ps -o comm= -p $PPID) == dolphin ]]; then …`](https://unix.stackexchange.com/a/775802))

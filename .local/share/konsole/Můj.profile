@@ -3,7 +3,7 @@ AntiAliasFonts=true
 BoldIntense=true
 ColorScheme=DarkPastels
 DimmValue=54
-Font=BlexMono Nerd Font Mono Medium,8,-1,5,500,0,0,0,0,0,0,0,0,0,0,1,Regular
+Font=BlexMono Nerd Font Mono,8,-1,5,500,0,0,0,0,0,0,0,0,0,0,1,Medium
 UseFontLineChararacters=true
 
 [General]

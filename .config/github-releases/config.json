@@ -21,8 +21,8 @@
 			"exec": "yes",
 			"description": "AI Browser",
 			"glare": "AppImage",
-			"last_update": "2026-04-15T14:22:20Z",
-			"version": "v7.2.0",
+			"last_update": "2026-04-18T21:36:57Z",
+			"version": "v7.2.6",
 			"downloads": "/home/jaandrle/.local/bin/pinokio"
 		},
 		{
@@ -111,9 +111,9 @@
 			"group": "nondev",
 			"file_name": "fedistar.appimage",
 			"exec": "yes",
-			"last_update": "2026-03-16T00:48:08Z",
+			"last_update": "2026-04-29T05:16:21Z",
 			"downloads": "/home/jaandrle/.local/bin/fedistar.appimage",
-			"version": "v1.12.8",
+			"version": "v1.13.0",
 			"glare": ".*amd64.*.AppImage"
 		},
 		{
@@ -136,9 +136,9 @@
 			"file_name": "vim",
 			"exec": "yes",
 			"downloads": "/home/jaandrle/.local/bin/vim",
-			"version": "v9.2.0360",
+			"version": "v9.2.0413",
 			"glare": "GVim.*x86_64.*.AppImage",
-			"last_update": "2026-04-17T02:20:55Z"
+			"last_update": "2026-04-29T02:46:09Z"
 		},
 		{
 			"repository": "viarotel-org/escrcpy",
@@ -147,9 +147,9 @@
 			"group": "dev",
 			"file_name": "escrcpy.appimage",
 			"exec": "yes",
-			"last_update": "2026-04-07T11:27:21Z",
+			"last_update": "2026-04-24T10:29:24Z",
 			"downloads": "/home/jaandrle/.local/bin/escrcpy.appimage",
-			"version": "v2.8.1",
+			"version": "v2.9.0",
 			"glare": ".*x86_64.*.AppImage"
 		},
 		{

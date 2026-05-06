@@ -73,8 +73,7 @@ set keytranslatemap {"ě":";",";":":"}
 bindurl ^https://mail.centrum.cz/* ;; composite hint_focus ; js document.activeElement.dispatchEvent(new CustomEvent("mouseover"))
 bind --mode=normal ;gt hint -c [tabindex]
 
-bind š tab #
-bind sš fillcmdline tab
+bind ž fillcmdline tab
 
 " b→t→n to make more consistent with gn*
 unbind --mode=normal b

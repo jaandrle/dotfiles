@@ -1,5 +1,4 @@
-# vim: filetype=bash
-export OLDPWD="/home/jaandrle/Dokumenty/Projekty/CommaFeedPodcasts"
+export OLDPWD="/home/jaandrle/Vzdálené/GitHub/facilitator-network-cell"
 export mwdcp='/home/jaandrle/Vzdálené/GitHub/dcp-fe-container-certifedpassport'
 export mdde='/home/jaandrle/Vzdálené/GitHub/deka-dom-el'
 export mwdgf='/home/jaandrle/Vzdálené/GitHub/DGF-Certified-Supervisory-Academy'

@@ -1,4 +1,4 @@
-""" VIM config file | Jan Andrle | 2026-03-05 (VIM >=9.2 AppImage)
+""" VIM config file | Jan Andrle | 2026-05-05 (VIM >=9.2 AppImage)
 "" #region B – Base
 	scriptencoding utf-8 | set encoding=utf-8
 	set pythonthreedll=/lib/x86_64-linux-gnu/libpython3.12.so.1.0
@@ -12,14 +12,8 @@
 	packadd! cfilter
 	let g:ft_man_folding_enable = 1
 	runtime! ftplugin/man.vim
-	" set hidden
 	
 	execute 'source' fnameescape(s:root . '/rc-cat.vim')
-	
-	cabbrev <expr> %PWD%  execute('pwd')
-	cabbrev <expr> %CD%   fnameescape(expand('%:p:h'))
-	cabbrev <expr> %CS%   mini_enhancement#selectedText()
-	cabbrev <expr> %CW%   echo '<c-r><c-w>'
 	
 	let mapleader = "\\"
 	" better for my keyboard, but maybe use `:help keymap`?
@@ -29,22 +23,27 @@
 	nnoremap ; :
 	nnoremap <leader>u U
 	nnoremap U <c-r>
-	nnoremap ž <c-]>
-	nnoremap <c-up> <c-y>
-	nnoremap <c-down> <c-e>
 	" <c-bs>
 	imap  <c-w>
 	cmap  <c-w>
 	" use tab/s-tab for tabnex/tabNext
-	nnoremap <silent><tab> :tabnext<cr>
-	nnoremap <silent><s-tab> :tabprevious<cr>
+	nnoremap <silent>]t :tabnext<cr>
+	nnoremap <silent>[t :tabprevious<cr>
+	nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
+	nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
+	" history checkpoints
+	for key in ['<C-u>', '<C-w>', '<CR>', '.']
+		execute printf('inoremap %s <C-g>u%s', key, key)
+	endfor
 	
 	set diffopt+=algorithm:patience,inline:word,linematch:60
 	augroup vimrc_help
 		autocmd!
 		autocmd BufEnter *.txt if &buftype == 'help' | wincmd L | vertical resize 90 | endif
 	augroup END
-	
+	if has('langmap') && exists('+langremap') && &langremap
+		set nolangremap
+	endif
 	""" #region BB – Build-in plugins
 	" https://github.com/rbtnn/vim-gloaded/blob/master/plugin/gloaded.vim
 	let g:loaded_vimballPlugin = 1 " :h pi_vimball … for plugin creators
@@ -52,9 +51,6 @@
 	""" #endregion BB
 "" #endregion B
 "" #region H – Helpers
-	command! -nargs=0
-		\ ALTredrawSyntax edit | exec 'normal `"' | exec 'set ft='.&ft
-	
 	let g:quickfix_len= 0
 	function! QuickFixStatus() abort
 		hi! link User1 StatusLine
@@ -81,7 +77,7 @@
 
 	cabbrev wbw w<bar>bw
 	
-	set sessionoptions-=options
+	set sessionoptions-=options " causes more problems than it solves
 	
 	function! NumberOfBuffers()
 		return len(filter(range(1, bufnr('$')), 'buflisted(v:val)'))
@@ -90,23 +86,26 @@
 	set statusline+=··≡·%{QuickFixStatus()}%*··»·%{user_tips#current()}%*··%=
 	set statusline+=(%{NumberOfBuffers()})··%<%f%R\%M··▶·%{&fileformat}·%{&fileencoding?&fileencoding:&encoding}·%{&filetype}
 	set statusline+=··
-	" set statusline+=··∷·%{mini_sessions#name('–')}·· 
 	
-	set history=500													  " How many lines of (cmd) history has to remember
-	set nobackup nowritebackup noswapfile		  " …there is issue #649 (for servers) and I’m using git/system backups
+	set history=500	" How many lines of (cmd) history has to remember
+	set nobackup nowritebackup noswapfile	" …there is issue #649 (for servers) and I’m using git/system backups
 	try
 		execute 'set undodir=' . fnameescape(s:root . '/undodir') . ' undofile' | catch | endtry
 	command! HELPundoClear echo 'undolevel='.&undolevels
 "" #endregion SLH
 "" #region LLW – Left Column + Line + Wrap + Scrolling
 	set signcolumn=yes
-	set cursorline cursorcolumn															" Always show current position
-	set number foldcolumn=2								  " enable line numbers and add a bit extra margin to the left
+	set cursorline cursorcolumn	" Always show current position
+	set number foldcolumn=2	 " enable line numbers and add a bit extra margin to the left
 	set textwidth=120 colorcolumn=81,+1
 	command! HELPtextwidth echo "textwidth=".&textwidth." colorcolumn=".&colorcolumn
-	set nowrap											" Don't wrap long lines by default
+	set nowrap	" Don't wrap long lines by default
 	set breakindent breakindentopt=shift:2 showbreak=↳ 
-	set scrolloff=5 sidescrolloff=10										" offset for lines/columns when scrolling
+	set scrolloff=5 sidescrolloff=10 sidescroll=1	" offset for lines/columns when scrolling
+	set display+=lastline
+	if has('patch-7.4.2109')
+		set display+=truncate
+	endif
 "" #endregion LLW
 "" #region CN – Clipboard + Navigation throught Buffers + Windows + … (CtrlP)
 	set pastetoggle=<F2> | nnoremap <F2> :set invpaste paste?<CR>
@@ -128,12 +127,8 @@
 	endfunction
 	nnoremap <silent> <leader>" :call JaaCopyRegister()<cr>
 	
-	" CtrlP previously
-	nmap <expr> š buffer_number("#")==-1 ? ":CocList --normal buffers\<cr>" : "\<c-^>"
-	nmap ě :CocList 
-	nmap <leader>3 :buffers<cr>:b<space>
-	nmap <leader>š :CocList buffers<cr> | :syntax on<cr>
-	nmap č <leader>š
+	nmap ž :CocList buffers<cr> | :syntax on<cr>
+	nmap <leader>ž :buffers<cr>:buffer
 "" #endregion CN
 "" #region FOS – File(s) + Openning + Saving
 	set autowrite autoread | autocmd FocusGained,BufEnter *.* checktime
@@ -176,10 +171,10 @@
 	command! Explore call Explore()
 	nmap <silent> <leader>e :Explore<cr>
 	nnoremap gx :silent exec "!xdg-open '".shellescape(substitute(expand('<cfile>'), '?', '\\?', ''), 1)."'" \| redraw!<cr>
-	vnoremap gx :silent exec "!xdg-open '".shellescape(substitute(mini_enhancement#selectedText(), '?', '\\?', ''), 1)."'" \| redraw!<cr>
+	vnoremap gx :silent exec "!xdg-open '".shellescape(substitute('<c-r>*', '?', '\\?', ''), 1)."'" \| redraw!<cr>
 "" #endregion FOS
 "" #region EN – Editor navigation + search
-	set grepprg=LC_ALL=C\ grep\ -HRIns
+	set grepprg=LC_ALL=C\ grep\ -HRIns\ $*\ /dev/null
 	set hlsearch incsearch														  " highlight search, start when typing
 	if maparg('<C-L>', 'n') ==# ''
 		nnoremap <silent> <c-l> :nohlsearch<c-r>=has('diff')?'<bar>diffupdate':''<cr><cr><c-l> | endif " TODO? <bar>syntax sync fromstart
@@ -189,6 +184,15 @@
 	nmap <Leader>m <Plug>ToggleMarkbar
 "" #endregion EN
 "" #region EA – Editing adjustment + Syntax + White chars + Folds
+" Correctly highlight $() and other modern affordances in filetype=sh.
+	if !exists('g:is_posix') && !exists('g:is_bash') && !exists('g:is_kornshell') && !exists('g:is_dash')
+		let g:is_posix = 1
+	endif
+	nnoremap Y y$
+	for pair in ['<>', '()', '{}', '[]', '""', "''", '``']
+		execute printf('inoremap %s <C-g>u%s<Left>', pair, pair)
+		execute printf('cnoremap %s %s<Left>', pair, pair)
+	endfor
 	" surround `:echo char2nr(…)`
 	let g:surround_8222= "„\r”"
 	let g:surround_8218= "‚\r’"
@@ -264,7 +268,6 @@
 	" EDIT HEPERS
 	nnoremap <leader>o o<space><bs><esc>
 	nnoremap <leader>O O<space><bs><esc>
-	nnoremap <s-k> a<cr><esc>
 	for l in [ 'y', 'p', 'P', 'd' ] | for m in [ 'n', 'v' ]
 		execute m.'map <leader>'.l.' "+'.l | endfor | endfor " no noremap ⇐ https://github.com/jasonccox/vim-wayland-clipboard?tab=readme-ov-file#non-recursive-mappings
 	command HELPfold echo 'foldmethod='.&foldmethod.' foldlevel='.&foldlevel.' foldnestmax='.&foldnestmax
@@ -298,17 +301,6 @@ imap <f3>!   <Cmd>call codeium#Complete()<CR>
 		\ "settings": {}
 	\ })
 	autocmd FileType scss setl iskeyword+=@-@
-	function! CustomKeyWord(word)
-		if(a:word=="gulp_place")
-			highlight link gulp_place ErrorMsg
-			syntax match gulp_place "gulp_place"
-			augroup gulp_place
-				autocmd!
-				autocmd BufEnter *.{js,html} syntax match gulp_place "gulp_place"
-			augroup END
-			return 0
-		endif
-	endfunction
 
 	set completeopt=menuone,longest,preview "longest vs ,noinsert,noselect
 	inoremap <silent><expr> <F1> coc#pum#visible() ? coc#pum#confirm() : coc#refresh()
@@ -332,10 +324,10 @@ imap <f3>!   <Cmd>call codeium#Complete()<CR>
 			\ : []
 	endfunction
 					" navigate diagnostics, use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-	nnoremap <silent> gh :call <sid>show_documentation(expand("<cword>"))<cr>
-	vnoremap <silent> gh :<c-u>call <sid>show_documentation(mini_enhancement#selectedText())<cr>
+	nnoremap <silent> K :call <sid>show_documentation(expand("<cword>"))<cr>
+	vnoremap <silent> K :<c-u>call <sid>show_documentation('<c-r>*"')<cr>
 	nnoremap <leader>gf :CocList --normal --input='<c-r>=expand("<cword>")<cr>' g
-	vnoremap <leader>gf :<c-u>CocList --normal --input='<c-r>=mini_enhancement#selectedText()<cr>' g
+	vnoremap <leader>gf :<c-u>CocList --normal --input='<c-r>*' g
 	""" #region COCP – Coc popups scroll (Remap <C-f> and <C-b> for scroll float windows/popups.)
 	if has('nvim-0.4.0') || has('patch-8.2.0750')
 		nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
@@ -363,9 +355,6 @@ imap <f3>!   <Cmd>call codeium#Complete()<CR>
 	command! CLhelpCocPlug		   call feedkeys(':<c-u>help <Plug>(coc ', 'tn')
 	command! CLhelpCocAction	   call feedkeys(':<c-u>help CocAction(''	', 'tn')
 	command! CLrepeatLastChange    call feedkeys('/\V<C-r>"<CR>cgn<C-a><Esc>', 'tn')
-	
-	command! -nargs=?
-		   \ CLcheat call cheat_copilot#open(<q-args>==''?&filetype:<q-args>)
 	
 	function! s:show_documentation(word)
 		if (!CocAction('hasProvider', 'hover'))

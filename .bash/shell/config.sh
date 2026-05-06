@@ -10,5 +10,3 @@ shopt -s globstar 2>/dev/null || true # Recursive globbing
 # Auto-correct
 shopt -s cdspell
 shopt -s dirspell 2>/dev/null || true
-
-[[ -x /usr/bin/neofetch ]] && neofetch
