@@ -1,0 +1,5 @@
+#!/bin/env bash
+if [[ -f "/dev/shm/bash/$BASHPID/onpostgit" ]]; then 
+	source "/dev/shm/bash/$BASHPID/onpostgit"
+fi
+git

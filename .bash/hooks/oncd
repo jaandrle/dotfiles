@@ -1,2 +1,4 @@
 #!/bin/env bash
-[[ -f "/dev/shm/bash/$BASHPID/oncd" ]] && source "/dev/shm/bash/$BASHPID/oncd"
+if [[ -f "/dev/shm/bash/$BASHPID/oncd" ]]; then 
+	source "/dev/shm/bash/$BASHPID/oncd"
+fi

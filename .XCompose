@@ -56,7 +56,7 @@ include "/usr/share/X11/locale/cs_CZ.UTF-8/Compose" # Include Czech locale Compo
 <Multi_key> <g> <x> : "ξ" # Xi (greek letter lowercase)
 # note: no omicron (greek letter lowercase)
 <Multi_key> <g> <p> : "π" # Pi (greek letter lowercase)
-<Multi_key> <g> <p> : "Ϟ" # Koppa/Pi (greek letter lowercase)
+<Multi_key> <G> <k> : "Ϟ" # Koppa (old greek letter lowercase)
 <Multi_key> <g> <r> : "ρ" # Rho (greek letter lowercase)
 <Multi_key> <g> <s> : "σ" # Sigma (greek letter lowercase)
 <Multi_key> <g> <t> : "τ" # Tau (greek letter lowercase)

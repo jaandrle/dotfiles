@@ -47,13 +47,14 @@ updatePrompt() {
 		PS1+="${chR} (sudo)${chW}"
 	fi
 	PS1+=" in "
-	if \git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+	local -r git='command git'
+	if $git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
 		local branch
-		branch="$(\git symbolic-ref -q HEAD)"
+		branch="$($git symbolic-ref -q HEAD)"
 		PS1+="[${branch#refs/heads/}"
 		local status
-		status="$(git for-each-ref --format='%(upstream:trackshort)' "$branch" 2>/dev/null | awk '!seen[$1]++ {printf $1}')"
-		status+="$(git status --porcelain 2>/dev/null | awk '!seen[$1]++ {printf $1}')"
+		status="$($git for-each-ref --format='%(upstream:trackshort)' "$branch" 2>/dev/null | awk '!seen[$1]++ {printf $1}')"
+		status+="$($git status --porcelain 2>/dev/null | awk '!seen[$1]++ {printf $1}')"
 		[ "$status" != "" ] && \
 			PS1+="|$chY$status$chW"
 		PS1+="] "

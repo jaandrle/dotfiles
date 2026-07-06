@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+[[ "$-" != *i* ]] && return
+[[ ! "$(readlink -f /proc/$PPID/exe)" =~ "konsole" ]] && return
+[[ ! -x "$(command -v tmux 2>/dev/null)" || -z "$DISPLAY" || -n "$TMUX" ]] && return
+
+tmux new-session -A -s tmux

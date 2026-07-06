@@ -89,4 +89,5 @@ set keymap vi-command
 "ci:": "di:i"
 "ca:": "da:i"
 # esc+* = https://superuser.com/a/216169
+"K": history-and-alias-expand-line
 $endif

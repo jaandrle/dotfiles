@@ -1,3 +1,5 @@
 #!/bin/env bash
-[[ -f "/dev/shm/bash/$BASHPID/onexit" ]] && source "/dev/shm/bash/$BASHPID/onexit"
+if [[ -f "/dev/shm/bash/$BASHPID/onexit" ]]; then 
+	source "/dev/shm/bash/$BASHPID/onexit"
+fi
 rm -rf /dev/shm/bash/$BASHPID

@@ -1,11 +1,16 @@
 #!/usr/bin/env bash
 export PATH="$PATH:$HOME/.local/share/soar/bin"
 
+alias vim='vim --servername v'
+
+crossSession 'm0' "$OLDPWD"
 cd() {
 	builtin cd "$@" || return $?
 	crossSession 'OLDPWD' "$(pwd)"
 	local -r hook="$BASH_DOTFILES/hooks/oncd"
-	[[ -f "$hook" ]] && source "$hook"
+	if [[ -f "$hook" ]]; then
+		source "$hook"
+	fi
 }
 
 alias gitdotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
@@ -13,11 +18,22 @@ alias gitdotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"
 alias §df='df -Th'
 
 git(){
+	if [[ -n ${COMP_LINE-} ]]; then # Skip hook logic when bash completion is active
+		command git "$@"
+		return $?
+	fi
 	if [[ -z "$1" ]]; then
 		git-i
 		return $?
 	fi
 	command git "$@"
+	local -r exitcode=$?
+	
+	local -r hook="$BASH_DOTFILES/hooks/onpostgit"
+	if [[ -f "$hook" ]]; then
+		source "$hook"
+	fi
+	return $exitcode
 }
 alias smerge='/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=sublime_merge --file-forwarding com.sublimemerge.App @@u %u @@'
 kommit(){
@@ -101,6 +117,7 @@ alias npx-qnm='npx -y qnm'
 alias npx-hint='npx -y hint'
 alias npx-markdown='npx -y markserv'
 alias npx-toon='npx -y @toon-format/cli'
+alias ncu='npx npm-check-updates --interactive --format group --cooldown 7'
 
 rpg(){
 	rpg-cli "$@"

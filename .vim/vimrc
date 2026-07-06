@@ -10,6 +10,7 @@
 	endfor
 	packadd! matchit
 	packadd! cfilter
+	packadd! comment
 	let g:ft_man_folding_enable = 1
 	runtime! ftplugin/man.vim
 	
@@ -26,15 +27,11 @@
 	" <c-bs>
 	imap  <c-w>
 	cmap  <c-w>
-	" use tab/s-tab for tabnex/tabNext
-	nnoremap <silent>]t :tabnext<cr>
-	nnoremap <silent>[t :tabprevious<cr>
-	nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
-	nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
 	" history checkpoints
 	for key in ['<C-u>', '<C-w>', '<CR>', '.']
 		execute printf('inoremap %s <C-g>u%s', key, key)
 	endfor
+	set mouse=a
 	
 	set diffopt+=algorithm:patience,inline:word,linematch:60
 	augroup vimrc_help
@@ -102,7 +99,6 @@
 	set nowrap	" Don't wrap long lines by default
 	set breakindent breakindentopt=shift:2 showbreak=↳ 
 	set scrolloff=5 sidescrolloff=10 sidescroll=1	" offset for lines/columns when scrolling
-	set display+=lastline
 	if has('patch-7.4.2109')
 		set display+=truncate
 	endif
@@ -146,7 +142,8 @@
 	function! Television(channel = '')
 		let temp = tempname()
 		echo temp
-		execute '!tv '.a:channel.' > '.temp
+		silent execute '!tv '.a:channel.' > '.temp
+		redraw!
 		let lines = readfile(temp)
 		if empty(lines)
 			return
@@ -159,17 +156,19 @@
 		endif
 		return target
 	endfunction
-	command! -nargs=* Television execute 'e '.Television(<f-args>)
+	command! -nargs=* Television let file=Television(<f-args>) |  if file != '' | execute 'e '.file | endif
 	cabbrev tv Television
+	nmap <silent> <leader>e :Television<cr>
 	function! Explore()
 		let pwd = expand('%:p:h')->trim()->escape('$')
-		let file = system('kdialog --getopenfilename --title "Vyberte soubor" "'.pwd.'" 2>/dev/null')->trim()->escape('$')
+		silent let file = system('kdialog --getopenfilename --title "Vyberte soubor" "'.pwd.'" 2>/dev/null')->trim()->escape('$')
+		redraw!
 		if file != ''
 			exec 'e '.file
 		endif
 	endfunction
 	command! Explore call Explore()
-	nmap <silent> <leader>e :Explore<cr>
+	nmap <silent> <leader>E :Explore<cr>
 	nnoremap gx :silent exec "!xdg-open '".shellescape(substitute(expand('<cfile>'), '?', '\\?', ''), 1)."'" \| redraw!<cr>
 	vnoremap gx :silent exec "!xdg-open '".shellescape(substitute('<c-r>*', '?', '\\?', ''), 1)."'" \| redraw!<cr>
 "" #endregion FOS
@@ -258,7 +257,7 @@
 		set termguicolors | endif
 	if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
 		syntax enable | endif
-	set list listchars=tab:»·,trail:·,extends:#,nbsp:~,space:·		" Highlight spec. chars / Display extra whitespace
+	set list listchars=tab:»·,trail:·,extends:❯,precedes:❮,nbsp:⊙,space:·		" Highlight spec. chars / Display extra whitespace
 	set redrawtime=10000
 	let g:vim_vue_plugin_config = { 'foldexpr': 1, 'attribute': 1, 'keyword': 1 }
 	" SPELL
@@ -289,6 +288,23 @@ imap <f3>n   <Cmd>call codeium#CycleCompletions(1)<CR>
 imap <f3>N   <Cmd>call codeium#CycleCompletions(-1)<CR>
 imap <f3>d   <Cmd>call codeium#Clear()<CR>
 imap <f3>!   <Cmd>call codeium#Complete()<CR>
+
+function s:pi(force)
+	" buffer is jsonl
+	if &filetype ==# 'jsonl' || a:force
+		let file = &filetype ==# 'jsonl' ? expand('%') : expand('%:r')..'.jsonl'
+		call system(['pi-md.mjs', '2md', file]) " generates md with the same name
+		execute 'edit ' . expand('%:r') .. '.md'
+	else " buffer is md
+		let cmd= system(['pi-md.mjs', '2prompt', expand('%')])->trim()
+		echo cmd
+		if !empty(cmd)
+			execute ':!' .. cmd
+		endif
+	endif
+endfunction
+command! -bang Pi call <sid>pi(<bang>0)
+cabbrev pi Pi
 "" #endregion AI
 "" #region COC – COC and so on, compilers, code/commands completions
 	let g:coc_global_extensions= ['coc-css', 'coc-biome', 'coc-docthis', 'coc-emmet', 'coc-emoji', 'coc-git', 'coc-pretty-ts-errors', 'coc-eslint', 'coc-gitmoji', 'coc-html', 'coc-json', 'coc-lists', 'coc-marketplace', 'coc-phpls', 'coc-sh', 'coc-snippets', 'coc-styled-components', 'coc-svg', 'coc-tsserver']
@@ -302,7 +318,7 @@ imap <f3>!   <Cmd>call codeium#Complete()<CR>
 	\ })
 	autocmd FileType scss setl iskeyword+=@-@
 
-	set completeopt=menuone,longest,preview "longest vs ,noinsert,noselect
+	set completeopt=menuone,longest,preview,noselect "longest vs ,noinsert,noselect
 	inoremap <silent><expr> <F1> coc#pum#visible() ? coc#pum#confirm() : coc#refresh()
 	set wildcharm=<f1>
 	inoremap <silent><expr> <tab> coc#pum#visible() ? coc#pum#next(1) : <sid>check_back_space() ? "\<tab>" : coc#refresh()
@@ -312,7 +328,13 @@ imap <f3>!   <Cmd>call codeium#Complete()<CR>
 		return !col || getline('.')[col - 1]  =~# '\s'
 	endfunction
 
-	nmap <silent><nowait> gd <Plug>(coc-definition)
+	nmap <silent><nowait> gra <Plug>(coc-codeaction)
+	nmap <silent><nowait> gri <Plug>(coc-implementation)
+	nmap <silent><nowait> grn <Plug>(coc-rename)
+	nmap <silent><nowait> grr <Plug>(coc-references)
+	nmap <silent><nowait> grt <Plug>(coc-definition)
+	nmap <silent><nowait> grx <Plug>(coc-codelens-action)
+	nmap <silent><nowait> gO :CocAction showOutline<cr>
 	command! -nargs=* -complete=customlist,<sid>SCommandCocActionComplete CocAction call CocActionAsync(<f-args>)
 	function s:SCommandCocActionComplete(argLead, cmdLine, cursorPos)
 		let l:tags = s:root . '/pack/coc/start/coc.nvim/doc/tags'
@@ -341,6 +363,7 @@ imap <f3>!   <Cmd>call codeium#Complete()<CR>
 
 	command! -nargs=?  CLhelpMy if <q-args>!='' | exec 'map '.<q-args> | else | call popup_notification([
 		\ 'Custom mappings starting: '.mapleader.',§, ů, ;, U, ž',
+		\ 'Custom mappings replaced: ž=c-]',
 		\ 'Custom commands starting: CL, SET, ALT, Vifm, Coc',
 		\ 'Helpful commands: CocAction, CocCommand, CocList',
 		\], #{ line: &lines-3, pos: 'botleft', moved: 'any', close: 'button', time: 6000 }) | endif

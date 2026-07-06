@@ -7,3 +7,7 @@
 	&& source "$HOME/.bashrc"
 [[ -f "$HOME/.bash/system/index.sh" ]] \
 	&& source "$HOME/.bash/system/index.sh"
+
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi

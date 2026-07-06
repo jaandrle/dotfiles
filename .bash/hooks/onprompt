@@ -1,3 +1,5 @@
 #!/bin/env bash
-[[ -f "/dev/shm/bash/$BASHPID/onprompt" ]] && source "/dev/shm/bash/$BASHPID/onprompt"
+if [[ -f "/dev/shm/bash/$BASHPID/onprompt" ]]; then 
+	source "/dev/shm/bash/$BASHPID/onprompt"
+fi
 history -a

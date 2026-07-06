@@ -67,11 +67,6 @@ HELP
 alias cd-kdialog='cd "$(kdialog --getexistingdirectory --title "Vyberte složku" 2>/dev/null)"'
 alias fd='fdfind'
 
-# vim-like aliases?
-alias dw='rm'
-alias cw='mv'
-alias g='fdfind'
-
 # yanked files
 export YANKED=()
 p() {
@@ -103,6 +98,3 @@ y() {
 [[ $(command -v _complete_alias) ]] || source "$BASH_DOTFILES/shell/complete-alias/complete_alias"
 source <(fdfind --gen-completions)
 complete -F _complete_alias fd
-complete -F _complete_alias dw
-complete -F _complete_alias cw
-complete -F _complete_alias g

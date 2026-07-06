@@ -9,6 +9,9 @@ set hintfiltermode simple
 set hintchars fsahjklgyuiopqwertnmzxcvb
 set smoothscroll true
 
+bind --mode=normal § mode ignore
+bind --mode=ignore § mode normal
+
 unbind zI
 unbind zM
 unbind zO
@@ -46,6 +49,9 @@ bindurl ^https://chatgpt.com/* ss fillcmdline open B: OPENAI
 bindurl ^https://chat.mistral.ai/chat* ss fillcmdline open B: OPENAI
 bindurl ^https://rss.jaandrle.cz/* ss nmode ignore 1 mode normal
 bindurl ^https://rss.jaandrle.cz/* sn hint -c div
+
+command mlpPritomne js const f= "filter[dostupnost][eq]"; const s= new URLSearchParams(location.search); s[s.has(f)?"delete":"set"](f, "pritomne"); location.search= "?"+s.toString();
+bindurl ^https://www.mlp.cz/* ss fillcmdline_notrail mlp
 
 command pauseVideos js Array.from(document.querySelectorAll("video")).forEach(el=> ( location.hostname!=="www.o2tv.cz" ? el.pause() : [ "Pauza" ].map(l=> document.querySelector(`[aria-label=${l}]`)).find(Boolean)?.dispatchEvent(new Event("click")) ))
 tri.controller.acceptExCmd(`tabopen -c pracovní https://gist.github.com/jaandrle/ff1de72c500557f401e190b4ec05aa62#${document.title.replace(/["':|\.,\?\!_]/g, '').replace(/ /g, '-').toLowerCase()}`)

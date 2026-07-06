@@ -1,7 +1,6 @@
 [submodule ".bash/shell/complete-alias"]
 	path = .bash/shell/complete-alias
 	url = git@github.com:cykerway/complete-alias.git
-	branch = master
-[submodule "/home/jaandrle/.bash/toolchains/portkiller"]
-	path = /home/jaandrle/.bash/toolchains/portkiller
+[submodule ".bash/toolchains/portkiller"]
+	path = .bash/toolchains/portkiller
 	url = git@github.com:AIMLdr/portkiller.git

@@ -39,7 +39,7 @@ see for example [How to Store Dotfiles - A Bare Git Repository \| Atlassian Git 
 Sekce obsahuje log změn v Tuxedo laptopu s KDE Neon.
 
 ### TUXEDO OS (24.04.4 LTS / 2026-03-20)
-- [ ] bash hooks?
+- [ ] appstream:io.github.DenysMb.Kontainer
 
 ### TUXEDO OS (24.04.3 LTS / 2025-09-12)
 - [ ] git new setup (fresh install)
