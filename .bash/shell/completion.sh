@@ -14,8 +14,6 @@ fi
 SCRIPT_DIR=$(builtin cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 source "$SCRIPT_DIR/complete-alias/complete_alias"
 
-complete -F _complete_alias gitdotfiles
-
 source <(bs .completion bash)
 source <(gh completion -s bash)
 source <(roxy completions bash)

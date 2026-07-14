@@ -14,6 +14,7 @@ cd() {
 }
 
 alias gitdotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
+complete -F _complete_alias gitdotfiles
 
 alias §df='df -Th'
 
@@ -54,7 +55,10 @@ alias svn='svn --config-dir "$SVN_CONFIG_DIR"'
 	echo "$ [--help]= clear or [print this text]"
 	alias | grep "alias §" --color=never
 	declare -F | grep 'declare -f §' --color=never
-	\ls ~/.local/bin | grep -P "^§" | xargs -I{} echo '~/.local/bin/'{}
+	for file in ~/.local/bin/§*; do
+		[[ -f "$file" ]] && [[ -x "$file" ]] || continue
+		echo "$file"
+	done
 	printenv | grep -e '^l' | xargs -I{} echo \${}
 }
 
@@ -104,9 +108,6 @@ JAVASCRIPT
 }
 §speedtest() {
 	curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -
-}
-portkiller(){
-	"$BASH_DOTFILES/portkiller/portkiller.sh" $*
 }
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 

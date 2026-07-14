@@ -169,8 +169,8 @@
 	endfunction
 	command! Explore call Explore()
 	nmap <silent> <leader>E :Explore<cr>
-	nnoremap gx :silent exec "!xdg-open '".shellescape(substitute(expand('<cfile>'), '?', '\\?', ''), 1)."'" \| redraw!<cr>
-	vnoremap gx :silent exec "!xdg-open '".shellescape(substitute('<c-r>*', '?', '\\?', ''), 1)."'" \| redraw!<cr>
+	nnoremap gx :silent exec "!xdg-open '".expand('<cfile>')->substitute('?','\\?','g')->substitute('&','\\&','g')."'" \| redraw!<cr>
+	vnoremap gx :silent exec "!xdg-open '".'<c-r>*'->shellescape(1)->substitute('?','\\?','g')->substitute('&','\\&','g')."'" \| redraw!<cr>
 "" #endregion FOS
 "" #region EN – Editor navigation + search
 	set grepprg=LC_ALL=C\ grep\ -HRIns\ $*\ /dev/null

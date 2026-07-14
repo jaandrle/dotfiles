@@ -4,3 +4,12 @@
 [submodule ".bash/toolchains/portkiller"]
 	path = .bash/toolchains/portkiller
 	url = git@github.com:AIMLdr/portkiller.git
+[submodule ".bash/toolchains/vardump"]
+	path = .bash/toolchains/vardump
+	url = git@github.com:bahamas10/bash-vardump.git
+[submodule ".bash/toolchains/stacktrace"]
+	path = .bash/toolchains/stacktrace
+	url = git@github.com:bahamas10/bash-stacktrace.git
+[submodule ".bash/toolchains/jsonvar"]
+	path = .bash/toolchains/jsonvar
+	url = git@github.com:bahamas10/bash-jsonvar.git
